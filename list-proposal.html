@@ -58,7 +58,9 @@
   </div>
     <!-- Navbar-->
     <header class="main-header-top hidden-print">
-        <a href="index.html" class="logo"><img class="img-fluid able-logo" src="assets/images/logo.png" alt="Theme-logo"></a>
+        <a href="#" class="logo">
+            <h1>SiKoma</h1>
+        </a>
         <nav class="navbar navbar-static-top">
             <!-- Sidebar toggle button--><a href="#!" data-toggle="offcanvas" class="sidebar-toggle"></a>
             <!-- Navbar Right Menu-->
@@ -249,6 +251,7 @@
                 <th>Ketua Tim</th>
                 <th>Jurusan</th>
                 <th>Status</th>
+                <th>Reviewed By</th>
             </tr>
             </thead>
             <tbody>
@@ -258,7 +261,12 @@
                 <td>Budi</td>
                 <td>Komputer</td>
                 <td>
-                    <button type="button" class="btn btn-primary disabled waves-effect waves-light">Reviewed</button>
+                    <div class="label-main">
+                        <label class="label bg-warning">Revision</label>
+                    </div>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-disable disabled">Other</button>
                 </td>
             </tr>
             <tr>
@@ -267,82 +275,15 @@
                 <td>Antton</td>
                 <td>Komputer</td>
                 <td>
+                    <div class="label-main">
+                        <label class="label bg-success">Accepted</label>
+                    </div>
+                </td>
+                <td>
                     <div class="row">
                         <div class="col-sm-12">
-                            <a href="" class="btn btn-primary" data-toggle="modal" data-target="#view-Modal">
-                                Review
-                            </a>
-                            <div class="modal fade modal-flex" id="view-Modal" tabindex="-1" role="dialog">
-                                <div class="modal-dialog modal-lg" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                            <h5 class="modal-title">Review Proposal</h5>
-                                        </div>
-                                        <div class="modal-body">
-                                            <div class="row">
-                                                <div class="col-sm-4">
-                                                    <div class="form-group">
-                                                        <label for="teamMembers" class="form-control-label">Anggota Tim</label>
-                                                        <select multiple class="form-control multiple-select" id="teamMembers">
-                                                            <option>Antton</option>
-                                                            <option>Anggota Tim 1</option>
-                                                            <option>Anggota Tim 2</option>
-                                                            <option>Anggota Tim 3</option>
-                                                            <option>Anggota Tim 4</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-4">
-                                                    <label>Preview Proposal</label>
-                                                    <textarea class="form-control" cols="5" rows="21"></textarea>
-                                                    <div class="text-center" style="padding-top: 13pt">
-                                                        <button type="button" class="btn btn-inverse-primary waves-effect waves-light text-uppercase m-r-30">
-                                                            Download
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-4">
-                                                    <div class="md-input-wrapper">
-                                                        <textarea class="md-form-control md-static" cols="2" rows="4"></textarea>
-                                                        <label>Note</label>
-                                                    </div>
-                                                    <div class="form-radio">
-                                                        <form>
-                                                            <div class="radio radio-inline">
-                                                                <label>
-                                                                    <input type="radio" name="radio">
-                                                                        <i class="helper"></i>Accepted
-                                                                </label>
-                                                            </div>
-                                                            <div class="radio radio-inline">
-                                                                <label>
-                                                                    <input type="radio" name="radio">
-                                                                        <i class="helper"></i>Revision
-                                                                </label>
-                                                            </div>
-                                                            <div class="radio radio-inline">
-                                                                <label>
-                                                                    <input type="radio" name="radio" checked="checked">
-                                                                        <i class="helper"></i>Pending
-                                                                </label>
-                                                            </div>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row" style="padding-top: 15pt">
-                                                <div class="col-sm-12 text-center">
-                                                    <button type="submit" class="btn btn-success waves-effect waves-light">Submit</button>
-                                                </div>
-                                            </div>
-                                            
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <button type="button" class="btn btn-disable disabled">You</button>
+                            
                         </div>
                     </div>
                 </td>
@@ -353,12 +294,117 @@
                 <td>Otto</td>
                 <td>Elektro</td>
                 <td>
+                    <div class="label-main">
+                        <label class="label label-default">Pending</label>
+                    </div>
+                </td>
+                <td>
                     <div class="row">
                         <div class="col-sm-12">
                             <a href="" class="btn btn-primary" data-toggle="modal" data-target="#view-Modal">
                                 Review
                             </a>
-                            <div class="modal fade modal-flex" id="view-Modal" tabindex="-1" role="dialog">
+                            
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+        <!-- </div> -->
+                                                        <!-- List ends -->
+                                                    </div>
+
+                                                    <div class="tab-pane" id="proposal-review" role="tabpanel">
+                                                        <!-- Proposal Document inputs starts -->
+                                                        <form class="form-inline">
+        <div class="form-group col-xs-3">
+            <label class="sr-only form-control-label" for="exampleInputEmail3">Search</label>
+                <input type="text" class="form-control" id="exampleInputEmail3" placeholder="Search">
+        </div>        
+        <div class="form-check col-xs-2">
+            <label for="optionsRadios1" class="form-check-label">
+                <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" valu6="option1" checked>
+                Proposal
+            </label>
+        </div>
+        <div class="form-check col-xs-2">
+            <label for="optionsRadios1" class="form-check-label">
+                <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" valu6="option1" checked>
+                    Ketua Tim
+            </label>
+        </div>
+        <div class="form-check col-xs-2">
+            <label for="optionsRadios1" class="form-check-label">
+                <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" valu6="option1" checked>
+                    Jurusan
+            </label>
+        </div>
+    </form>
+    <br>
+    <br>
+    <!-- <div class="row"> -->
+    <div class="col-sm-12 table-responsive">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Proposal</th>
+                <th>Ketua Tim</th>
+                <th>Jurusan</th>
+                <th>Status</th>
+                <th>Reviewed By</th>
+            </tr>
+            </thead>
+            <tbody>           
+            <tr>
+                <td>1</td>
+                <td>Compfest</td>
+                <td>Antton</td>
+                <td>Komputer</td>
+                <td>
+                    <div class="label-main">
+                        <label class="label bg-success">Accepted</label>
+                    </div>
+                </td>
+                <td>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <button type="button" class="btn btn-disable disabled">You</button>
+                            
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            
+            </tbody>
+        </table>
+    </div>
+                                                        <!-- Proposal Document inputs ends -->
+                                                    </div>
+                                                </div>
+                                                <!-- Tab panes end -->
+                                            </div>
+                                        </div>
+                                        <!-- Row end -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Row end -->
+                    </div>
+                </div>
+                <!-- loader ends -->
+            </div>
+            <!-- Row end -->
+
+        </div>
+        <!-- Container-fluid ends -->
+    </div>
+
+    <!-- MODAL -->
+    <div class="modal fade modal-flex" id="view-Modal" tabindex="-1" role="dialog">
                                 <div class="modal-dialog modal-lg" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -429,41 +475,6 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
-        <!-- </div> -->
-                                                        <!-- List ends -->
-                                                    </div>
-
-                                                    <div class="tab-pane" id="proposal-review" role="tabpanel">
-                                                        <!-- Proposal Document inputs starts -->
-                                                        
-                                                        <!-- Proposal Document inputs ends -->
-                                                    </div>
-                                                </div>
-                                                <!-- Tab panes end -->
-                                            </div>
-                                        </div>
-                                        <!-- Row end -->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Row end -->
-                    </div>
-                </div>
-                <!-- loader ends -->
-            </div>
-            <!-- Row end -->
-
-        </div>
-        <!-- Container-fluid ends -->
-    </div>
 </div>
 
 
