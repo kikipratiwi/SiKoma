@@ -21,7 +21,7 @@
     <meta name="author" content="Phoenixcoded">
 
     <!-- Favicon icon -->
-    <link rel="shortcut icon" href="../../assets/images/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href=<?php echo base_url()."../../assets/images/favicon.png"; ?> type="image/x-icon">
     <link rel="icon" href="../../assets/images/favicon.ico" type="image/x-icon">
 
     <!-- Google font-->

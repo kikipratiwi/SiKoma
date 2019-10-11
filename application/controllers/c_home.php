@@ -1,7 +1,13 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class c_home extends CI_Controller {
+class c_home extends CI_Controller {	
+
+	function __Construct(){
+		parent::__Construct ();
+		$this->load->database(); // load database
+		$this->load->helper('url');
+	}
 
 	/**
 	 * Index Page for this controller.
