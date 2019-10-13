@@ -23,11 +23,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-<<<<<<< HEAD
+
 $config['base_url'] = 'http://localhost/SiKoma/';
-=======
-$config['base_url'] = 'http://localhost/PKM/kompetisi-mahasiswa/';
->>>>>>> master
+// config['base_url'] = 'http://localhost/PKM/kompetisi-mahasiswa/';
 
 /*
 |--------------------------------------------------------------------------
