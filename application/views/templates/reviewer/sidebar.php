@@ -40,7 +40,7 @@
                     </a>                
                 </li>
                 <li class="nav-level">Proposal</li>
-                <li class="active treeview">
+                <li class="treeview">
                     <a class="waves-effect waves-dark" href="<?php echo base_url();?>index.php/Reviewer/list_proposal">
                         <i class="icon-list"></i><span> List Proposal</span>
                     </a>                

@@ -80,6 +80,7 @@
       <script type="text/javascript" src="<?php echo base_url();?>assets/pages/dashboard.js"></script>
       <script type="text/javascript" src="<?php echo base_url();?>assets/pages/elements.js"></script>
       <script src="<?php echo base_url();?>assets/js/menu.min.js"></script>
+
 </body>
 
 </html>

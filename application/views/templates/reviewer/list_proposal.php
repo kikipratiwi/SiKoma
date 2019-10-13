@@ -9,7 +9,7 @@
                         <div class="main-header">
                             <h4>List Proposal</h4>
                             <ol class="breadcrumb breadcrumb-title breadcrumb-arrow">
-                                <li class="breadcrumb-item"><a href="reviewer.html"><i class="icofont icofont-home"></i></a>
+                                <li class="breadcrumb-item"><a href="<?php echo base_url();?>index.php/Reviewer/dashboard"><i class="icofont icofont-home"></i></a>
                                 </li>
                                 <li class="breadcrumb-item"><a href="#!">Proposal</a>
                                 </li>
@@ -85,7 +85,7 @@
                 <th>Ketua Tim</th>
                 <th>Jurusan</th>
                 <th>Status</th>
-                <th>Reviewed By</th>
+                <th>Review</th>
             </tr>
             </thead>
             <tbody>
@@ -94,39 +94,6 @@
                 <td>KMIPN</td>
                 <td>Budi</td>
                 <td>Komputer</td>
-                <td>
-                    <div class="label-main">
-                        <label class="label bg-warning">Revision</label>
-                    </div>
-                </td>
-                <td>
-                    <button type="button" class="btn btn-disable disabled">Other</button>
-                </td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>Compfest</td>
-                <td>Antton</td>
-                <td>Komputer</td>
-                <td>
-                    <div class="label-main">
-                        <label class="label bg-success">Accepted</label>
-                    </div>
-                </td>
-                <td>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <button type="button" class="btn btn-disable disabled">You</button>
-                            
-                        </div>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>Mobil Listrik</td>
-                <td>Otto</td>
-                <td>Elektro</td>
                 <td>
                     <div class="label-main">
                         <label class="label label-default">Pending</label>
@@ -138,9 +105,36 @@
                             <a href="" class="btn btn-primary" data-toggle="modal" data-target="#view-Modal">
                                 Review
                             </a>
-                            
                         </div>
                     </div>
+                </td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Compfest</td>
+                <td>Antton</td>
+                <td>Komputer</td>
+                <td>
+                    <div class="label-main">
+                        <label class="label bg-warning">Revision</label>
+                    </div>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-disable disabled">Reviewed</button>
+                </td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Mobil Listrik</td>
+                <td>Otto</td>
+                <td>Elektro</td>
+                <td>
+                    <div class="label-main">
+                        <label class="label bg-success">Accepted</label>
+                    </div>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-disable disabled">Reviewed</button>
                 </td>
             </tr>
             </tbody>
@@ -179,6 +173,7 @@
     <br>
     <br>
     <!-- <div class="row"> -->
+    <!-- Review Revision -->
     <div class="col-sm-12 table-responsive">
         <table class="table table-hover">
             <thead>
@@ -188,30 +183,64 @@
                 <th>Ketua Tim</th>
                 <th>Jurusan</th>
                 <th>Status</th>
-                <th>Reviewed By</th>
+                <th>Review</th>
             </tr>
             </thead>
-            <tbody>           
+            <tbody>
             <tr>
                 <td>1</td>
+                <td>KMIPN</td>
+                <td>Budi</td>
+                <td>Komputer</td>
+                <td>
+                    <div class="label-main">
+                        <label class="label bg-danger">Due Date : 10 Oct 2019</label>
+                    </div>
+                </td>
+                <td>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <a href="" class="btn btn-primary" data-toggle="modal" data-target="#view-Modal-Revision">
+                                Review
+                            </a>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>2</td>
                 <td>Compfest</td>
                 <td>Antton</td>
                 <td>Komputer</td>
+                <td>
+                    <div class="label-main">
+                        <label class="label bg-danger">Due Date : 20 Oct 2019</label>
+                    </div>
+                </td>
+                <td>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <a href="" class="btn btn-primary" data-toggle="modal" data-target="#view-Modal-Revision">
+                                Review
+                            </a>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Mobil Listrik</td>
+                <td>Otto</td>
+                <td>Elektro</td>
                 <td>
                     <div class="label-main">
                         <label class="label bg-success">Accepted</label>
                     </div>
                 </td>
                 <td>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <button type="button" class="btn btn-disable disabled">You</button>
-                            
-                        </div>
-                    </div>
+                    <button type="button" class="btn btn-disable disabled">Reviewed</button>
                 </td>
             </tr>
-            
             </tbody>
         </table>
     </div>
@@ -237,75 +266,151 @@
         <!-- Container-fluid ends -->
     </div>
 
-    <!-- MODAL -->
+    <!-- MODAL REVIEW NEW SUBMISSION -->
     <div class="modal fade modal-flex" id="view-Modal" tabindex="-1" role="dialog">
-                                <div class="modal-dialog modal-lg" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                            <h5 class="modal-title">Review Proposal</h5>
-                                        </div>
-                                        <div class="modal-body">
-                                            <div class="row">
-                                                <div class="col-sm-4">
-                                                    <div class="form-group">
-                                                        <label for="teamMembers" class="form-control-label">Anggota Tim</label>
-                                                        <select multiple class="form-control multiple-select" id="teamMembers">
-                                                            <option>Antton</option>
-                                                            <option>Anggota Tim 1</option>
-                                                            <option>Anggota Tim 2</option>
-                                                            <option>Anggota Tim 3</option>
-                                                            <option>Anggota Tim 4</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-4">
-                                                    <label>Preview Proposal</label>
-                                                    <textarea class="form-control" cols="5" rows="21"></textarea>
-                                                    <div class="text-center well well-sm">
-                                                        <button type="button" class="btn btn-inverse-primary waves-effect waves-light text-uppercase m-r-30">
-                                                            Download
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-4">
-                                                    <div class="md-input-wrapper">
-                                                        <textarea class="md-form-control md-static" cols="2" rows="4"></textarea>
-                                                        <label>Note</label>
-                                                    </div>
-                                                    <div class="form-radio">
-                                                        <form>
-                                                            <div class="radio radio-inline">
-                                                                <label>
-                                                                    <input type="radio" name="radio">
-                                                                        <i class="helper"></i>Accepted
-                                                                </label>
-                                                            </div>
-                                                            <div class="radio radio-inline">
-                                                                <label>
-                                                                    <input type="radio" name="radio">
-                                                                        <i class="helper"></i>Revision
-                                                                </label>
-                                                            </div>
-                                                            <div class="radio radio-inline">
-                                                                <label>
-                                                                    <input type="radio" name="radio" checked="checked">
-                                                                        <i class="helper"></i>Pending
-                                                                </label>
-                                                            </div>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row" style="padding-top: 3pt">
-                                                <div class="col-sm-12 text-center">
-                                                    <button type="submit" class="btn btn-success waves-effect waves-light">Submit</button>
-                                                </div>
-                                            </div>
-                                            
-                                        </div>
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h5 class="modal-title">Review Proposal</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <iframe class="word" src="https://docs.google.com/gview?url=http://ieee802.org/secmail/docIZSEwEqHFr.doc&embedded=true" frameborder="0"></iframe>
+                            <!-- <div class="text-center well well-sm">
+                                <button type="button" class="btn btn-inverse-primary waves-effect waves-light text-uppercase m-r-30">
+                                    Download
+                                </button>
+                            </div> -->
+                        </div>
+                        <div class="col-sm-4">
+                        <div class="form-group">
+                                <label for="teamMembers" class="form-control-label">Team Member</label>
+                                <select multiple class="form-control multiple-select" id="teamMembers">
+                                    <option>Leader</option>
+                                    <option>Team Member 1</option>
+                                    <option>Team Member 2</option>
+                                    <option>Team Member 3</option>
+                                    <option>Team Member 4</option>
+                                </select>
+                            </div>
+                            <div class="md-input-wrapper">
+                                <textarea class="md-form-control md-static" cols="2" rows="4"></textarea>
+                                <label>Budget notes</label>
+                            </div>
+                            <div class="md-input-wrapper">
+                                <textarea class="md-form-control md-static" cols="2" rows="4"></textarea>
+                                <label>Content notes</label>
+                            </div>
+                            <div class="form-radio">
+                                <form>
+                                    <div class="radio radio-inline">
+                                        <label>
+                                            <input type="radio" name="radio">
+                                                <i class="helper"></i>Accepted
+                                        </label>
+                                    </div>
+                                    <div class="radio radio-inline">
+                                        <label>
+                                            <input type="radio" name="radio">
+                                                <i class="helper"></i>Revision
+                                        </label>
+                                    </div>
+                                    <div class="radio radio-inline">
+                                        <label>
+                                            <input type="radio" name="radio">
+                                                <i class="helper"></i>Rejected
+                                        </label>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="padding-top: 3pt">
+                        <div class="col-sm-12 text-center">
+                            <button type="submit" class="btn btn-success waves-effect waves-light">Submit</button>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL REVIEW REVISION -->
+    <div class="modal fade modal-flex" id="view-Modal-Revision" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h5 class="modal-title">Review Revisied Proposal</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-9">
+                            <iframe class="word" src="https://docs.google.com/gview?url=http://ieee802.org/secmail/docIZSEwEqHFr.doc&embedded=true" frameborder="0"></iframe>
+                            <!-- <div class="text-center">
+                                <button type="button" class="btn btn-inverse-primary waves-effect waves-light text-uppercase m-r-30">
+                                    Download
+                                </button>
+                            </div> -->
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="row">
+                                <div class="col-sm-7 well well-sm">
+                                    <div class="label-main">
+                                        <label class="label bg-danger">Due Date : 10 Oct 2019</label>
                                     </div>
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <label for="teamMembers" class="form-control-label">Team Member</label>
+                                <select multiple class="form-control multiple-select" id="teamMembers">
+                                    <option>Leader</option>
+                                    <option>Team Member 1</option>
+                                    <option>Team Member 2</option>
+                                    <option>Team Member 3</option>
+                                    <option>Team Member 4</option>
+                                </select>
+                            </div>
+                            <div class="md-input-wrapper">
+                                <textarea class="md-form-control md-static" cols="2" rows="4"></textarea>
+                                <label>Budget notes *get data*</label>
+                            </div>
+                            <div class="md-input-wrapper">
+                                <textarea class="md-form-control md-static" cols="2" rows="4"></textarea>
+                                <label>Content notes *get data*</label>
+                            </div>
+                            <div class="form-radio">
+                                <form>
+                                    <div class="radio radio-inline">
+                                        <label>
+                                            <input type="radio" name="radio">
+                                                <i class="helper"></i>Accepted
+                                        </label>
+                                    </div>
+                                    <div class="radio radio-inline">
+                                        <label>
+                                            <input type="radio" name="radio">
+                                                <i class="helper"></i>Rejected
+                                        </label>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="padding-top: 3pt">
+                        <div class="col-sm-12 text-center">
+                            <button type="submit" class="btn btn-success waves-effect waves-light">Submit</button>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
