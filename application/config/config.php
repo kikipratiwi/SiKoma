@@ -24,8 +24,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 
-$config['base_url'] = 'http://localhost/SiKoma/';
-// config['base_url'] = 'http://localhost/PKM/kompetisi-mahasiswa/';
+//config['base_url'] = 'http://localhost/SiKoma/';
+$config['base_url'] = 'http://localhost/PKM/kompetisi-mahasiswa/';
 
 /*
 |--------------------------------------------------------------------------
