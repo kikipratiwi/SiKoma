@@ -44,6 +44,11 @@
       <!-- Warning Section Ends -->
 
       <!-- Required Jqurey -->
+      <script
+			  src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+			  integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+			  crossorigin="anonymous"></script>
+
       <script src="<?php echo base_url();?>assets/plugins/jquery/dist/jquery.min.js"></script>
       <script src="<?php echo base_url();?>assets/plugins/jquery-ui/jquery-ui.min.js"></script>
       <script src="<?php echo base_url();?>assets/plugins/tether/dist/js/tether.min.js"></script>
@@ -80,6 +85,73 @@
       <script type="text/javascript" src="<?php echo base_url();?>assets/pages/dashboard.js"></script>
       <script type="text/javascript" src="<?php echo base_url();?>assets/pages/elements.js"></script>
       <script src="<?php echo base_url();?>assets/js/menu.min.js"></script>
+
+
+      <script> 
+// $(document).ready(function() {
+    var teamId = 1;
+    $("body").on("click", "#add-team", function() {
+    // $("#add-team").click(function() {
+      teamId++;
+
+      var $fieldset = $('#team');
+      var nextFieldset = $fieldset.clone();
+      nextFieldset.attr('id', 'team-' + teamId);
+
+      // how to targeting legend
+    //   nextFieldset.first().text('#'+teamId);
+
+      var cancelBtn = "<button type='button' style='float:right' class='cancelBtn btn btn-warning waves-effect waves-light px-2 my-2'>Batalkan</button>"
+      nextFieldset.append(cancelBtn);
+      console.log(nextFieldset);
+
+        //how to targeting input with known parent
+      $("nextFieldset input").each(function(i) {
+        $(this).attr('name', 't' + teamId + '-' + $(this).attr('name'));
+      });
+
+      $("#add-team").before(nextFieldset);
+    });
+
+    $("body").on("click", ".cancelBtn", function() {
+        $(this).parents('fieldset').remove();
+    });
+
+    var input = document.getElementById( 'file-upload' );
+    var infoArea = document.getElementById( 'file-upload-filename' );
+
+    input.addEventListener( 'change', showFileName );
+
+    function showFileName( event ) {
+    
+        // the change event gives us the input it occurred in 
+        var input = event.srcElement;
+        
+        // the input has an array of files in the `files` property, each one has a name that you can use. We're just using the name here.
+        var fileName = input.files[0].name;
+        
+        // use fileName however fits your app best, i.e. add it into a div
+        infoArea.textContent = fileName;
+    }
+
+    // $("#file-upload").change(function() {
+    //     input = $(this).srcElement();
+    //     fileName = input.files[0].name;
+    //     $("#file-upload-filename").text(filename);
+    // });
+
+    $("#tabs").tabs();
+    $(".nexttab").click(function() {
+        var selected = $("#tabs").tabs("option", "selected");
+        $("#tabs").tabs("option", "selected", selected + 1);
+    });
+
+
+
+// });
+
+</script>
+
 </body>
 
 </html>
