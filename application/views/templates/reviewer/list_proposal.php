@@ -305,6 +305,7 @@
                                 <textarea class="md-form-control md-static" cols="2" rows="4"></textarea>
                                 <label>Content notes</label>
                             </div>
+                            <label class="bold">Status</label>
                             <div class="form-radio">
                                 <form>
                                     <div class="radio radio-inline">
@@ -386,6 +387,7 @@
                                 <textarea class="md-form-control md-static" cols="2" rows="4"></textarea>
                                 <label>Content notes *get data*</label>
                             </div>
+                            <label class="bold">Status</label>
                             <div class="form-radio">
                                 <form>
                                     <div class="radio radio-inline">
