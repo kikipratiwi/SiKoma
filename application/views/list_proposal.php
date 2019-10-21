@@ -36,11 +36,11 @@
                                                 <!-- Nav tabs -->
                                                 <ul class="nav nav-tabs md-tabs " role="tablist">
                                                     <li class="nav-item">
-                                                        <a class="nav-link" data-toggle="tab" href="#list-proposal" role="tab"><i class="icofont icofont-file-document "></i>List Proposal</a>
+                                                        <a class="nav-link" data-toggle="tab" href="#list-proposal" role="tab"><i class="icofont icofont-file-document "></i>Proposal</a>
                                                         <div class="slide"></div>
                                                     </li>
                                                     <li class="nav-item">
-                                                        <a class="nav-link" data-toggle="tab" href="#proposal-review" role="tab"><i class="icofont icofont-file-document "></i>Review</a>
+                                                        <a class="nav-link" data-toggle="tab" href="#proposal-review" role="tab"><i class="icofont icofont-file-document "></i>Revisi</a>
                                                         <div class="slide"></div>
                                                     </li>
 
@@ -278,7 +278,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="row">
-                        <div class="col-sm-8">
+                        <div class="col-sm-9">
                             <iframe class="word" src="https://docs.google.com/gview?url=http://ieee802.org/secmail/docIZSEwEqHFr.doc&embedded=true" frameborder="0"></iframe>
                             <!-- <div class="text-center well well-sm">
                                 <button type="button" class="btn btn-inverse-primary waves-effect waves-light text-uppercase m-r-30">
@@ -286,24 +286,24 @@
                                 </button>
                             </div> -->
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-sm-3">
                         <div class="form-group">
-                                <label for="teamMembers" class="form-control-label">Team Member</label>
+                                <label for="teamMembers" class="form-control-label">Anggota Tim</label>
                                 <select multiple class="form-control multiple-select" id="teamMembers">
-                                    <option>Leader</option>
-                                    <option>Team Member 1</option>
-                                    <option>Team Member 2</option>
-                                    <option>Team Member 3</option>
-                                    <option>Team Member 4</option>
+                                    <option>Ketua</option>
+                                    <option>Anggota Tim 1</option>
+                                    <option>Anggota Tim 2</option>
+                                    <option>Anggota Tim 3</option>
+                                    <option>Anggota Tim 4</option>
                                 </select>
                             </div>
                             <div class="md-input-wrapper">
                                 <textarea class="md-form-control md-static" cols="2" rows="4"></textarea>
-                                <label>Budget notes</label>
+                                <label>Catatan RAB</label>
                             </div>
                             <div class="md-input-wrapper">
                                 <textarea class="md-form-control md-static" cols="2" rows="4"></textarea>
-                                <label>Content notes</label>
+                                <label>Catatan Konten</label>
                             </div>
                             <label class="bold">Status</label>
                             <div class="form-radio">
@@ -311,19 +311,19 @@
                                     <div class="radio radio-inline">
                                         <label>
                                             <input type="radio" name="radio">
-                                                <i class="helper"></i>Accepted
+                                                <i class="helper"></i>Diterima
                                         </label>
                                     </div>
                                     <div class="radio radio-inline">
                                         <label>
                                             <input type="radio" name="radio">
-                                                <i class="helper"></i>Revision
+                                                <i class="helper"></i>Revisi
                                         </label>
                                     </div>
                                     <div class="radio radio-inline">
                                         <label>
                                             <input type="radio" name="radio">
-                                                <i class="helper"></i>Rejected
+                                                <i class="helper"></i>Ditolak
                                         </label>
                                     </div>
                                 </form>
@@ -349,7 +349,7 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                    <h5 class="modal-title">Review Revisied Proposal</h5>
+                    <h5 class="modal-title">Review Proposal yang Direvisi</h5>
                 </div>
                 <div class="modal-body">
                     <div class="row">
@@ -365,27 +365,27 @@
                             <div class="row">
                                 <div class="col-sm-7 well well-sm">
                                     <div class="label-main">
-                                        <label class="label bg-danger">Due Date : 10 Oct 2019</label>
+                                        <label class="label bg-danger">Deadline : 10 Oct 2019</label>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="teamMembers" class="form-control-label">Team Member</label>
                                 <select multiple class="form-control multiple-select" id="teamMembers">
-                                    <option>Leader</option>
-                                    <option>Team Member 1</option>
-                                    <option>Team Member 2</option>
-                                    <option>Team Member 3</option>
-                                    <option>Team Member 4</option>
+                                    <option>Ketua</option>
+                                    <option>Anggota Tim 1</option>
+                                    <option>Anggota Tim 2</option>
+                                    <option>Anggota Tim 3</option>
+                                    <option>Anggota Tim 4</option>
                                 </select>
                             </div>
                             <div class="md-input-wrapper">
                                 <textarea class="md-form-control md-static" cols="2" rows="4"></textarea>
-                                <label>Budget notes *get data*</label>
+                                <label>Catatan RAB *get data*</label>
                             </div>
                             <div class="md-input-wrapper">
                                 <textarea class="md-form-control md-static" cols="2" rows="4"></textarea>
-                                <label>Content notes *get data*</label>
+                                <label>Catatan Konten *get data*</label>
                             </div>
                             <label class="bold">Status</label>
                             <div class="form-radio">
@@ -393,13 +393,13 @@
                                     <div class="radio radio-inline">
                                         <label>
                                             <input type="radio" name="radio">
-                                                <i class="helper"></i>Accepted
+                                                <i class="helper"></i>Diterima
                                         </label>
                                     </div>
                                     <div class="radio radio-inline">
                                         <label>
                                             <input type="radio" name="radio">
-                                                <i class="helper"></i>Rejected
+                                                <i class="helper"></i>Ditolak
                                         </label>
                                     </div>
                                 </form>
