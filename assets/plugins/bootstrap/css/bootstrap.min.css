@@ -4764,7 +4764,7 @@ button.close {
         margin: 30px auto
     }
     .modal-sm {
-        max-width: 300px
+        max-width: 400px
     }
 }
 @media (min-width: 992px) {
