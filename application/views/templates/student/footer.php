@@ -96,19 +96,19 @@
 
       var $fieldset = $('#team');
       var nextFieldset = $fieldset.clone();
-      nextFieldset.attr('id', 'team-' + teamId);
-
-      // how to targeting legend
-    //   nextFieldset.first().text('#'+teamId);
 
       var cancelBtn = "<button type='button' style='float:right' class='cancelBtn btn btn-warning waves-effect waves-light px-2 my-2'>Batalkan</button>"
       nextFieldset.append(cancelBtn);
-      console.log(nextFieldset);
 
-        //how to targeting input with known parent
-      $("nextFieldset input").each(function(i) {
+      nextFieldset.attr('id', 'team-' + teamId);
+      nextFieldset.children('legend')[0].innerHTML = '#' + teamId
+
+      $("nextFieldset :input").each(function(i) {
         $(this).attr('name', 't' + teamId + '-' + $(this).attr('name'));
       });
+
+      console.log($("nextFieldset :input"));
+      console.log(nextFieldset.children('input'));
 
       $("#add-team").before(nextFieldset);
     });
