@@ -25,5 +25,11 @@ class Mentor extends CI_Controller {
 		return $this->load->view('templates/student/template',$data);
 	}
 
+	public function list_proposal()
+	{
+		$data['content'] = $this->template();
+		$this->load->view('list_proposal_mentor',$data);
+	}
+
 
 }
