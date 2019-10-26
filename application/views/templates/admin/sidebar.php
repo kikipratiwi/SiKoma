@@ -34,31 +34,26 @@
             </ul>
             <!-- Sidebar Menu-->
             <ul class="sidebar-menu">
-                <li class="active treeview">
-                    <a class="waves-effect waves-dark" href="#!">
-                        <i class="icon-speedometer"></i><span> Dashboard</span>
-                    </a>                
-                </li>
                 <li class="nav-level">Proposal</li>
-                <li class="treeview">
+                <li class="active treeview">
                     <a class="waves-effect waves-dark" href="<?php echo base_url();?>index.php/Admin/list_proposal">
                         <i class="icon-list"></i><span> List Proposal</span>
                     </a>                
                 </li>
                 <li class="nav-level">Kompetisi</li>
                 <li class="treeview">
-                    <a class="waves-effect waves-dark" href="<?php echo base_url();?>index.php/Admin/list_proposal">
-                        <i class="icon-list"></i><span> List Kompetisi</span>
+                    <a class="waves-effect waves-dark" href="<?php echo base_url();?>index.php/Admin/input_kompetisi">
+                        <i class="icon-plus"></i><span> Input Kompetisi</span>
                     </a>                
                 </li>
                 <li class="treeview">
-                    <a class="waves-effect waves-dark" href="<?php echo base_url();?>index.php/Admin/list_proposal">
-                        <i class="icon-plus"></i><span> Input Kompetisi</span>
+                    <a class="waves-effect waves-dark" href="<?php echo base_url();?>index.php/Admin/list_kompetisi">
+                        <i class="icon-list"></i><span> List Kompetisi</span>
                     </a>                
                 </li>
                 <li class="nav-level">Laporan</li>
                 <li class="treeview">
-                    <a class="waves-effect waves-dark" href="<?php echo base_url();?>index.php/Admin/list_proposal">
+                    <a class="waves-effect waves-dark" href="<?php echo base_url();?>index.php/Admin/print_report">
                         <i class="icon-printer"></i><span> Cetak Laporan</span>
                     </a>                
                 </li>

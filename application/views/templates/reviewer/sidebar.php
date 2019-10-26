@@ -34,14 +34,9 @@
             </ul>
             <!-- Sidebar Menu-->
             <ul class="sidebar-menu">
-                <li class="active treeview">
-                    <a class="waves-effect waves-dark" href="#!">
-                        <i class="icon-speedometer"></i><span> Dashboard</span>
-                    </a>                
-                </li>
                 <li class="nav-level">Proposal</li>
-                <li class="treeview">
-                    <a class="waves-effect waves-dark" href="<?php echo base_url();?>index.php/Reviewer/list_proposal">
+                <li class="active treeview">
+                    <a class="waves-effect waves-dark" href="#">
                         <i class="icon-list"></i><span> List Proposal</span>
                     </a>                
                 </li>
