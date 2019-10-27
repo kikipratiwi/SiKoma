@@ -63,22 +63,10 @@
                                                                 ?>
                                                                 <td><?php echo date_format($date1,"d M Y")." - ". date_format($date2,"d M Y");?></td>
                                                                 <td>
-                                                                    <div class="row">
-                                                                        <div class="col-sm-12">
-                                                                            <a href="" class="btn btn-success">
-                                                                                Edit
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
+                                                                    <button type="button" class="btn btn-primary waves-effect waves-light">Edit</button>
                                                                 </td>
                                                                 <td>
-                                                                    <div class="row">
-                                                                        <div class="col-sm-12">
-                                                                            <a href="" class="btn btn-warning">
-                                                                                Delete
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
+                                                                    <button type="button" class="btn btn-danger waves-effect waves-light">Delete</button>
                                                                 </td>
                                                             </tr>
                                                             

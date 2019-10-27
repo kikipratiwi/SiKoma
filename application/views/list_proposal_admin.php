@@ -89,66 +89,34 @@
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
-                                                                <tr>
-                                                                    <td>1</td>
-                                                                    <td>KMIPN</td>
-                                                                    <td>Budi</td>
-                                                                    <td>Komputer</td>
-                                                                    <td>
-                                                                        <div class="label-main">
-                                                                            <label class="label bg-success">Accepted</label>
-                                                                        </div>
-                                                                    </td>
-                                                                    <td>
-                                                                        <div class="row">
-                                                                            <div class="col-sm-12">
-                                                                                <a href="" class="btn btn-primary" data-toggle="modal" data-target="#view-Modal-Accepted">
-                                                                                    Detail
-                                                                                </a>
+                                                                <?php
+                                                                    for ($no = 1; $no <= 4; $no++){
+                                                                        $proposal_status='accepted';?>
+                                                                    <tr>
+                                                                        <td><?php echo $no ?></td>
+                                                                        <!-- GET name competition -->
+                                                                        <td>Gemastik</td>
+                                                                        <!-- GET leader -->
+                                                                        <td>Nussa</td>
+                                                                        <!-- GET departement -->
+                                                                        <td>Komputer</td>
+                                                                        <td>
+                                                                            <div class="label-main">
+                                                                                <label class="label bg-success">Accepted</label>
                                                                             </div>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>2</td>
-                                                                    <td>Compfest</td>
-                                                                    <td>Antton</td>
-                                                                    <td>Komputer</td>
-                                                                    <td>
-                                                                        <div class="label-main">
-                                                                            <label class="label bg-success">Accepted</label>
-                                                                        </div>
-                                                                    </td>
-                                                                    <td>
-                                                                        <div class="row">
-                                                                            <div class="col-sm-12">
-                                                                                <a href="" class="btn btn-primary" data-toggle="modal" data-target="#view-Modal-Accepted">
-                                                                                    Detail
-                                                                                </a>
+                                                                        </td>
+                                                                        <td>
+                                                                            <div class="row">
+                                                                                <div class="col-sm-12">
+                                                                                    <a href="" class="btn btn-primary" data-toggle="modal" data-target="#view-Modal-Accepted">
+                                                                                        Detail
+                                                                                    </a>
+                                                                                </div>
                                                                             </div>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>3</td>
-                                                                    <td>Mobil Listrik</td>
-                                                                    <td>Otto</td>
-                                                                    <td>Elektro</td>
-                                                                    <td>
-                                                                        <div class="label-main">
-                                                                            <label class="label bg-success">Accepted</label>
-                                                                        </div>
-                                                                    </td>
-                                                                    <td>
-                                                                        <div class="row">
-                                                                            <div class="col-sm-12">
-                                                                                <a href="" class="btn btn-primary" data-toggle="modal" data-target="#view-Modal-Accepted">
-                                                                                    Detail
-                                                                                </a>
-                                                                            </div>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <?php
+                                                                };?>
                                                             </tbody>
                                                         </table>
                                                     </div>
@@ -198,43 +166,40 @@
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
-                                                                <tr>
-                                                                    <td>1</td>
-                                                                    <td>KMIPN</td>
-                                                                    <td>Budi</td>
-                                                                    <td>Komputer</td>
-                                                                    <td>
-                                                                        <div class="label-main">
-                                                                            <label class="label bg-danger">Due Date : 10 Oct 2019</label>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>2</td>
-                                                                    <td>Compfest</td>
-                                                                    <td>Antton</td>
-                                                                    <td>Komputer</td>
-                                                                    <td>
-                                                                        <div class="label-main">
-                                                                            <label class="label bg-danger">Due Date : 20 Oct 2019</label>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>3</td>
-                                                                    <td>Mobil Listrik</td>
-                                                                    <td>Otto</td>
-                                                                    <td>Elektro</td>
-                                                                    <td>
-                                                                        <div class="row">
-                                                                            <div class="col-sm-12">
-                                                                                <a href="" class="btn btn-primary" data-toggle="modal" data-target="#view-Modal-Revision">
-                                                                                    Input Deadline
-                                                                                </a>
-                                                                            </div>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
+                                                                <?php
+                                                                    for ($no = 1; $no <= 4; $no++){
+                                                                        $due_date=NULL;?>
+                                                                    <tr>
+                                                                        <td><?php echo $no ?></td>
+                                                                        <!-- GET name competition -->
+                                                                        <td>Gemastik</td>
+                                                                        <!-- GET leader -->
+                                                                        <td>Nussa</td>
+                                                                        <!-- GET departement -->
+                                                                        <td>Komputer</td>
+                                                                        <!-- GET DUE DATE
+                                                                        $date1 = date_create($revision_note['due_date']); -->
+                                                                        <td><?php 
+                                                                            if($due_date===NULL ){?>
+                                                                                <div class="row">
+                                                                                    <div class="col-sm-12">
+                                                                                        <a href="" class="btn btn-primary" data-toggle="modal" data-target="#view-Modal-Revision">
+                                                                                            Input Deadline
+                                                                                        </a>
+                                                                                    </div>
+                                                                                </div>
+                                                                            <?php } else { ?>
+                                                                                <div class="label-main">
+                                                                                    <label class="label bg-danger">
+                                                                                    <!-- php echo date_format($date1,"d M Y"); -->
+                                                                                    Due Date : 20 Oct 2019
+                                                                                    </label>
+                                                                                </div>
+                                                                            <?php } ?>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <?php
+                                                                };?>
                                                             </tbody>
                                                         </table>
                                                     </div>
@@ -283,39 +248,37 @@
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
-                                                                <tr>
-                                                                    <td>1</td>
-                                                                    <td>KMIPN</td>
-                                                                    <td>Budi</td>
-                                                                    <td>Komputer</td>
-                                                                    <td>
-                                                                        <div class="label-main">
-                                                                            <label class="label label-default">Pending</label>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>2</td>
-                                                                    <td>Compfest</td>
-                                                                    <td>Antton</td>
-                                                                    <td>Komputer</td>
-                                                                    <td>
-                                                                        <div class="label-main">
-                                                                            <label class="label bg-warning">Revisi</label>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>3</td>
-                                                                    <td>Mobil Listrik</td>
-                                                                    <td>Otto</td>
-                                                                    <td>Elektro</td>
-                                                                    <td>
-                                                                        <div class="label-main">
-                                                                            <label class="label bg-success">Accepted</label>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
+                                                                <?php
+                                                                    for ($no = 1; $no <= 4; $no++){
+                                                                        $proposal_status='revisi';?>
+                                                                    <tr>
+                                                                        <td><?php echo $no ?></td>
+                                                                        <!-- GET name competition -->
+                                                                        <td>Gemastik</td>
+                                                                        <!-- GET leader -->
+                                                                        <td>Nussa</td>
+                                                                        <!-- GET departement -->
+                                                                        <td>Komputer</td>
+                                                                        <!-- GET status proposal  -->
+                                                                        <td><?php 
+                                                                            if($proposal_status==='pending'){?>
+                                                                                <div class="label-main">
+                                                                                    <label class="label label-default">Pending</label>
+                                                                                </div>
+                                                                            <?php } else if($proposal_status==='revisi') {
+                                                                                ?>
+                                                                                <div class="label-main">
+                                                                                    <label class="label bg-warning">Revisi</label>
+                                                                                </div>
+                                                                            <?php } else { ?>
+                                                                                <div class="label-main">
+                                                                                    <label class="label bg-success">Accepted</label>
+                                                                                </div>
+                                                                            <?php } ?>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <?php
+                                                                };?>
                                                             </tbody>
                                                         </table>
                                                     </div>
@@ -340,77 +303,7 @@
 </div>
 
 
-<!-- MODAL REVIEW NEW SUBMISSION -->
-<div class="modal fade modal-flex" id="view-Modal" tabindex="-1" role="dialog">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <h5 class="modal-title">Review Proposal</h5>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-sm-9">
-                        <iframe class="word" src="https://docs.google.com/gview?url=http://writing.engr.psu.edu/workbooks/formal_report_template.doc&embedded=true" frameborder="0"></iframe>
-                    </div>
-                    <div class="col-sm-3">
-                    <div class="form-group">
-                            <label for="teamMembers" class="form-control-label">Anggota Tim</label>
-                            <select multiple class="form-control multiple-select" id="teamMembers">
-                                <option>Ketua</option>
-                                <option>Anggota Tim 1</option>
-                                <option>Anggota Tim 2</option>
-                                <option>Anggota Tim 3</option>
-                                <option>Anggota Tim 4</option>
-                            </select>
-                        </div>
-                        <div class="md-input-wrapper">
-                            <textarea class="md-form-control md-static" cols="2" rows="4"></textarea>
-                            <label>Catatan RAB</label>
-                        </div>
-                        <div class="md-input-wrapper">
-                            <textarea class="md-form-control md-static" cols="2" rows="4"></textarea>
-                            <label>Catatan Konten</label>
-                        </div>
-                        <label class="bold">Status</label>
-                        <div class="form-radio">
-                            <form>
-                                <div class="radio radio-inline">
-                                    <label>
-                                        <input type="radio" name="radio">
-                                            <i class="helper"></i>Diterima
-                                    </label>
-                                </div>
-                                <div class="radio radio-inline">
-                                    <label>
-                                        <input type="radio" name="radio">
-                                            <i class="helper"></i>Revisi
-                                    </label>
-                                </div>
-                                <div class="radio radio-inline">
-                                    <label>
-                                        <input type="radio" name="radio">
-                                            <i class="helper"></i>Ditolak
-                                    </label>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <div class="row" style="padding-top: 3pt">
-                    <div class="col-sm-12 text-center">
-                        <button type="submit" class="btn btn-success waves-effect waves-light">Submit</button>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- MODAL REVIEW REVISION -->
+<!-- MODAL INPUT DEADLINE REVISION -->
 <div class="modal fade modal-flex" id="view-Modal-Revision" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-sm" role="document">
         <div class="modal-content">
@@ -434,12 +327,14 @@
                             </div>
                         </div>
                         <div class="md-input-wrapper">
-                            <textarea class="md-form-control md-static" cols="2" rows="4"></textarea>
                             <label>Catatan RAB *get data*</label>
+                            <!-- GET NOTES echo $proposal['notes']; -->
+                            <textarea class="md-form-control md-static" cols="2" rows="4"></textarea>
                         </div>
                         <div class="md-input-wrapper">
-                            <textarea class="md-form-control md-static" cols="2" rows="4"></textarea>
                             <label>Catatan Konten *get data*</label>
+                            <!-- GET NOTES echo $proposal['notes']; -->
+                            <textarea class="md-form-control md-static" cols="2" rows="4"></textarea>
                         </div>
                     </div>
                 </div>
@@ -466,13 +361,7 @@
             </div>
             <div class="modal-body">
                 <div class="row">
-                    <div class="col-sm-12">
-                        <div class="text-center">
-                            <button type="button" class="btn btn-inverse-primary waves-effect waves-light text-uppercase m-r-30">
-                                Download
-                            </button>
-                        </div>
-                    </div>
+                    detail dana
                 </div>
                 <div class="row" style="padding-top: 3pt">
                     <div class="col-sm-12 text-center">
