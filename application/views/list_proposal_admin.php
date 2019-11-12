@@ -324,6 +324,9 @@
                                             <span class="icofont icofont-ui-calendar"></span>
                                         </span>
                                 </div>
+                                <!-- <div class="form-control-wrapper">
+                                    <input type="text" id="date" class="form-control floating-label" placeholder="Date">
+                                </div> -->
                             </div>
                         </div>
                         <div class="md-input-wrapper">

@@ -60,3 +60,7 @@
             </ul>
         </section>
     </aside>
+
+    <!-- 
+        echo $loaded_page;
+    -->
