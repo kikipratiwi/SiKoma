@@ -55,7 +55,13 @@
                                                             <div class="form-group row">
                                                                 <label for="department" class="col-xs-2 col-form-label form-control-label">Jurusan</label>
                                                                 <div class="col-sm-10">
-                                                                    <input class="form-control" type="text" name="department" placeholder="Jurusan" value="" id="department">
+                                                                    <select class="form-control " name="department" id="department">
+                                                                        <option value="1">Jurusan Teknik Komputer dan Informatika</option>
+                                                                        <option>2</option>
+                                                                        <option>3</option>
+                                                                        <option>4</option>
+                                                                        <option>5</option>
+                                                                    </select>
                                                                 </div>
                                                             </div>
                                                             <div class="form-group row">
