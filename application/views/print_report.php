@@ -34,11 +34,7 @@
                                     <br>
                                     <div class="row">
                                         <div class="col-lg-5">
-                                            <div class="input-daterange input-group" id="datepicker">
-                                                <input type="text" class="input-sm form-control" name="start" />
-                                                <span class="input-group-addon">to</span>
-                                                <input type="text" class="input-sm form-control" name="end" />
-                                            </div>
+                                            <input type="text" name="daterange" class="form-control" value="11/18/2019 - 12/18/2019"/>
                                         </div>
                                         <button type="button" class="btn btn-primary waves-effect waves-light">Cetak</button>
                                     </div>
