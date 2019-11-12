@@ -43,10 +43,9 @@
                                                         <div class="slide"></div>
                                                     </li>
                                                     <li class="nav-item">
-                                                        <a class="nav-link" data-toggle="tab" href="#team-profile" role="tab"><i class="icofont icofont-ui-user"></i>Profil Tim</a>
+                                                        <a class="nav-link " data-toggle="tab" href="#team-profile" role="tab"><i class="icofont icofont-ui-user"></i>Profil Tim</a>
                                                         <div class="slide"></div>
                                                     </li>
-
                                                 </ul>
                                                 <!-- Tab panes -->
                                                 <div class="tab-content">
@@ -61,9 +60,24 @@
                                                             </div>
                                                             <div class="form-group row">
                                                                 <label for="competition" class="col-xs-2 col-form-label form-control-label">Kompetisi</label>
-                                                                <div class="col-sm-10">
-                                                                    <input class="form-control" type="text" name="competition" placeholder="Nama Kompetisi" value="" id="competition">
-                                                                </div>
+                                                                <div class="d-flex justify-content-between">
+                                                                    <div class="col-sm-8">
+                                                                        <select class="form-control " name="competition" id="competition">
+                                                                            <option>1</option>
+                                                                            <option>2</option>
+                                                                            <option>3</option>
+                                                                            <option>4</option>
+                                                                            <option>5</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    <span class="md-add-on-file float-right">
+                                                                        Atau
+                                                                        <!-- Button trigger modal -->
+                                                                        <button type="button" id="add-competition" class="btn btn-primary" 
+                                                                        style="margin-left: 15px;border-radius: .25rem;padding: .5rem .75rem;" 
+                                                                        data-toggle="modal" data-target="#add-competition-modal-form" >+ Data Kompetisi</button>
+                                                                    </span>
+                                                                </div>   
                                                             </div>
                                                             <div class="form-group row">
                                                                 <label for="budget" class="col-xs-2 col-form-label form-control-label">Dana yang diajukan</label>
@@ -90,61 +104,25 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <button type="button" class="nexttab btn btn-primary waves-effect waves-light" name="next" id="next" >Berikutnya </button>
+                                                            <button type="button" class="btn btn-primary waves-effect waves-light next" name="next" id="next">Berikutnya </button>
                                                           <!-- </form> -->
                                                         <!-- Proposal Document inputs ends -->
                                                     </div>
 
 
-                                                    <div class="tab-pane" id="team-profile" role="tabpanel">
+                                                    <div class="tab-pane " id="team-profile" role="tabpanel">
                                                         <!-- Team Profile inputs starts -->
                                                         <div id="team-profile-form">
-                                                          <fieldset id="team">
-                                                            <legend class="legend">#1</legend>
-                                                              <div class="form-group row">
-                                                                  <label for="coach" class="col-xs-2 col-form-label form-control-label">Pembimbing</label>
-                                                                  <div class="col-sm-10">
-                                                                      <input class="form-control" type="text" name="coach" placeholder="NIDN Pembimbing" value="" id="t1-coach">
-                                                                  </div>
-                                                              </div>
-                                                              <div class="form-group row">
-                                                                  <label for="leader" class="col-xs-2 col-form-label form-control-label">Ketua Tim</label>
-                                                                  <div class="col-sm-10">
-                                                                      <input class="form-control" type="text" name="leader" placeholder="NIM Ketua Tim" value="">
-                                                                  </div>
-                                                              </div>
-                                                              <div class="form-group row">
-                                                                  <label for="member-1" class="col-xs-2 col-form-label form-control-label">Anggota 1</label>
-                                                                  <div class="col-sm-10">
-                                                                      <input class="form-control" type="text" name="member-1" placeholder="NIM Anggota 1" value="">
-                                                                  </div>
-                                                              </div>
-                                                              <div class="form-group row">
-                                                                  <label for="member-2" class="col-xs-2 col-form-label form-control-label">Anggota 2</label>
-                                                                  <div class="col-sm-10">
-                                                                      <input class="form-control" type="text" name="member-2" placeholder="NIM Anggota 2" value="">
-                                                                  </div>
-                                                              </div>
-                                                              <div class="form-group row">
-                                                                  <label for="member31" class="col-xs-2 col-form-label form-control-label">Anggota 3</label>
-                                                                  <div class="col-sm-10">
-                                                                      <input class="form-control" type="text" name="member-3" placeholder="NIM Anggota 3" value="">
-                                                                  </div>
-                                                              </div>
-                                                              <div class="form-group row">
-                                                                  <label for="member-4" class="col-xs-2 col-form-label form-control-label">Anggota 4</label>
-                                                                  <div class="col-sm-10">
-                                                                      <input class="form-control" type="text" name="member-4" placeholder="NIM Anggota 4" value="">
-                                                                  </div>
-                                                              </div>
-                                                          </fieldset>
-                                                 
+                                                          <!-- a place to add components -->
+                                                          <span id="renderBox"></span>
+
+                                                          <button type="button" class="btn btn-primary waves-effect waves-light prev" name="prev" id="prev">Sebelumnya</button>
                                                           <button type="button" class="btn btn-info waves-effect waves-light float-right px-2" name="add-team" id="add-team" >Tambah Tim </button>
                                                           <button type="button" class="btn btn-success waves-effect waves-light float-right " name="submit" id="submit" >Submit</button>
                                                         </div>
                                                         </form>
 
-                                                        <!-- Team Profile inputs ends -->
+                                                    <!-- Team Profile inputs ends -->
                                                     </div>
                                                 </div>
                                                 <!-- Tab panes end -->
@@ -162,7 +140,468 @@
             </div>
             <!-- Row end -->
 
+            <!-- Add Competition Modal -->
+            <div class="modal fade" id="add-competition-modal-forms" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered " role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalCenterTitle">Tambah Data Kompetisi</h5>
+                        </div>
+                        
+                        <form class="form" action="#">
+                            <div class="modal-body">
+                                <div class="form-group col-md-12">
+                                    <label for="inputAddress" class="block form-control-label">Nama Kompetisi</label>
+                                    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-primary">Simpan</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal" id="add-competition-modal-form" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Modal title</h5>
+      </div>
+      <form>
+      <div class="modal-body">
+      <form>
+  <div class="form-group row">
+    <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+    <div class="col-sm-10">
+      <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
+    <div class="col-sm-10">
+      <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+    </div>
+  </div>
+  <fieldset class="form-group">
+    <div class="row">
+      <legend class="col-form-label col-sm-2 pt-0">Radios</legend>
+      <div class="col-sm-10">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+          <label class="form-check-label" for="gridRadios1">
+            First radio
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+          <label class="form-check-label" for="gridRadios2">
+            Second radio
+          </label>
+        </div>
+        <div class="form-check disabled">
+          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3" disabled>
+          <label class="form-check-label" for="gridRadios3">
+            Third disabled radio
+          </label>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+  <div class="form-group row">
+    <div class="col-sm-2">Checkbox</div>
+    <div class="col-sm-10">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="gridCheck1">
+        <label class="form-check-label" for="gridCheck1">
+          Example checkbox
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="form-group col-md-12">
+                                    <label for="inputAddress" class="block form-control-label">Nama Kompetisi</label>
+                                    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                                </div>
+                                
+                                <div class="form-group col-md-12">
+                                    <label for="inputAddress" class="block form-control-label">Institusi Penyelenggara</label>
+                                    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                                </div>
+                            
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="inputEmail4" class="block form-control-label">Lokasi</label>
+                                        <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="inputPassword4" class="block form-control-label">Level Kompetisi</label>
+                                        <select class="form-control " id="exampleSelect1">
+                                            <option>Regional</option>
+                                            <option>Nasional</option>
+                                            <option>Internasional</option>
+                                        </select>    
+                                    </div>
+                                </div>
+                            
+                                <div class="form-group col-md-12">
+                                    <label for="inline3mail" class="block form-control-label">Tanggal Pendaftaran</label>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <div class="form-control-wrapper">
+                                            <input type="text" id="date-start" class="form-control floating-label" placeholder="Start Date">
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <div class="form-control-wrapper">
+                                            <input type="text" id="date-end" class="form-control floating-label" placeholder="End Date">
+                                        </div>
+                                    </div>
+                                </div>
+                            
+                                <div class="form-group col-md-12">
+                                    <label for="inline3mail" class="block form-control-label">Tanggal Pelaksanaan Kompetisi</label>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <div class="form-control-wrapper">
+                                            <input type="text" id="date-start" class="form-control floating-label" placeholder="Start Date">
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <div class="form-control-wrapper">
+                                            <input type="text" id="date-end" class="form-control floating-label" placeholder="End Date">
+                                        </div>
+                                    </div>
+                                </div>
+  <div class="form-group row">
+    <div class="col-sm-10">
+      <button type="submit" class="btn btn-primary">Sign in</button>
+    </div>
+  </div>
+</form>
+    
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+
         </div>
         <!-- Container-fluid ends -->
     </div>
 </div>
+
+
+      <!-- Required Jqurey -->
+      <script
+			  src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+			  integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+			  crossorigin="anonymous"></script>
+
+      <script src="<?php echo base_url();?>assets/plugins/jquery/dist/jquery.min.js"></script>
+      <script src="<?php echo base_url();?>assets/plugins/jquery-ui/jquery-ui.min.js"></script>
+      <script src="<?php echo base_url();?>assets/plugins/tether/dist/js/tether.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+
+      <!-- Required Fremwork -->
+      <script src="<?php echo base_url();?>assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+
+      <!-- waves effects.js -->
+      <script src="<?php echo base_url();?>assets/plugins/Waves/waves.min.js"></script>
+
+      <!-- Scrollbar JS-->
+      <script src="<?php echo base_url();?>assets/plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
+      <script src="<?php echo base_url();?>assets/plugins/jquery.nicescroll/jquery.nicescroll.min.js"></script>
+
+      <!--classic JS-->
+      <script src="<?php echo base_url();?>assets/plugins/classie/classie.js"></script>
+
+      <!-- notification -->
+      <script src="<?php echo base_url();?>assets/plugins/notification/js/bootstrap-growl.min.js"></script>
+
+
+      <!-- Rickshaw Chart js -->
+      <script src="<?php echo base_url();?>assets/plugins/d3/d3.js"></script>
+      <script src="<?php echo base_url();?>assets/plugins/rickshaw/rickshaw.js"></script>
+
+      <!-- Sparkline charts -->
+      <script src="<?php echo base_url();?>assets/plugins/jquery-sparkline/dist/jquery.sparkline.js"></script>
+
+      <!-- Counter js  -->
+      <script src="<?php echo base_url();?>assets/plugins/waypoints/jquery.waypoints.min.js"></script>
+      <script src="<?php echo base_url();?>assets/plugins/countdown/js/jquery.counterup.js"></script>
+
+		<!-- custom js -->
+		<script type="text/javascript" src="<?php echo base_url();?>assets/js/main.min.js"></script>
+      <script type="text/javascript" src="<?php echo base_url();?>assets/pages/dashboard.js"></script>
+      <script type="text/javascript" src="<?php echo base_url();?>assets/pages/elements.js"></script>
+		<script src="<?php echo base_url();?>assets/js/menu.min.js"></script>
+		
+
+
+<!-- apache_response_headers -->
+
+    <!-- Required Jqurey -->
+    <script src="<?php echo base_url();?>assets/plugins/jquery/dist/jquery.min.js"></script>
+    <script src="<?php echo base_url();?>assets/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <script src="<?php echo base_url();?>assets/plugins/tether/dist/js/tether.min.js"></script>
+
+    <!-- Required Fremwork -->
+    <script src="<?php echo base_url();?>assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- waves effects.js -->
+    <script src="<?php echo base_url();?>assets/plugins/Waves/waves.min.js"></script>
+
+    <!-- Scrollbar JS-->
+    <script src="<?php echo base_url();?>assets/plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
+    <script src="<?php echo base_url();?>assets/plugins/jquery.nicescroll/jquery.nicescroll.min.js"></script>
+
+    <!--classic JS-->
+    <script src="<?php echo base_url();?>assets/plugins/classie/classie.js"></script>
+
+    <!-- notification -->
+    <script src="<?php echo base_url();?>assets/plugins/notification/js/bootstrap-growl.min.js"></script>
+
+		<!-- Date picker.js -->
+		<script src="<?php echo base_url();?>assets/plugins/datepicker/js/moment-with-locales.min.js"></script>
+		<script src="<?php echo base_url();?>assets/plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js"></script>
+
+		<!-- Select 2 js -->
+		<script src="<?php echo base_url();?>assets/plugins/select2/dist/js/select2.full.min.js"></script>
+
+		<!-- Max-Length js -->
+		<script src="<?php echo base_url();?>assets/plugins/bootstrap-maxlength/src/bootstrap-maxlength.js"></script>
+
+		<!-- Multi Select js -->
+		<script src="<?php echo base_url();?>assets/plugins/bootstrap-multiselect/dist/js/bootstrap-multiselect.js"></script>
+		<script src="<?php echo base_url();?>assets/plugins/multiselect/js/jquery.multi-select.js"></script>
+		<script type="text/javascript" src="<?php echo base_url();?>assets/plugins/multi-select/js/jquery.quicksearch.js"></script>
+
+		<!-- Tags js -->
+		<script src="<?php echo base_url();?>assets/plugins/bootstrap-tagsinput/dist/bootstrap-tagsinput.js"></script>
+
+		<!-- Bootstrap Datepicker js -->
+    <script type="text/javascript" src="<?php echo base_url();?>assets/plugins/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+    <script src="<?php echo base_url();?>assets/plugins/bootstrap-datepicker/js/bootstrap-datetimepicker.min.js"></script>
+
+    <!-- bootstrap range picker -->
+    <script type="text/javascript" src="<?php echo base_url();?>assets/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
+
+		<!-- color picker -->
+		<script type="text/javascript" src="<?php echo base_url();?>assets/plugins/spectrum/spectrum.js"></script>
+		<script type="text/javascript" src="<?php echo base_url();?>assets/plugins/jscolor/jscolor.js"></script>
+
+		<!-- highlite js -->
+		<script type="text/javascript" src="<?php echo base_url();?>assets/plugins/syntaxhighlighter/scripts/shCore.js"></script>
+		<script type="text/javascript" src="<?php echo base_url();?>assets/plugins/syntaxhighlighter/scripts/shBrushJScript.js"></script>
+		<script type="text/javascript" src="<?php echo base_url();?>assets/plugins/syntaxhighlighter/scripts/shBrushXml.js"></script>
+    <script type="text/javascript">SyntaxHighlighter.all();</script>
+
+		<!-- custom js -->
+		<script type="text/javascript" src="<?php echo base_url();?>assets/js/main.min.js"></script>
+		<script type="text/javascript" src="<?php echo base_url();?>assets/pages/advance-form.js"></script>
+		<script src="<?php echo base_url();?>assets/js/menu.min.js"></script>
+		
+
+<script> 
+  	window._data = {};
+
+    // to generate random and unique key 
+    function generateKey() { return window.performance.now(); }
+
+    // Render components based on data
+    function reloadComponents() {
+        $("#renderBox").html("");
+        Object.keys(_data).forEach(function(key, index){
+            addComponent(key, _data[key], index);
+        });
+        hideShowRemoveButton();
+    }
+
+    // handling Hide-Show remove button
+    function hideShowRemoveButton() {
+    	if(Object.keys(_data).length == 1){
+            $(".js-remove-button").hide();
+        }
+    }
+
+    // remove component
+    function removeComponent(key){
+        $("fieldSet #team" + key).remove()
+    }
+
+    // adding new component
+    function addComponent(key, datum, index) {
+        // Components Initialization
+        var fieldSet = $("<fieldset id='team" + key + "'></fieldset>");
+        var legend = $("<legend>#"+ (index + 1) +"</legend>")
+        var coachField = $("<input />", {"class": 'form-control', "type": 'text', "name": 'coach[]', "placeholder":'NIDN Pembimbing'});
+        var leaderField = $("<input />", {"class": 'form-control', "type": 'text', "name": 'leader[]', "placeholder":'NIM Ketua Tim'});
+        var member1Field = $("<input />", {"class": 'form-control', "type": 'text', "name": 'member1[]', "placeholder":'NIM Anggota 1'});
+        var member2Field = $("<input />", {"class": 'form-control', "type": 'text', "name": 'member2[]', "placeholder":'NIM Anggota 2'});
+        var member3Field = $("<input />", {"class": 'form-control', "type": 'text', "name": 'member3[]', "placeholder":'NIM Anggota 3'});
+        var member4Field = $("<input />", {"class": 'form-control', "type": 'text', "name": 'member4[]', "placeholder":'NIM Anggota 4'});
+        var removeButton = $("<button type='button' style='float:right' class='js-remove-button cancelBtn btn btn-warning waves-effect waves-light px-2 my-2'>Remove</button>")
+
+        // Components Set Value
+        coachField.val(datum.coach);
+        leaderField.val(datum.leader);
+        member1Field.val(datum.member1);
+        member2Field.val(datum.member2);
+        member3Field.val(datum.member3);
+        member4Field.val(datum.member4);
+    
+        // Components Callbacks
+        coachField.on('change', function(event){
+            _data[key].coach = event.target.value;
+        });
+        leaderField.on('change', function(event){
+            _data[key].leader = event.target.value;
+        });
+        member1Field.on('change', function(event){
+            _data[key].member1 = event.target.value;
+        });
+        member2Field.on('change', function(event){
+            _data[key].member2 = event.target.value;
+        });
+        member3Field.on('change', function(event){
+            _data[key].member3 = event.target.value;
+        });
+        member4Field.on('change', function(event){
+            _data[key].member4 = event.target.value;
+        });
+        removeButton.on('click', function(event){
+            delete _data[key];
+
+            // we can use this function to remove component
+            // fieldSet.remove();
+            // but reloadComponents is much better since it will reset the numbering
+            reloadComponents();
+        });
+
+        // Render Components
+        fieldSet.append(legend);
+        fieldSet.append(
+            $("<div/>", {"class": "form-group row"}).append([
+                    $("<label/>", {"class": "col-xs-2 col-form-label form-control-label"}).append([
+                    "Pembimbing"
+                ]),
+                $("<div/>", {"class": "col-sm-10"}).append([
+                    coachField
+                ])
+            ]) 
+        );
+        fieldSet.append(
+            $("<div/>", {"class": "form-group row"}).append([
+                    $("<label/>", {"class": "col-xs-2 col-form-label form-control-label"}).append([
+                    "Ketua Tim"
+                ]),
+                $("<div/>", {"class": "col-sm-10"}).append([
+                    leaderField
+                ])
+            ]) 
+        );
+        fieldSet.append(
+            $("<div/>", {"class": "form-group row"}).append([
+                    $("<label/>", {"class": "col-xs-2 col-form-label form-control-label"}).append([
+                    "Anggota 1"
+                ]),
+                $("<div/>", {"class": "col-sm-10"}).append([
+                    member1Field
+                ])
+            ]) 
+        );
+        fieldSet.append(
+            $("<div/>", {"class": "form-group row"}).append([
+                    $("<label/>", {"class": "col-xs-2 col-form-label form-control-label"}).append([
+                    "Anggota 2"
+                ]),
+                $("<div/>", {"class": "col-sm-10"}).append([
+                    member2Field
+                ])
+            ]) 
+        );
+        fieldSet.append(
+            $("<div/>", {"class": "form-group row"}).append([
+                    $("<label/>", {"class": "col-xs-2 col-form-label form-control-label"}).append([
+                    "Anggota 3"
+                ]),
+                $("<div/>", {"class": "col-sm-10"}).append([
+                    member3Field
+                ])
+            ]) 
+        );
+        fieldSet.append(
+            $("<div/>", {"class": "form-group row"}).append([
+                    $("<label/>", {"class": "col-xs-2 col-form-label form-control-label"}).append([
+                    "Anggota 4"
+                ]),
+                $("<div/>", {"class": "col-sm-10"}).append([
+                    member4Field
+                ])
+            ]) 
+        );
+        fieldSet.append(removeButton);   
+        $("#renderBox").append(fieldSet);
+    }
+
+    // Initialize data
+    _data[generateKey()] = { coach: '', leader: '', member1: '', member2: '', member3: '', member4: '' };
+    reloadComponents();
+
+    $("body").on("click", "#add-team", function() {
+        key = generateKey();
+        _data[key] = { coach: '', leader: '', member1: '', member2: '', member3: '', member4: '' };
+        newIndex = Object.keys(_data).length - 1
+        addComponent(key, _data[key], newIndex);
+    });
+</script>
+
+<script>
+    $('.next').click(function () {
+        $('.nav-tabs > .nav-item > .active').parent().next('li').find('a').trigger('click');
+    });
+</script>
+
+<script>
+    $('.prev').click(function(){
+        $('.nav-tabs > .nav-item > .active').parent().prev('li').find('a').trigger('click');
+    });
+</script>
+
+<script>
+    var input = document.getElementById( 'file-upload' );
+    var infoArea = document.getElementById( 'file-upload-filename' );
+
+    input.addEventListener( 'change', showFileName );
+
+    function showFileName( event ) {
+    
+        // the change event gives us the input it occurred in 
+        var input = event.srcElement;
+        
+        // the input has an array of files in the `files` property, each one has a name that you can use. We're just using the name here.
+        var fileName = input.files[0].name;
+        
+        // use fileName however fits your app best, i.e. add it into a div
+        infoArea.textContent = fileName;
+    }
+</script>
+
+
+
+</body>
+</html>

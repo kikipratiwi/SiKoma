@@ -24,7 +24,7 @@ class Student extends CI_Controller {
 		$this->load->view('templates/student/dashboard',$data);
     }
     
-    public function proposal_submission()
+    public function proposal_submission() //form
 	{
 		$data['content'] = $this->template();
 		$this->load->view('proposal_submission',$data);
@@ -34,5 +34,35 @@ class Student extends CI_Controller {
 	{
 		$data['content'] = $this->template();
 		$this->load->view('/your_submission',$data);
+	}
+
+	public function _proposal_submission()
+	{
+		// [teams] => Array ( 
+		// 	[coach] => Array ( 
+		// 	  [0] => 1 
+		// 	  [1] => 2 
+		// 	) 
+		// 	[leader] => Array ( 
+		// 	  [0] => 234 
+		// 	  [1] => 456 
+		// 	) 
+		// 	[member1] => Array ( 
+		// 	  [0] => 234 
+		// 	  [1] => 456 
+		// 	) 
+		// 	[member2] => Array ( 
+		// 	  [0] => 234 
+		// 	  [1] => 456 
+		// 	) 
+		// 	[member3] => Array ( 
+		// 	  [0] => 234 
+		// 	  [1] => 456 
+		// 	) 
+		// 	[member4] => Array ( 
+		// 	  [0] => 234 
+		// 	  [1] => 456 
+		// 	)
+		// )	
 	}
 }
