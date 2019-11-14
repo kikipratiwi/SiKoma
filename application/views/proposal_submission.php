@@ -56,11 +56,10 @@
                                                                 <label for="department" class="col-xs-2 col-form-label form-control-label">Jurusan</label>
                                                                 <div class="col-sm-10">
                                                                     <select class="form-control " name="department" id="department">
-                                                                        <option value="1">Jurusan Teknik Komputer dan Informatika</option>
-                                                                        <option>2</option>
-                                                                        <option>3</option>
-                                                                        <option>4</option>
-                                                                        <option>5</option>
+
+                                                                    <?php	foreach($department as $key => $dpt) : ?>
+			                                                            <option value="<?= $dpt->id?>"> <?=$dpt->name ?></option>
+		                                                            <?php endforeach;	?>
                                                                     </select>
                                                                 </div>
                                                             </div>
@@ -69,11 +68,9 @@
                                                                 <div class="d-flex justify-content-between">
                                                                     <div class="col-sm-8">
                                                                         <select class="form-control " name="competition" id="competition">
-                                                                            <option>1</option>
-                                                                            <option>2</option>
-                                                                            <option>3</option>
-                                                                            <option>4</option>
-                                                                            <option>5</option>
+                                                                        <?php	foreach($competition as $key => $cmp) : ?>
+			                                                                <option value="<?= $cmp->id?>"> <?=$cmp->name ?></option>
+		                                                                <?php endforeach;	?>
                                                                         </select>
                                                                     </div>
                                                                     <span class="md-add-on-file float-right">

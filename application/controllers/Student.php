@@ -26,7 +26,34 @@ class Student extends CI_Controller {
     
     public function proposal_submission() //form
 	{
+		//Jurusan
+		$curl = curl_init();
+		curl_setopt_array($curl, array(
+		CURLOPT_URL => "http://localhost:8000/api/departments",
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_ENCODING => "",
+		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST => "GET",
+		));
+		$dpt = curl_exec($curl);
+		$err = curl_error($curl);
+
+		//Kompetisi
+		$curl = curl_init();
+		curl_setopt_array($curl, array(
+		CURLOPT_URL => "http://localhost:8000/api/competitions",
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_ENCODING => "",
+		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST => "GET",
+		));
+
+		$cmp = curl_exec($curl);
+		$errcmp = curl_error($curl);
+
 		$data['content'] = $this->template();
+		$data['department'] = json_decode($dpt);
+		$data['competition'] = json_decode($cmp);
 		$this->load->view('proposal_submission',$data);
     }
     
