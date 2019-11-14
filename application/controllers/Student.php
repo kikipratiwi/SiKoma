@@ -30,10 +30,16 @@ class Student extends CI_Controller {
 		$this->load->view('proposal_submission',$data);
     }
     
-    public function your_submission()
+    public function ongoing_submission()
 	{
 		$data['content'] = $this->template();
-		$this->load->view('/your_submission',$data);
+		$this->load->view('student/ongoing_submission',$data);
+	}
+    
+    public function finished_submission()
+	{
+		$data['content'] = $this->template();
+		$this->load->view('student/finished_submission',$data);
 	}
 
 	public function _proposal_submission()
