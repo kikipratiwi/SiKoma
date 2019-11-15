@@ -199,12 +199,12 @@
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <div class="form-control-wrapper">
-                                <input type="text" name="regist_opendate" id="date-start" class="form-control floating-label" placeholder="Start Date">
+                                <input type="date" name="regist_opendate" id="regist-date-start" class="form-control floating-label" placeholder="Start Date">
                             </div>
                         </div>
                         <div class="form-group col-md-6">
                             <div class="form-control-wrapper">
-                                <input type="text" name="regist_closedate" id="date-end" class="form-control floating-label" placeholder="End Date">
+                                <input type="date" name="regist_closedate" id="regist-date-end" class="form-control floating-label" placeholder="End Date">
                             </div>
                         </div>
                     </div>
@@ -216,12 +216,12 @@
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <div class="form-control-wrapper">
-                                <input type="text" name="event_startdate" id="date-start" class="form-control floating-label" placeholder="Start Date">
+                                <input type="date" name="event_startdate" id="event-date-start" class="form-control floating-label" placeholder="Start Date">
                             </div>
                         </div>
                         <div class="form-group col-md-6">
                             <div class="form-control-wrapper">
-                                <input type="text" name="event_closedate"  id="date-end" class="form-control floating-label" placeholder="End Date">
+                                <input type="date" name="event_closedate" id="event-date-end" class="form-control floating-label" placeholder="End Date">
                             </div>
                         </div>
                     </div>
