@@ -51,7 +51,9 @@
                                                 <form enctype="multipart/form-data" method="POST" action="<?php echo base_url().'index.php/Student/act_proposal_submission'; ?>">                                                       
 
                                                 <!-- Tab panes -->
+                                                <form enctype="multipart/form-data" action="<?=site_url('Student/act_proposal_submission')?>" method="post">
                                                 <div class="tab-content">
+
                                                     <div class="tab-pane active" id="proposal-document" role="tabpanel">
                                                         <!-- Proposal Document inputs starts -->
                                                             <div class="form-group row">
@@ -60,7 +62,7 @@
                                                                     <select class="form-control " name="department" id="department">
                                                                     <?php	foreach($department as $key => $dpt) : ?>
 			                                                            <option value="<?= $dpt->id?>"> <?=$dpt->name ?></option>
-		                                                            <?php endforeach;	?>
+		                                                            <?php endforeach;?>
                                                                     </select>
                                                                 </div>
                                                             </div>
@@ -544,6 +546,8 @@
     }
 </script>
 
+<!-- select2 -->
+<script src="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/js/select2.min.js"></script>
 
 
 </body>
