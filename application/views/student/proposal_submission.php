@@ -47,16 +47,17 @@
                                                         <div class="slide"></div>
                                                     </li>
                                                 </ul>
+
+                                                <form enctype="multipart/form-data" method="POST" action="<?php echo base_url().'index.php/Student/act_proposal_submission'; ?>">                                                       
+
                                                 <!-- Tab panes -->
                                                 <div class="tab-content">
                                                     <div class="tab-pane active" id="proposal-document" role="tabpanel">
                                                         <!-- Proposal Document inputs starts -->
-                                                        <form enctype="multipart/form-data">
                                                             <div class="form-group row">
                                                                 <label for="department" class="col-xs-2 col-form-label form-control-label">Jurusan</label>
                                                                 <div class="col-sm-10">
                                                                     <select class="form-control " name="department" id="department">
-
                                                                     <?php	foreach($department as $key => $dpt) : ?>
 			                                                            <option value="<?= $dpt->id?>"> <?=$dpt->name ?></option>
 		                                                            <?php endforeach;	?>
@@ -107,6 +108,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
+                                                            <div class="col-sm-10"><input class="form-control" type="text" name="leader[]" placeholder="NIM Ketua Tim"></div>
                                                             <button type="button" class="btn btn-primary waves-effect waves-light next" name="next" id="next">Berikutnya </button>
                                                           <!-- </form> -->
                                                         <!-- Proposal Document inputs ends -->
@@ -121,14 +123,15 @@
 
                                                           <button type="button" class="btn btn-primary waves-effect waves-light prev" name="prev" id="prev">Sebelumnya</button>
                                                           <button type="button" class="btn btn-info waves-effect waves-light float-right px-2" name="add-team" id="add-team" >Tambah Tim </button>
-                                                          <button type="button" class="btn btn-success waves-effect waves-light float-right " name="submit" id="submit" >Submit</button>
+                                                          <button type="submit" class="btn btn-success waves-effect waves-light float-right " name="submit" id="submit" >Submit</button>
                                                         </div>
-                                                        </form>
-
                                                     <!-- Team Profile inputs ends -->
                                                     </div>
                                                 </div>
                                                 <!-- Tab panes end -->
+
+                                                </form>
+
                                             </div>
                                         </div>
                                         <!-- Row end -->
@@ -151,26 +154,26 @@
                         <h5 class="modal-title">Tambah Data Kompetisi</h5>
                     </div>
     
-                    <form>
+                    <form method="POST" action="<?php echo base_url().'index.php/Student/act_add_competition'; ?>">
                         <div class="modal-body">
                                 <div class="form-group col-md-12">
-                                    <label for="inputAddress" class="block form-control-label">Nama Kompetisi</label>
-                                    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                                    <label for="competitionName" class="block form-control-label">Nama Kompetisi</label>
+                                    <input type="text" class="form-control" name="name" placeholder="ex: Gemastik">
                                 </div>
                                 
                                 <div class="form-group col-md-12">
-                                    <label for="inputAddress" class="block form-control-label">Institusi Penyelenggara</label>
-                                    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                                    <label for="institusion" class="block form-control-label">Institusi Penyelenggara</label>
+                                    <input type="text" class="form-control" name="institusion" placeholder="ex: Universitas Gajah Mada">
                                 </div>
                             
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
-                                        <label for="inputEmail4" class="block form-control-label">Lokasi</label>
-                                        <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                                        <label for="location" class="block form-control-label">Lokasi</label>
+                                        <input type="text" class="form-control" name="location" placeholder="Lokasi Kompetisi">
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label for="inputPassword4" class="block form-control-label">Level Kompetisi</label>
-                                        <select class="form-control " id="exampleSelect1">
+                                        <label for="level" class="block form-control-label">Level Kompetisi</label>
+                                        <select class="form-control " name="level">
                                             <option>Regional</option>
                                             <option>Nasional</option>
                                             <option>Internasional</option>
@@ -179,35 +182,35 @@
                                 </div>
                             
                                 <div class="form-group col-md-12" style="margin-bottom: .1rem;">
-                                    <label for="inline3mail" class="block form-control-label">Tanggal Pendaftaran</label>
+                                    <label for="registDate" class="block form-control-label">Tanggal Pendaftaran</label>
                                 </div>
 
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
                                         <div class="form-control-wrapper">
-                                            <input type="text" id="date-start" class="form-control floating-label" placeholder="Start Date">
+                                            <input type="text" name="regist_opendate" id="date-start" class="form-control floating-label" placeholder="Start Date">
                                         </div>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <div class="form-control-wrapper">
-                                            <input type="text" id="date-end" class="form-control floating-label" placeholder="End Date">
+                                            <input type="text" name="regist_closedate" id="date-end" class="form-control floating-label" placeholder="End Date">
                                         </div>
                                     </div>
                                 </div>
                             
                                 <div class="form-group col-md-12" style="margin-bottom: .1rem;">
-                                    <label for="inline3mail" class="block form-control-label">Tanggal Pelaksanaan Kompetisi</label>
+                                    <label for="eventDate" class="block form-control-label">Tanggal Pelaksanaan Kompetisi</label>
                                 </div>
 
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
                                         <div class="form-control-wrapper">
-                                            <input type="text" id="date-start" class="form-control floating-label" placeholder="Start Date">
+                                            <input type="text" name="event_startdate" id="date-start" class="form-control floating-label" placeholder="Start Date">
                                         </div>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <div class="form-control-wrapper">
-                                            <input type="text" id="date-end" class="form-control floating-label" placeholder="End Date">
+                                            <input type="text" name="event_closedate"  id="date-end" class="form-control floating-label" placeholder="End Date">
                                         </div>
                                     </div>
                                 </div>
@@ -346,10 +349,8 @@
 
 <script> 
   	window._data = {};
-
     // to generate random and unique key 
     function generateKey() { return window.performance.now(); }
-
     // Render components based on data
     function reloadComponents() {
         $("#renderBox").html("");
@@ -358,19 +359,16 @@
         });
         hideShowRemoveButton();
     }
-
     // handling Hide-Show remove button
     function hideShowRemoveButton() {
     	if(Object.keys(_data).length == 1){
             $(".js-remove-button").hide();
         }
     }
-
     // remove component
     function removeComponent(key){
         $("fieldSet #team" + key).remove()
     }
-
     // adding new component
     function addComponent(key, datum, index) {
         // Components Initialization
@@ -383,7 +381,6 @@
         var member3Field = $("<input />", {"class": 'form-control', "type": 'text', "name": 'member3[]', "placeholder":'NIM Anggota 3'});
         var member4Field = $("<input />", {"class": 'form-control', "type": 'text', "name": 'member4[]', "placeholder":'NIM Anggota 4'});
         var removeButton = $("<button type='button' style='float:right' class='js-remove-button cancelBtn btn btn-warning waves-effect waves-light px-2 my-2'>Remove</button>")
-
         // Components Set Value
         coachField.val(datum.coach);
         leaderField.val(datum.leader);
@@ -413,13 +410,11 @@
         });
         removeButton.on('click', function(event){
             delete _data[key];
-
             // we can use this function to remove component
             // fieldSet.remove();
             // but reloadComponents is much better since it will reset the numbering
             reloadComponents();
         });
-
         // Render Components
         fieldSet.append(legend);
         fieldSet.append(
@@ -485,11 +480,9 @@
         fieldSet.append(removeButton);   
         $("#renderBox").append(fieldSet);
     }
-
     // Initialize data
     _data[generateKey()] = { coach: '', leader: '', member1: '', member2: '', member3: '', member4: '' };
     reloadComponents();
-
     $("body").on("click", "#add-team", function() {
         key = generateKey();
         _data[key] = { coach: '', leader: '', member1: '', member2: '', member3: '', member4: '' };
@@ -513,9 +506,7 @@
 <script>
     var input = document.getElementById( 'file-upload' );
     var infoArea = document.getElementById( 'file-upload-filename' );
-
     input.addEventListener( 'change', showFileName );
-
     function showFileName( event ) {
     
         // the change event gives us the input it occurred in 

@@ -54,7 +54,7 @@ class Student extends CI_Controller {
 		$data['content'] = $this->template();
 		$data['department'] = json_decode($dpt);
 		$data['competition'] = json_decode($cmp);
-		$this->load->view('proposal_submission',$data);
+		$this->load->view('student/proposal_submission',$data);
 	}
 	
 	public function act_proposal_submission()
