@@ -72,6 +72,9 @@
 	<!--color css-->
  <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/color/color-1.min.css" id="color"/>
 
+	<!--data table-->
+ <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
+
 
 </head>
 

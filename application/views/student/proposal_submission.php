@@ -108,7 +108,6 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-sm-10"><input class="form-control" type="text" name="leader[]" placeholder="NIM Ketua Tim"></div>
                                                             <button type="button" class="btn btn-primary waves-effect waves-light next" name="next" id="next">Berikutnya </button>
                                                           <!-- </form> -->
                                                         <!-- Proposal Document inputs ends -->
@@ -146,93 +145,98 @@
             </div>
             <!-- Row end -->
 
-            <!-- Add Competition Modal -->
-            <div class="modal" id="add-competition-modal-form" tabindex="-1" role="dialog">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Tambah Data Kompetisi</h5>
-                    </div>
-    
-                    <form method="POST" action="<?php echo base_url().'index.php/Student/act_add_competition'; ?>">
-                        <div class="modal-body">
-                                <div class="form-group col-md-12">
-                                    <label for="competitionName" class="block form-control-label">Nama Kompetisi</label>
-                                    <input type="text" class="form-control" name="name" placeholder="ex: Gemastik">
-                                </div>
-                                
-                                <div class="form-group col-md-12">
-                                    <label for="institusion" class="block form-control-label">Institusi Penyelenggara</label>
-                                    <input type="text" class="form-control" name="institusion" placeholder="ex: Universitas Gajah Mada">
-                                </div>
-                            
-                                <div class="form-row">
-                                    <div class="form-group col-md-6">
-                                        <label for="location" class="block form-control-label">Lokasi</label>
-                                        <input type="text" class="form-control" name="location" placeholder="Lokasi Kompetisi">
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label for="level" class="block form-control-label">Level Kompetisi</label>
-                                        <select class="form-control " name="level">
-                                            <option>Regional</option>
-                                            <option>Nasional</option>
-                                            <option>Internasional</option>
-                                        </select>    
-                                    </div>
-                                </div>
-                            
-                                <div class="form-group col-md-12" style="margin-bottom: .1rem;">
-                                    <label for="registDate" class="block form-control-label">Tanggal Pendaftaran</label>
-                                </div>
-
-                                <div class="form-row">
-                                    <div class="form-group col-md-6">
-                                        <div class="form-control-wrapper">
-                                            <input type="text" name="regist_opendate" id="date-start" class="form-control floating-label" placeholder="Start Date">
-                                        </div>
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <div class="form-control-wrapper">
-                                            <input type="text" name="regist_closedate" id="date-end" class="form-control floating-label" placeholder="End Date">
-                                        </div>
-                                    </div>
-                                </div>
-                            
-                                <div class="form-group col-md-12" style="margin-bottom: .1rem;">
-                                    <label for="eventDate" class="block form-control-label">Tanggal Pelaksanaan Kompetisi</label>
-                                </div>
-
-                                <div class="form-row">
-                                    <div class="form-group col-md-6">
-                                        <div class="form-control-wrapper">
-                                            <input type="text" name="event_startdate" id="date-start" class="form-control floating-label" placeholder="Start Date">
-                                        </div>
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <div class="form-control-wrapper">
-                                            <input type="text" name="event_closedate"  id="date-end" class="form-control floating-label" placeholder="End Date">
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="form-group row"> <div class="col-sm-10"> </div> </div>
-    
-
-                        </div>
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary">Simpan</button>
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <!-- End of Add Competition Modal -->
-
         </div>
         </div>
         <!-- Container-fluid ends -->
     </div>
 </div>
+
+
+<!-- Add Competition Modal -->
+<div class="modal fade modal-flex" id="add-competition-modal-form" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            <h5 class="modal-title">Tambah Data Kompetisi</h5>
+        </div>
+
+        <form method="POST" action="<?php echo base_url().'index.php/Student/act_add_competition'; ?>">
+            <div class="modal-body">
+                    <div class="form-group col-md-12">
+                        <label for="competitionName" class="block form-control-label">Nama Kompetisi</label>
+                        <input type="text" class="form-control" name="name" placeholder="ex: Gemastik">
+                    </div>
+                    
+                    <div class="form-group col-md-12">
+                        <label for="institusion" class="block form-control-label">Institusi Penyelenggara</label>
+                        <input type="text" class="form-control" name="institusion" placeholder="ex: Universitas Gajah Mada">
+                    </div>
+                
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="location" class="block form-control-label">Lokasi</label>
+                            <input type="text" class="form-control" name="location" placeholder="Lokasi Kompetisi">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="level" class="block form-control-label">Level Kompetisi</label>
+                            <select class="form-control " name="level">
+                                <option>Regional</option>
+                                <option>Nasional</option>
+                                <option>Internasional</option>
+                            </select>    
+                        </div>
+                    </div>
+                
+                    <div class="form-group col-md-12" style="margin-bottom: .1rem;">
+                        <label for="registDate" class="block form-control-label">Tanggal Pendaftaran</label>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <div class="form-control-wrapper">
+                                <input type="text" name="regist_opendate" id="date-start" class="form-control floating-label" placeholder="Start Date">
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <div class="form-control-wrapper">
+                                <input type="text" name="regist_closedate" id="date-end" class="form-control floating-label" placeholder="End Date">
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="form-group col-md-12" style="margin-bottom: .1rem;">
+                        <label for="eventDate" class="block form-control-label">Tanggal Pelaksanaan Kompetisi</label>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <div class="form-control-wrapper">
+                                <input type="text" name="event_startdate" id="date-start" class="form-control floating-label" placeholder="Start Date">
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <div class="form-control-wrapper">
+                                <input type="text" name="event_closedate"  id="date-end" class="form-control floating-label" placeholder="End Date">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group row"> <div class="col-sm-10"> </div> </div>
+
+
+            </div>
+            <div class="row" style="padding-top: 3pt>
+                <button type="submit" class="btn btn-primary">Simpan</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- End of Add Competition Modal -->
+
 
 
       <!-- Required Jqurey -->
@@ -374,6 +378,7 @@
         // Components Initialization
         var fieldSet = $("<fieldset id='team" + key + "'></fieldset>");
         var legend = $("<legend>#"+ (index + 1) +"</legend>")
+        var categoryField = $("<input />", {"class": 'form-control', "type": 'text', "name": 'category[]', "placeholder":'ex: Ide Bisnis, UX Design, Smart City'});
         var coachField = $("<input />", {"class": 'form-control', "type": 'text', "name": 'coach[]', "placeholder":'NIDN Pembimbing'});
         var leaderField = $("<input />", {"class": 'form-control', "type": 'text', "name": 'leader[]', "placeholder":'NIM Ketua Tim'});
         var member1Field = $("<input />", {"class": 'form-control', "type": 'text', "name": 'member1[]', "placeholder":'NIM Anggota 1'});
@@ -381,7 +386,9 @@
         var member3Field = $("<input />", {"class": 'form-control', "type": 'text', "name": 'member3[]', "placeholder":'NIM Anggota 3'});
         var member4Field = $("<input />", {"class": 'form-control', "type": 'text', "name": 'member4[]', "placeholder":'NIM Anggota 4'});
         var removeButton = $("<button type='button' style='float:right' class='js-remove-button cancelBtn btn btn-warning waves-effect waves-light px-2 my-2'>Remove</button>")
+        
         // Components Set Value
+        categoryField.val(datum.category);
         coachField.val(datum.coach);
         leaderField.val(datum.leader);
         member1Field.val(datum.member1);
@@ -389,6 +396,10 @@
         member3Field.val(datum.member3);
         member4Field.val(datum.member4);
     
+        // Components Callbacks
+        categoryField.on('change', function(event){
+            _data[key].category = event.target.value;
+        });
         // Components Callbacks
         coachField.on('change', function(event){
             _data[key].coach = event.target.value;
@@ -416,6 +427,17 @@
             reloadComponents();
         });
         // Render Components
+        fieldSet.append(legend);
+        fieldSet.append(
+            $("<div/>", {"class": "form-group row"}).append([
+                    $("<label/>", {"class": "col-xs-2 col-form-label form-control-label"}).append([
+                    "Ketegori Kompetisi"
+                ]),
+                $("<div/>", {"class": "col-sm-10"}).append([
+                    categoryField
+                ])
+            ]) 
+        );
         fieldSet.append(legend);
         fieldSet.append(
             $("<div/>", {"class": "form-group row"}).append([
@@ -481,11 +503,11 @@
         $("#renderBox").append(fieldSet);
     }
     // Initialize data
-    _data[generateKey()] = { coach: '', leader: '', member1: '', member2: '', member3: '', member4: '' };
+    _data[generateKey()] = { category: '', coach: '', leader: '', member1: '', member2: '', member3: '', member4: '' };
     reloadComponents();
     $("body").on("click", "#add-team", function() {
         key = generateKey();
-        _data[key] = { coach: '', leader: '', member1: '', member2: '', member3: '', member4: '' };
+        _data[key] = { category: '', coach: '', leader: '', member1: '', member2: '', member3: '', member4: '' };
         newIndex = Object.keys(_data).length - 1
         addComponent(key, _data[key], newIndex);
     });
