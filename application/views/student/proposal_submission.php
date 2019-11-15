@@ -226,9 +226,8 @@
                     
                     <div class="form-group row"> <div class="col-sm-10"> </div> </div>
 
-
             </div>
-            <div class="row" style="padding-top: 3pt>
+            <div class="modal-footer" style="padding-top: 3pt">
                 <button type="submit" class="btn btn-primary">Simpan</button>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
             </div>
