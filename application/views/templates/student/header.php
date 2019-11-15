@@ -17,12 +17,13 @@
     <link rel="shortcut icon" href="<?php echo base_url();?>assets/images/favicon.png" type="image/x-icon">
     <link rel="icon" href="<?php echo base_url();?>assets/images/favicon.ico" type="image/x-icon">
 
-	<!-- Google font-->
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+	<!-- Google font https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800-->
+	<link href="<?php echo base_url();?>assets/css/font-api.css" rel="stylesheet">
 
-	<!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ=" crossorigin="anonymous" />
+	<!-- Font Awesome https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css -->
+    <link rel="stylesheet" href="<?php echo base_url();?>assets/css/all.css" integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />
+    <!-- Font Awesome https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css -->
+    <link rel="stylesheet" href="<?php echo base_url();?>assets/css/all.min.css" integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ=" crossorigin="anonymous" />
 
 	<!-- iconfont -->
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/icon/icofont/css/icofont.css">
