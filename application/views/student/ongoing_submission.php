@@ -31,44 +31,50 @@
                     <!-- Hover effect table starts -->
                     <div class="card">
                         <div class="card-header">
-                            <h5 class="card-header-text">List Pengajuan (finished)</h5>
+                            <h5 class="card-header-text">List Pengajuan (ongoing)</h5>
                         </div>
                         <div class="card-block">
                             <div class="row">
                                 <div class="col-sm-12 table-responsive">
-                                    <table class="table table-hover" id="finishedSubmissionTable">
+                                    <table class="table table-hover" id="ongoingSubmissionTable">
                                         <thead>
                                         <tr>
                                             <th>#</th>
                                             <th>Proposal</th>
-                                            <th>Tahun</th>
                                             <th>Status</th>
+                                            <th>Deadline Revisi</th>
                                             <th>Preview</th>
                                         </tr>
                                         </thead>
                                         <tbody>
                                             <?php
                                                 for ($no = 1; $no <= 4; $no++){
-                                                    $proposal_status='accepted';?>
+                                                    $proposal_status='revision';?>
                                                 <tr>
                                                     <td><?php echo $no ?></td>
                                                     <!-- GET name competition -->
                                                     <td>Gemastik</td>
-                                                    <!-- GET year of competition -->
-                                                    <td>2019</td>
                                                     <!-- GET status proposal -->
-                                                    <td><?php 
-                                                        if($proposal_status==='accepted'){?>
-                                                            <div class="label-main">
-                                                                <label class="label label-success">disetujui</label>
-                                                            </div>
-                                                        <?php } else if($proposal_status==='rejected') {
-                                                            ?>
-                                                            <div class="label-main">
-                                                                <label class="label bg-warning">ditolak</label>
-                                                            </div>
+                                                    <?php 
+                                                        if($proposal_status==='revision'){?>
+                                                            <td>
+                                                              <div class="label-main">
+                                                                  <label class="label label-warning">revisi</label>
+                                                              </div>
+                                                            </td>
+                                                            <td>
+                                                              <label class="label bg-danger">10 Oct 2019</label>
+                                                            </td>
+                                                        <?php } else if($proposal_status==='pending') { ?>
+                                                            <td>
+                                                              <div class="label-main">
+                                                                  <label class="label bg-secondary">pending</label>
+                                                              </div>
+                                                            </td>
+                                                            <td>
+                                                              <p>-</p>
+                                                            </td>
                                                         <?php } ?>
-                                                    </td>
                                                     <!-- GET status proposal -->
                                                     <td>
                                                         <!-- <div class="row"> -->
@@ -108,7 +114,7 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
-                <h5 class="modal-title">Review Proposal</h5>
+                <h5 class="modal-title">Preview Proposal</h5>
             </div>
             <div class="modal-body">
                 <div class="row">
@@ -129,14 +135,18 @@
                             </select>
                         </div>
                         <div class="md-input-wrapper">
-                            <textarea class="md-form-control md-static" cols="2" rows="1" readonly></textarea>
-                            <label>Jumlah dana yang disetujui</label>
+                            <textarea class="md-form-control md-static" cols="2" rows="4" readonly></textarea>
+                            <label>Catatan RAB</label>
+                        </div>
+                        <div class="md-input-wrapper">
+                            <textarea class="md-form-control md-static" cols="2" rows="4" readonly></textarea>
+                            <label>Catatan Konten</label>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <!-- download proposal -->
-                        <button type="button" class="btn btn-primary waves-effect waves-light">Download</button>
+                        <button type="button" class="btn btn-primary waves-effect waves-light">Download Proposal</button>
                 </div>
                 
             </div>
@@ -145,8 +155,58 @@
 </div>
 
 
+    <!-- Required Jqurey -->
+    <script
+        src="<?php echo base_url();?>assets/js/jquery-3.4.1.slim.min.js"
+        integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+        crossorigin="anonymous">
+    </script>
 
-                    <!-- apache_response_headers -->
+    <script src="<?php echo base_url();?>assets/plugins/jquery/dist/jquery.min.js"></script>
+    <script src="<?php echo base_url();?>assets/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <script src="<?php echo base_url();?>assets/plugins/tether/dist/js/tether.min.js"></script>
+    <!-- https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js -->
+    <script src="<?php echo base_url();?>assets/js/2.1.3jquery.min.js"></script> 
+    <!-- https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js -->
+    <script src="<?php echo base_url();?>assets/js/3.0.0-alpha1jquery.min.js"></script>
+
+    <!-- Required Fremwork -->
+    <script src="<?php echo base_url();?>assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+
+      <!-- waves effects.js -->
+      <script src="<?php echo base_url();?>assets/plugins/Waves/waves.min.js"></script>
+
+      <!-- Scrollbar JS-->
+      <script src="<?php echo base_url();?>assets/plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
+      <script src="<?php echo base_url();?>assets/plugins/jquery.nicescroll/jquery.nicescroll.min.js"></script>
+
+      <!--classic JS-->
+      <script src="<?php echo base_url();?>assets/plugins/classie/classie.js"></script>
+
+      <!-- notification -->
+      <script src="<?php echo base_url();?>assets/plugins/notification/js/bootstrap-growl.min.js"></script>
+
+
+      <!-- Rickshaw Chart js -->
+      <script src="<?php echo base_url();?>assets/plugins/d3/d3.js"></script>
+      <script src="<?php echo base_url();?>assets/plugins/rickshaw/rickshaw.js"></script>
+
+      <!-- Sparkline charts -->
+      <script src="<?php echo base_url();?>assets/plugins/jquery-sparkline/dist/jquery.sparkline.js"></script>
+
+      <!-- Counter js  -->
+      <script src="<?php echo base_url();?>assets/plugins/waypoints/jquery.waypoints.min.js"></script>
+      <script src="<?php echo base_url();?>assets/plugins/countdown/js/jquery.counterup.js"></script>
+
+		<!-- custom js -->
+		<script type="text/javascript" src="<?php echo base_url();?>assets/js/main.min.js"></script>
+      <script type="text/javascript" src="<?php echo base_url();?>assets/pages/dashboard.js"></script>
+      <script type="text/javascript" src="<?php echo base_url();?>assets/pages/elements.js"></script>
+		<script src="<?php echo base_url();?>assets/js/menu.min.js"></script>
+		
+
+
+<!-- apache_response_headers -->
 
     <!-- Required Jqurey -->
     <script src="<?php echo base_url();?>assets/plugins/jquery/dist/jquery.min.js"></script>
@@ -169,18 +229,53 @@
     <!-- notification -->
     <script src="<?php echo base_url();?>assets/plugins/notification/js/bootstrap-growl.min.js"></script>
 
+		<!-- Date picker.js -->
+		<script src="<?php echo base_url();?>assets/plugins/datepicker/js/moment-with-locales.min.js"></script>
+		<script src="<?php echo base_url();?>assets/plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js"></script>
+
+		<!-- Select 2 js -->
+		<script src="<?php echo base_url();?>assets/plugins/select2/dist/js/select2.full.min.js"></script>
+
+		<!-- Max-Length js -->
+		<script src="<?php echo base_url();?>assets/plugins/bootstrap-maxlength/src/bootstrap-maxlength.js"></script>
+
+		<!-- Multi Select js -->
+		<script src="<?php echo base_url();?>assets/plugins/bootstrap-multiselect/dist/js/bootstrap-multiselect.js"></script>
+		<script src="<?php echo base_url();?>assets/plugins/multiselect/js/jquery.multi-select.js"></script>
+		<script type="text/javascript" src="<?php echo base_url();?>assets/plugins/multi-select/js/jquery.quicksearch.js"></script>
+
+		<!-- Tags js -->
+		<script src="<?php echo base_url();?>assets/plugins/bootstrap-tagsinput/dist/bootstrap-tagsinput.js"></script>
+
+		<!-- Bootstrap Datepicker js -->
+    <script type="text/javascript" src="<?php echo base_url();?>assets/plugins/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+    <script src="<?php echo base_url();?>assets/plugins/bootstrap-datepicker/js/bootstrap-datetimepicker.min.js"></script>
+
+    <!-- bootstrap range picker -->
+    <script type="text/javascript" src="<?php echo base_url();?>assets/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
+
+		<!-- color picker -->
+		<script type="text/javascript" src="<?php echo base_url();?>assets/plugins/spectrum/spectrum.js"></script>
+		<script type="text/javascript" src="<?php echo base_url();?>assets/plugins/jscolor/jscolor.js"></script>
+
+		<!-- highlite js -->
+		<script type="text/javascript" src="<?php echo base_url();?>assets/plugins/syntaxhighlighter/scripts/shCore.js"></script>
+		<script type="text/javascript" src="<?php echo base_url();?>assets/plugins/syntaxhighlighter/scripts/shBrushJScript.js"></script>
+		<script type="text/javascript" src="<?php echo base_url();?>assets/plugins/syntaxhighlighter/scripts/shBrushXml.js"></script>
+    <script type="text/javascript">SyntaxHighlighter.all();</script>
+
 		<!-- custom js -->
 		<script type="text/javascript" src="<?php echo base_url();?>assets/js/main.min.js"></script>
 		<script type="text/javascript" src="<?php echo base_url();?>assets/pages/advance-form.js"></script>
 		<script src="<?php echo base_url();?>assets/js/menu.min.js"></script>
 		
-  
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
+
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
 
 
 <script> 
     $(document).ready( function () {
-        $('#finishedSubmissionTable').DataTable();
+        $('#ongoingSubmissionTable').DataTable();
     } );
 </script>
 
