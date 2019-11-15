@@ -347,12 +347,12 @@
                     </div>
                     <div class="col-sm-3">
                         <div class="row">
-                            <div class="col-sm-7 well well-sm">
+                            <!-- <div class="col-sm-7"> -->
                                 <!-- GET DUE DATE -->
-                                <div class="label-main">
+                                <!-- <div class="label-main"> -->
                                     <label class="label bg-danger">Deadline : 10 Oct 2019</label>
-                                </div>
-                            </div>
+                                <!-- </div> -->
+                            <!-- </div> -->
                         </div>
                         <div class="form-group">
                             <label for="teamMembers" class="form-control-label">Team Member</label>
