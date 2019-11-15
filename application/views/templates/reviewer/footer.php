@@ -83,7 +83,7 @@
     <script src="<?php echo base_url();?>assets/js/menu.min.js"></script>
 
     <script>
-        $(document).on("click", ".open-view-Modal", function () {
+        $(document).on("click", ".open-view-Modal-Revision", function () {
         var proposalId = $(this).data('id');
         $(".modal-body #proposalId").val( proposalId );
         $('#view-Modal-Revision').modal('show');
