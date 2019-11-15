@@ -21,7 +21,7 @@ class Student extends CI_Controller {
 	public function index()
 	{
 		$data['content'] = $this->template();
-		$this->load->view('templates/student/dashboard',$data);
+		$this->load->view('student/ongoing_submission',$data);
     }
     
     public function proposal_submission() //form
@@ -53,16 +53,28 @@ class Student extends CI_Controller {
 		$data['content'] = $this->template();
 		$data['department'] = json_decode($dpt);
 		$data['competition'] = json_decode($cmp);
-		$this->load->view('proposal_submission',$data);
-    }
+		$this->load->view('student/proposal_submission',$data);
+	}
+	
+
+	public function act_add_competition()
+	{
+
+	}
     
-    public function your_submission()
+    public function ongoing_submission()
 	{
 		$data['content'] = $this->template();
-		$this->load->view('/your_submission',$data);
+		$this->load->view('student/ongoing_submission',$data);
+	}
+    
+    public function finished_submission()
+	{
+		$data['content'] = $this->template();
+		$this->load->view('student/finished_submission',$data);
 	}
 
-	public function act_submission()
+	public function act_proposal_submission()
 	{
 		// setting konfigurasi upload
         $config['upload_path'] = './proposals/'; 
@@ -109,7 +121,7 @@ class Student extends CI_Controller {
 			CURLOPT_ENCODING => "",		
 			CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
 			CURLOPT_CUSTOMREQUEST => "POST",
-			CURLOPT_POSTFIELDS => "leader=".$leader."&member1=".$this->input->post("member1")[$index]."&member2=".$this->input->post("member2")[$index]."&member3=".$this->input->post("member3")[$index]."&member4=".$this->input->post("member4")[$index]."&mentor=".$this->input->post("coach")[$index]."&proposal=".$prop->id_proposal."",
+			CURLOPT_POSTFIELDS => "leader=".$leader."&member1=".$this->input->post("member1")[$index]."&member2=".$this->input->post("member2")[$index]."&member3=".$this->input->post("member3")[$index]."&member4=".$this->input->post("member4")[$index]."&mentor=".$this->input->post("coach")[$index]."&proposal=".$prop->id_proposal."&competition=".$this->input->post("category")[$index]."",
 			));	
 			$tim = curl_exec($curl);
 			$err = curl_error($curl);
@@ -118,10 +130,6 @@ class Student extends CI_Controller {
 			$index++;
 		}
 
-
-		
-
 	}
-
 
 }
