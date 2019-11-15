@@ -10,23 +10,27 @@
             </div>
             <!-- Sidebar Menu-->
             <ul class="sidebar-menu">
-                <li class="active treeview">
-                    <a class="waves-effect waves-dark" href="#">
+                <li class=" <?php if(current_url() === base_url().'index.php/Student'){
+                                echo 'active';}?> treeview">
+                    <a class="waves-effect waves-dark" href="<?php echo base_url();?>index.php/Student">
                         <i class="icon-speedometer"></i><span> Dashboard</span>
                     </a>                
                 </li>
                 <li class="nav-level">Proposal</li>
-                <li class="treeview">
+                <li class=" <?php if(current_url() === base_url().'index.php/Student/proposal_submission'){
+                                echo 'active';}?> treeview">
                     <a class="waves-effect waves-dark" href="<?php echo base_url();?>index.php/Student/proposal_submission">
                     <i class="fab fa-wpforms"></i><span> Ajukan Proposal</span>
                     </a> 
                 </li>
-                <li class="treeview">
+                <li class=" <?php if(current_url() === base_url().'index.php/Student/ongoing_submission'){
+                                    echo 'active';}?> treeview">
                     <a class="waves-effect waves-dark" href="<?php echo base_url();?>index.php/Student/ongoing_submission">
                         <i class="icon-list"></i><span> Pengajuan (on going)</span>
                     </a>                  
                 </li>
-                <li class="treeview">
+                <li class=" <?php if(current_url() === base_url().'index.php/Student/finished_submission'){
+                                    echo 'active';}?> treeview">
                     <a class="waves-effect waves-dark" href="<?php echo base_url();?>index.php/Student/finished_submission">
                         <i class="icon-list"></i><span> Pengajuan (finished)</span>
                     </a>                  

@@ -16,7 +16,7 @@ class Admin extends CI_Controller {
 		// $this->load->view('list_proposal_admin',$data);
 
 		$db["competitions"] = $this->m_competitions->getData();
-		$data1['content'] = $this->load->view('admin/list_kompetisi_admin',$db);
+		$data1['content'] = $this->load->view('templates/admin/dashboard',$db);
 		$data_['content_'] = $this->template($data1);
 		$this->load->view('templates/admin/template',$data_);
     }
