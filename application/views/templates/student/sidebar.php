@@ -17,7 +17,7 @@
                 </li>
                 <li class="nav-level">Proposal</li>
                 <li class="treeview">
-                    <a class="waves-effect waves-dark" href="<?php echo base_url();?>index.php/Student/proposal_submission">
+                    <a class="waves-effect waves-dark" href="<?php echo base_url();?>index.php/Student/_proposal_submission">
                     <i class="fab fa-wpforms"></i><span> Ajukan Proposal</span>
                     </a> 
                 </li>

@@ -21,7 +21,7 @@ class Student extends CI_Controller {
 	public function index()
 	{
 		$data['content'] = $this->template();
-		$this->load->view('templates/student/dashboard',$data);
+		$this->load->view('student/ongoing_submission',$data);
     }
     
     public function proposal_submission() //form
@@ -55,7 +55,17 @@ class Student extends CI_Controller {
 		$data['department'] = json_decode($dpt);
 		$data['competition'] = json_decode($cmp);
 		$this->load->view('proposal_submission',$data);
-    }
+	}
+	
+	public function act_proposal_submission()
+	{
+
+	}
+
+	public function act_add_competition()
+	{
+
+	}
     
     public function ongoing_submission()
 	{
@@ -70,32 +80,8 @@ class Student extends CI_Controller {
 	}
 
 	public function _proposal_submission()
-	{
-		// [teams] => Array ( 
-		// 	[coach] => Array ( 
-		// 	  [0] => 1 
-		// 	  [1] => 2 
-		// 	) 
-		// 	[leader] => Array ( 
-		// 	  [0] => 234 
-		// 	  [1] => 456 
-		// 	) 
-		// 	[member1] => Array ( 
-		// 	  [0] => 234 
-		// 	  [1] => 456 
-		// 	) 
-		// 	[member2] => Array ( 
-		// 	  [0] => 234 
-		// 	  [1] => 456 
-		// 	) 
-		// 	[member3] => Array ( 
-		// 	  [0] => 234 
-		// 	  [1] => 456 
-		// 	) 
-		// 	[member4] => Array ( 
-		// 	  [0] => 234 
-		// 	  [1] => 456 
-		// 	)
-		// )	
+	{	
+		$data['content'] = $this->template();
+		$this->load->view('student/proposal_submission',$data);
 	}
 }
