@@ -59,7 +59,27 @@ class Student extends CI_Controller {
 
 	public function act_add_competition()
 	{
+		//Kompetisi
+		// $ropen = $_POST['regist_opendate'];
+		
+		
+		$curl = curl_init();
+		curl_setopt_array($curl, array(
+		CURLOPT_URL => "http://localhost:8000/api/competitions",
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_ENCODING => "",		
+		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST => "POST",
+		CURLOPT_POSTFIELDS => "name=".$_POST['name']."&inst=".$_POST['institusion']."&cmpt_level=".$_POST['level']."&ropen=".$_POST['regist_opendate']."&rclose=".$_POST['regist_closedate']."&estart=".$_POST['event_startdate']."&eend=".$_POST['event_closedate']."&location=".$_POST['location']."",
+		));
 
+		$cmpt = curl_exec($curl);
+
+		$err = curl_error($curl);				
+		curl_close($curl);		
+
+		$this->proposal_submission();
+		
 	}
     
     public function ongoing_submission()
@@ -129,6 +149,8 @@ class Student extends CI_Controller {
 
 			$index++;
 		}
+
+		ongoing_submission();
 
 	}
 
