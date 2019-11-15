@@ -48,14 +48,16 @@
                                                     </li>
                                                 </ul>
                                                 <!-- Tab panes -->
+                                                <form enctype="multipart/form-data" action="<?=site_url('Student/act_submission')?>" method="post">
                                                 <div class="tab-content">
+
                                                     <div class="tab-pane active" id="proposal-document" role="tabpanel">
                                                         <!-- Proposal Document inputs starts -->
-                                                        <form enctype="multipart/form-data">
+                                                        
                                                             <div class="form-group row">
                                                                 <label for="department" class="col-xs-2 col-form-label form-control-label">Jurusan</label>
                                                                 <div class="col-sm-10">
-                                                                    <select class="form-control " name="department" id="department">
+                                                                    <select class="form-control" name="department" id="department">
 
                                                                     <?php	foreach($department as $key => $dpt) : ?>
 			                                                            <option value="<?= $dpt->id?>"> <?=$dpt->name ?></option>
@@ -121,7 +123,7 @@
 
                                                           <button type="button" class="btn btn-primary waves-effect waves-light prev" name="prev" id="prev">Sebelumnya</button>
                                                           <button type="button" class="btn btn-info waves-effect waves-light float-right px-2" name="add-team" id="add-team" >Tambah Tim </button>
-                                                          <button type="button" class="btn btn-success waves-effect waves-light float-right " name="submit" id="submit" >Submit</button>
+                                                          <button type="submit" class="btn btn-success waves-effect waves-light float-right " name="submit" id="submit" >Submit</button>
                                                         </div>
                                                         </form>
 
@@ -529,6 +531,8 @@
     }
 </script>
 
+<!-- select2 -->
+<script src="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/js/select2.min.js"></script>
 
 
 </body>

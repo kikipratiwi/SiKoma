@@ -6,7 +6,7 @@ class Student extends CI_Controller {
 		parent::__construct();
 		// $this->load->model('student');
 		// $this->load->database(); // load database
-		$this->load->helper('url');
+		$this->load->helper('url');			
 	}
 
 	public function template()
@@ -39,7 +39,6 @@ class Student extends CI_Controller {
 		$err = curl_error($curl);
 
 		//Kompetisi
-		$curl = curl_init();
 		curl_setopt_array($curl, array(
 		CURLOPT_URL => "http://localhost:8000/api/competitions",
 		CURLOPT_RETURNTRANSFER => true,
@@ -63,33 +62,66 @@ class Student extends CI_Controller {
 		$this->load->view('/your_submission',$data);
 	}
 
-	public function _proposal_submission()
+	public function act_submission()
 	{
-		// [teams] => Array ( 
-		// 	[coach] => Array ( 
-		// 	  [0] => 1 
-		// 	  [1] => 2 
-		// 	) 
-		// 	[leader] => Array ( 
-		// 	  [0] => 234 
-		// 	  [1] => 456 
-		// 	) 
-		// 	[member1] => Array ( 
-		// 	  [0] => 234 
-		// 	  [1] => 456 
-		// 	) 
-		// 	[member2] => Array ( 
-		// 	  [0] => 234 
-		// 	  [1] => 456 
-		// 	) 
-		// 	[member3] => Array ( 
-		// 	  [0] => 234 
-		// 	  [1] => 456 
-		// 	) 
-		// 	[member4] => Array ( 
-		// 	  [0] => 234 
-		// 	  [1] => 456 
-		// 	)
-		// )	
+		// setting konfigurasi upload
+        $config['upload_path'] = './proposals/'; 
+        $config['allowed_types'] = 'doc|docx';
+        $new_name = time().$_FILES["proposal"]['name'];        
+        $config['file_name'] = $new_name;
+
+        // load library upload
+        $this->load->library('upload', $config);
+		$this->upload->initialize($config);
+        if (!$this->upload->do_upload('proposal')) {
+            $error = $this->upload->display_errors();            
+            print_r($error);
+        } else {
+            $result = $this->upload->data();            
+        }
+
+		//Proposal
+		$curl = curl_init();
+		curl_setopt_array($curl, array(
+		CURLOPT_URL => "http://localhost:8000/api/mahasiswa/proposal",
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_ENCODING => "",		
+		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST => "POST",
+		CURLOPT_POSTFIELDS => "competition=".$_POST['competition']."&proposal=".$new_name."&department=".$_POST['department']."&draftbudget=".$_POST['budget']."&summary=".$_POST['summary']."",
+		));
+
+		$proposal = curl_exec($curl);
+		$err = curl_error($curl);
+		$prop = json_decode($proposal);
+		echo $prop->id_proposal;
+		// echo $prop;
+		curl_close($curl);
+
+		//Tim
+		$index = 0; // Set index array awal dengan 0    
+		foreach($this->input->post("leader") as $leader){ 
+
+			$curl = curl_init();
+			curl_setopt_array($curl, array(
+			CURLOPT_URL => "http://localhost:8000/api/mahasiswa/team",
+			CURLOPT_RETURNTRANSFER => true,
+			CURLOPT_ENCODING => "",		
+			CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+			CURLOPT_CUSTOMREQUEST => "POST",
+			CURLOPT_POSTFIELDS => "leader=".$leader."&member1=".$this->input->post("member1")[$index]."&member2=".$this->input->post("member2")[$index]."&member3=".$this->input->post("member3")[$index]."&member4=".$this->input->post("member4")[$index]."&mentor=".$this->input->post("coach")[$index]."&proposal=".$prop->id_proposal."",
+			));	
+			$tim = curl_exec($curl);
+			$err = curl_error($curl);
+			curl_close($curl);
+
+			$index++;
+		}
+
+
+		
+
 	}
+
+
 }
