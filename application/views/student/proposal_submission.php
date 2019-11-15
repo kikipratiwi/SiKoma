@@ -185,9 +185,10 @@
                         <div class="form-group col-md-6">
                             <label for="level" class="block form-control-label">Level Kompetisi</label>
                             <select class="form-control " name="level">
-                                <option>Regional</option>
-                                <option>Nasional</option>
-                                <option>Internasional</option>
+                                <option value="4">Kota</option>
+                                <option value="3">Provinsi</option>
+                                <option value="2">Nasional</option>
+                                <option value="1">Internasional</option>
                             </select>    
                         </div>
                     </div>
