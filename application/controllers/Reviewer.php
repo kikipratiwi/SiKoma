@@ -12,7 +12,7 @@ class Reviewer extends CI_Controller {
 	public function index()
 	{
 		$data['content'] = $this->template();
-		$this->load->view('list_proposal',$data);
+		$this->load->view('reviewer/list_proposal',$data);
 	}
 
 	public function template()
@@ -27,12 +27,6 @@ class Reviewer extends CI_Controller {
 	public function list_proposal()
 	{
 		$data['content'] = $this->template();
-		$this->load->view('list_proposal',$data);
-	}
-
-	public function list_review_proposal()
-	{
-		$data['content'] = $this->template();
-		$this->load->view('list_review_proposal',$data);
+		$this->load->view('reviewer/list_proposal',$data);
 	}
 }

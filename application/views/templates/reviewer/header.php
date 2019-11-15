@@ -17,9 +17,9 @@
     <link rel="shortcut icon" href="<?php echo base_url();?>assets/images/favicon.png" type="image/x-icon">
     <link rel="icon" href="<?php echo base_url();?>assets/images/favicon.ico" type="image/x-icon">
 
-    <!-- Google font-->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
-
+    <!-- Google font https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800-->
+	<link href="<?php echo base_url();?>assets/css/font-api.css" rel="stylesheet">
+    
     <!-- iconfont -->
     <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/icon/icofont/css/icofont.css">
 

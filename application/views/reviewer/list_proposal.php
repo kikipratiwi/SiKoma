@@ -120,7 +120,8 @@
                                                                             <?php } else { ?>
                                                                                 <div class="row">
                                                                                     <div class="col-sm-12">
-                                                                                        <a href="" class="btn btn-primary" data-toggle="modal" data-target="#view-Modal">
+                                                                                        <!-- data-id HERE -->
+                                                                                        <a href="" class="open-view-Modal btn btn-primary" data-id="10" data-toggle="modal" data-target="#view-Modal">
                                                                                             Review
                                                                                         </a>
                                                                                     </div>
@@ -215,7 +216,8 @@
                                                                             <?php } else { ?>
                                                                                 <div class="row">
                                                                                     <div class="col-sm-12">
-                                                                                        <a href="" class="btn btn-primary" data-toggle="modal" data-target="#view-Modal-Revision">
+                                                                                    <!-- data-id HERE -->
+                                                                                        <a href="" class="open-view-Modal-Revision btn btn-primary" data-id="10" data-toggle="modal" data-target="#view-Modal-Revision">
                                                                                             Review
                                                                                         </a>
                                                                                     </div>
@@ -261,6 +263,9 @@
             </div>
             <div class="modal-body">
                 <div class="row">
+                    <!-- get ID -->
+                    <input type="text" name="proposalId" id="proposalId" value=""/>
+                    <!-- get ID -->
                     <div class="col-sm-9">
                         <!-- GET Link to review Proposal -->
                         <iframe class="word" src="https://docs.google.com/gview?url=http://writing.engr.psu.edu/workbooks/formal_report_template.doc&embedded=true" frameborder="0"></iframe>
@@ -334,6 +339,8 @@
             </div>
             <div class="modal-body">
                 <div class="row">
+                    <!-- get ID -->
+                    <input type="text" name="proposalId" id="proposalId" value=""/>
                     <div class="col-sm-9">
                         <!-- GET Link to review Proposal -->
                         <iframe class="word" src="https://docs.google.com/gview?url=http://writing.engr.psu.edu/workbooks/formal_report_template.doc&embedded=true" frameborder="0"></iframe>
@@ -358,19 +365,20 @@
                                 <option>Anggota Tim 4</option>
                             </select>
                         </div>
-                        <div class="md-input-wrapper">
-                            <label>Catatan RAB *get data*</label>
-                            <!-- GET NOTES echo $proposal['notes']; -->
-                            <textarea class="md-form-control md-static" cols="2" rows="4"></textarea>
-                        </div>
-                        <div class="md-input-wrapper">
-                            <label>Catatan Konten *get data*</label>
-                            <!-- GET NOTES echo $proposal['notes']; -->
-                            <textarea class="md-form-control md-static" cols="2" rows="4"></textarea>
-                        </div>
-                        <label class="bold">Status</label>
-                        <div class="form-radio">
-                            <form>
+                        <!-- Update Proposal -->
+                        <form method="POST" action="">
+                            <div class="md-input-wrapper">
+                                <label>Catatan RAB *get data*</label>
+                                <!-- GET NOTES echo $proposal['notes']; -->
+                                <textarea class="md-form-control md-static" cols="2" rows="4"></textarea>
+                            </div>
+                            <div class="md-input-wrapper">
+                                <label>Catatan Konten *get data*</label>
+                                <!-- GET NOTES echo $proposal['notes']; -->
+                                <textarea class="md-form-control md-static" cols="2" rows="4"></textarea>
+                            </div>
+                            <label class="bold">Status</label>
+                            <div class="form-radio">
                                 <div class="radio radio-inline">
                                     <label>
                                         <input type="radio" name="radio">
