@@ -323,7 +323,7 @@
     });
 
     $(function () {
-        $('.media').media({width: 1000, height:450});
+        $('.media').media({width: 800, height:450});
     });
 
 </script>

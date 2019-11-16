@@ -326,7 +326,7 @@
     });
 
     $(function () {
-        $('.media').media({width: 1000, height:450});
+        $('.media').media({width: 950, height:430});
     });
 </script>
 
