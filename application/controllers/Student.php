@@ -154,4 +154,14 @@ class Student extends CI_Controller {
 
 	}
 
+	public function revision_submission() {
+		// $proposal_id = $_POST['id']; /* define later*/
+		$data['content'] = $this->template();
+		$this->load->view('student/revision_submission',$data);
+	}
+
+	public function act_revision_submission() {
+		
+	}
+
 }
