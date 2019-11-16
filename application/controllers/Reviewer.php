@@ -29,4 +29,10 @@ class Reviewer extends CI_Controller {
 		$data['content'] = $this->template();
 		$this->load->view('reviewer/list_proposal',$data);
 	}
+
+	public function list_review_proposal()
+	{
+		$data['content'] = $this->template();
+		$this->load->view('reviewer/revisi_proposal',$data);
+	}
 }

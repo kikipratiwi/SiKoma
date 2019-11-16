@@ -109,7 +109,7 @@
 </div>
 
 <!-- MODAL PREVIEW PROPOSAL -->
-<div class="modal fade modal-flex openViewModalPreviewProposal" id="view-Modal-Preview-Proposal" tabindex="-1" role="dialog">
+<div class="modal fade modal-flex" id="view-Modal-Preview-Proposal" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -122,7 +122,8 @@
                 <div class="row">
                     <div class="col-sm-9">
                         <!-- GET Link to review Proposal -->
-                        <iframe class="word" id="linkProposal" src="https://docs.google.com/gview?url=http://writing.engr.psu.edu/workbooks/formal_report_template.doc&embedded=true" frameborder="0"></iframe>
+                        <a class="media" href="<?php echo base_url();?>assets/1.pdf"></a>
+                        <!-- <iframe class="word" id="linkProposal" src="https://docs.google.com/gview?url=http://writing.engr.psu.edu/workbooks/formal_report_template.doc&embedded=true" frameborder="0"></iframe> -->
                     </div>
                     <div class="col-sm-3">
                         <div class="form-group">
@@ -291,6 +292,7 @@
 		
 
   <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
+  <script type="text/javascript" src="http://malsup.github.com/jquery.media.js"></script>
 
 
 <script> 
@@ -321,6 +323,10 @@
         $(".modal-body #deadline").val( deadline );
 
         $('#view-Modal-Preview-Proposal').modal('show');
+    });
+
+    $(function () {
+        $('.media').media({width: 1000, height:450});
     });
 </script>
 

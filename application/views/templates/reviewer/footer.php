@@ -94,7 +94,8 @@
     <script type="text/javascript" src="<?php echo base_url();?>assets/pages/elements.js"></script>
     <script src="<?php echo base_url();?>assets/js/menu.min.js"></script>
 
-    
+    <!-- <script type="text/javascript" charset="utf8" src="<?php echo base_url();?>assets/js/jquery.dataTables.js"></script> -->
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
 
 </body>
 
