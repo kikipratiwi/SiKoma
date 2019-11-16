@@ -11,8 +11,8 @@ class Home extends CI_Controller {
 
 	public function index()
 	{
-		$data['content'] = $this->template();
-		$this->load->view('terms',$data);
+		// $data['content'] = $this->template();
+		$this->load->view('terms','');
 	}
     public function template()
 	{
