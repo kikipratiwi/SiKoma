@@ -39,7 +39,7 @@
                                     <table class="table table-hover" id="ongoingSubmissionTable">
                                         <thead>
                                         <tr>
-                                            <th>#</th>
+                                            <th>No</th>
                                             <th>Proposal</th>
                                             <th>Status</th>
                                             <th>Deadline Revisi</th>
@@ -79,7 +79,9 @@
                                                     <td>
                                                         <!-- <div class="row"> -->
                                                             <!-- <div class="col-sm-12"> -->
-                                                                <a href="" class="btn btn-primary" data-toggle="modal" data-target="#view-Modal-Preview-Proposal">
+                                                                <a href="" id="previewPorposal" class="open-view-Modal-Preview btn btn-primary" data-toggle="modal" data-target="#view-Modal-Preview-Proposal"
+                                                                data-proposal='{"id":"10","leader":"leader","member1":"member1","member2":"member2","member3":"member3","member4":"member4",
+                                                                                "linkProposal":"linkProposal","budgetNotes":"budgetNotes","contentNotes":"contentNotes","deadline":"deadline"}'>
                                                                     Preview
                                                                 </a>
                                                             <!-- </div> -->
@@ -107,7 +109,7 @@
 </div>
 
 <!-- MODAL PREVIEW PROPOSAL -->
-<div class="modal fade modal-flex" id="view-Modal-Preview-Proposal" tabindex="-1" role="dialog">
+<div class="modal fade modal-flex openViewModalPreviewProposal" id="view-Modal-Preview-Proposal" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -120,26 +122,44 @@
                 <div class="row">
                     <div class="col-sm-9">
                         <!-- GET Link to review Proposal -->
-                        <iframe class="word" src="https://docs.google.com/gview?url=http://writing.engr.psu.edu/workbooks/formal_report_template.doc&embedded=true" frameborder="0"></iframe>
+                        <iframe class="word" id="linkProposal" src="https://docs.google.com/gview?url=http://writing.engr.psu.edu/workbooks/formal_report_template.doc&embedded=true" frameborder="0"></iframe>
                     </div>
                     <div class="col-sm-3">
                         <div class="form-group">
                             <label for="teamMembers" class="form-control-label">Anggota Tim</label>
                             <!-- GET Team Member-->
-                            <select multiple class="form-control multiple-select" size="10" id="teamMembers">
-                                <option>Ketua</option>
-                                <option>Anggota Tim 1</option>
-                                <option>Anggota Tim 2</option>
-                                <option>Anggota Tim 3</option>
-                                <option>Anggota Tim 4</option>
-                            </select>
+                            <p id="leaderTeam">
+                                <script>
+                                    document.write($('#previewPorposal').data('proposal').leader);
+                                </script>
+                            </p>
+                            <p id="member1">
+                                <script>
+                                    document.write($('#previewPorposal').data('proposal').member1);
+                                </script>
+                            </p>
+                            <p id="member2">
+                                <script>
+                                    document.write($('#previewPorposal').data('proposal').member2);
+                                </script>
+                            </p>
+                            <p id="member3">
+                                <script>
+                                    document.write($('#previewPorposal').data('proposal').member3);
+                                </script>
+                            </p>
+                            <p id="member4">
+                                <script>
+                                    document.write($('#previewPorposal').data('proposal').member4);
+                                </script>
+                            </p>
                         </div>
                         <div class="md-input-wrapper">
-                            <textarea class="md-form-control md-static" cols="2" rows="4" readonly></textarea>
+                            <textarea id="budgetNotes" class="md-form-control md-static" cols="2" rows="4" readonly></textarea>
                             <label>Catatan RAB</label>
                         </div>
                         <div class="md-input-wrapper">
-                            <textarea class="md-form-control md-static" cols="2" rows="4" readonly></textarea>
+                            <textarea id="contentNotes" class="md-form-control md-static" cols="2" rows="4" readonly></textarea>
                             <label>Catatan Konten</label>
                         </div>
                     </div>
@@ -276,7 +296,32 @@
 <script> 
     $(document).ready( function () {
         $('#ongoingSubmissionTable').DataTable();
-    } );
+    });
+
+    $(document).on("click", ".open-view-Modal-Preview", function () {
+        var idProposal = $('#previewPorposal').data('proposal').id;
+        $(".modal-body #idProposal").val( idProposal );
+        var leaderTeam = $('#previewPorposal').data('proposal').leader;
+        $(".modal-body #leaderTeam").val( leaderTeam );
+        var member1 = $('#previewPorposal').data('proposal').member1;
+        $(".modal-body #member1").val( member1 );
+        var member2 = $('#previewPorposal').data('proposal').member2;
+        $(".modal-body #member2").val( member2 );
+        var member3 = $('#previewPorposal').data('proposal').member3;
+        $(".modal-body #member3").val( member3 );
+        var member4 = $('#previewPorposal').data('proposal').member4;
+        $(".modal-body #member4").val( member4 );
+        var linkProposal = $('#previewPorposal').data('proposal').linkProposal;
+        $(".modal-body #linkProposal").val( linkProposal );
+        var budgetNotes = $('#previewPorposal').data('proposal').budgetNotes;
+        $(".modal-body #budgetNotes").val( budgetNotes );
+        var contentNotes = $('#previewPorposal').data('proposal').contentNotes;
+        $(".modal-body #contentNotes").val( contentNotes );
+        var deadline = $('#previewPorposal').data('proposal').deadline;
+        $(".modal-body #deadline").val( deadline );
+
+        $('#view-Modal-Preview-Proposal').modal('show');
+    });
 </script>
 
 
