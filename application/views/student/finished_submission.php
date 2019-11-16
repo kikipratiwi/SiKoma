@@ -77,7 +77,9 @@
                                                     <td>
                                                         <!-- <div class="row"> -->
                                                             <!-- <div class="col-sm-12"> -->
-                                                                <a href="" class="btn btn-primary" data-toggle="modal" data-target="#view-Modal-Preview-Proposal">
+                                                                <a href="" id="finishedPorposal"  class="btn btn-primary" data-toggle="modal" data-target="#view-Modal-Finished-Proposal"
+                                                                data-proposal='{"id":"10","leader":"leader","member1":"member1","member2":"member2","member3":"member3","member4":"member4",
+                                                                                "linkProposal":"linkProposal","budgetNotes":"budgetNotes","contentNotes":"contentNotes","deadline":"deadline"}'>
                                                                     Preview
                                                                 </a>
                                                             <!-- </div> -->
@@ -108,7 +110,7 @@
 </div>
 
 <!-- MODAL PREVIEW PROPOSAL -->
-<div class="modal fade modal-flex" id="view-Modal-Preview-Proposal" tabindex="-1" role="dialog">
+<div class="modal fade modal-flex openViewModalFinishedProposal" id="view-Modal-Finished-Proposal" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -127,13 +129,31 @@
                         <div class="form-group">
                             <label for="teamMembers" class="form-control-label">Anggota Tim</label>
                             <!-- GET Team Member-->
-                            <select multiple class="form-control multiple-select" size="10" id="teamMembers">
-                                <option>Ketua</option>
-                                <option>Anggota Tim 1</option>
-                                <option>Anggota Tim 2</option>
-                                <option>Anggota Tim 3</option>
-                                <option>Anggota Tim 4</option>
-                            </select>
+                            <p id="leaderTeam">
+                                <script>
+                                    document.write($('#finishedPorposal').data('proposal').leader);
+                                </script>
+                            </p>
+                            <p id="member1">
+                                <script>
+                                    document.write($('#finishedPorposal').data('proposal').member1);
+                                </script>
+                            </p>
+                            <p id="member2">
+                                <script>
+                                    document.write($('#finishedPorposal').data('proposal').member2);
+                                </script>
+                            </p>
+                            <p id="member3">
+                                <script>
+                                    document.write($('#finishedPorposal').data('proposal').member3);
+                                </script>
+                            </p>
+                            <p id="member4">
+                                <script>
+                                    document.write($('#finishedPorposal').data('proposal').member4);
+                                </script>
+                            </p>
                         </div>
                         <div class="md-input-wrapper">
                             <textarea class="md-form-control md-static" cols="2" rows="1" readonly></textarea>
@@ -274,6 +294,31 @@
     $(document).ready( function () {
         $('#finishedSubmissionTable').DataTable();
     } );
+
+    $(document).on("click", ".open-view-Modal-Preview", function () {
+        var idProposal = $('#finishedPorposal').data('proposal').id;
+        $(".modal-body #idProposal").val( idProposal );
+        var leaderTeam = $('#finishedPorposal').data('proposal').leader;
+        $(".modal-body #leaderTeam").val( leaderTeam );
+        var member1 = $('#finishedPorposal').data('proposal').member1;
+        $(".modal-body #member1").val( member1 );
+        var member2 = $('#finishedPorposal').data('proposal').member2;
+        $(".modal-body #member2").val( member2 );
+        var member3 = $('#finishedPorposal').data('proposal').member3;
+        $(".modal-body #member3").val( member3 );
+        var member4 = $('#finishedPorposal').data('proposal').member4;
+        $(".modal-body #member4").val( member4 );
+        var linkProposal = $('#finishedPorposal').data('proposal').linkProposal;
+        $(".modal-body #linkProposal").val( linkProposal );
+        var budgetNotes = $('#finishedPorposal').data('proposal').budgetNotes;
+        $(".modal-body #budgetNotes").val( budgetNotes );
+        var contentNotes = $('#finishedPorposal').data('proposal').contentNotes;
+        $(".modal-body #contentNotes").val( contentNotes );
+        var deadline = $('#finishedPorposal').data('proposal').deadline;
+        $(".modal-body #deadline").val( deadline );
+
+        $('#view-Modal-Finished-Proposal').modal('show');
+    });
 </script>
 
 
