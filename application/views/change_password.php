@@ -20,6 +20,11 @@
 							<input type="password" name="new_password" class="md-form-control" />
 							<label>Kata sandi baru</label>
 						</div>
+						</div>
+						<div class="md-input-wrapper">
+							<input type="password" name="confirmation_new_password" class="md-form-control" />
+							<label>Konfirmasi kata sandi baru</label>
+						</div>
 						<div class="row">
 							<div class="col-xs-10 offset-xs-1">
 								<button type="submit" class="btn btn-primary btn-md btn-block waves-effect text-center m-b-20">SIMPAN</button>

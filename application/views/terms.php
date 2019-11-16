@@ -71,8 +71,8 @@
             position: fixed;
         }
 
-        .mt-4 {
-            margin-top: 4rem;
+        .mt-3 {
+            margin-top: 3rem;
         }
             
     </style>
@@ -84,7 +84,7 @@
   <div class="bg-image">
 	<!-- Container-fluid starts -->
 	<div class="container-fluid">
-		<div class="row mt-4">
+		<div class="row mt-3">
                 <div class="col-lg-2">
                 </div>
                 <!-- Single Open Accordion start -->
@@ -92,6 +92,32 @@
                     <div class="card">
                     <div class="card-header">
                         <h5 class="card-header-text text-center">Informasi Seputar Pengajuan Proposal Kompetisi</h5>
+                        
+                        <?php if("belum login") {?>
+                            <span style="float: right;">
+                                <a href="<?php echo base_url(); ?>index.php/Authentication/login">
+                                    <button type="button" class="btn btn-primary waves-effect waves-light prev">Login</button>
+                                </a>
+                            </span>
+                        <?php }else if("session role == admin") {?>
+                            <span style="float: right;">
+                                <a href="<?php echo base_url(); ?>index.php/Admin/dashboard">
+                                    <button type="button" class="btn btn-primary waves-effect waves-light prev">Dashboard</button>
+                                </a>
+                            </span>
+                        <?php }else if("session role == student") {?>
+                            <span style="float: right;">
+                                <a href="<?php echo base_url(); ?>index.php/Student/dashboard">
+                                    <button type="button" class="btn btn-primary waves-effect waves-light prev">Dashboard</button>
+                                </a>
+                            </span>
+                        <?php }else if("session role == reviewer") {?>
+                            <span style="float: right;">
+                                <a href="<?php echo base_url(); ?>index.php/Reviewer/dashboard">
+                                    <button type="button" class="btn btn-primary waves-effect waves-light prev">Dashboard</button>
+                                </a>
+                            </span>
+                        <?php }?>
                     </div>
                     <div class="card-block accordion-block">
                         <div class="accordion-box" id="sclae-accordion">
@@ -101,8 +127,10 @@
                                     <li>	Pastikan jurusan anda telah menyerahkan langsung <b>SPJ dan LPJ</b> dari kompetisi sebelumnya ke bagian kemahasiswaan</li>
                                     <li>	Maksimal upload proposal adalah <b>H-7</b> tanggal penutupan pendaftaran kompetisi	</li>
                                     <li>	Pastikan proposal yang diupload telah sesuai dengan <b>template</b> dan disetujui oleh pembimbing	</li>
-                                    <li>	Anda dapat mengunduh template proposal pada link berikut <a href="#">Template Proposal</a>	</li>
+                                    <li>	Anda dapat mengunduh template proposal pada link berikut <a href="<?php echo base_url(); ?>data/template/proposal_template.docx">Template Proposal</a>	</li>
+                                    <li>	Proposal yang diupload berupa .pdf	</li>
                                     <li>	Progress pengajuan proposal dapat dilihat pada menu <b>"List Proposal (ongoing)"</b>	</li>
+                                    <li>	Pengajuan proposal memiliki 4 status, yaitu <b>pending</b> (belum direview bag. kemahasiswaan), <b>revisi</b>, <b>diterima</b> atau <b> ditolak </b>	</li>
                                     <li>	Setiap catatan revisi yang diberikan oleh reviewer memiliki <b>deadline</b>, pastikan menyelesaikan revisi sebelum deadline. Jika melebihi deadline maka proposal anda akan otomatis <b>ditolak</b>	</li>
                                     <li>	Jika proposal telah <b>"disetujui"</b>, serahkan hardcopy proposal ke bagian kemahasiswaan	</li>
                                     <li>	Anda dapat mengambil dana jika proposal yang Anda ajukan telah berstatus <b>"dana telah cair"</b>	</li></p>
