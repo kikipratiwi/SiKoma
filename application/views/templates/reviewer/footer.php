@@ -84,16 +84,47 @@
 
     <script>
         $(document).on("click", ".open-view-Modal-Revision", function () {
-        var proposalId = $(this).data('id');
-        $(".modal-body #proposalId").val( proposalId );
-        $('#view-Modal-Revision').modal('show');
-    });
+            var idProposal = $('#proposalRevision').data('proposal').id;
+            $(".modal-body #idProposal").val( idProposal );
+            var leaderTeam = $('#proposalRevision').data('proposal').leader;
+            $(".modal-body #leaderTeam").val( leaderTeam );
+            var member1 = $('#proposalRevision').data('proposal').member1;
+            $(".modal-body #member1").val( member1 );
+            var member2 = $('#proposalRevision').data('proposal').member2;
+            $(".modal-body #member2").val( member2 );
+            var member3 = $('#proposalRevision').data('proposal').member3;
+            $(".modal-body #member3").val( member3 );
+            var member4 = $('#proposalRevision').data('proposal').member4;
+            $(".modal-body #member4").val( member4 );
+            var linkProposal = $('#proposalRevision').data('proposal').linkProposal;
+            $(".modal-body #linkProposal").val( linkProposal );
+            var budgetNotes = $('#proposalRevision').data('proposal').budgetNotes;
+            $(".modal-body #budgetNotes").val( budgetNotes );
+            var contentNotes = $('#proposalRevision').data('proposal').contentNotes;
+            $(".modal-body #contentNotes").val( contentNotes );
+            var deadline = $('#proposalRevision').data('proposal').deadline;
+            $(".modal-body #deadline").val( deadline );
+
+            $('#viewModalRevision').modal('show');
+        });
 
         $(document).on("click", ".open-view-Modal", function () {
-        var proposalId = $(this).data('id');
-        $(".modal-body #proposalId").val( proposalId );
-        $('#view-Modal').modal('show');
-    });
+            var idProposal = $('#proposalNew').data('proposal').id;
+            $(".modal-body #idProposal").val( idProposal );
+            var leaderTeam = $('#proposalNew').data('proposal').leader;
+            $(".modal-body #leaderTeam").val( leaderTeam );
+            var member1 = $('#proposalNew').data('proposal').member1;
+            $(".modal-body #member1").val( member1 );
+            var member2 = $('#proposalNew').data('proposal').member2;
+            $(".modal-body #member2").val( member2 );
+            var member3 = $('#proposalNew').data('proposal').member3;
+            $(".modal-body #member3").val( member3 );
+            var member4 = $('#proposalNew').data('proposal').member4;
+            $(".modal-body #member4").val( member4 );
+
+            $('#view-Modal').modal('show');
+        });
+
     </script>
 
 </body>
