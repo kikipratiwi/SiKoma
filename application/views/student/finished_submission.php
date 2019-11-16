@@ -39,7 +39,7 @@
                                     <table class="table table-hover" id="finishedSubmissionTable">
                                         <thead>
                                         <tr>
-                                            <th>#</th>
+                                            <th>No</th>
                                             <th>Proposal</th>
                                             <th>Tahun</th>
                                             <th>Status</th>
@@ -110,7 +110,7 @@
 </div>
 
 <!-- MODAL PREVIEW PROPOSAL -->
-<div class="modal fade modal-flex openViewModalFinishedProposal" id="view-Modal-Finished-Proposal" tabindex="-1" role="dialog">
+<div class="modal fade modal-flex" id="view-Modal-Finished-Proposal" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -122,9 +122,12 @@
             <div class="modal-body">
                 <div class="row">
                     <div class="col-sm-9">
+
                         <!-- GET Link to review Proposal -->
-                        <iframe class="word" id="propose" src="https://view.officeapps.live.com/op/embed.aspx?src=http://localhost/PKM/kompetisi-mahasiswa/data/1573814791ProposalIdeafuse.docx" width='100%' height='900px' frameborder='0'></iframe>
                         
+                        <!-- GET Link to review Proposal File -->
+                        <a class="media" href="<?php echo base_url();?>assets/1.pdf"></a>
+                        <!-- <iframe class="word" src="https://docs.google.com/gview?url=http://writing.engr.psu.edu/workbooks/formal_report_template.doc&embedded=true" frameborder="0"></iframe> -->
                     </div>
                     <div class="col-sm-3">
                         <div class="form-group">
@@ -291,6 +294,7 @@
 		
 
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
+<script type="text/javascript" src="http://malsup.github.com/jquery.media.js"></script>
 
 
 <script> 
@@ -321,6 +325,11 @@
         $('#view-Modal-Finished-Proposal').modal('show');
         console.log(dana);
     });
+
+    $(function () {
+        $('.media').media({width: 800, height:450});
+    });
+
 </script>
 
 

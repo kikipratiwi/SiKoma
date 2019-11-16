@@ -20,13 +20,13 @@
                 <li class=" <?php if(current_url() === base_url().'index.php/Reviewer/list_proposal'){
                                 echo 'active';}?> treeview">
                     <a class="waves-effect waves-dark" href="<?php echo base_url();?>index.php/Reviewer/list_proposal">
-                        <i class="icon-list"></i><span>Proposal</span>
+                        <i class="icon-list"></i><span>Pengajuan Baru</span>
                     </a>                
                 </li>
                 <li class=" <?php if(current_url() === base_url().'index.php/Reviewer/list_review_proposal'){
                                 echo 'active';}?> treeview">
                     <a class="waves-effect waves-dark" href="<?php echo base_url();?>index.php/Reviewer/list_review_proposal">
-                        <i class="icon-list"></i><span>Proposal revisi</span>
+                        <i class="icon-list"></i><span>Revisi</span>
                     </a>                
                 </li>
             </ul>
