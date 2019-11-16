@@ -236,7 +236,7 @@
                                                                                         <a href="" id="proposalRevision" class="open-view-Modal-Revision btn btn-primary" 
                                                                                         data-proposal='{"id":"10","leader":"leader","member1":"member1","member2":"member2","member3":"member3","member4":"member4",
                                                                                         "linkProposal":"linkProposal","budgetNotes":"budgetNotes","contentNotes":"contentNotes","deadline":"deadline"}' 
-                                                                                        data-toggle="modal" data-target="#view-Modal-Revision">
+                                                                                        data-toggle="modal" data-target="#viewModalRevision">
                                                                                             Review
                                                                                         </a>
                                                                                     </div>
@@ -294,17 +294,31 @@
                     <div class="form-group">
                             <label for="teamMembers" class="form-control-label">Anggota Tim</label>
                             <!-- GET Team member -->
-                            <div class="label-main">
-                                <p id="leaderTeam">
-                                    <script>
-                                        document.write(leaderTeam);
-                                    </script>
-                                </p>
-                                <p id="member1"></p>
-                                <p id="member2"></p>
-                                <p id="member3"></p>
-                                <p id="member4"></p>
-                            </div>
+                            <p id="leaderTeam">
+                                <script>
+                                    document.write($('#proposalNew').data('proposal').leader);
+                                </script>
+                            </p>
+                            <p id="member1">
+                                <script>
+                                    document.write($('#proposalNew').data('proposal').member1);
+                                </script>
+                            </p>
+                            <p id="member2">
+                                <script>
+                                    document.write($('#proposalNew').data('proposal').member2);
+                                </script>
+                            </p>
+                            <p id="member3">
+                                <script>
+                                    document.write($('#proposalNew').data('proposal').member3);
+                                </script>
+                            </p>
+                            <p id="member4">
+                                <script>
+                                    document.write($('#proposalNew').data('proposal').member4);
+                                </script>
+                            </p>
 
                             <!-- <select multiple class="form-control multiple-select" id="teamMembers">
                                 <option>Ketua</option>
@@ -315,7 +329,7 @@
                             </select> -->
                         </div>
                         <div class="md-input-wrapper">
-                            <textarea id="budgetNotes" class="md-form-control md-static" cols="2" rows="4"></textarea>
+                            <textarea id="leaderTeam" class="md-form-control md-static" cols="2" rows="4"></textarea>
                             <label>Catatan RAB</label>
                         </div>
                         <div class="md-input-wrapper">
@@ -360,7 +374,7 @@
 </div>
 
 <!-- MODAL REVIEW REVISION -->
-<div class="modal fade modal-flex" id="view-Modal-Revision" tabindex="-1" role="dialog">
+<div class="modal fade modal-flex" id="viewModalRevision" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -387,15 +401,33 @@
                             <!-- </div> -->
                         </div>
                         <div class="form-group">
-                            <label for="teamMembers" class="form-control-label">Team Member</label>
+                            <label for="teamMembers" class="form-control-label">Anggota Tim</label>
                             <!-- GET Team Member-->
-                            <div class="label-main">
-                                <p id="leaderTeam"></p>
-                                <p id="member1"></p>
-                                <p id="member2"></p>
-                                <p id="member3"></p>
-                                <p id="member4"></p>
-                            </div>
+                            <p id="leaderTeam">
+                                <script>
+                                    document.write($('#proposalNew').data('proposal').leader);
+                                </script>
+                            </p>
+                            <p id="member1">
+                                <script>
+                                    document.write($('#proposalNew').data('proposal').member1);
+                                </script>
+                            </p>
+                            <p id="member2">
+                                <script>
+                                    document.write($('#proposalNew').data('proposal').member2);
+                                </script>
+                            </p>
+                            <p id="member3">
+                                <script>
+                                    document.write($('#proposalNew').data('proposal').member3);
+                                </script>
+                            </p>
+                            <p id="member4">
+                                <script>
+                                    document.write($('#proposalNew').data('proposal').member4);
+                                </script>
+                            </p>
                             <!-- <select multiple class="form-control multiple-select" id="teamMembers">
                                 <option>Ketua</option>
                                 <option>Anggota Tim 1</option>
