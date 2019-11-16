@@ -47,22 +47,26 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                            <?php
-                                                for ($no = 1; $no <= 4; $no++){
-                                                    $proposal_status='accepted';?>
+                                            
+                                
+                                                <?php   
+                                                    $index = 1;
+                                                    foreach($proposal as $key => $pr) : 
+                                                ?>
+                                                    
                                                 <tr>
-                                                    <td><?php echo $no ?></td>
+                                                    <td><?php echo $index ?></td>
                                                     <!-- GET name competition -->
-                                                    <td>Gemastik</td>
+                                                    <td><?php echo $pr->competition->name ?></td>
                                                     <!-- GET year of competition -->
-                                                    <td>2019</td>
+                                                    <td><?php echo $pr->competition->year ?></td>
                                                     <!-- GET status proposal -->
                                                     <td><?php 
-                                                        if($proposal_status==='accepted'){?>
+                                                        if($pr->proposal->status==='ACCEPTED'){?>
                                                             <div class="label-main">
                                                                 <label class="label label-success">disetujui</label>
                                                             </div>
-                                                        <?php } else if($proposal_status==='rejected') {
+                                                        <?php } else if($pr->proposal->status==='REJECTED') {
                                                             ?>
                                                             <div class="label-main">
                                                                 <label class="label bg-warning">ditolak</label>
@@ -80,8 +84,11 @@
                                                         <!-- </div> -->
                                                     </td>
                                                 </tr>
-                                                <?php
-                                            };?>
+                                                <?php 
+                                                    $index++;
+                                                    endforeach;
+                                                ?>
+                                                
                                         </tbody>
                                     </table>
                                 </div>

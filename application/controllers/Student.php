@@ -49,6 +49,7 @@ class Student extends CI_Controller {
 
 		$cmp = curl_exec($curl);
 		$errcmp = curl_error($curl);
+		curl_close($curl);	
 
 		$data['content'] = $this->template();
 		$data['department'] = json_decode($dpt);
@@ -90,6 +91,22 @@ class Student extends CI_Controller {
     
     public function finished_submission()
 	{
+		$curl = curl_init();
+		//bandung = 23
+		curl_setopt_array($curl, array(
+		CURLOPT_URL => "http://localhost:8000/api/mahasiswa/proposal/finished?nim=171511046",
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_ENCODING => "",		
+		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST => "GET",
+		));
+
+		$proposal = curl_exec($curl);
+		$err = curl_error($curl);
+
+		curl_close($curl);
+
+		$data['proposal'] = json_decode($proposal);
 		$data['content'] = $this->template();
 		$this->load->view('student/finished_submission',$data);
 	}
@@ -97,7 +114,7 @@ class Student extends CI_Controller {
 	public function act_proposal_submission()
 	{
 		// setting konfigurasi upload
-        $config['upload_path'] = './proposals/'; 
+        $config['upload_path'] = './assets/proposals/'; 
         $config['allowed_types'] = 'doc|docx';
         $new_name = time().$_FILES["proposal"]['name'];        
         $config['file_name'] = $new_name;
@@ -125,9 +142,7 @@ class Student extends CI_Controller {
 
 		$proposal = curl_exec($curl);
 		$err = curl_error($curl);
-		$prop = json_decode($proposal);
-		echo $prop->id_proposal;
-		// echo $prop;
+		$prop = json_decode($proposal);		
 		curl_close($curl);
 
 		//Tim
@@ -150,7 +165,7 @@ class Student extends CI_Controller {
 			$index++;
 		}
 
-		ongoing_submission();
+		$this->ongoing_submission();
 
 	}
 
