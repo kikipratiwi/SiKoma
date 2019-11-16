@@ -78,8 +78,8 @@
                                                         <!-- <div class="row"> -->
                                                             <!-- <div class="col-sm-12"> -->
                                                                 <a href="" id="finishedPorposal"  class="btn btn-primary" data-toggle="modal" data-target="#view-Modal-Finished-Proposal"
-                                                                data-proposal='{"id":"10","leader":"leader","member1":"member1","member2":"member2","member3":"member3","member4":"member4",
-                                                                                "linkProposal":"linkProposal","budgetNotes":"budgetNotes","contentNotes":"contentNotes","deadline":"deadline"}'>
+                                                                data-proposal='{"id":"10","leader":"<?php echo $pr->leader_id ?>" ,"member1":"<?php echo $pr->member1_id ?>","member2":"<?php echo $pr->member2_id ?>","member3":"<?php echo $pr->member3_id ?>","member4":"<?php echo $pr->member4_id ?>","linkProposal":"<?php echo $pr->proposal->proposal ?>","dana":"<?php echo $pr->proposal->realisazion_budget ?>"}'
+                                                                                >
                                                                     Preview
                                                                 </a>
                                                             <!-- </div> -->
@@ -123,7 +123,8 @@
                 <div class="row">
                     <div class="col-sm-9">
                         <!-- GET Link to review Proposal -->
-                        <iframe class="word" src="https://docs.google.com/gview?url=http://writing.engr.psu.edu/workbooks/formal_report_template.doc&embedded=true" frameborder="0"></iframe>
+                        <iframe class="word" id="propose" src="https://view.officeapps.live.com/op/embed.aspx?src=http://localhost/PKM/kompetisi-mahasiswa/data/1573814791ProposalIdeafuse.docx" width='100%' height='900px' frameborder='0'></iframe>
+                        
                     </div>
                     <div class="col-sm-3">
                         <div class="form-group">
@@ -152,11 +153,13 @@
                             <p id="member4">
                                 <script>
                                     document.write($('#finishedPorposal').data('proposal').member4);
+                                    document.write($('#finishedPorposal').data('proposal').linkProposal);
                                 </script>
                             </p>
                         </div>
                         <div class="md-input-wrapper">
-                            <textarea class="md-form-control md-static" cols="2" rows="1" readonly></textarea>
+                            <textarea id="dana" class="md-form-control md-static" cols="2" rows="1"  readonly>                                
+                            </textarea>
                             <label>Jumlah dana yang disetujui</label>
                         </div>
                     </div>
@@ -309,15 +312,14 @@
         var member4 = $('#finishedPorposal').data('proposal').member4;
         $(".modal-body #member4").val( member4 );
         var linkProposal = $('#finishedPorposal').data('proposal').linkProposal;
-        $(".modal-body #linkProposal").val( linkProposal );
-        var budgetNotes = $('#finishedPorposal').data('proposal').budgetNotes;
-        $(".modal-body #budgetNotes").val( budgetNotes );
-        var contentNotes = $('#finishedPorposal').data('proposal').contentNotes;
-        $(".modal-body #contentNotes").val( contentNotes );
-        var deadline = $('#finishedPorposal').data('proposal').deadline;
-        $(".modal-body #deadline").val( deadline );
+        $(".modal-body #linkProposal").val( linkProposal );        
+        var dana = $('#finishedPorposal').data('proposal').dana;        
+        $(".modal-body #dana").val( dana );
+
+        $("#propose").attr("src", "http://localhost/PKM/kompetisi-mahasiswa/data/".linkProposal."&embedded=true");
 
         $('#view-Modal-Finished-Proposal').modal('show');
+        console.log(dana);
     });
 </script>
 

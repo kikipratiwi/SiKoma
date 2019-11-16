@@ -114,7 +114,7 @@ class Student extends CI_Controller {
 	public function act_proposal_submission()
 	{
 		// setting konfigurasi upload
-        $config['upload_path'] = './assets/proposals/'; 
+        $config['upload_path'] = './data/proposals/'; 
         $config['allowed_types'] = 'doc|docx';
         $new_name = time().$_FILES["proposal"]['name'];        
         $config['file_name'] = $new_name;
