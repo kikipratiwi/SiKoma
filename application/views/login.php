@@ -7,10 +7,10 @@
 				<div class="login-card card-block">
 					<form class="md-float-material">
 						<div class="text-center">
-							<img src="assets/images/logo-blue.png" alt="logo">
+							<img src="<?php echo base_url(); ?>assets/images/favicon.png" alt="logo">
 						</div>
 						<h3 class="text-center txt-primary">
-							Sign In
+							Sign In to your account
 						</h3>
 						<div class="md-input-wrapper">
 							<input type="text" class="md-form-control" />
