@@ -61,14 +61,17 @@
 	<!-- bash syntaxhighlighter css -->
 	<link type="text/css" rel="stylesheet" href="<?php echo base_url();?>assets/plugins/syntaxhighlighter/styles/shCoreDjango.css"/>
 
-	<!-- Style.css -->
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/main.css">
+    <!-- Style.css -->
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/main.css">
 
-  <!-- Responsive.css-->
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/responsive.css">
+    <!-- Responsive.css-->
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/responsive.css">
 
-	<!--color css-->
- <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/color/color-1.min.css" id="color"/>
+    <!--color css-->
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/color/color-1.min.css" id="color"/>
+
+    <!--data table https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css-->
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/jquery.dataTables.css">
 
 
 </head>

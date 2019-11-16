@@ -20,7 +20,7 @@
                 <li class=" <?php if(current_url() === base_url().'index.php/Student/proposal_submission'){
                                 echo 'active';}?> treeview">
                     <a class="waves-effect waves-dark" href="<?php echo base_url();?>index.php/Student/proposal_submission">
-                    <i class="fab fa-wpforms"></i><span> Ajukan Proposal</span>
+                    <i class="icon-doc"></i><span> Ajukan Proposal</span>
                     </a> 
                 </li>
                 <li class=" <?php if(current_url() === base_url().'index.php/Student/ongoing_submission'){
@@ -38,3 +38,7 @@
             </ul>
         </section>
     </aside>
+
+    <!-- 
+        echo $loaded_page;
+    -->
