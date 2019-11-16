@@ -81,7 +81,7 @@
                             <span> User <b>Pembimbing</b> <i class=" icofont icofont-simple-down"></i></span>
                         </a>
                         <ul class="dropdown-menu settings-menu">
-                            <li><a href="#"><i class="icon-settings"></i> Settings</a></li>
+                            <li><a href="<?php echo base_url(); ?>index.php/Authentication/change_password"><i class="icon-settings"></i> Change Password</a></li>
                             <li><a href="#!"><i class="icon-logout"></i> Logout</a></li>
                         </ul>
                     </li>
