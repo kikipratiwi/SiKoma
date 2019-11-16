@@ -45,9 +45,20 @@
 
 
       <!-- Required Jqurey -->
+      <script
+            src="<?php echo base_url();?>assets/js/jquery-3.4.1.slim.min.js"
+            integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+            crossorigin="anonymous">
+        </script>
+
       <script src="<?php echo base_url();?>assets/plugins/jquery/dist/jquery.min.js"></script>
       <script src="<?php echo base_url();?>assets/plugins/jquery-ui/jquery-ui.min.js"></script>
       <script src="<?php echo base_url();?>assets/plugins/tether/dist/js/tether.min.js"></script>
+        <!-- https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js -->
+    <script src="<?php echo base_url();?>assets/js/2.1.3jquery.min.js"></script> 
+    <!-- https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js -->
+    <script src="<?php echo base_url();?>assets/js/3.0.0-alpha1jquery.min.js"></script>
+
 
       <!-- Required Fremwork -->
       <script src="<?php echo base_url();?>assets/plugins/bootstrap/js/bootstrap.min.js"></script>
@@ -76,56 +87,15 @@
       <script src="<?php echo base_url();?>assets/plugins/waypoints/jquery.waypoints.min.js"></script>
       <script src="<?php echo base_url();?>assets/plugins/countdown/js/jquery.counterup.js"></script>
 
+      <script type="text/javascript" charset="utf8" src="<?php echo base_url();?>assets/js/jquery.dataTables.js"></script>
       <!-- custom js -->
     <script type="text/javascript" src="<?php echo base_url();?>assets/js/main.min.js"></script>
     <script type="text/javascript" src="<?php echo base_url();?>assets/pages/dashboard.js"></script>
     <script type="text/javascript" src="<?php echo base_url();?>assets/pages/elements.js"></script>
     <script src="<?php echo base_url();?>assets/js/menu.min.js"></script>
 
-    <script>
-        $(document).on("click", ".open-view-Modal-Revision", function () {
-            var idProposal = $('#proposalRevision').data('proposal').id;
-            $(".modal-body #idProposal").val( idProposal );
-            var leaderTeam = $('#proposalRevision').data('proposal').leader;
-            $(".modal-body #leaderTeam").val( leaderTeam );
-            var member1 = $('#proposalRevision').data('proposal').member1;
-            $(".modal-body #member1").val( member1 );
-            var member2 = $('#proposalRevision').data('proposal').member2;
-            $(".modal-body #member2").val( member2 );
-            var member3 = $('#proposalRevision').data('proposal').member3;
-            $(".modal-body #member3").val( member3 );
-            var member4 = $('#proposalRevision').data('proposal').member4;
-            $(".modal-body #member4").val( member4 );
-            var linkProposal = $('#proposalRevision').data('proposal').linkProposal;
-            $(".modal-body #linkProposal").val( linkProposal );
-            var budgetNotes = $('#proposalRevision').data('proposal').budgetNotes;
-            $(".modal-body #budgetNotes").val( budgetNotes );
-            var contentNotes = $('#proposalRevision').data('proposal').contentNotes;
-            $(".modal-body #contentNotes").val( contentNotes );
-            var deadline = $('#proposalRevision').data('proposal').deadline;
-            $(".modal-body #deadline").val( deadline );
-
-            $('#viewModalRevision').modal('show');
-        });
-
-        $(document).on("click", ".open-view-Modal", function () {
-            var idProposal = $('#proposalNew').data('proposal').id;
-            $(".modal-body #idProposal").val( idProposal );
-            var leaderTeam = $('#proposalNew').data('proposal').leader;
-            $(".modal-body #leaderTeam").val( leaderTeam );
-            var member1 = $('#proposalNew').data('proposal').member1;
-            $(".modal-body #member1").val( member1 );
-            var member2 = $('#proposalNew').data('proposal').member2;
-            $(".modal-body #member2").val( member2 );
-            var member3 = $('#proposalNew').data('proposal').member3;
-            $(".modal-body #member3").val( member3 );
-            var member4 = $('#proposalNew').data('proposal').member4;
-            $(".modal-body #member4").val( member4 );
-
-            $('#view-Modal').modal('show');
-        });
-
-    </script>
+    <!-- <script type="text/javascript" charset="utf8" src="<?php echo base_url();?>assets/js/jquery.dataTables.js"></script> -->
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
 
 </body>
 
