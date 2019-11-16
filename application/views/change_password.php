@@ -20,7 +20,6 @@
 							<input type="password" name="new_password" class="md-form-control" />
 							<label>Kata sandi baru</label>
 						</div>
-						</div>
 						<div class="md-input-wrapper">
 							<input type="password" name="confirmation_new_password" class="md-form-control" />
 							<label>Konfirmasi kata sandi baru</label>
