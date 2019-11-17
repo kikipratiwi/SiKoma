@@ -14,7 +14,7 @@
 						</h3>
 						<div class="md-input-wrapper">
 							<input type="text" class="md-form-control" />
-							<label>NIM/NIDN/</label>
+							<label>NIM/NIDN</label>
 						</div>
 						<div class="md-input-wrapper">
 							<input type="password" class="md-form-control" />

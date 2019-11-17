@@ -15,6 +15,11 @@ class Authentication extends CI_Controller {
 		$this->load->view('login',$data);
 	}
 
+	public function login_act()
+	{
+		// jika role student, maka ke /Student (index=dashboard)
+	}
+
 	public function change_password() {
 		$data['content'] = $this->template();
 		$this->load->view('change_password',$data);

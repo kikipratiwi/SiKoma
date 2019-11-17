@@ -1,0 +1,38 @@
+ul {
+    list-style-type: lower-alpha; /* a, b, */
+    padding: 0;
+    margin: 0;
+}
+
+li { 
+    padding-left: 8px; 
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 2;
+    color: #666;
+    margin: 0;
+    margin-left: 16px;
+}
+
+li::before {
+    padding-right: 8px;
+}
+
+.bg-image {
+    height: 100%;
+    width: 100%;
+    background-image: url('../images/authentication-bg.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+    position: fixed;
+}
+
+.mt-3 {
+    margin-top: 2rem;
+}
+
+.dashboard-button {
+    text-transform: none;
+}
