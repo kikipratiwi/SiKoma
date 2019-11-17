@@ -14,7 +14,9 @@
                 <div class="col-lg-6 col-sm-12">
                     <div class="col-sm-12 card dashboard-product">
                         <span>Pencairan Dana</span>
-                        <h2 class="dashboard-total-products counter">1</h2>
+                        <h2 class="dashboard-total-products counter">
+                            <?php echo $proposal->disbursed?>
+                        </h2>
                         Total Proposal <span class="label label-primary">dana sudah cair</span>
                         <div class="side-box bg-primary">
                             <i class="icon-wallet"></i>
@@ -24,7 +26,11 @@
                 <div class="col-lg-6 col-sm-12">
                     <div class="col-sm-12 card dashboard-product">
                         <span>Proposal Disetujui</span>
-                        <h2 class="dashboard-total-products"><span class="counter">12</span></h2>
+                        <h2 class="dashboard-total-products">
+                            <span class="counter">
+                            <?php echo $proposal->done?>
+                            </span>
+                        </h2>
                         Total Proposal <span class="label label-success">disetujui</span>
                         <div class="side-box bg-success">
                             <i class="icon-check"></i>
