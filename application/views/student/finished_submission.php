@@ -92,8 +92,7 @@
                                                                 <div class="row">
                                                                     <div class="col-sm-9">
                                                                         <!-- GET Link to review Proposal File -->
-                                                                        <a class="media" id="propose" href="<?php echo base_url();?>data/<?php echo $pr->proposal->proposal ?>">
-                                                                        </a>
+                                                                        <a class="media" id="propose" href="<?php echo base_url();?>data/proposals/<?php echo $pr->proposal->proposal ?>"></a>
                                                                         </div>
                                                                     <div class="col-sm-3">
                                                                         <div class="form-group">
@@ -126,7 +125,7 @@
                                                                 </div>
                                                                 <div class="modal-footer">
                                                                     <!-- download proposal -->
-                                                                        <a type="button" href="<?php echo base_url();?>data/<?php echo $pr->proposal->proposal?>" class="btn btn-primary waves-effect waves-light" >Download Proposal</a>
+                                                                        <a type="button" href="<?php echo base_url();?>data/proposals/<?php echo $pr->proposal->proposal?>" class="btn btn-primary waves-effect waves-light" >Download Proposal</a>
                                                                 </div>
                                                                 
                                                             </div>

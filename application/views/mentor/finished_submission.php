@@ -42,15 +42,13 @@
                                             <th>No</th>
                                             <th>Proposal</th>
                                             <th>Tahun</th>
-                                            <th>Status</th>
-                                            <th>LPJ</th>
+                                            <th>Status</th>                                            
                                             <th>Preview</th>
                                         </tr>
                                         </thead>
                                         <tbody>
                                             
-                                
-                                                <?php   
+                                <?php   
                                                     $index = 1;
                                                     foreach($proposal as $key => $pr) : 
                                                 ?>
@@ -63,30 +61,18 @@
                                                     <td><?php echo $pr->competition->year ?></td>
                                                     <!-- GET status proposal -->
                                                     <td><?php 
-                                                        if($pr->proposal->status==='ACCEPTED'){?>
+                                                        if($pr->proposal->status==='DONE'){?>
                                                             <div class="label-main">
-                                                                <label class="label label-success">disetujui</label>
+                                                                <label class="label label-success">Selesai</label>
                                                             </div>
                                                         <?php } else if($pr->proposal->status==='REJECTED') {
                                                             ?>
                                                             <div class="label-main">
-                                                                <label class="label bg-warning">ditolak</label>
+                                                                <label class="label bg-warning">Ditolak</label>
                                                             </div>
                                                         <?php } ?>
                                                     </td>
-                                                    <!-- GET status lpj -->
-                                                    <td><?php 
-                                                        if($pr->proposal->accountability_report===1){?>
-                                                            <div class="label-main">
-                                                                <label class="label label-success">Sudah Menyerahkan</label>
-                                                            </div>
-                                                        <?php } else if($pr->proposal->accountability_report===0) {
-                                                            ?>
-                                                            <div class="label-main">
-                                                                <label class="label bg-danger">Belum Menyerahkan</label>
-                                                            </div>
-                                                        <?php } ?>
-                                                    </td>
+                                                    
                                                     <td>
                                                         <a href="" id="finishedPorposal" class="btn btn-primary" data-toggle="modal" data-target="#view-Modal-Finished-Proposal<?php echo $pr->id ?> ">
                                                             Preview
@@ -107,8 +93,7 @@
                                                                 <div class="row">
                                                                     <div class="col-sm-9">
                                                                         <!-- GET Link to review Proposal File -->
-                                                                        <a class="media" id="propose" href="<?php echo base_url();?>data/<?php echo $pr->proposal->proposal ?>">
-                                                                        </a>
+                                                                        <a class="media" id="propose" href="<?php echo base_url();?>data/proposals/<?php echo $pr->proposal->proposal ?>"></a>
                                                                         </div>
                                                                     <div class="col-sm-3">
                                                                         <div class="form-group">
@@ -141,7 +126,7 @@
                                                                 </div>
                                                                 <div class="modal-footer">
                                                                     <!-- download proposal -->
-                                                                        <a type="button" href="<?php echo base_url();?>data/<?php echo $pr->proposal->proposal?>" class="btn btn-primary waves-effect waves-light" >Download Proposal</a>
+                                                                        <a type="button" href="<?php echo base_url();?>data/proposals/<?php echo $pr->proposal->proposal?>" class="btn btn-primary waves-effect waves-light" >Download Proposal</a>
                                                                 </div>
                                                                 
                                                             </div>
@@ -184,10 +169,6 @@
     $(function () {
         $('.media').media({width: 950, height:430});
     });
-
-    function test() {
-
-    }
 
 </script>
 
