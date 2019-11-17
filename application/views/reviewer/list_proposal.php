@@ -43,8 +43,7 @@
                                             <th>Proposal</th>
                                             <th>Tanggal Upload</th>
                                             <th>Ketua Tim</th>
-                                            <th>Jurusan</th>
-                                            <th>Status</th>
+                                            <th>Jurusan</th>                                            
                                             <th>Review</th>
                                         </tr>
                                         </thead>
@@ -73,86 +72,16 @@
 
                                                     <!-- GET departement -->
                                                     <td><?php echo $pr->department->name ?></td>
+                                                    <td>
+                                                        <a href="" id="finishedPorposal" class="btn btn-primary" data-toggle="modal" data-target="#view-Modal<?php echo $pr->id ?> ">
+                                                            Review
+                                                        </a>
+                                                    </td>
                                                 </tr>
                                                 
                                                 <!-- MODAL REVIEW NEW SUBMISSION -->
-                                                <div class="modal fade modal-flex" id="view-Modal-Preview-Proposal" tabindex="-1" role="dialog">
-                                                    <div class="modal-dialog modal-lg" role="document">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                    <span aria-hidden="true">&times;</span>
-                                                                </button>
-                                                                <h5 class="modal-title">Review Proposal</h5>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                <div class="row">
-                                                                    <div class="col-sm-9">
-                                                                        <!-- GET Link to review Proposal -->
-                                                                        <a class="media" id="propose" href="<?php echo base_url();?>data/<?php?>">
-                                                                        </a>
-                                                                    </div>
-                                                                    <div class="col-sm-3">
-                                                                        <div class="form-group">
-                                                                                <label for="teamMembers" class="form-control-label">Anggota Tim</label>
-                                                                                <!-- GET Team member -->
-                                                                                <p id="leaderTeam">
-                                                                                    <?php  ?>
-                                                                                </p>
-                                                                                <p id="member1">
-                                                                                    <?php  ?>
-                                                                                </p>
-                                                                                <p id="member2">
-                                                                                    <?php ?>
-                                                                                </p>
-                                                                                <p id="member3">
-                                                                                    <?php  ?>
-                                                                                </p>
-                                                                                <p id="member4">
-                                                                                    <?php ?>
-                                                                                </p>
-                                                                            </div>
-                                                                            <form method="POST">
-                                                                                <div class="md-input-wrapper">
-                                                                                    <textarea id="leaderTeam" class="md-form-control md-static" cols="2" rows="4"></textarea>
-                                                                                    <label>Catatan RAB</label>
-                                                                                </div>
-                                                                                <div class="md-input-wrapper">
-                                                                                    <textarea id="contentNotes"  class="md-form-control md-static" cols="2" rows="4"></textarea>
-                                                                                    <label>Catatan Konten</label>
-                                                                                </div>
-                                                                                <div class="md-input-wrapper">
-                                                                                    Jumlah Dana yang Disetujui<br>
-                                                                                    <input type="text" name="budget">
-                                                                                </div>
-                                                                                <label class="bold">Status</label>
-                                                                                <div class="form-radio">
-                                                                                        <div class="radio radio-inline">
-                                                                                            <label>
-                                                                                                <input type="radio" name="radio">
-                                                                                                    <i class="helper"></i>diterima
-                                                                                            </label>
-                                                                                        </div>
-                                                                                        <div class="radio radio-inline">
-                                                                                            <label>
-                                                                                                <input type="radio" name="radio">
-                                                                                                    <i class="helper"></i>revisi
-                                                                                            </label>
-                                                                                        </div>
-                                                                                        <div class="radio radio-inline">
-                                                                                            <label>
-                                                                                                <input type="radio" name="radio">
-                                                                                                    <i class="helper"></i>ditolak
-                                                                                            </label>
-                                                                                        </div>
-                                                                                </div>
-                                                                            </form>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                    </td>
-                                                </tr>
+                                                
+                                                    
 <div class="modal fade modal-flex" id="view-Modal<?php echo $pr->id ?>" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-lg" role="document" >
         <div class="modal-content">
@@ -225,7 +154,7 @@
                                 
                                     <div class="radio radio-inline">
                                         <label>
-                                            <input type="radio" name="radio" value="ACCEPTED">
+                                            <input type="radio" name="radio" value="WAITFUND">
                                                 <i class="helper"></i>Diterima
                                         </label>
                                     </div>
@@ -288,7 +217,7 @@
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
 <script type="text/javascript" src="http://malsup.github.com/jquery.media.js"></script>
 
-<script>
+<script>    
 
     $(document).ready( function () {
         $('#previewNewProposal').DataTable();
