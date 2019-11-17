@@ -49,8 +49,23 @@ class Student extends CI_Controller {
 
 		$cmp = curl_exec($curl);
 		$errcmp = curl_error($curl);
-		curl_close($curl);	
+		
 
+		//Cek LPJ		
+		curl_setopt_array($curl, array(
+		CURLOPT_URL => "http://localhost:8000/api/mahasiswa/proposal/report?department=1",
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_ENCODING => "",		
+		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST => "GET",
+		));
+
+		$lpj = curl_exec($curl);
+		$err = curl_error($curl);
+
+		curl_close($curl);
+
+		$data['accountability_report'] = json_decode($lpj);
 		$data['content'] = $this->template();
 		$data['department'] = json_decode($dpt);
 		$data['competition'] = json_decode($cmp);
