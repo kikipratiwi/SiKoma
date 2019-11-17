@@ -150,7 +150,6 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        <?php } ?>
                                                     </td>
                                                 </tr>
 <div class="modal fade modal-flex" id="view-Modal<?php echo $pr->id ?>" tabindex="-1" role="dialog">
