@@ -15,7 +15,7 @@
                             </li>
                             <li class="breadcrumb-item"><a href="#">Proposal</a>
                             </li>
-                            <li class="breadcrumb-item"><a href="basic-table.html">List Pengajuan (ongoing)</a>
+                            <li class="breadcrumb-item"><a href="basic-table.html">List Pengajuan (finished)</a>
                             </li>
                         </ol>
                     </div>
@@ -31,61 +31,70 @@
                     <!-- Hover effect table starts -->
                     <div class="card">
                         <div class="card-header">
-                            <h5 class="card-header-text">List Pengajuan (ongoing)</h5>
+                            <h5 class="card-header-text">List Pengajuan (finished)</h5>
                         </div>
                         <div class="card-block">
                             <div class="row">
                                 <div class="col-sm-12 table-responsive">
-                                    <table class="table table-hover" id="ongoingSubmissionTable">
+                                    <table class="table table-hover" id="finishedSubmissionTable">
                                         <thead>
                                         <tr>
                                             <th>No</th>
                                             <th>Proposal</th>
+                                            <th>Tahun</th>
                                             <th>Status</th>
-                                            <th>Deadline Revisi</th>
+                                            <th>LPJ</th>
                                             <th>Preview</th>
                                         </tr>
                                         </thead>
                                         <tbody>
-                                            <?php
-                                                for ($no = 1; $no <= 4; $no++){
-                                                    $proposal_status='REVISION';?>
+                                            
+                                
+                                                <?php   
+                                                    $index = 1;
+                                                    foreach($proposal as $key => $pr) : 
+                                                ?>
+                                                    
                                                 <tr>
-                                                    <td><?php echo $no ?></td>
+                                                    <td><?php echo $index ?></td>
                                                     <!-- GET name competition -->
-                                                    <td>Gemastik</td>
+                                                    <td><?php echo $pr->competition->name ?></td>
+                                                    <!-- GET year of competition -->
+                                                    <td><?php echo $pr->competition->year ?></td>
                                                     <!-- GET status proposal -->
-                                                    <?php 
-                                                        if($proposal_status==='REVISION'){?>
-                                                            <td>
-                                                                <div class="label-main">
-                                                                    <label class="label label-warning">revisi</label>
-                                                                </div>
-                                                            </td>
-                                                            <td>
-                                                                <!-- echo date_format($date1,"d M Y") -->
-                                                                <label class="label bg-danger">10 Oct 2019</label>
-                                                            </td>
-                                                        <?php } else if($proposal_status==='PENDING') { ?>
-                                                            <td>
-                                                                <div class="label-main">
-                                                                    <label class="label bg-secondary">pending</label>
-                                                                </div>
-                                                            </td>
-                                                            <td>
-                                                                <p>-</p>
-                                                            </td>
+                                                    <td><?php 
+                                                        if($pr->proposal->status==='ACCEPTED'){?>
+                                                            <div class="label-main">
+                                                                <label class="label label-success">disetujui</label>
+                                                            </div>
+                                                        <?php } else if($pr->proposal->status==='REJECTED') {
+                                                            ?>
+                                                            <div class="label-main">
+                                                                <label class="label bg-warning">ditolak</label>
+                                                            </div>
                                                         <?php } ?>
-                                                    <!-- GET status proposal -->
+                                                    </td>
+                                                    <!-- GET status lpj -->
+                                                    <td><?php 
+                                                        if($pr->proposal->accountability_report===1){?>
+                                                            <div class="label-main">
+                                                                <label class="label label-success">Sudah Menyerahkan</label>
+                                                            </div>
+                                                        <?php } else if($pr->proposal->accountability_report===0) {
+                                                            ?>
+                                                            <div class="label-main">
+                                                                <label class="label bg-danger">Belum Menyerahkan</label>
+                                                            </div>
+                                                        <?php } ?>
+                                                    </td>
                                                     <td>
-                                                        <a href="" id="previewPorposal" class="open-view-Modal-Preview btn btn-primary" data-toggle="modal" data-target="#view-Modal-Preview-Proposal">
+                                                        <a href="" id="finishedPorposal" class="btn btn-primary" data-toggle="modal" data-target="#view-Modal-Finished-Proposal<?php echo $pr->id ?> ">
                                                             Preview
                                                         </a>
                                                     </td>
                                                 </tr>
-                                                
                                                 <!-- MODAL PREVIEW PROPOSAL -->
-                                                <div class="modal fade modal-flex" id="view-Modal-Preview-Proposal" tabindex="-1" role="dialog">
+                                                <div class="modal fade modal-flex" id="view-Modal-Finished-Proposal<?php echo $pr->id ?>" tabindex="-1" role="dialog">
                                                     <div class="modal-dialog modal-lg" role="document">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
@@ -97,54 +106,53 @@
                                                             <div class="modal-body">
                                                                 <div class="row">
                                                                     <div class="col-sm-9">
-                                                                        <!-- GET Link to review Proposal -->
-                                                                        <a class="media" href="<?php echo base_url();?>assets/1.pdf"></a>
-                                                                        <!-- <iframe class="word" id="linkProposal" src="https://docs.google.com/gview?url=http://writing.engr.psu.edu/workbooks/formal_report_template.doc&embedded=true" frameborder="0"></iframe> -->
-                                                                    </div>
+                                                                        <!-- GET Link to review Proposal File -->
+                                                                        <a class="media" id="propose" href="<?php echo base_url();?>data/<?php echo $pr->proposal->proposal ?>">
+                                                                        </a>
+                                                                        </div>
                                                                     <div class="col-sm-3">
                                                                         <div class="form-group">
                                                                             <label for="teamMembers" class="form-control-label">Anggota Tim</label>
                                                                             <!-- GET Team Member-->
                                                                             <p id="leaderTeam">
-                                                                                <?php  ?>
+                                                                                <?php echo $pr->leader_id ?>
                                                                             </p>
                                                                             <p id="member1">
-                                                                                <?php  ?>
+                                                                                <?php echo $pr->member1_id ?>
                                                                             </p>
                                                                             <p id="member2">
-                                                                                <?php  ?>
+                                                                                <?php echo $pr->member2_id ?>
                                                                             </p>
                                                                             <p id="member3">
-                                                                                <?php  ?>
+                                                                                <?php echo $pr->member3_id ?>
                                                                             </p>
                                                                             <p id="member4">
-                                                                                <?php  ?>
+                                                                                <?php echo $pr->member4_id ?>
                                                                             </p>
                                                                         </div>
-                                                                        <div class="md-input-wrapper">
-                                                                            <?php  ?>
-                                                                            <textarea id="budgetNotes" class="md-form-control md-static" cols="2" rows="4" readonly></textarea>
-                                                                            <label>Catatan RAB</label>
-                                                                        </div>
-                                                                        <div class="md-input-wrapper">
-                                                                            <?php  ?>
-                                                                            <textarea id="contentNotes" class="md-form-control md-static" cols="2" rows="4" readonly></textarea>
-                                                                            <label>Catatan Konten</label>
+                                                                        <div class="form-group">
+                                                                            <label for="dana" class="form-control-label">Jumlah dana yang disetujui</label>
+                                                                            <!-- GET Team Member-->
+                                                                            <p id="dana">
+                                                                                <?php echo $pr->proposal->realisazion_budget ?>
+                                                                            </p>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="modal-footer">
                                                                     <!-- download proposal -->
-                                                                        <button type="button" class="btn btn-primary waves-effect waves-light">Download Proposal</button>
+                                                                        <a type="button" href="<?php echo base_url();?>data/<?php echo $pr->proposal->proposal?>" class="btn btn-primary waves-effect waves-light" >Download Proposal</a>
                                                                 </div>
                                                                 
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <?php 
+                                                    $index++;
+                                                    endforeach;
+                                                ?>
                                                 
-                                                <?php
-                                            };?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -163,25 +171,25 @@
     </div>
 </div>
 
-
-
-
     <!-- Required Jqurey -->
     <script src="<?php echo base_url();?>assets/js/2.1.3jquery.min.js"></script> 
     <script src="<?php echo base_url();?>assets/js/jquery.media.js"></script>
     <script src="<?php echo base_url();?>assets/js/jquery.dataTables.js"></script>
 
-
 <script> 
     $(document).ready( function () {
-        $('#ongoingSubmissionTable').DataTable();
-    });
+        $('#finishedSubmissionTable').DataTable();
+    } );
 
     $(function () {
         $('.media').media({width: 950, height:430});
     });
-</script>
 
+    function test() {
+
+    }
+
+</script>
 
 </body>
 </html>

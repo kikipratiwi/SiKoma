@@ -31,5 +31,17 @@ class Mentor extends CI_Controller {
 		$this->load->view('mentor/list_proposal_mentor',$data);
 	}
 
+	public function finished_submission()
+	{
+		$data['content'] = $this->template();
+		$this->load->view('mentor/finished_submission',$data);
+	}
+
+	public function ongoing_submission()
+	{
+		$data['content'] = $this->template();
+		$this->load->view('mentor/ongoing_submission',$data);
+	}
+
 
 }
