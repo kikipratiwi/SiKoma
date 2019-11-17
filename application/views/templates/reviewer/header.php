@@ -46,6 +46,7 @@
 
     <!--data table https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css-->
     <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/jquery.dataTables.css">
+    
 
 
 </head>
