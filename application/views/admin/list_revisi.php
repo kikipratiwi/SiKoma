@@ -92,7 +92,7 @@
                                                             </div>
                                                             <div class="modal-body">
                                                                         <div class="form-group col-md-12" style="margin-bottom: .1rem;">
-                                                                            <label for="registDate" class="block form-control-label">]ثشيمهىثغعى الا ا لاا  ن</label>
+                                                                            <label for="registDate" class="block form-control-label">Input Deadline</label>
                                                                         </div>
                                                                         <div class="form-row">
                                                                             <div class="form-group col-md-12">

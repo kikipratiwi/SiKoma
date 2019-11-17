@@ -72,26 +72,6 @@
 
                                                     <!-- GET departement -->
                                                     <td><?php echo $pr->department->name ?></td>
-                                                    <!-- GET status proposal -->
-                                                    <!-- GET status proposal -->
-                                                    <td><?php 
-
-                                                        if($pr->status==='PENDING'){?>
-                                                            <div class="label-main">
-                                                                <label class="label label-default">Pending</label>
-                                                            </div>
-                                                        <?php } else if($pr->status==='REVISION') {
-
-                                                            ?>
-                                                            <div class="label-main">
-                                                                <label class="label bg-warning">Revisi</label>
-                                                            </div>
-                                                        <?php } else { ?>
-                                                            <div class="label-main">
-                                                                <label class="label bg-success">Accepted</label>
-                                                            </div>
-                                                        <?php } ?>
-                                                    </td>
                                                 </tr>
                                                 
                                                 <!-- MODAL REVIEW NEW SUBMISSION -->
