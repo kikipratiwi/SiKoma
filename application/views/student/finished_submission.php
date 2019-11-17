@@ -47,8 +47,6 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                            
-                                
                                                 <?php   
                                                     $index = 1;
                                                     foreach($proposal as $key => $pr) : 
@@ -62,14 +60,14 @@
                                                     <td><?php echo $pr->competition->year ?></td>
                                                     <!-- GET status proposal -->
                                                     <td><?php 
-                                                        if($pr->proposal->status==='ACCEPTED'){?>
+                                                        if($pr->proposal->status==='DONE'){?>
                                                             <div class="label-main">
-                                                                <label class="label label-success">disetujui</label>
+                                                                <label class="label label-success">Selesai</label>
                                                             </div>
                                                         <?php } else if($pr->proposal->status==='REJECTED') {
                                                             ?>
                                                             <div class="label-main">
-                                                                <label class="label bg-warning">ditolak</label>
+                                                                <label class="label bg-warning">Ditolak</label>
                                                             </div>
                                                         <?php } ?>
                                                     </td>

@@ -44,6 +44,7 @@
                                             <th>Tanggal Upload</th>
                                             <th>Ketua Tim</th>
                                             <th>Jurusan</th>
+                                            <th>Status</th>
                                             <th>Review</th>
                                         </tr>
                                         </thead>
