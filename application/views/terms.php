@@ -2,28 +2,23 @@
 <html lang="en">
 
 <head>
-  <title>Able Pro Responsive Bootstrap 4 Admin Template by Phoenixcoded</title>
-  <!-- HTML5 Shim and Respond.js IE9 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <title>SiKoma</title>
+    <!-- HTML5 Shim and Respond.js IE9 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <!-- Meta -->
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="description" content="Phoenixcoded">
-    <meta name="keywords" content=", Responsive, Landing, Bootstrap, App, Template, Mobile, iOS, Android, apple, creative app">
-    <meta name="author" content="Phoenixcoded">
-
     <!-- Favicon icon -->
-    <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/images/favicon.png" type="image/x-icon">
-    <link rel="icon" href="<?php echo base_url(); ?>assets/images/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="<?php echo base_url();?>assets/images/favicon.png" type="image/x-icon">
+    <link rel="icon" href="<?php echo base_url();?>assets/images/favicon.ico" type="image/x-icon">
 
-    <!-- Google font-->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+    <!-- Google font https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800-->
+	<link href="<?php echo base_url();?>assets/css/font-api.css" rel="stylesheet">
 
     <!-- iconfont -->
     <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/icon/icofont/css/icofont.css">
@@ -43,53 +38,132 @@
     <!--color css-->
     <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/color/color-1.min.css" id="color"/>
 
+
+    <style>
+        ul {
+            list-style-type: lower-alpha; /* a, b, */
+            padding: 0;
+            margin: 0;
+        }
+
+        li { 
+            padding-left: 8px; 
+            font-size: 13px;
+            font-weight: 400;
+            line-height: 2;
+            color: #666;
+            margin: 0;
+            margin-left: 16px;
+        }
+
+        li::before {
+            padding-right: 8px;
+        }
+
+        .bg-image {
+            height: 100%;
+            width: 100%;
+            background-image: url(<?php echo base_url(); ?>/assets/images/authentication-bg.jpg);
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
+            background-attachment: fixed;
+            position: fixed;
+        }
+
+        .mt-3 {
+            margin-top: 3rem;
+        }
+            
+    </style>
+
+
   </head>
 
   <body class="sidebar-mini fixed">
-  <section class="login p-fixed d-flex text-center bg-primary common-img-bg">
+  <div class="bg-image">
 	<!-- Container-fluid starts -->
 	<div class="container-fluid">
-		<div class="row">
-                <div class="col-lg-3">
+		<div class="row mt-3">
+                <div class="col-lg-2">
                 </div>
                 <!-- Single Open Accordion start -->
-                <div class="col-lg-6">
+                <div class="col-lg-8">
                     <div class="card">
                     <div class="card-header">
-                        <h5 class="card-header-text text-center">Single Open Accordion</h5>
+                        <h5 class="card-header-text text-center">Informasi Seputar Pengajuan Proposal Kompetisi</h5>
+                        
+                        <?php if("belum login") {?>
+                            <span style="float: right;">
+                                <a href="<?php echo base_url(); ?>index.php/Authentication/login">
+                                    <button type="button" class="btn btn-primary waves-effect waves-light prev">Login</button>
+                                </a>
+                            </span>
+                        <?php }else if("session role == admin") {?>
+                            <span style="float: right;">
+                                <a href="<?php echo base_url(); ?>index.php/Admin/dashboard">
+                                    <button type="button" class="btn btn-primary waves-effect waves-light prev">Dashboard</button>
+                                </a>
+                            </span>
+                        <?php }else if("session role == student") {?>
+                            <span style="float: right;">
+                                <a href="<?php echo base_url(); ?>index.php/Student/dashboard">
+                                    <button type="button" class="btn btn-primary waves-effect waves-light prev">Dashboard</button>
+                                </a>
+                            </span>
+                        <?php }else if("session role == reviewer") {?>
+                            <span style="float: right;">
+                                <a href="<?php echo base_url(); ?>index.php/Reviewer/dashboard">
+                                    <button type="button" class="btn btn-primary waves-effect waves-light prev">Dashboard</button>
+                                </a>
+                            </span>
+                        <?php }?>
                     </div>
                     <div class="card-block accordion-block">
-                        <div class="accordion-box" id="single-open">
-                        <a class="accordion-msg">Lorem Message 1</a>
-                        <div class="accordion-desc">
-                            <p>
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more .
-                            </p>
-                        </div>
-                        <a class="accordion-msg">Lorem Message 2</a>
-                        <div class="accordion-desc">
-                            <p>
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more .
-                            </p>
-                        </div>
-                        <a class="accordion-msg">Lorem Message 3</a>
-                        <div class="accordion-desc">
-                            <p>
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more .
-                            </p>
-                        </div>
+                        <div class="accordion-box" id="sclae-accordion">
+                            <a class="accordion-msg">Prosedur Pengajuan</a>
+                            <div class="accordion-desc">
+                                <ul>
+                                    <li>	Pastikan jurusan anda telah menyerahkan langsung <b>SPJ dan LPJ</b> dari kompetisi sebelumnya ke bagian kemahasiswaan</li>
+                                    <li>	Maksimal upload proposal adalah <b>H-7</b> tanggal penutupan pendaftaran kompetisi	</li>
+                                    <li>	Pastikan proposal yang diupload telah sesuai dengan <b>template</b> dan disetujui oleh pembimbing	</li>
+                                    <li>	Anda dapat mengunduh template proposal pada link berikut <a href="<?php echo base_url(); ?>data/template/proposal_template.docx">Template Proposal</a>	</li>
+                                    <li>	Proposal yang diupload berupa .pdf	</li>
+                                    <li>	Progress pengajuan proposal dapat dilihat pada menu <b>"List Proposal (ongoing)"</b>	</li>
+                                    <li>	Pengajuan proposal memiliki 4 status, yaitu <b>pending</b> (belum direview bag. kemahasiswaan), <b>revisi</b>, <b>diterima</b> atau <b> ditolak </b>	</li>
+                                    <li>	Setiap catatan revisi yang diberikan oleh reviewer memiliki <b>deadline</b>, pastikan menyelesaikan revisi sebelum deadline. Jika melebihi deadline maka proposal anda akan otomatis <b>ditolak</b>	</li>
+                                    <li>	Jika proposal telah <b>"disetujui"</b>, serahkan hardcopy proposal ke bagian kemahasiswaan	</li>
+                                    <li>	Anda dapat mengambil dana jika proposal yang Anda ajukan telah berstatus <b>"dana telah cair"</b>	</li></p>
+                                    <li>	Jika data kompetisi yang akan anda ikuti belum terdaftar, maka lakukan penambahan data dengan mengisi form <b>"Tambah Data Kompetisi"</b>	</li>
+                                </ul>
+                            </div>
+                            <a class="accordion-msg">Prosedur Akun</a>
+                            <div class="accordion-desc">
+                                <ul>
+                                    <li>	Untuk akun yang pertama kali login, kata sandi adalah <b>123456</b>	</li>
+                                    <li>	Setelah login pertama kali maka segera ganti kata sandi Anda demi keamanan	</li>
+                                    <li>	Jika lupa kata sandi silahkan hubungi bagian kemahasiswaan	</li>
+                                </ul>
+                            </div>
+                            <a class="accordion-msg">FAQ</a>
+                            <div class="accordion-desc">
+                                <ul>
+                                    <li>	Bagaimana jika proposal yang saya ajukan ditolak karena terlambat mensubmit revisi? Silahkan lakukan pengajuan ulang	</li>
+                                    <li>	Bagaimana jika saya akan mengajukan proposal ulang namun tanggal akhir penutupan pendaftaran sudah melebihi ketentuan tanggal pengajuan proposal? Silahkan hubungi bagian kemahasiswaan	</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                     </div>
                 </div>
                 <!-- Single Open Accordion ends -->
-                <div class="col-lg-3">
+                <div class="col-lg-2">
                 </div>
         </div>
 		<!-- end of row -->
     </div>
 	<!-- end of container-fluid -->
-</section>
+    </div>
 
 
 <!-- Warning Section Starts -->

@@ -29,7 +29,14 @@
                             <div class="col-lg-12">
                                 <div class="card">
                                     <!-- Radio-Button start -->
-                                    <div class="card-header"><h5 class="card-header-text">Form Pengajuan Proposal</h5></div>
+                                    <div class="card-header">
+                                        <h5 class="card-header-text">Form Pengajuan Proposal</h5>
+                                        <?php if("!accountability_report_status") ?>
+                                            <div class="label-main" style="padding-top:5px;">
+                                                <label class="label bg-danger"><i class="icon-ban"></i> Anda tidak dapat mengajukan proposal. Pastikan jurusan Anda telah menyerahkan SPJ dan LPJ dari kompetisi sebelumnya ke bagian kemahasiswaan.</label>
+                                            </div>
+                                        <?php}?>
+                                    </div>
                                     <div class="card-block tab-icon">
                                         <!-- Row start -->
                                         <div class="row">
@@ -124,7 +131,12 @@
 
                                                           <button type="button" class="btn btn-primary waves-effect waves-light prev" name="prev" id="prev">Sebelumnya</button>
                                                           <button type="button" class="btn btn-info waves-effect waves-light float-right px-2" name="add-team" id="add-team" >Tambah Tim </button>
-                                                          <button type="submit" class="btn btn-success waves-effect waves-light float-right " name="submit" id="submit" >Submit</button>
+
+                                                          <?php if("accountability_report_status") {?>
+                                                            <button type="submit" class="btn btn-success waves-effect waves-light float-right " name="submit" id="submit" >Submit</button>
+                                                          <?php }else {?>
+                                                            <button type="button" class="btn btn-disable disabled" data-toggle="tooltip" data-placement="top" title="" data-original-title="Jurusan Anda belum menyerahkan SPJ dan LPJ dari kompetisi sebelumnya">tidak dapat submit</button>
+                                                          <?php }?>
                                                         </div>
                                                     <!-- Team Profile inputs ends -->
                                                     </div>

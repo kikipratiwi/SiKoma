@@ -7,7 +7,7 @@
 				<div class="login-card card-block">
 					<form class="md-float-material" type="POST" action="<?php echo base_url(); ?>index.php/Authentication/login">
 						<div class="text-center">
-							<img src="<?php echo base_url(); ?>assets/images/favicon.png" alt="logo">
+							<a href="<?php echo base_url(); ?>index.php/Home"><img src="<?php echo base_url(); ?>assets/images/favicon.png" alt="logo"></a>
 						</div>
 						<h3 class="text-center txt-primary">
 							Login ke akun anda
@@ -26,7 +26,10 @@
 							</div>
 						</div>
 						<!-- <div class="card-footer"> -->
-
+						<div class="col-sm-12 col-xs-12 text-center">
+							<span class="text-muted">Belum membaca panduan?</span>
+							<a href="<?php echo base_url(); ?>index.php/Home" class="f-w-600 p-l-5">Baca disini</a>
+						</div>
 						<!-- </div> -->
 					</form>
 					<!-- end of form -->
