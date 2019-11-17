@@ -44,6 +44,9 @@
     <!--color css-->
     <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/color/color-1.min.css" id="color"/>
 
+<!-- terms.css -->
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/terms.css" id="color"/>
+
 </head>
 
 

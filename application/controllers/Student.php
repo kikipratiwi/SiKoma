@@ -21,7 +21,7 @@ class Student extends CI_Controller {
 	public function index()
 	{
 		$data['content'] = $this->template();
-		$this->load->view('student/ongoing_submission',$data);
+		$this->load->view('templates/student/dashboard',$data);
     }
     
     public function proposal_submission() //form

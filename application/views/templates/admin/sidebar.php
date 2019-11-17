@@ -20,19 +20,19 @@
                 <li class=" <?php if(current_url() === base_url().'index.php/Admin/list_proposal'){
                                 echo 'active';}?> treeview">
                     <a class="waves-effect waves-dark" href="<?php echo base_url();?>index.php/Admin/list_proposal">
-                        <i class="icon-docs"></i><span> List Semua Proposal</span>
+                        <i class="icon-docs"></i><span> Pengajuan Baru</span>
                     </a>                
                 </li>
                 <li class=" <?php if(current_url() === base_url().'index.php/Admin/list_revisi_proposal'){
                                 echo 'active';}?> treeview">
                     <a class="waves-effect waves-dark" href="<?php echo base_url();?>index.php/Admin/list_revisi_proposal">
-                        <i class="icon-note"></i><span> List Proposal yang Revisi </span>
+                        <i class="icon-note"></i><span> Revisi </span>
                     </a>                
                 </li>
                 <li class=" <?php if(current_url() === base_url().'index.php/Admin/list_fund_submission'){
                                 echo 'active';}?> treeview">
                     <a class="waves-effect waves-dark" href="<?php echo base_url();?>index.php/Admin/list_fund_submission">
-                        <i class="icon-wallet"></i><span>Pencairan Dana</span>
+                        <i class="icon-wallet"></i><span> Telah Disetujui</span>
                     </a>                
                 </li>
                 <li class="nav-level">Kompetisi</li>
@@ -55,11 +55,17 @@
                         <i class="icon-printer"></i><span> Cetak Laporan</span>
                     </a>                
                 </li>
-                <li class="nav-level">Password</li>
+                <li class="nav-level">Mahasiswa</li>
                 <li class=" <?php if(current_url() === base_url().'index.php/Admin/reset_password'){
                                 echo 'active';}?> treeview">
                     <a class="waves-effect waves-dark" href="<?php echo base_url();?>index.php/Admin/reset_password">
-                        <i class="icon-action-undo"></i><span> Atur Ulang Kata Sandi</span>
+                        <i class="icon-check"></i><span> Atur Ulang Kata Sandi</span>
+                    </a>                
+                </li>
+                <li class=" <?php if(current_url() === base_url().'index.php/Admin/import_data'){
+                                echo 'active';}?> treeview">
+                    <a class="waves-effect waves-dark" href="<?php echo base_url();?>index.php/Admin/import_data">
+                        <i class="icon-action-undo"></i><span> Import</span>
                     </a>                
                 </li>
             </ul>
