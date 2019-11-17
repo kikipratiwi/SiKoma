@@ -68,7 +68,7 @@
                                                     </td>
 
                                                     <!-- GET leader -->
-                                                    <td>Nussa</td>
+                                                    <td><?php echo $pr->profile->name ?></td>
 
                                                     <!-- GET departement -->
                                                     <td><?php echo $pr->department->name ?></td>
@@ -103,33 +103,11 @@
                     </div>
                     <div class="col-sm-3">
                     <div class="form-group">
-                            <label for="teamMembers" class="form-control-label">Anggota Tim</label>
-                            <!-- GET Team member -->
-                            <p id="leaderTeam">
-                                <script>
-                                    document.write($('#proposalNew').data('proposal').leader);
-                                </script>
-                            </p>
-                            <p id="member1">
-                                <script>
-                                    document.write($('#proposalNew').data('proposal').member1);
-                                </script>
-                            </p>
-                            <p id="member2">
-                                <script>
-                                    document.write($('#proposalNew').data('proposal').member2);
-                                </script>
-                            </p>
-                            <p id="member3">
-                                <script>
-                                    document.write($('#proposalNew').data('proposal').member3);
-                                </script>
-                            </p>
-                            <p id="member4">
-                                <script>
-                                    document.write($('#proposalNew').data('proposal').member4);
-                                </script>
-                            </p>
+                            <label for="teamMembers" class="form-control-label">Dana Yang diajukan</label>
+                                                                                
+                                <p id="leaderTeam">
+                                    <?php echo $pr->draft_budget ?>
+                                </p>                                                                                
 
                             <!-- <select multiple class="form-control multiple-select" id="teamMembers">
                                 <option>Ketua</option>
@@ -144,11 +122,35 @@
                             <div class="md-input-wrapper">
                                 <textarea id="leaderTeam" class="md-form-control md-static" cols="2" rows="4" name="rab"></textarea>
                                 <label>Catatan RAB</label>
+                                <p id="dana">
+                                <?php 
+                                    $revisi =  sizeof($pr->revision);
+                                    if( $pr->revision != null){
+                                        echo $pr->revision[$revisi-1]->budget_notes;    
+                                    }
+                                ?>
+                            </p>
                             </div>
                             <div class="md-input-wrapper">
                                 <textarea id="contentNotes"  class="md-form-control md-static" cols="2" rows="4" name="konten"></textarea>
                                 <label>Catatan Konten</label>
+                                <p id="dana">
+                                <?php 
+                                    $revisi =  sizeof($pr->revision);
+                                    if( $pr->revision != null){
+                                        echo $pr->revision[$revisi-1]->content_notes;    
+                                    }
+                                ?>
+                            </p>
                             </div>
+                            <div class="md-input-wrapper">
+                                    Jumlah Dana yang Disetujui<br>
+                                    <input type="number" name="budget" min=0>
+                                </div>
+                                <div class="md-input-wrapper">
+                                    Sumber Dana<br>
+                                    <input type="text" name="source">
+                                </div>
                             <label class="bold">Status</label>
                             <div class="form-radio">
                                 
