@@ -44,7 +44,6 @@
                                             <th>Tanggal Upload</th>
                                             <th>Ketua Tim</th>
                                             <th>Jurusan</th>
-                                            <th>Status</th>
                                             <th>Review</th>
                                         </tr>
                                         </thead>
@@ -69,24 +68,7 @@
 
                                                     <!-- GET departement -->
                                                     <td>Komputer</td>
-                                                    <!-- GET status proposal -->
-                                                    <!-- GET status proposal -->
-                                                    <td><?php 
-                                                        if($proposal_status==='PENDING'){?>
-                                                            <div class="label-main">
-                                                                <label class="label label-default">Pending</label>
-                                                            </div>
-                                                        <?php } else if($proposal_status==='REVISION') {
-                                                            ?>
-                                                            <div class="label-main">
-                                                                <label class="label bg-warning">Revisi</label>
-                                                            </div>
-                                                        <?php } else { ?>
-                                                            <div class="label-main">
-                                                                <label class="label bg-success">Accepted</label>
-                                                            </div>
-                                                        <?php } ?>
-                                                    </td>
+                                                    
                                                     <!-- GET status proposal -->
                                                     <td>
                                                         <a href="" id="previewPorposal" class="open-view-Modal-Preview btn btn-primary" data-toggle="modal" data-target="#view-Modal-Preview-Proposal">
