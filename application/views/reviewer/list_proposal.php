@@ -69,7 +69,7 @@
                                                     </td>
 
                                                     <!-- GET leader -->
-                                                    <td>Nussa</td>
+                                                    <td><?php echo $pr->profile->name ?></td>
 
                                                     <!-- GET departement -->
                                                     <td><?php echo $pr->department->name ?></td>
@@ -81,100 +81,116 @@
                                                 </tr>
                                                 
                                                 <!-- MODAL REVIEW REVISION -->
-                                                <div class="modal fade modal-flex" id="view-Modal-Preview-Proposal" tabindex="-1" role="dialog">
-                                                    <div class="modal-dialog modal-lg" role="document">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                    <span aria-hidden="true">&times;</span>
-                                                                </button>
-                                                                <h5 class="modal-title">Review Proposal</h5>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                <div class="row">
-                                                                    <div class="col-sm-9">
-                                                                        <!-- GET Link to review Proposal -->
-                                                                        <a class="media" id="propose" href="<?php echo base_url();?>data/<?php?>">
-                                                                        </a>
-                                                                    </div>
-                                                                    <div class="col-sm-3">
-                                                                        <div class="form-group">
-                                                                                <label for="teamMembers" class="form-control-label">Anggota Tim</label>
-                                                                                <!-- GET Team member -->
-                                                                                <p id="leaderTeam">
-                                                                                    <?php  ?>
-                                                                                </p>
-                                                                                <p id="member1">
-                                                                                    <?php  ?>
-                                                                                </p>
-                                                                                <p id="member2">
-                                                                                    <?php ?>
-                                                                                </p>
-                                                                                <p id="member3">
-                                                                                    <?php  ?>
-                                                                                </p>
-                                                                                <p id="member4">
-                                                                                    <?php ?>
-                                                                                </p>
-                                                                            </div>
-                                                                            <div class="md-input-wrapper">
-                                                                                <?php ?>
-                                                                                <textarea id="leaderTeam" class="md-form-control md-static" cols="2" rows="4"></textarea>
-                                                                                <label>Catatan RAB</label>
-                                                                            </div>
-                                                                            <div class="md-input-wrapper">
-                                                                                <?php ?>
-                                                                                <textarea id="contentNotes" class="md-form-control md-static" cols="2" rows="4"></textarea>
-                                                                                <label>Catatan Konten</label>
-                                                                            </div>
-                                                                            <label>Rincian Dana</label>
-                                                                            <div class="md-input-wrapper">
-                                                                                Jumlah Dana<br>
-                                                                                <input type="text" name="budget">
-                                                                            </div>
-                                                                            <div class="md-input-wrapper">
-                                                                                Sumber Dana<br>
-                                                                                <input type="text" name="budget">
-                                                                            </div>
-                                                                            <label class="bold">Status</label>
-                                                                            <div class="form-radio">
-                                                                                <form method="POST">
-                                                                                    <div class="radio radio-inline">
-                                                                                        <label>
-                                                                                            <input type="radio" name="radio">
-                                                                                                <i class="helper"></i>revisi
-                                                                                        </label>
-                                                                                    </div>
-                                                                                    <div class="radio radio-inline">
-                                                                                        <label>
-                                                                                            <input type="radio" name="radio">
-                                                                                                <i class="helper"></i>diterima
-                                                                                        </label>
-                                                                                    </div>
-                                                                                    <div class="radio radio-inline">
-                                                                                        <label>
-                                                                                            <input type="radio" name="radio">
-                                                                                                <i class="helper"></i>ditolak
-                                                                                        </label>
-                                                                                    </div>
-                                                                                </form>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="row" style="padding-top: 3px margin-bottom: 3px">
-                                                                    <div class="col-sm-12 text-center" style="padding-top: 3px margin-bottom: 3px">
-                                                                        <!-- SET status proposal -->
-                                                                        <button type="submit" style="padding-top: 3px margin-bottom: 3px" class="btn btn-success waves-effect waves-light">Submit</button>
-                                                                    </div>
-                                                                </div>
-                                                                
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
                                                 
-                                                <?php 
+                                                    
+<div class="modal fade modal-flex" id="view-Modal<?php echo $pr->id ?>" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document" >
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title">Review Proposal</h5>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <!-- get ID -->
+                    <!-- <input type="text" name="proposalId" id="idProposal" value=""/>
+                    <input type="text" name="proposalId" id="leaderProposal" value=""/> -->
+                    <!-- get ID -->
+                    <div class="col-sm-9">
+                        <!-- GET Link to review Proposal -->
+                        <a class="media" id="propose" href="<?php echo base_url();?>data/proposals/<?php echo $pr->proposal; ?>"></a>
+                    </div>
+                    <div class="col-sm-3">
+                    <div class="form-group">
+                            <label for="teamMembers" class="form-control-label">Dana Yang diajukan</label>
+                                                                                
+                                <p id="leaderTeam">
+                                    <?php echo $pr->draft_budget ?>
+                                </p>                                                                                
+
+                            <!-- <select multiple class="form-control multiple-select" id="teamMembers">
+                                <option>Ketua</option>
+                                <option>Anggota Tim 1</option>
+                                <option>Anggota Tim 2</option>
+                                <option>Anggota Tim 3</option>
+                                <option>Anggota Tim 4</option>
+                            </select> -->
+                        </div>
+                        <form enctype="multipart/form-data" method="POST" action="<?php echo base_url().'index.php/Reviewer/review_proposal_submission'; ?>">   
+                            <input type="hidden" id="proposal" name="proposal" value="<?php echo $pr->id ?>">
+                            <div class="md-input-wrapper">
+                                <textarea id="leaderTeam" class="md-form-control md-static" cols="2" rows="4" name="rab"></textarea>
+                                <label>Catatan RAB</label>
+                                <p id="dana">
+                                <?php 
+                                    $revisi =  sizeof($pr->revision);
+                                    if( $pr->revision != null){
+                                        echo $pr->revision[$revisi-1]->budget_notes;    
+                                    }
+                                ?>
+                            </p>
+                            </div>
+                            <div class="md-input-wrapper">
+                                <textarea id="contentNotes"  class="md-form-control md-static" cols="2" rows="4" name="konten"></textarea>
+                                <label>Catatan Konten</label>
+                                <p id="dana">
+                                <?php 
+                                    $revisi =  sizeof($pr->revision);
+                                    if( $pr->revision != null){
+                                        echo $pr->revision[$revisi-1]->content_notes;    
+                                    }
+                                ?>
+                            </p>
+                            </div>
+                            <div class="md-input-wrapper">
+                                    Jumlah Dana yang Disetujui<br>
+                                    <input type="number" name="budget" min=0>
+                                </div>
+                                <div class="md-input-wrapper">
+                                    Sumber Dana<br>
+                                    <input type="text" name="source">
+                                </div>
+                            <label class="bold">Status</label>
+                            <div class="form-radio">
+                                
+                                    <div class="radio radio-inline">
+                                        <label>
+                                            <input type="radio" name="radio" value="WAITFUND">
+                                                <i class="helper"></i>Diterima
+                                        </label>
+                                    </div>
+                                    <div class="radio radio-inline">
+                                        <label>
+                                            <input type="radio" name="radio" value="REVISION">
+                                                <i class="helper"></i>Revisi
+                                        </label>
+                                    </div>
+                                    <div class="radio radio-inline">
+                                        <label>
+                                            <input type="radio" name="radio" value="REJECTED">
+                                                <i class="helper"></i>Ditolak
+                                        </label>
+                                    </div>
+                            
+                            </div>
+                        
+                        </div>
+                    </div>
+                    <div class="row" style="padding-top: 3pt">
+                        <div class="col-sm-12 text-center">
+                            <!-- SET status proposal -->
+                            <button type="submit" class="btn btn-success waves-effect waves-light">Submit</button>
+                        </div>
+                    </div>
+                </form>
+                
+            </div>
+        </div>
+    </div>
+</div>
+                                                 <?php 
                                                     $index++;
                                                     endforeach;
                                                 ?>

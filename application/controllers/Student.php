@@ -20,6 +20,22 @@ class Student extends CI_Controller {
 
 	public function index()
 	{
+		$curl = curl_init();
+	
+		curl_setopt_array($curl, array(
+		CURLOPT_URL => "http://localhost:8000/api/mahasiswa/proposal/all?nim=171511046",
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_ENCODING => "",		
+		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST => "GET",
+		));
+
+		$proposal = curl_exec($curl);
+		$err = curl_error($curl);
+
+		curl_close($curl);
+
+		$data['proposal'] = json_decode($proposal);
 		$data['content'] = $this->template();
 		$this->load->view('templates/student/dashboard',$data);
     }

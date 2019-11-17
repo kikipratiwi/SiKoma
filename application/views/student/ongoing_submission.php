@@ -79,9 +79,22 @@
                                                             </td>
                                                          <?php } else  {?>
                                                             <td>
-                                                              <div class="label-main">
-                                                                  <label class="label bg-primary">pending</label>
-                                                              </div>
+                                                                <?php 
+                                                                    if($pr->proposal->status==='PENDING'){?>
+                                                                        <div class="label-main">
+                                                                            <label class="label bg-warning">Pending</label>
+                                                                        </div>
+                                                                    <?php } else if($pr->proposal->status==='WAITFUND') {
+                                                                        ?>
+                                                                        <div class="label-main">
+                                                                            <label class="label bg-warning">Menunggu Pencairan Dana</label>
+                                                                        </div>
+                                                                    <?php } else if($pr->proposal->status==='DISBURSEDFUND') {
+                                                                        ?>
+                                                                        <div class="label-main">
+                                                                            <label class="label bg-warning">Dana Telah Cair</label>
+                                                                        </div>
+                                                                    <?php } ?>
                                                             </td>
                                                             <td>
                                                                 <p>-</p>
@@ -166,7 +179,9 @@
                 <div class="modal-footer">
                     <!-- ke form revisi proposal -->
                     <!-- if status proposal adalah revisi -->
-                        <a type="button" href="<?php echo base_url();?>Student/revision_submission/<?php echo $pr->id ?>" class="btn btn-success waves-effect waves-light" >ke form upload revisi</a>
+                     <?php if($pr->proposal->status==='REVISION') { ?>
+                        <a type="button" href="<?php echo base_url();?>index.php/Student/revision_submission/<?php echo $pr->id; ?>" class="btn btn-success waves-effect waves-light" >ke form upload revisi</a>
+                    <?php } ?>
                     <!-- end if -->
                     
                     <!-- download proposal -->

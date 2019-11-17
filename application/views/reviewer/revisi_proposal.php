@@ -31,7 +31,7 @@
                     <!-- Hover effect table starts -->
                     <div class="card">
                         <div class="card-header">
-                            <h5 class="card-header-text">List Proposal Revisis</h5>
+                            <h5 class="card-header-text">List Proposal Revisi</h5>
                         </div>
                         <div class="card-block">
                             <div class="row">
@@ -48,37 +48,38 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                            <?php
-                                                for ($no = 1; $no <= 4; $no++){
-                                                    $proposal_status='revision';?>
+                                            <?php   
+                                                $index = 1;
+                                                    foreach($proposal as $key => $pr) : 
+                                                 ?>
                                                 <tr>
-                                                    <td><?php echo $no ?></td>
+                                                    <td><?php echo $index ?></td>
                                                     <!-- GET name competition -->
-                                                    <td>Gemastik</td>
+                                                    <td><?php echo $pr->competition->name ?></td>
+
                                                     <!-- GET date upload -->
-                                                    <?php
-                                                        // $date1 = date_create($competition['regist_opendate']);
-                                                        // $date2 = date_create($competition['regist_closedate']);
+                                                    <td>
+                                                        <?php                                                                                                 $time = strtotime($pr->created_at);
+                                                            $myFormatForView = date("d M Y", $time);
+                                                            echo $myFormatForView;
+                                                            
                                                         ?>
-                                                    <!-- <td>echo date_format($date1,"d M Y")</td> -->
-                                                    <td>20 November 2019</td>
+                                                    </td>
 
                                                     <!-- GET leader -->
-                                                    <td>Nussa</td>
+                                                    <td><?php echo $pr->profile->name ?></td>
 
                                                     <!-- GET departement -->
-                                                    <td>Komputer</td>
-                                                    
-                                                    <!-- GET status proposal -->
+                                                    <td><?php echo $pr->department->name ?></td>
                                                     <td>
-                                                        <a href="" id="previewPorposal" class="open-view-Modal-Preview btn btn-primary" data-toggle="modal" data-target="#view-Modal-Preview-Proposal">
+                                                        <a href="" id="finishedPorposal" class="btn btn-primary" data-toggle="modal" data-target="#view-Modal<?php echo $pr->id ?> ">
                                                             Review
                                                         </a>
                                                     </td>
                                                 </tr>
                                                 
                                                 <!-- MODAL REVIEW REVISION -->
-                                                <div class="modal fade modal-flex" id="view-Modal-Preview-Proposal" tabindex="-1" role="dialog">
+                                                <div class="modal fade modal-flex" id="view-Modal<?php echo $pr->id ?>" tabindex="-1" role="dialog">
                                                     <div class="modal-dialog modal-lg" role="document">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
@@ -91,48 +92,43 @@
                                                                 <div class="row">
                                                                     <div class="col-sm-9">
                                                                         <!-- GET Link to review Proposal -->
-                                                                        <a class="media" id="propose" href="<?php echo base_url();?>data/<?php?>">
+                                                                        <a class="media" id="propose" href="<?php echo base_url();?>data/proposals/<?php echo $pr->proposal; ?>"></a>
                                                                         </a>
                                                                     </div>
                                                                     <div class="col-sm-3">
-                                                                        <label id="deadlineProposal" class="label bg-danger">
-                                                                            Deadline : 10 Oct 2019
-                                                                            <!-- echo date_format($date1,"d M Y") -->
-                                                                            <?php ?>
-                                                                        </label>
+                                                                        
                                                                         <div class="form-group">
-                                                                                <label for="teamMembers" class="form-control-label">Anggota Tim</label>
+                                                                                <label for="teamMembers" class="form-control-label">Dana Yang diajukan</label>
                                                                                 <!-- GET Team member -->
                                                                                 <p id="leaderTeam">
-                                                                                    <?php  ?>
-                                                                                </p>
-                                                                                <p id="member1">
-                                                                                    <?php  ?>
-                                                                                </p>
-                                                                                <p id="member2">
-                                                                                    <?php ?>
-                                                                                </p>
-                                                                                <p id="member3">
-                                                                                    <?php  ?>
-                                                                                </p>
-                                                                                <p id="member4">
-                                                                                    <?php ?>
-                                                                                </p>
+                                                                                    <?php echo $pr->draft_budget ?>
+                                                                                </p>                                                                                
                                                                             </div>
+                                                                            <form enctype="multipart/form-data" method="POST" action="<?php echo base_url().'index.php/Reviewer/review_proposal_submission'; ?>">   
+                                                                            
+                                                                            <input type="hidden" id="proposal" name="proposal" value="<?php echo $pr->id ?>">
                                                                             <div class="md-input-wrapper">
-                                                                                <?php ?>
-                                                                                <textarea id="leaderTeam" class="md-form-control md-static" cols="2" rows="4"></textarea>
+                                                                                
+                                                                               <textarea id="leaderTeam" class="md-form-control md-static" cols="2" rows="4" name="rab"></textarea>
                                                                                 <label>Catatan RAB</label>
+                                                                                
                                                                             </div>
-                                                                            <div class="md-input-wrapper">
-                                                                                <?php ?>
-                                                                                <textarea id="contentNotes" class="md-form-control md-static" cols="2" rows="4"></textarea>
+                                                                            <div class="md-input-wrapper">                                                                                
+                                                                                 <textarea id="contentNotes"  class="md-form-control md-static" cols="2" rows="4" name="konten"></textarea>
                                                                                 <label>Catatan Konten</label>
+                                                                                <p id="dana">
+                                                                                
+                                                                            </p>
+
                                                                             </div>
                                                                             <label>Rincian Dana</label>
                                                                             <div class="md-input-wrapper">
-                                                                                Jumlah Dana<br>
-                                                                                <input type="text" name="budget">
+                                                                                Jumlah Dana yang Disetujui<br>
+                                                                                <input type="number" name="budget" min=0>
+                                                                            </div>
+                                                                            <div class="md-input-wrapper">
+                                                                                Sumber Dana<br>
+                                                                                <input type="text" name="source">
                                                                             </div>
                                                                             <div class="md-input-wrapper">
                                                                                 Sumber Dana<br>
@@ -144,17 +140,23 @@
                                                                                 <form method="POST">
                                                                                     <div class="radio radio-inline">
                                                                                         <label>
-                                                                                            <input type="radio" name="radio">
-                                                                                                <i class="helper"></i>diterima
+                                                                                            <input type="radio" name="radio" value="WAITFUND">
+                                                                                                <i class="helper"></i>Diterima
                                                                                         </label>
                                                                                     </div>
                                                                                     <div class="radio radio-inline">
                                                                                         <label>
-                                                                                            <input type="radio" name="radio">
-                                                                                                <i class="helper"></i>ditolak
+                                                                                            <input type="radio" name="radio" value="REVISION">
+                                                                                                <i class="helper"></i>Revisi
                                                                                         </label>
                                                                                     </div>
-                                                                                </form>
+                                                                                    <div class="radio radio-inline">
+                                                                                        <label>
+                                                                                            <input type="radio" name="radio" value="REJECTED">
+                                                                                                <i class="helper"></i>Ditolak
+                                                                                        </label>
+                                                                                    </div>
+                                                                                
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -164,14 +166,16 @@
                                                                         <button type="submit" style="padding-top: 3px margin-bottom: 3px" class="btn btn-success waves-effect waves-light">Submit</button>
                                                                     </div>
                                                                 </div>
-                                                                
+                                                                </form>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                
-                                                <?php
-                                            };?>
+                                                <?php 
+                                                    $index++;
+                                                    endforeach;
+                                                ?>
+
                                         </tbody>
                                     </table>
                                 </div>
