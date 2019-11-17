@@ -44,28 +44,35 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                            <?php
-                                                for ($no = 1; $no <= 4; $no++){
-                                                    $proposal_status='pending';?>
+                                                <?php   
+                                                    $index = 1;
+                                                    foreach($proposal as $key => $pr) : 
+                                                 ?>
                                                 <tr>
-                                                    <td><?php echo $no ?></td>
+                                                    <td><?php echo $index ?></td>
                                                     <!-- GET name competition -->
-                                                    <td>Gemastik</td>
+                                                    <td><?php echo $pr->competition->name ?></td>
 
                                                     <!-- GET date upload -->
-                                                    <td>20 November 2019</td>
+                                                    <td>
+                                                        <?php                                                                                                 $time = strtotime($pr->created_at);
+                                                            $myFormatForView = date("d M Y", $time);
+                                                            echo $myFormatForView;
+                                                            
+                                                        ?>
+                                                    </td>
 
                                                     <!-- GET leader -->
                                                     <td>Nussa</td>
                                                     <!-- GET departement -->
-                                                    <td>Komputer</td>
+                                                    <td><?php echo $pr->department->name ?></td>
                                                     <!-- GET status proposal -->
                                                     <td><?php 
-                                                        if($proposal_status==='pending'){?>
+                                                        if($pr->status==='PENDING'){?>
                                                             <div class="label-main">
                                                                 <label class="label label-default">Pending</label>
                                                             </div>
-                                                        <?php } else if($proposal_status==='revisi') {
+                                                        <?php } else if($pr->status==='REVISION') {
                                                             ?>
                                                             <div class="label-main">
                                                                 <label class="label bg-warning">Revisi</label>
@@ -78,16 +85,13 @@
                                                     </td>
                                                     <!-- GET status proposal -->
                                                     <td><?php 
-                                                        if($proposal_status==='accepted' || $proposal_status==='revisi'){?>
+                                                        if($pr->status==='ACCEPTED' || $pr->status==='REVISION'){?>
                                                             <button type="button" class="btn btn-disable disabled">Reviewed</button>
                                                         <?php } else { ?>
                                                             <div class="row">
                                                                 <div class="col-sm-12">
                                                                     <!-- data-id HERE -->
-                                                                    <a href=""  id="proposalNew" class="open-view-Modal btn btn-primary"  
-                                                                    data-proposal='{"id":"10","leader":"leader","member1":"member1","member2":"member2","member3":"member3","member4":"member4",
-                                                                    "linkProposal":"linkProposal"}' 
-                                                                    data-toggle="modal" data-target="#view-Modal">
+                                                                    <a href=""  id="proposalNew" class="open-view-Modal btn btn-primary"data-toggle="modal" data-target="#view-Modal<?php echo $pr->id ?> ">
                                                                         Review
                                                                     </a>
                                                                 </div>
@@ -95,29 +99,8 @@
                                                         <?php } ?>
                                                     </td>
                                                 </tr>
-                                                <?php
-                                            };?>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Tabel Proposal end -->
-                    </div>
-                </div>
-            </div>
-            <!-- Row end -->
-        </div>
-        <!-- Main content end -->
-    </div>
-    <!-- Container-fluid end -->
-</div>
-
-
-<!-- MODAL REVIEW NEW SUBMISSION -->
-<div class="modal fade modal-flex" id="view-Modal" tabindex="-1" role="dialog">
-    <div class="modal-dialog modal-lg" role="document">
+<div class="modal fade modal-flex" id="view-Modal<?php echo $pr->id ?>" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document" >
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -133,7 +116,7 @@
                     <!-- get ID -->
                     <div class="col-sm-9">
                         <!-- GET Link to review Proposal -->
-                        <iframe class="word" id="linkProposal" src="https://docs.google.com/gview?url=http://writing.engr.psu.edu/workbooks/formal_report_template.doc&embedded=true" frameborder="0"></iframe>
+                        <a class="media" id="propose" href="<?php echo base_url();?>data/proposals/<?php echo $pr->proposal; ?>"></a>
                     </div>
                     <div class="col-sm-3">
                     <div class="form-group">
@@ -173,74 +156,109 @@
                                 <option>Anggota Tim 4</option>
                             </select> -->
                         </div>
-                        <div class="md-input-wrapper">
-                            <textarea id="leaderTeam" class="md-form-control md-static" cols="2" rows="4"></textarea>
-                            <label>Catatan RAB</label>
-                        </div>
-                        <div class="md-input-wrapper">
-                            <textarea id="contentNotes"  class="md-form-control md-static" cols="2" rows="4"></textarea>
-                            <label>Catatan Konten</label>
-                        </div>
-                        <label class="bold">Status</label>
-                        <div class="form-radio">
-                            <form>
-                                <div class="radio radio-inline">
-                                    <label>
-                                        <input type="radio" name="radio">
-                                            <i class="helper"></i>Diterima
-                                    </label>
-                                </div>
-                                <div class="radio radio-inline">
-                                    <label>
-                                        <input type="radio" name="radio">
-                                            <i class="helper"></i>Revisi
-                                    </label>
-                                </div>
-                                <div class="radio radio-inline">
-                                    <label>
-                                        <input type="radio" name="radio">
-                                            <i class="helper"></i>Ditolak
-                                    </label>
-                                </div>
-                            </form>
+                        <form enctype="multipart/form-data" method="POST" action="<?php echo base_url().'index.php/Reviewer/review_proposal_submission'; ?>">   
+                            <input type="hidden" id="proposal" name="proposal" value="<?php echo $pr->id ?>">
+                            <div class="md-input-wrapper">
+                                <textarea id="leaderTeam" class="md-form-control md-static" cols="2" rows="4" name="rab"></textarea>
+                                <label>Catatan RAB</label>
+                            </div>
+                            <div class="md-input-wrapper">
+                                <textarea id="contentNotes"  class="md-form-control md-static" cols="2" rows="4" name="konten"></textarea>
+                                <label>Catatan Konten</label>
+                            </div>
+                            <label class="bold">Status</label>
+                            <div class="form-radio">
+                                
+                                    <div class="radio radio-inline">
+                                        <label>
+                                            <input type="radio" name="radio" value="ACCEPTED">
+                                                <i class="helper"></i>Diterima
+                                        </label>
+                                    </div>
+                                    <div class="radio radio-inline">
+                                        <label>
+                                            <input type="radio" name="radio" value="REVISION">
+                                                <i class="helper"></i>Revisi
+                                        </label>
+                                    </div>
+                                    <div class="radio radio-inline">
+                                        <label>
+                                            <input type="radio" name="radio" value="REJECTED">
+                                                <i class="helper"></i>Ditolak
+                                        </label>
+                                    </div>
+                            
+                            </div>
+                        
                         </div>
                     </div>
-                </div>
-                <div class="row" style="padding-top: 3pt">
-                    <div class="col-sm-12 text-center">
-                        <!-- SET status proposal -->
-                        <button type="submit" class="btn btn-success waves-effect waves-light">Submit</button>
+                    <div class="row" style="padding-top: 3pt">
+                        <div class="col-sm-12 text-center">
+                            <!-- SET status proposal -->
+                            <button type="submit" class="btn btn-success waves-effect waves-light">Submit</button>
+                        </div>
                     </div>
-                </div>
+                </form>
                 
             </div>
         </div>
     </div>
 </div>
+                                                 <?php 
+                                                    $index++;
+                                                    endforeach;
+                                                ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Tabel Proposal end -->
+                    </div>
+                </div>
+            </div>
+            <!-- Row end -->
+        </div>
+        <!-- Main content end -->
+    </div>
+    <!-- Container-fluid end -->
+</div>
 
+
+<!-- MODAL REVIEW NEW SUBMISSION -->
+<!-- MODAL REVIEW -->
+<!-- Required Jqurey -->
+    <script src="<?php echo base_url();?>assets/plugins/jquery/dist/jquery.min.js"></script>
+    <script src="<?php echo base_url();?>assets/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <script src="<?php echo base_url();?>assets/plugins/tether/dist/js/tether.min.js"></script>
 
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
+<script type="text/javascript" src="http://malsup.github.com/jquery.media.js"></script>
 
 <script>
     $(document).ready( function () {
         $('#reviewProposal').DataTable();
     });
 
-    $(document).on("click", ".open-view-Modal", function () {
-        var idProposal = $('#proposalNew').data('proposal').id;
-        $(".modal-body #idProposal").val( idProposal );
-        var leaderTeam = $('#proposalNew').data('proposal').leader;
-        $(".modal-body #leaderTeam").val( leaderTeam );
-        var member1 = $('#proposalNew').data('proposal').member1;
-        $(".modal-body #member1").val( member1 );
-        var member2 = $('#proposalNew').data('proposal').member2;
-        $(".modal-body #member2").val( member2 );
-        var member3 = $('#proposalNew').data('proposal').member3;
-        $(".modal-body #member3").val( member3 );
-        var member4 = $('#proposalNew').data('proposal').member4;
-        $(".modal-body #member4").val( member4 );
+    // $(document).on("click", ".open-view-Modal", function () {
+    //     var idProposal = $('#proposalNew').data('proposal').id;
+    //     $(".modal-body #idProposal").val( idProposal );
+    //     var leaderTeam = $('#proposalNew').data('proposal').leader;
+    //     $(".modal-body #leaderTeam").val( leaderTeam );
+    //     var member1 = $('#proposalNew').data('proposal').member1;
+    //     $(".modal-body #member1").val( member1 );
+    //     var member2 = $('#proposalNew').data('proposal').member2;
+    //     $(".modal-body #member2").val( member2 );
+    //     var member3 = $('#proposalNew').data('proposal').member3;
+    //     $(".modal-body #member3").val( member3 );
+    //     var member4 = $('#proposalNew').data('proposal').member4;
+    //     $(".modal-body #member4").val( member4 );
 
-        $('#view-Modal').modal('show');
+    //     $('#view-Modal').modal('show');
+    // });
+    $(function () {
+        $('.media').media({width: 950, height:430});
     });
 
 </script>
