@@ -129,6 +129,10 @@
                                                                                 <textarea id="contentNotes" class="md-form-control md-static" cols="2" rows="4"></textarea>
                                                                                 <label>Catatan Konten</label>
                                                                             </div>
+                                                                            <div class="md-input-wrapper">
+                                                                                Jumlah Dana yang Disetujui<br>
+                                                                                <input type="text" name="budget">
+                                                                            </div>
                                                                             <label class="bold">Status</label>
                                                                             <div class="form-radio">
                                                                                 <form method="POST">
@@ -149,10 +153,10 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="row" style="padding-top: 3pt">
-                                                                    <div class="col-sm-12 text-center">
+                                                                <div class="row" style="padding-top: 3px margin-bottom: 3px">
+                                                                    <div class="col-sm-12 text-center" style="padding-top: 3px margin-bottom: 3px">
                                                                         <!-- SET status proposal -->
-                                                                        <button type="submit" class="btn btn-success waves-effect waves-light">Submit</button>
+                                                                        <button type="submit" style="padding-top: 3px margin-bottom: 3px" class="btn btn-success waves-effect waves-light">Submit</button>
                                                                     </div>
                                                                 </div>
                                                                 
