@@ -7,6 +7,9 @@ class Mentor extends CI_Controller {
 		// $this->load->model('proposal');
 		// $this->load->database(); // load database
 		$this->load->helper('url');
+		if($this->session->userdata('status') != "login" OR $this->session->userdata('role') != 2){
+			redirect("Authentication/login");
+		}
 	}
 
 	public function index()
@@ -33,7 +36,7 @@ class Mentor extends CI_Controller {
 
 	public function finished_submission()
 	{
-		$nip = 197407182001121002;
+		$nip = $this->session->userdata('id');
 		$curl = curl_init();
 		
 		curl_setopt_array($curl, array(
@@ -57,7 +60,7 @@ class Mentor extends CI_Controller {
 
 	public function ongoing_submission()
 	{
-		$nip = 197407182001121002;
+		$nip = $this->session->userdata('id');
 		$curl = curl_init();
 		
 		curl_setopt_array($curl, array(

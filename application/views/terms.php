@@ -56,23 +56,16 @@
                     <div class="card-header">
                         <h5 class="card-header-text text-center">Informasi Seputar Pengajuan Proposal Kompetisi</h5>
                         
-                        <?php if(!"belum login") {?>
+                        <?php if($status != "login") {?>
                             <span style="float: right;">
                                 <a href="<?php echo base_url(); ?>index.php/Authentication/login" type="button" class="btn btn-primary waves-effect waves-light prev">Login</a>
                             </span>
-                        <?php }else if("session role == admin") {?>
+                        <?php }else {?>
                             <span style="float: right;">
-                                <a href="<?php echo base_url(); ?>index.php/Admin/dashboard" type="button" class="btn btn-primary waves-effect waves-light dashboard-button">kembali ke Dashboard</a>
-                            </span>
-                        <?php }else if("session role == student") {?>
-                            <span style="float: right;">
-                                <a href="<?php echo base_url(); ?>index.php/Admin/dashboard" type="button" class="btn btn-primary waves-effect waves-light dashboard-button">kembali ke Dashboard</a>
-                            </span>
-                        <?php }else if("session role == reviewer") {?>
-                            <span style="float: right;">
-                                <a href="<?php echo base_url(); ?>index.php/Admin/dashboard" type="button" class="btn btn-primary waves-effect waves-light dashboard-button">kembali ke Dashboard</a>
+                                <a href="<?php echo base_url(); ?>index.php/Authentication/login_act" type="button" class="btn btn-primary waves-effect waves-light dashboard-button">kembali ke Dashboard</a>
                             </span>
                         <?php }?>
+                            
                     </div>
                     <div class="card-block accordion-block">
                         <div class="accordion-box" id="sclae-accordion">

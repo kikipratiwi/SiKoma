@@ -74,7 +74,7 @@
                                                     <!-- GET departement -->
                                                     <td><?php echo $pr->department->name ?></td>
                                                     <td>
-                                                        <a href="" id="previewPorposal" class="open-view-Modal-Preview btn btn-primary" data-toggle="modal" data-target="#view-Modal-Preview-Proposal">
+                                                        <a href="" id="previewPorposal" class="open-view-Modal-Preview btn btn-primary" data-toggle="modal" data-target="#view-Modal<?php echo $pr->id ?>">
                                                             Review
                                                         </a>
                                                     </td>
@@ -107,7 +107,7 @@
                             <label for="teamMembers" class="form-control-label">Dana Yang diajukan</label>
                                                                                 
                                 <p id="leaderTeam">
-                                    <?php echo $pr->draft_budget ?>
+                                    <?php echo $pr->draft_budget?>
                                 </p>                                                                                
 
                             <!-- <select multiple class="form-control multiple-select" id="teamMembers">
@@ -124,24 +124,14 @@
                                 <textarea id="leaderTeam" class="md-form-control md-static" cols="2" rows="4" name="rab"></textarea>
                                 <label>Catatan RAB</label>
                                 <p id="dana">
-                                <?php 
-                                    $revisi =  sizeof($pr->revision);
-                                    if( $pr->revision != null){
-                                        echo $pr->revision[$revisi-1]->budget_notes;    
-                                    }
-                                ?>
+                             
                             </p>
                             </div>
                             <div class="md-input-wrapper">
                                 <textarea id="contentNotes"  class="md-form-control md-static" cols="2" rows="4" name="konten"></textarea>
                                 <label>Catatan Konten</label>
                                 <p id="dana">
-                                <?php 
-                                    $revisi =  sizeof($pr->revision);
-                                    if( $pr->revision != null){
-                                        echo $pr->revision[$revisi-1]->content_notes;    
-                                    }
-                                ?>
+                               
                             </p>
                             </div>
                             <div class="md-input-wrapper">

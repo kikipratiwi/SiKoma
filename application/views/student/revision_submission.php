@@ -39,15 +39,19 @@
                                                         <div class="form-group row">
                                                             <label for="department" class="col-xs-2 col-form-label form-control-label">Jurusan</label>
                                                             <div class="col-sm-10">
-                                                                <input type="text" class="form-control " name="department" id="department" value="<?php echo "Teknik Komputer dan Informatika"; ?>" readonly>
+                                                                <input type="text" class="form-control " name="department" id="department" value="<?php echo $proposal->department->name?>" readonly>
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
                                                             <label for="competition" class="col-xs-2 col-form-label form-control-label">Kompetisi</label>
                                                             <div class="col-sm-10">
-                                                                <input type="text" class="form-control " name="competition" id="competition" value="<?php echo "Gemastik"; ?>" readonly>
+                                                                <input type="text" class="form-control " name="competition" id="competition" value="<?php echo $proposal->competition->name?>"  readonly>
                                                             </div> 
                                                         </div>
+
+                                                        <input type="hidden" value="<?php echo $proposal->proposal?>" name="oldproposal">
+                                                        <input type="hidden" value="<?php echo $proposal->id?>" name="id_proposal">
+
                                                         <div class="form-group row">
                                                             <label for="budget" class="col-xs-2 col-form-label form-control-label">Dana yang diajukan</label>
                                                             <div class="col-sm-10">
@@ -67,6 +71,7 @@
                                                                     <button class="btn btn-primary" style="margin-left: 15px;border-radius: .25rem;padding: .5rem .75rem;">Browse</button>
                                                                 </span>
                                                                 <div class="md-input-file">
+                                                                    <input type="hidden" name="proposal" id="file-upload" />
                                                                     <input type="file" name="proposal" id="file-upload" />
                                                                     <input type="text" class="md-form-control md-form-file" style="margin-right: 18px;float: right;width: 97%;">
                                                                     <label class="md-label-file" id="file-upload-filename" style="padding-left: 5px; color: rgb(155, 156, 169);">doc Proposal</label>

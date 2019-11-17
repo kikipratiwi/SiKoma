@@ -49,20 +49,22 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <?php $no = 1; 
-                                                            foreach($competitions as $competition){?>
+                                                         <?php   
+                                                            $index = 1;
+                                                            foreach($competition as $key => $cmpt) : 
+                                                        ?>
                                                             <tr>
-                                                                <td><?php echo $no ?></td>
-                                                                <td><?php echo $competition['name']; ?></td>
-                                                                <td><?php echo $competition['location']; ?></td>
+                                                                <td><?php echo $index ?></td>
+                                                                <td><?php echo $cmpt->name; ?></td>
+                                                                <td><?php echo $cmpt->location; ?></td>
                                                                 <?php
-                                                                    $date1 = date_create($competition['regist_opendate']);
-                                                                    $date2 = date_create($competition['regist_closedate']);
+                                                                    $date1 = date_create($cmpt->regist_opendate);
+                                                                    $date2 = date_create($cmpt->regist_closedate);
                                                                 ?>
                                                                 <td><?php echo date_format($date1,"d M Y")." - ". date_format($date2,"d M Y"); ?></td>
                                                                 <?php
-                                                                    $date1 = date_create($competition['event_startdate']);
-                                                                    $date2 = date_create($competition['event_enddate']);
+                                                                    $date1 = date_create($cmpt->event_startdate);
+                                                                    $date2 = date_create($cmpt->event_enddate);
                                                                 ?>
                                                                 <td><?php echo date_format($date1,"d M Y")." - ". date_format($date2,"d M Y");?></td>
                                                                 <td>
@@ -73,9 +75,10 @@
                                                                 </td>
                                                             </tr>
                                                             
-                                                            <?php
-                                                            $no++;
-                                                            }; ?>
+                                                           <?php 
+                                                    $index++;
+                                                    endforeach;
+                                                ?>
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -106,7 +109,7 @@
             <h5 class="modal-title">Tambah Data Kompetisi</h5>
         </div>
 
-        <form method="POST" action="<?php echo base_url().'index.php/Student/act_add_competition'; ?>">
+        <form method="POST" action="<?php echo base_url().'index.php/Admin/act_add_competition'; ?>">
             <div class="modal-body">
                     <div class="form-group col-md-12">
                         <label for="competitionName" class="block form-control-label">Nama Kompetisi</label>

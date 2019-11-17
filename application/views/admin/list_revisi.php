@@ -48,29 +48,28 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                            <?php
-                                                for ($no = 1; $no <= 4; $no++){
-                                                    $due_date=NULL;?>
+                                            <?php   
+                                                    $index = 1;
+                                                    foreach($proposal as $key => $pr) : 
+                                                 ?>
                                                 <tr>
-                                                    <td><?php echo $no ?></td>
+                                                    <td><?php echo $index ?></td>
                                                     <!-- GET name competition -->
-                                                    <td>Gemastik</td>
+                                                    <td><?php echo $pr->competition->name ?></td>
                                                     <!-- GET leader -->
-                                                    <td>Nussa</td>
+                                                    <td><?php echo $pr->profile->name ?></td>
                                                     <!-- GET departement -->
-                                                    <td>Komputer</td>
+                                                    <td><?php echo $pr->department->name ?></td>
                                                     <!-- GET deadline proposal -->
-                                                    <td><?php 
-                                                        if($due_date===NULL ){?>
-                                                            -
-                                                        <?php } else { ?>
-                                                            <div class="label-main">
-                                                                <label class="label bg-danger">
-                                                                <!-- php echo date_format($date1,"d M Y"); -->
-                                                                Due Date : 20 Oct 2019
-                                                                </label>
-                                                            </div>
-                                                        <?php } ?>
+                                                    <td> <?php 
+                                                            $revisi =  sizeof($pr->revision);
+                                                            if( $pr->revision != null){
+                                                                    
+                                                                $time = strtotime($pr->revision[$revisi-1]->due_date);
+                                                                $myFormatForView = date("d M Y", $time);
+                                                                echo $myFormatForView;
+                                                            }
+                                                         ?>
                                                     </td>
                                                     <td>
                                                         <a href="" class="btn btn-primary" data-toggle="modal" data-target="#view-Modal-Deadline">
@@ -94,12 +93,14 @@
                                                                 <div class="row">
                                                                     <div class="col-sm-9">
                                                                         <!-- GET Link to review Proposal -->
-                                                                        <a class="media" id="propose" href="<?php echo base_url();?>data/<?php?>">
+                                                                        <a class="media" id="propose" href="<?php echo base_url();?>data/proposals/<?php echo $pr->proposal ?>">
                                                                         </a>
                                                                     </div>
                                                                     <div class="col-sm-3">
                                                                     <?php 
-                                                                        if($due_date===NULL ){?>
+                                                                     $revisi =  sizeof($pr->revision);
+                                                                        
+                                                                        if($pr->revision[$revisi-1]->due_date===NULL ){?>
                                                                             <div class="form-group col-md-8" style="margin-bottom: .1rem;">
                                                                                 <label for="registDate" class="block form-control-label">Input Deadline</label>
                                                                             </div>
@@ -107,30 +108,37 @@
                                                                             <div class="label-main">
                                                                                 <label class="label bg-danger">
                                                                                 <!-- php echo date_format($date1,"d M Y"); -->
-                                                                                Due Date : 20 Oct 2019
+                                                                               <?php echo $pr->revision[$revisi-1]->due_date ?>
                                                                                 </label>
                                                                             </div>
                                                                         <?php } ?>
-                                                                        
+                                                                        <form enctype="multipart/form-data" method="POST" action="<?php echo base_url().'index.php/Admin/addDeadline'; ?>">  
+
+                                                                        <input type="hidden" id="proposal" name="proposal" value="<?php echo $pr->id ?>">
+
                                                                         <div class="form-row">
                                                                             <div class="form-group col-md-12">
                                                                                 <div class="form-control-wrapper">
-                                                                                    <input type="date" name="regist_opendate" id="regist-date-start" class="form-control floating-label" placeholder="Start Date">
+                                                                                    <input type="date" name="deadline" id="regist-date-start" class="form-control floating-label" placeholder="Start Date">
                                                                                 </div>
                                                                             </div>
                                                                         </div>
                                                                         <div class="form-group col-md-12">
                                                                             <div class="md-input-wrapper">
-                                                                                <label>Catatan RAB *get data*</label>
+                                                                                <label>Catatan RAB</label>
                                                                                 <!-- GET NOTES echo $proposal['notes']; -->
-                                                                                <textarea class="md-form-control md-static" cols="2" rows="4"></textarea>
+                                                                                <textarea class="md-form-control md-static" cols="2" rows="4">
+                                                                                    <?php echo $pr->revision[$revisi-1]->budget_notes ?>
+                                                                                </textarea>
                                                                             </div>
                                                                         </div>
                                                                         <div class="form-group col-md-12">
                                                                             <div class="md-input-wrapper">
-                                                                                <label>Catatan Konten *get data*</label>
+                                                                                <label>Catatan Konten</label>
                                                                                 <!-- GET NOTES echo $proposal['notes']; -->
-                                                                                <textarea class="md-form-control md-static" cols="2" rows="4"></textarea>
+                                                                                <textarea class="md-form-control md-static" cols="2" rows="4">
+                                                                                    <?php echo $pr->revision[$revisi-1]->content_notes ?>
+                                                                                </textarea>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -141,6 +149,7 @@
                                                                         <button type="submit" style="padding-top: 3px margin-bottom: 3px" class="btn btn-success waves-effect waves-light">Submit</button>
                                                                     </div>
                                                                 </div>
+                                                                </form>
                                                                 
                                                             </div>
                                                         </div>
@@ -149,8 +158,10 @@
 
                                                
 
-                                                <?php
-                                            };?>
+                                                <?php 
+                                                    $index++;
+                                                    endforeach;
+                                                ?>
                                         </tbody>
                                     </table>
                                 </div>
