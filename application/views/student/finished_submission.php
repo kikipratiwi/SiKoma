@@ -42,8 +42,7 @@
                                             <th>No</th>
                                             <th>Proposal</th>
                                             <th>Tahun</th>
-                                            <th>Status</th>
-                                            <th>LPJ</th>
+                                            <th>Status</th>                                            
                                             <th>Preview</th>
                                         </tr>
                                         </thead>
@@ -74,19 +73,7 @@
                                                             </div>
                                                         <?php } ?>
                                                     </td>
-                                                    <!-- GET status lpj -->
-                                                    <td><?php 
-                                                        if($pr->proposal->accountability_report===1){?>
-                                                            <div class="label-main">
-                                                                <label class="label label-success">Sudah Menyerahkan</label>
-                                                            </div>
-                                                        <?php } else if($pr->proposal->accountability_report===0) {
-                                                            ?>
-                                                            <div class="label-main">
-                                                                <label class="label bg-danger">Belum Menyerahkan</label>
-                                                            </div>
-                                                        <?php } ?>
-                                                    </td>
+                                                    
                                                     <td>
                                                         <a href="" id="finishedPorposal" class="btn btn-primary" data-toggle="modal" data-target="#view-Modal-Finished-Proposal<?php echo $pr->id ?> ">
                                                             Preview

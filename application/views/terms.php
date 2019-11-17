@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>SiKoma</title>
+    <title>SiKoma | Sistem Informasi Pengajuan Proposal Kompetisi Mahasiswa</title>
     <!-- HTML5 Shim and Respond.js IE9 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -38,45 +38,8 @@
     <!--color css-->
     <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/color/color-1.min.css" id="color"/>
 
-
-    <style>
-        ul {
-            list-style-type: lower-alpha; /* a, b, */
-            padding: 0;
-            margin: 0;
-        }
-
-        li { 
-            padding-left: 8px; 
-            font-size: 13px;
-            font-weight: 400;
-            line-height: 2;
-            color: #666;
-            margin: 0;
-            margin-left: 16px;
-        }
-
-        li::before {
-            padding-right: 8px;
-        }
-
-        .bg-image {
-            height: 100%;
-            width: 100%;
-            background-image: url(<?php echo base_url(); ?>/assets/images/authentication-bg.jpg);
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-size: cover;
-            background-attachment: fixed;
-            position: fixed;
-        }
-
-        .mt-3 {
-            margin-top: 3rem;
-        }
-            
-    </style>
-
+<!-- terms.css -->
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/terms.css" id="color"/>
 
   </head>
 
@@ -93,7 +56,7 @@
                     <div class="card-header">
                         <h5 class="card-header-text text-center">Informasi Seputar Pengajuan Proposal Kompetisi</h5>
                         
-                        <?php if("belum login") {?>
+                        <?php if(!"belum login") {?>
                             <span style="float: right;">
                                 <a href="<?php echo base_url(); ?>index.php/Authentication/login">
                                     <button type="button" class="btn btn-primary waves-effect waves-light prev">Login</button>
@@ -102,19 +65,19 @@
                         <?php }else if("session role == admin") {?>
                             <span style="float: right;">
                                 <a href="<?php echo base_url(); ?>index.php/Admin/dashboard">
-                                    <button type="button" class="btn btn-primary waves-effect waves-light prev">Dashboard</button>
+                                    <button type="button" class="btn btn-primary waves-effect waves-light dashboard-button">kembali ke Dashboard</button>
                                 </a>
                             </span>
                         <?php }else if("session role == student") {?>
                             <span style="float: right;">
                                 <a href="<?php echo base_url(); ?>index.php/Student/dashboard">
-                                    <button type="button" class="btn btn-primary waves-effect waves-light prev">Dashboard</button>
+                                    <button type="button" class="btn btn-primary waves-effect waves-light dashboard-button">kembali ke Dashboard</button>
                                 </a>
                             </span>
                         <?php }else if("session role == reviewer") {?>
                             <span style="float: right;">
                                 <a href="<?php echo base_url(); ?>index.php/Reviewer/dashboard">
-                                    <button type="button" class="btn btn-primary waves-effect waves-light prev">Dashboard</button>
+                                    <button type="button" class="btn btn-primary waves-effect waves-light dashboard-button">kembali ke Dashboard</button>
                                 </a>
                             </span>
                         <?php }?>
@@ -130,7 +93,7 @@
                                     <li>	Anda dapat mengunduh template proposal pada link berikut <a href="<?php echo base_url(); ?>data/template/proposal_template.docx">Template Proposal</a>	</li>
                                     <li>	Proposal yang diupload berupa .pdf	</li>
                                     <li>	Progress pengajuan proposal dapat dilihat pada menu <b>"List Proposal (ongoing)"</b>	</li>
-                                    <li>	Pengajuan proposal memiliki 4 status, yaitu <b>pending</b> (belum direview bag. kemahasiswaan), <b>revisi</b>, <b>diterima</b> atau <b> ditolak </b>	</li>
+                                    <li>	Pengajuan proposal memiliki 4 status, yaitu <b>pending</b> (belum direview bag. kemahasiswaan), <b>revisi</b> atau <b> ditolak</b>, <b>menunggu pencairan dana</b>, <b>dana telah cair</b>, <b>belum menyerahkan LPJ</b>, <b>selesai</b> 	</li>
                                     <li>	Setiap catatan revisi yang diberikan oleh reviewer memiliki <b>deadline</b>, pastikan menyelesaikan revisi sebelum deadline. Jika melebihi deadline maka proposal anda akan otomatis <b>ditolak</b>	</li>
                                     <li>	Jika proposal telah <b>"disetujui"</b>, serahkan hardcopy proposal ke bagian kemahasiswaan	</li>
                                     <li>	Anda dapat mengambil dana jika proposal yang Anda ajukan telah berstatus <b>"dana telah cair"</b>	</li></p>

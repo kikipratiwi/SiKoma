@@ -21,7 +21,7 @@ class Student extends CI_Controller {
 	public function index()
 	{
 		$data['content'] = $this->template();
-		$this->load->view('student/ongoing_submission',$data);
+		$this->load->view('templates/student/dashboard',$data);
     }
     
     public function proposal_submission() //form
@@ -76,9 +76,6 @@ class Student extends CI_Controller {
 	public function act_add_competition()
 	{
 		//Kompetisi
-		// $ropen = $_POST['regist_opendate'];
-		
-		
 		$curl = curl_init();
 		curl_setopt_array($curl, array(
 		CURLOPT_URL => "http://localhost:8000/api/competitions",
@@ -94,12 +91,29 @@ class Student extends CI_Controller {
 		$err = curl_error($curl);				
 		curl_close($curl);		
 
-		$this->proposal_submission();
+		redirect('Student/ongoing_submission');
 		
 	}
     
     public function ongoing_submission()
 	{
+		$curl = curl_init();
+		
+		curl_setopt_array($curl, array(
+		CURLOPT_URL => "http://localhost:8000/api/mahasiswa/proposal/ongoing?nim=171511046",
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_ENCODING => "",		
+		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST => "GET",
+		));
+
+		$proposal = curl_exec($curl);
+		$err = curl_error($curl);
+
+		curl_close($curl);
+		
+		
+		$data['proposal'] = json_decode($proposal);					
 		$data['content'] = $this->template();
 		$this->load->view('student/ongoing_submission',$data);
 	}
@@ -107,7 +121,7 @@ class Student extends CI_Controller {
     public function finished_submission()
 	{
 		$curl = curl_init();
-		//bandung = 23
+	
 		curl_setopt_array($curl, array(
 		CURLOPT_URL => "http://localhost:8000/api/mahasiswa/proposal/finished?nim=171511046",
 		CURLOPT_RETURNTRANSFER => true,
