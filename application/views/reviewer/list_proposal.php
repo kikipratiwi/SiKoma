@@ -114,37 +114,41 @@
                                                                                     <?php ?>
                                                                                 </p>
                                                                             </div>
-                                                                            <div class="md-input-wrapper">
-                                                                                <textarea id="leaderTeam" class="md-form-control md-static" cols="2" rows="4"></textarea>
-                                                                                <label>Catatan RAB</label>
-                                                                            </div>
-                                                                            <div class="md-input-wrapper">
-                                                                                <textarea id="contentNotes"  class="md-form-control md-static" cols="2" rows="4"></textarea>
-                                                                                <label>Catatan Konten</label>
-                                                                            </div>
-                                                                            <label class="bold">Status</label>
-                                                                            <div class="form-radio">
-                                                                                <form method="POST">
-                                                                                    <div class="radio radio-inline">
-                                                                                        <label>
-                                                                                            <input type="radio" name="radio">
-                                                                                                <i class="helper"></i>diterima
-                                                                                        </label>
-                                                                                    </div>
-                                                                                    <div class="radio radio-inline">
-                                                                                        <label>
-                                                                                            <input type="radio" name="radio">
-                                                                                                <i class="helper"></i>revisi
-                                                                                        </label>
-                                                                                    </div>
-                                                                                    <div class="radio radio-inline">
-                                                                                        <label>
-                                                                                            <input type="radio" name="radio">
-                                                                                                <i class="helper"></i>ditolak
-                                                                                        </label>
-                                                                                    </div>
-                                                                                </form>
-                                                                            </div>
+                                                                            <form method="POST">
+                                                                                <div class="md-input-wrapper">
+                                                                                    <textarea id="leaderTeam" class="md-form-control md-static" cols="2" rows="4"></textarea>
+                                                                                    <label>Catatan RAB</label>
+                                                                                </div>
+                                                                                <div class="md-input-wrapper">
+                                                                                    <textarea id="contentNotes"  class="md-form-control md-static" cols="2" rows="4"></textarea>
+                                                                                    <label>Catatan Konten</label>
+                                                                                </div>
+                                                                                <div class="md-input-wrapper">
+                                                                                    Jumlah Dana yang Disetujui<br>
+                                                                                    <input type="text" name="budget">
+                                                                                </div>
+                                                                                <label class="bold">Status</label>
+                                                                                <div class="form-radio">
+                                                                                        <div class="radio radio-inline">
+                                                                                            <label>
+                                                                                                <input type="radio" name="radio">
+                                                                                                    <i class="helper"></i>diterima
+                                                                                            </label>
+                                                                                        </div>
+                                                                                        <div class="radio radio-inline">
+                                                                                            <label>
+                                                                                                <input type="radio" name="radio">
+                                                                                                    <i class="helper"></i>revisi
+                                                                                            </label>
+                                                                                        </div>
+                                                                                        <div class="radio radio-inline">
+                                                                                            <label>
+                                                                                                <input type="radio" name="radio">
+                                                                                                    <i class="helper"></i>ditolak
+                                                                                            </label>
+                                                                                        </div>
+                                                                                </div>
+                                                                            </form>
                                                                         </div>
                                                                     </div>
                                                                 </div>

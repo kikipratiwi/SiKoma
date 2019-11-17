@@ -91,27 +91,34 @@
                                                                 <h5 class="modal-title">Deadline Revisi Proposal</h5>
                                                             </div>
                                                             <div class="modal-body">
-                                                                <div class="row">
-                                                                    <div class="col-sm-12">
-                                                                        <div class="form-group">
-                                                                            <div class="form-group">
-                                                                                <div class="form-group col-md-12" style="margin-bottom: .1rem;">
-                                                                                    <label for="deadline" class="block form-control-label">Deadline</label>
+                                                                        <div class="form-group col-md-12" style="margin-bottom: .1rem;">
+                                                                            <label for="registDate" class="block form-control-label">]ثشيمهىثغعى الا ا لاا  ن</label>
+                                                                        </div>
+                                                                        <div class="form-row">
+                                                                            <div class="form-group col-md-12">
+                                                                                <div class="form-control-wrapper">
+                                                                                    <input type="date" name="regist_opendate" id="regist-date-start" class="form-control floating-label" placeholder="Start Date">
                                                                                 </div>
                                                                             </div>
                                                                         </div>
+
+                                                                        <div class="form-group col-md-12">
                                                                         <div class="md-input-wrapper">
                                                                             <label>Catatan RAB *get data*</label>
                                                                             <!-- GET NOTES echo $proposal['notes']; -->
                                                                             <textarea class="md-form-control md-static" cols="2" rows="4"></textarea>
                                                                         </div>
+                                                                        </div>
+                                                                        <div class="form-group col-md-12">
                                                                         <div class="md-input-wrapper">
                                                                             <label>Catatan Konten *get data*</label>
                                                                             <!-- GET NOTES echo $proposal['notes']; -->
                                                                             <textarea class="md-form-control md-static" cols="2" rows="4"></textarea>
                                                                         </div>
-                                                                    </div>
-                                                                </div>
+                                                                        </div>
+                                                                        
+
+                                                                
                                                                 <div class="row" style="padding-top: 3pt">
                                                                     <div class="col-sm-12 text-center">
                                                                         <button type="submit" class="btn btn-success waves-effect waves-light">Submit</button>
