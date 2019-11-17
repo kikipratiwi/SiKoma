@@ -58,27 +58,19 @@
                         
                         <?php if(!"belum login") {?>
                             <span style="float: right;">
-                                <a href="<?php echo base_url(); ?>index.php/Authentication/login">
-                                    <button type="button" class="btn btn-primary waves-effect waves-light prev">Login</button>
-                                </a>
+                                <a href="<?php echo base_url(); ?>index.php/Authentication/login" type="button" class="btn btn-primary waves-effect waves-light prev">Login</a>
                             </span>
                         <?php }else if("session role == admin") {?>
                             <span style="float: right;">
-                                <a href="<?php echo base_url(); ?>index.php/Admin/dashboard">
-                                    <button type="button" class="btn btn-primary waves-effect waves-light dashboard-button">kembali ke Dashboard</button>
-                                </a>
+                                <a href="<?php echo base_url(); ?>index.php/Admin/dashboard" type="button" class="btn btn-primary waves-effect waves-light dashboard-button">kembali ke Dashboard</a>
                             </span>
                         <?php }else if("session role == student") {?>
                             <span style="float: right;">
-                                <a href="<?php echo base_url(); ?>index.php/Student/dashboard">
-                                    <button type="button" class="btn btn-primary waves-effect waves-light dashboard-button">kembali ke Dashboard</button>
-                                </a>
+                                <a href="<?php echo base_url(); ?>index.php/Admin/dashboard" type="button" class="btn btn-primary waves-effect waves-light dashboard-button">kembali ke Dashboard</a>
                             </span>
                         <?php }else if("session role == reviewer") {?>
                             <span style="float: right;">
-                                <a href="<?php echo base_url(); ?>index.php/Reviewer/dashboard">
-                                    <button type="button" class="btn btn-primary waves-effect waves-light dashboard-button">kembali ke Dashboard</button>
-                                </a>
+                                <a href="<?php echo base_url(); ?>index.php/Admin/dashboard" type="button" class="btn btn-primary waves-effect waves-light dashboard-button">kembali ke Dashboard</a>
                             </span>
                         <?php }?>
                     </div>
