@@ -33,7 +33,7 @@
                                         <h5 class="card-header-text">Form Pengajuan Proposal</h5>
                                         <?php if("!accountability_report_status") ?>
                                             <div class="label-main" style="padding-top:5px;">
-                                                <label class="label bg-danger"><i class="icon-ban"></i> Anda tidak dapat mengajukan proposal. Pastikan jurusan Anda telah menyerahkan SPJ dan LPJ dari kompetisi sebelumnya ke bagian kemahasiswaan.</label>
+                                                <label class="label bg-danger" style="white-space: pre-wrap; text-transform: uppercase;"><i class="icon-ban"></i> Anda tidak dapat mengajukan proposal. Pastikan jurusan Anda telah menyerahkan SPJ dan LPJ dari kompetisi sebelumnya ke bagian kemahasiswaan.</label>
                                             </div>
                                         <?php}?>
                                     </div>
