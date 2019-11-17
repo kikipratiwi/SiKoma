@@ -49,8 +49,23 @@ class Student extends CI_Controller {
 
 		$cmp = curl_exec($curl);
 		$errcmp = curl_error($curl);
-		curl_close($curl);	
+		
 
+		//Cek LPJ		
+		curl_setopt_array($curl, array(
+		CURLOPT_URL => "http://localhost:8000/api/mahasiswa/proposal/report?department=1",
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_ENCODING => "",		
+		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST => "GET",
+		));
+
+		$lpj = curl_exec($curl);
+		$err = curl_error($curl);
+
+		curl_close($curl);
+
+		$data['accountability_report'] = json_decode($lpj);
 		$data['content'] = $this->template();
 		$data['department'] = json_decode($dpt);
 		$data['competition'] = json_decode($cmp);
@@ -61,9 +76,6 @@ class Student extends CI_Controller {
 	public function act_add_competition()
 	{
 		//Kompetisi
-		// $ropen = $_POST['regist_opendate'];
-		
-		
 		$curl = curl_init();
 		curl_setopt_array($curl, array(
 		CURLOPT_URL => "http://localhost:8000/api/competitions",
@@ -79,12 +91,29 @@ class Student extends CI_Controller {
 		$err = curl_error($curl);				
 		curl_close($curl);		
 
-		$this->proposal_submission();
+		redirect('Student/ongoing_submission');
 		
 	}
     
     public function ongoing_submission()
 	{
+		$curl = curl_init();
+		
+		curl_setopt_array($curl, array(
+		CURLOPT_URL => "http://localhost:8000/api/mahasiswa/proposal/ongoing?nim=171511046",
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_ENCODING => "",		
+		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST => "GET",
+		));
+
+		$proposal = curl_exec($curl);
+		$err = curl_error($curl);
+
+		curl_close($curl);
+		
+		
+		$data['proposal'] = json_decode($proposal);					
 		$data['content'] = $this->template();
 		$this->load->view('student/ongoing_submission',$data);
 	}
@@ -92,7 +121,7 @@ class Student extends CI_Controller {
     public function finished_submission()
 	{
 		$curl = curl_init();
-		//bandung = 23
+	
 		curl_setopt_array($curl, array(
 		CURLOPT_URL => "http://localhost:8000/api/mahasiswa/proposal/finished?nim=171511046",
 		CURLOPT_RETURNTRANSFER => true,
@@ -114,9 +143,9 @@ class Student extends CI_Controller {
 	public function act_proposal_submission()
 	{
 		// setting konfigurasi upload
-        $config['upload_path'] = './assets/proposals/'; 
-        $config['allowed_types'] = 'doc|docx';
-        $new_name = time().$_FILES["proposal"]['name'];        
+        $config['upload_path'] = './data/proposals/'; 
+        $config['allowed_types'] = 'pdf';
+        $new_name = "Proposal".$_POST['competition'].time().".pdf";        
         $config['file_name'] = $new_name;
 
         // load library upload

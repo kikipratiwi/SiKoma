@@ -21,56 +21,55 @@ class Admin extends CI_Controller {
 		$this->load->view('templates/admin/template',$data_);
     }
     
-    public function template($load_data)
+    public function template()
 	{
 		$data['content'] = $this->load->view('templates/admin/header');
 		$data['content'] = $this->load->view('templates/admin/sidebar');
 		$data['content'] = $this->load->view('templates/admin/footer');
 
-		$data['content'] = $this->load->view('templates/admin/template',$data);
-		return $this->load->view('templates/admin/template',$load_data);
+		return $this->load->view('templates/admin/template',$data);
 	}
 
 	public function list_proposal()
 	{
-		// $data['content'] = $this->template();
-		// $this->load->view('list_proposal_admin',$data);
-
-		// $db["competitions"] = $this->m_proposals->getData();
-		$data1['content'] = $this->load->view('admin/list_proposal_admin');
-		$data_['content_'] = $this->template($data1);
-		$this->load->view('templates/admin/template',$data_);
+		$data['content'] = $this->template();
+		$this->load->view('admin/list_proposal_admin',$data);
 	}
 
 	public function list_kompetisi()
 	{
-		// $data['content'] = $this->template();
-		// $this->load->view('list_kompetisi_admin',$data);
-		
-		$db["competitions"] = $this->m_competitions->getData();
-		$data1['content'] = $this->load->view('admin/list_kompetisi_admin',$db);
-		$data_['content_'] = $this->template($data1);
-		$this->load->view('templates/admin/template',$data_);
+		$data['content'] = $this->template();
+		$this->load->view('admin/list_kompetisi_admin',$data);
 	}
 
 	public function input_kompetisi()
 	{
-		// $data['content'] = $this->template();
-		// $this->load->view('input_kompetisi_admin',$data);
-
-		$data1['content'] = $this->load->view('admin/input_kompetisi_admin');
-		$data_['content_'] = $this->template($data1);
-		$this->load->view('templates/admin/template',$data_);
+		$data['content'] = $this->template();
+		$this->load->view('admin/input_kompetisi_admin',$data);
 	}
 
 	public function print_report()
 	{
-		// $data['content'] = $this->template();
-		// $this->load->view('print_report',$data);
+		$data['content'] = $this->template();
+		$this->load->view('admin/print_report',$data);
+	}
 
-		$data1['content'] = $this->load->view('admin/print_report');
-		$data_['content_'] = $this->template($data1);
-		$this->load->view('templates/admin/template',$data_);
+	public function list_revisi_proposal()
+	{
+		$data['content'] = $this->template();
+		$this->load->view('admin/list_revisi',$data);
+	}
+
+	public function list_fund_submission()
+	{
+		$data['content'] = $this->template();
+		$this->load->view('admin/list_fund_submission',$data);
+	}
+
+	public function reset_password()
+	{
+		$data['content'] = $this->template();
+		$this->load->view('admin/reset_password',$data);
 	}
 
 

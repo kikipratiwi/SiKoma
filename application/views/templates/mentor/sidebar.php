@@ -16,12 +16,18 @@
                         <i class="icon-speedometer"></i><span> Dashboard</span>
                     </a>                
                 </li>
-                <li class="nav-level">Proposal</li>
-                <li class=" <?php if(current_url() === base_url().'index.php/Mentor/list_proposal'){
-                                echo 'active';}?> treeview">
-                    <a class="waves-effect waves-dark" href="<?php echo base_url();?>index.php/Mentor/list_proposal">
-                        <i class="icon-list"></i><span> List Proposal</span>
-                    </a>                
+                <li class="nav-level">Pengajuan Proposal</li>
+                <li class=" <?php if(current_url() === base_url().'index.php/Mentor/ongoing_submission'){
+                                    echo 'active';}?> treeview">
+                    <a class="waves-effect waves-dark" href="<?php echo base_url();?>index.php/Mentor/ongoing_submission">
+                        <i class="icon-book-open"></i><span> Masih dalam Proses</span>
+                    </a>                  
+                </li>
+                <li class=" <?php if(current_url() === base_url().'index.php/Mentor/finished_submission'){
+                                    echo 'active';}?> treeview">
+                    <a class="waves-effect waves-dark" href="<?php echo base_url();?>index.php/Mentor/finished_submission">
+                        <i class="icon-list"></i><span> Selesai</span>
+                    </a>                  
                 </li>
             </ul>
         </section>
