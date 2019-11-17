@@ -121,6 +121,7 @@
                                                                             </p>
 
                                                                             </div>
+                                                                            <label>Rincian Dana</label>
                                                                             <div class="md-input-wrapper">
                                                                                 Jumlah Dana yang Disetujui<br>
                                                                                 <input type="number" name="budget" min=0>
@@ -129,6 +130,11 @@
                                                                                 Sumber Dana<br>
                                                                                 <input type="text" name="source">
                                                                             </div>
+                                                                            <div class="md-input-wrapper">
+                                                                                Sumber Dana<br>
+                                                                                <input type="text" name="budget">
+                                                                            </div>
+                                                                            <!-- SET status proposal -->
                                                                             <label class="bold">Status</label>
                                                                             <div class="form-radio">
                                                                                 <form method="POST">
@@ -157,7 +163,6 @@
                                                                 </div>
                                                                 <div class="row" style="padding-top: 3px margin-bottom: 3px">
                                                                     <div class="col-sm-12 text-center" style="padding-top: 3px margin-bottom: 3px">
-                                                                        <!-- SET status proposal -->
                                                                         <button type="submit" style="padding-top: 3px margin-bottom: 3px" class="btn btn-success waves-effect waves-light">Submit</button>
                                                                     </div>
                                                                 </div>
@@ -170,6 +175,7 @@
                                                     $index++;
                                                     endforeach;
                                                 ?>
+
                                         </tbody>
                                     </table>
                                 </div>

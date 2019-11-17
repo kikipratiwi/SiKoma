@@ -52,7 +52,7 @@
                                                 <?php   
                                                     $index = 1;
                                                     foreach($proposal as $key => $pr) : 
-                                                 ?>
+                                                ?>
                                                 <tr>
                                                     <td><?php echo $index ?></td>
                                                     <!-- GET name competition -->
@@ -60,7 +60,8 @@
 
                                                     <!-- GET date upload -->
                                                     <td>
-                                                        <?php                                                                                                 $time = strtotime($pr->created_at);
+                                                        <?php                                                                                                
+                                                            $time = strtotime($pr->created_at);
                                                             $myFormatForView = date("d M Y", $time);
                                                             echo $myFormatForView;
                                                             
@@ -73,13 +74,13 @@
                                                     <!-- GET departement -->
                                                     <td><?php echo $pr->department->name ?></td>
                                                     <td>
-                                                        <a href="" id="finishedPorposal" class="btn btn-primary" data-toggle="modal" data-target="#view-Modal<?php echo $pr->id ?> ">
+                                                        <a href="" id="previewPorposal" class="open-view-Modal-Preview btn btn-primary" data-toggle="modal" data-target="#view-Modal-Preview-Proposal">
                                                             Review
                                                         </a>
                                                     </td>
                                                 </tr>
                                                 
-                                                <!-- MODAL REVIEW NEW SUBMISSION -->
+                                                <!-- MODAL REVIEW REVISION -->
                                                 
                                                     
 <div class="modal fade modal-flex" id="view-Modal<?php echo $pr->id ?>" tabindex="-1" role="dialog">
