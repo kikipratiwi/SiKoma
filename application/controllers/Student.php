@@ -76,9 +76,6 @@ class Student extends CI_Controller {
 	public function act_add_competition()
 	{
 		//Kompetisi
-		// $ropen = $_POST['regist_opendate'];
-		
-		
 		$curl = curl_init();
 		curl_setopt_array($curl, array(
 		CURLOPT_URL => "http://localhost:8000/api/competitions",

@@ -72,7 +72,7 @@ class Reviewer extends CI_Controller {
 		$err = curl_error($curl);				
 		curl_close($curl);		
 
-		edirect('Reviewer/list_proposal');
+		redirect('Reviewer/list_proposal');
 
 
 	}

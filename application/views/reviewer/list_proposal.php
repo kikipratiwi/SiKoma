@@ -1,37 +1,42 @@
 <div class="content-wrapper">
-    <!-- Container-fluid starts -->
-    <div class="container-fluid">
-        <!-- Main content starts -->
-        <div class="tab-list">
-            <!-- Row Starts -->
+        <!-- Container-fluid starts -->
+        <div class="container-fluid">
+
+            <!-- Header Starts -->
             <div class="row">
-                <div class="col-lg-12 p-0">
+                <div class="col-sm-12 p-0">
                     <div class="main-header">
                         <h4>List Proposal</h4>
                         <ol class="breadcrumb breadcrumb-title breadcrumb-arrow">
-                            <li class="breadcrumb-item"><a href="<?php echo base_url();?>index.php/Reviewer/dashboard"><i class="icofont icofont-home"></i></a>
+                            <li class="breadcrumb-item">
+                                <a href="index.html">
+                                    <i class="icofont icofont-home"></i>
+                                </a>
                             </li>
-                            <li class="breadcrumb-item"><a href="#!">Proposal</a>
+                            <li class="breadcrumb-item"><a href="#">Proposal</a>
+                            </li>
+                            <li class="breadcrumb-item"><a href="basic-table.html">List Proposal Pengajuan Baru</a>
                             </li>
                         </ol>
                     </div>
                 </div>
             </div>
-            <!-- Row end -->
+            <!-- Header end -->
 
+            <!-- Tables start -->
             <!-- Row start -->
             <div class="row">
-                <div class="col-lg-12">
-                <!-- Hover effect table starts -->
+                <div class="col-sm-12">
+
+                    <!-- Hover effect table starts -->
                     <div class="card">
                         <div class="card-header">
-                            <h5 class="card-header-text">List Proposal Pengajuan Baru </h5>
+                            <h5 class="card-header-text">List Proposal pengajuan baru</h5>
                         </div>
-                        <!-- Tabel Proposal -->
                         <div class="card-block">
                             <div class="row">
                                 <div class="col-sm-12 table-responsive">
-                                    <table class="table table-hover" id="reviewProposal">
+                                    <table class="table table-hover" id="previewNewProposal">
                                         <thead>
                                         <tr>
                                             <th>No</th>
@@ -44,6 +49,7 @@
                                         </tr>
                                         </thead>
                                         <tbody>
+
                                                 <?php   
                                                     $index = 1;
                                                     foreach($proposal as $key => $pr) : 
@@ -64,15 +70,19 @@
 
                                                     <!-- GET leader -->
                                                     <td>Nussa</td>
+
                                                     <!-- GET departement -->
                                                     <td><?php echo $pr->department->name ?></td>
                                                     <!-- GET status proposal -->
+                                                    <!-- GET status proposal -->
                                                     <td><?php 
+
                                                         if($pr->status==='PENDING'){?>
                                                             <div class="label-main">
                                                                 <label class="label label-default">Pending</label>
                                                             </div>
                                                         <?php } else if($pr->status==='REVISION') {
+
                                                             ?>
                                                             <div class="label-main">
                                                                 <label class="label bg-warning">Revisi</label>
@@ -84,6 +94,7 @@
                                                         <?php } ?>
                                                     </td>
                                                     <!-- GET status proposal -->
+
                                                     <td><?php 
                                                         if($pr->status==='ACCEPTED' || $pr->status==='REVISION'){?>
                                                             <button type="button" class="btn btn-disable disabled">Reviewed</button>
@@ -212,8 +223,7 @@
                                     </table>
                                 </div>
                             </div>
-                        </div>
-                        
+                        </div>                        
                         <!-- Tabel Proposal end -->
                     </div>
                 </div>
@@ -224,7 +234,6 @@
     </div>
     <!-- Container-fluid end -->
 </div>
-
 
 <!-- MODAL REVIEW NEW SUBMISSION -->
 <!-- MODAL REVIEW -->
@@ -237,28 +246,15 @@
 <script type="text/javascript" src="http://malsup.github.com/jquery.media.js"></script>
 
 <script>
+
     $(document).ready( function () {
-        $('#reviewProposal').DataTable();
+        $('#previewNewProposal').DataTable();
     });
-
-    // $(document).on("click", ".open-view-Modal", function () {
-    //     var idProposal = $('#proposalNew').data('proposal').id;
-    //     $(".modal-body #idProposal").val( idProposal );
-    //     var leaderTeam = $('#proposalNew').data('proposal').leader;
-    //     $(".modal-body #leaderTeam").val( leaderTeam );
-    //     var member1 = $('#proposalNew').data('proposal').member1;
-    //     $(".modal-body #member1").val( member1 );
-    //     var member2 = $('#proposalNew').data('proposal').member2;
-    //     $(".modal-body #member2").val( member2 );
-    //     var member3 = $('#proposalNew').data('proposal').member3;
-    //     $(".modal-body #member3").val( member3 );
-    //     var member4 = $('#proposalNew').data('proposal').member4;
-    //     $(".modal-body #member4").val( member4 );
-
-    //     $('#view-Modal').modal('show');
-    // });
     $(function () {
         $('.media').media({width: 950, height:430});
     });
-
 </script>
+
+
+</body>
+</html>
