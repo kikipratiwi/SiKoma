@@ -15,7 +15,7 @@
                             </li>
                             <li class="breadcrumb-item"><a href="#">Proposal</a>
                             </li>
-                            <li class="breadcrumb-item"><a href="basic-table.html">Pengajuan Baru</a>
+                            <li class="breadcrumb-item"><a href="basic-table.html">LPJ</a>
                             </li>
                         </ol>
                     </div>
@@ -31,7 +31,7 @@
                     <!-- Hover effect table starts -->
                     <div class="card">
                         <div class="card-header">
-                            <h5 class="card-header-text">Pengajuan Baru</h5>
+                            <h5 class="card-header-text"> LPJ</h5>
                         </div>
                         <div class="card-block">
                             <div class="row">
@@ -43,11 +43,14 @@
                                             <th>Proposal</th>
                                             <th>Ketua Tim</th>
                                             <th>Jurusan</th>
+                                            <th>Status</th>
+                                            <th>LPJ</th>
                                         </tr>
                                         </thead>
                                         <tbody>
                                             <?php
                                                 for ($no = 1; $no <= 4; $no++){
+                                                    $proposal_status='WAIT-TO-REPORT'
                                             ?>
                                                 <tr>
                                                     <td><?php echo $no ?></td>
@@ -57,6 +60,19 @@
                                                     <td>Nussa</td>
                                                     <!-- GET departement -->
                                                     <td>Komputer</td>
+                                                    <!-- GET status proposal -->
+                                                    <td><?php
+                                                        if($proposal_status==='WAIT-TO-REPORT'){?>
+                                                            <div class="label-main">
+                                                                <label class="label bg-warning">Belum Menyerahkan LPJ</label>
+                                                            </div>
+                                                        <?php }  ?>
+                                                    </td>
+                                                    <td>
+                                                        <button type="button" id="add-competition" class="btn btn-primary" 
+                                                                style="margin-left: 15px;border-radius: .25rem;padding: .5rem .75rem;" >Update
+                                                        </button>
+                                                    </td>
                                                     
                                                 </tr>
                                                 <?php

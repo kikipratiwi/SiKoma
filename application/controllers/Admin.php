@@ -72,5 +72,22 @@ class Admin extends CI_Controller {
 		$this->load->view('admin/reset_password',$data);
 	}
 
+	public function report()
+	{
+		$data['content'] = $this->template();
+		$this->load->view('admin/report',$data);
+	}
+
+	public function import_data()
+	{
+		$data['content'] = $this->template();
+		$this->load->view('admin/import_data',$data);
+	}
+
+	public function rejected()
+	{
+		$data['content'] = $this->template();
+		$this->load->view('admin/rejected',$data);
+	}
 
 }

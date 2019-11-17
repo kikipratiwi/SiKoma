@@ -7,11 +7,11 @@
             <div class="row">
                 <div class="col-lg-12 p-0">
                     <div class="main-header">
-                        <h4>List Kompetisi</h4>
+                        <h4>Mahasiswa</h4>
                         <ol class="breadcrumb breadcrumb-title breadcrumb-arrow">
                             <li class="breadcrumb-item"><a href="<?php echo base_url();?>index.php/Admin"><i class="icofont icofont-home"></i></a>
                             </li>
-                            <li class="breadcrumb-item"><a href="#!">Kompetisi</a>
+                            <li class="breadcrumb-item"><a href="#!">Import Data</a>
                             </li>
                         </ol>
                     </div>
@@ -29,24 +29,19 @@
                                 <!-- Radio-Button start -->
                                 <div class="card-block tab-icon">
                                     <!-- Row start -->
-                                    <b>Cetak Laporan</b>
+                                    <h3>Import Data</h3>
                                     <br>
                                     <br>
-                                    <div class="row">
-                                        <div class="form-row">
-                                            <div class="form-group col-md-3">
-                                                <div class="form-control-wrapper">
-                                                    <input type="date" name="regist_opendate" id="regist-date-start" class="form-control floating-label" placeholder="Start Date">
-                                                </div>
-                                            </div>
-                                            <div class="form-group col-md-3">
-                                                <div class="form-control-wrapper">
-                                                    <input type="date" name="regist_closedate" id="regist-date-end" class="form-control floating-label" placeholder="End Date">
-                                                </div>
-                                            </div>
+                                    <div class="form-group row">
+                                        <label for="file" class="col-md-2 col-form-label form-control-label">File input</label>
+                                        <div class="col-md-9">
+                                            <label for="file" class="custom-file">
+                                                <input type="file" id="file" class="custom-file-input">
+                                                <span class="custom-file-control"></span>
+                                            </label>
                                         </div>
-                                        <button type="button" class="btn btn-primary waves-effect waves-light">Cetak</button>
                                     </div>
+                                    <button type="button" class="btn btn-primary waves-effect waves-light">Import</button>
                                 </div>
                             </div>
                         </div>

@@ -44,12 +44,13 @@
                                             <th>Ketua Tim</th>
                                             <th>Jurusan</th>
                                             <th>Deadline</th>
+                                            <th>Preview</th>
                                         </tr>
                                         </thead>
                                         <tbody>
                                             <?php
                                                 for ($no = 1; $no <= 4; $no++){
-                                                    $proposal_status='REVISION';?>
+                                                    $due_date=NULL;?>
                                                 <tr>
                                                     <td><?php echo $no ?></td>
                                                     <!-- GET name competition -->
@@ -61,13 +62,7 @@
                                                     <!-- GET deadline proposal -->
                                                     <td><?php 
                                                         if($due_date===NULL ){?>
-                                                            <div class="row">
-                                                                <div class="col-sm-12">
-                                                                    <a href="" class="btn btn-primary" data-toggle="modal" data-target="#view-Modal-Deadline">
-                                                                        Input Deadline
-                                                                    </a>
-                                                                </div>
-                                                            </div>
+                                                            -
                                                         <?php } else { ?>
                                                             <div class="label-main">
                                                                 <label class="label bg-danger">
@@ -77,23 +72,46 @@
                                                             </div>
                                                         <?php } ?>
                                                     </td>
+                                                    <td>
+                                                        <a href="" class="btn btn-primary" data-toggle="modal" data-target="#view-Modal-Deadline">
+                                                            Preview
+                                                        </a>
+                                                    </td>
                                                     
                                                 </tr>
 
-                                                <!-- MODAL INPUT DEADLINE REVISION -->
+                                                <!-- MODAL REVIEW REVISION -->
                                                 <div class="modal fade modal-flex" id="view-Modal-Deadline" tabindex="-1" role="dialog">
-                                                    <div class="modal-dialog modal-sm" role="document">
+                                                    <div class="modal-dialog modal-lg" role="document">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
                                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                                     <span aria-hidden="true">&times;</span>
                                                                 </button>
-                                                                <h5 class="modal-title">Deadline Revisi Proposal</h5>
+                                                                <h5 class="modal-title">Review Proposal</h5>
                                                             </div>
                                                             <div class="modal-body">
-                                                                        <div class="form-group col-md-12" style="margin-bottom: .1rem;">
-                                                                            <label for="registDate" class="block form-control-label">Input Deadline</label>
-                                                                        </div>
+                                                                <div class="row">
+                                                                    <div class="col-sm-9">
+                                                                        <!-- GET Link to review Proposal -->
+                                                                        <a class="media" id="propose" href="<?php echo base_url();?>data/<?php?>">
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="col-sm-3">
+                                                                    <?php 
+                                                                        if($due_date===NULL ){?>
+                                                                            <div class="form-group col-md-8" style="margin-bottom: .1rem;">
+                                                                                <label for="registDate" class="block form-control-label">Input Deadline</label>
+                                                                            </div>
+                                                                        <?php } else { ?>
+                                                                            <div class="label-main">
+                                                                                <label class="label bg-danger">
+                                                                                <!-- php echo date_format($date1,"d M Y"); -->
+                                                                                Due Date : 20 Oct 2019
+                                                                                </label>
+                                                                            </div>
+                                                                        <?php } ?>
+                                                                        
                                                                         <div class="form-row">
                                                                             <div class="form-group col-md-12">
                                                                                 <div class="form-control-wrapper">
@@ -101,27 +119,26 @@
                                                                                 </div>
                                                                             </div>
                                                                         </div>
-
                                                                         <div class="form-group col-md-12">
-                                                                        <div class="md-input-wrapper">
-                                                                            <label>Catatan RAB *get data*</label>
-                                                                            <!-- GET NOTES echo $proposal['notes']; -->
-                                                                            <textarea class="md-form-control md-static" cols="2" rows="4"></textarea>
-                                                                        </div>
+                                                                            <div class="md-input-wrapper">
+                                                                                <label>Catatan RAB *get data*</label>
+                                                                                <!-- GET NOTES echo $proposal['notes']; -->
+                                                                                <textarea class="md-form-control md-static" cols="2" rows="4"></textarea>
+                                                                            </div>
                                                                         </div>
                                                                         <div class="form-group col-md-12">
-                                                                        <div class="md-input-wrapper">
-                                                                            <label>Catatan Konten *get data*</label>
-                                                                            <!-- GET NOTES echo $proposal['notes']; -->
-                                                                            <textarea class="md-form-control md-static" cols="2" rows="4"></textarea>
+                                                                            <div class="md-input-wrapper">
+                                                                                <label>Catatan Konten *get data*</label>
+                                                                                <!-- GET NOTES echo $proposal['notes']; -->
+                                                                                <textarea class="md-form-control md-static" cols="2" rows="4"></textarea>
+                                                                            </div>
                                                                         </div>
-                                                                        </div>
-                                                                        
-
-                                                                
-                                                                <div class="row" style="padding-top: 3pt">
-                                                                    <div class="col-sm-12 text-center">
-                                                                        <button type="submit" class="btn btn-success waves-effect waves-light">Submit</button>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row" style="padding-top: 3px margin-bottom: 3px">
+                                                                    <div class="col-sm-12 text-center" style="padding-top: 3px margin-bottom: 3px">
+                                                                        <!-- SET status proposal -->
+                                                                        <button type="submit" style="padding-top: 3px margin-bottom: 3px" class="btn btn-success waves-effect waves-light">Submit</button>
                                                                     </div>
                                                                 </div>
                                                                 
@@ -129,6 +146,8 @@
                                                         </div>
                                                     </div>
                                                 </div>
+
+                                               
 
                                                 <?php
                                             };?>

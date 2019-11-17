@@ -15,7 +15,7 @@
                             </li>
                             <li class="breadcrumb-item"><a href="#">Proposal</a>
                             </li>
-                            <li class="breadcrumb-item"><a href="basic-table.html">Pengajuan Baru</a>
+                            <li class="breadcrumb-item"><a href="basic-table.html">Yang tidak Disetujui</a>
                             </li>
                         </ol>
                     </div>
@@ -31,7 +31,7 @@
                     <!-- Hover effect table starts -->
                     <div class="card">
                         <div class="card-header">
-                            <h5 class="card-header-text">Pengajuan Baru</h5>
+                            <h5 class="card-header-text">Yang tidak Disetujui</h5>
                         </div>
                         <div class="card-block">
                             <div class="row">

@@ -32,16 +32,22 @@
                 <li class=" <?php if(current_url() === base_url().'index.php/Admin/list_fund_submission'){
                                 echo 'active';}?> treeview">
                     <a class="waves-effect waves-dark" href="<?php echo base_url();?>index.php/Admin/list_fund_submission">
-                        <i class="icon-wallet"></i><span> Telah Disetujui</span>
+                        <i class="icon-badge"></i><span> Telah Disetujui</span>
+                    </a>                
+                </li>
+                <li class=" <?php if(current_url() === base_url().'index.php/Admin/report'){
+                                echo 'active';}?> treeview">
+                    <a class="waves-effect waves-dark" href="<?php echo base_url();?>index.php/Admin/report">
+                        <i class="icon-wallet"></i><span> Telah Didanai</span>
+                    </a>                
+                </li>
+                <li class=" <?php if(current_url() === base_url().'index.php/Admin/rejected'){
+                                echo 'active';}?> treeview">
+                    <a class="waves-effect waves-dark" href="<?php echo base_url();?>index.php/Admin/rejected">
+                        <i class="icon-flag"></i><span> Tidak Disetujui</span>
                     </a>                
                 </li>
                 <li class="nav-level">Kompetisi</li>
-                <li class=" <?php if(current_url() === base_url().'index.php/Admin/input_kompetisi'){
-                                echo 'active';}?> treeview">
-                    <a class="waves-effect waves-dark" href="<?php echo base_url();?>index.php/Admin/input_kompetisi">
-                        <i class="icon-plus"></i><span> Input Kompetisi</span>
-                    </a>                
-                </li>
                 <li class=" <?php if(current_url() === base_url().'index.php/Admin/list_kompetisi'){
                                 echo 'active';}?> treeview">
                     <a class="waves-effect waves-dark" href="<?php echo base_url();?>index.php/Admin/list_kompetisi">
