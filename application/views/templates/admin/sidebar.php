@@ -41,10 +41,16 @@
                         <i class="icon-wallet"></i><span> Telah Didanai</span>
                     </a>                
                 </li>
+                <li class=" <?php if(current_url() === base_url().'index.php/Admin/finished'){
+                                echo 'active';}?> treeview">
+                    <a class="waves-effect waves-dark" href="<?php echo base_url();?>index.php/Admin/finished">
+                        <i class="icon-flag"></i><span> Telah Selesai</span>
+                    </a>                
+                </li>
                 <li class=" <?php if(current_url() === base_url().'index.php/Admin/rejected'){
                                 echo 'active';}?> treeview">
                     <a class="waves-effect waves-dark" href="<?php echo base_url();?>index.php/Admin/rejected">
-                        <i class="icon-flag"></i><span> Tidak Disetujui</span>
+                        <i class="icon-ban"></i><span> Tidak Disetujui</span>
                     </a>                
                 </li>
                 <li class="nav-level">Kompetisi</li>

@@ -90,4 +90,10 @@ class Admin extends CI_Controller {
 		$this->load->view('admin/rejected',$data);
 	}
 
+	public function finished()
+	{
+		$data['content'] = $this->template();
+		$this->load->view('admin/finished',$data);
+	}
+
 }
