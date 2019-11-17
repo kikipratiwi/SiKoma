@@ -43,6 +43,7 @@
                                             <th>Proposal</th>
                                             <th>Tahun</th>
                                             <th>Status</th>
+                                            <th>LPJ</th>
                                             <th>Preview</th>
                                         </tr>
                                         </thead>
@@ -73,19 +74,98 @@
                                                             </div>
                                                         <?php } ?>
                                                     </td>
-                                                    <!-- GET status proposal -->
+                                                    <!-- GET status lpj -->
+                                                     <td><?php 
+                                                        if($pr->proposal->accountability_report===1){?>
+                                                            <div class="label-main">
+                                                                <label class="label label-success">Sudah Menyerahkan</label>
+                                                            </div>
+                                                        <?php } else if($pr->proposal->accountability_report===0) {
+                                                            ?>
+                                                            <div class="label-main">
+                                                                <label class="label bg-danger">Belum Menyerahkan</label>
+                                                            </div>
+                                                        <?php } ?>
+                                                    </td>
                                                     <td>
                                                         <!-- <div class="row"> -->
                                                             <!-- <div class="col-sm-12"> -->
-                                                                <a href="" id="finishedPorposal"  class="btn btn-primary" data-toggle="modal" data-target="#view-Modal-Finished-Proposal"
-                                                                data-proposal='{"id":"10","leader":"<?php echo $pr->leader_id ?>" ,"member1":"<?php echo $pr->member1_id ?>","member2":"<?php echo $pr->member2_id ?>","member3":"<?php echo $pr->member3_id ?>","member4":"<?php echo $pr->member4_id ?>","linkProposal":"<?php echo $pr->proposal->proposal ?>","dana":"<?php echo $pr->proposal->realisazion_budget ?>"}'
-                                                                                >
+                                                                
+                                                                <a href="" id="finishedPorposal" class="btn btn-primary" data-toggle="modal" data-target="#view-Modal-Finished-Proposal<?php echo $pr->id ?> ">
                                                                     Preview
                                                                 </a>
+
                                                             <!-- </div> -->
                                                         <!-- </div> -->
                                                     </td>
                                                 </tr>
+
+                    <!-- MODAL PREVIEW PROPOSAL -->
+                    <div class="modal fade modal-flex" id="view-Modal-Finished-Proposal<?php echo $pr->id ?>" tabindex="-1" role="dialog">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    <h5 class="modal-title">Preview Proposal</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <div class="col-sm-9">
+
+                                            <!-- GET Link to review Proposal -->
+                                            
+                                            <!-- GET Link to review Proposal File -->
+                                            <a class="media" id="propose" href="<?php echo base_url();?>data/<?php echo $pr->proposal->proposal ?>">
+                                                 
+                                            </a>
+                                            <!-- <iframe class="word" src="https://docs.google.com/gview?url=http://writing.engr.psu.edu/workbooks/formal_report_template.doc&embedded=true" frameborder="0"></iframe> -->
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label for="teamMembers" class="form-control-label">Anggota Tim</label>
+                                                <!-- GET Team Member-->
+                                                <p id="leaderTeam">
+                                                    <?php echo $pr->leader_id ?>
+                                                </p>
+                                                <p id="member1">
+                                                    <?php echo $pr->member1_id ?>
+                                                </p>
+                                                <p id="member2">
+                                                    <?php echo $pr->member2_id ?>
+                                                </p>
+                                                <p id="member3">
+                                                    <?php echo $pr->member3_id ?>
+                                                </p>
+                                                <p id="member4">
+                                                    <?php echo $pr->member4_id ?>
+                                                </p>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="dana" class="form-control-label">Jumlah dana yang disetujui</label>
+                                                <!-- GET Team Member-->
+                                                <p id="dana">
+                                                    <?php echo $pr->proposal->realisazion_budget ?>
+                                                </p>
+                                            </div>
+
+                                           <!--  <div class="md-input-wrapper">
+                                                <textarea id="dana" class="md-form-control md-static" cols="2" rows="1"  readonly>                                
+                                                </textarea>
+                                                <label>Jumlah dana yang disetujui</label>
+                                            </div> -->
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <!-- download proposal -->
+                                            <a type="button" href="<?php echo base_url();?>data/<?php echo $pr->proposal->proposal?>" class="btn btn-primary waves-effect waves-light" >Download Proposal</a>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                                                 <?php 
                                                     $index++;
                                                     endforeach;
@@ -108,75 +188,6 @@
         <!-- Container-fluid ends -->
     </div>
 </div>
-
-<!-- MODAL PREVIEW PROPOSAL -->
-<div class="modal fade modal-flex" id="view-Modal-Finished-Proposal" tabindex="-1" role="dialog">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <h5 class="modal-title">Preview Proposal</h5>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-sm-9">
-
-                        <!-- GET Link to review Proposal -->
-                        
-                        <!-- GET Link to review Proposal File -->
-                        <a class="media" href="<?php echo base_url();?>assets/1.pdf"></a>
-                        <!-- <iframe class="word" src="https://docs.google.com/gview?url=http://writing.engr.psu.edu/workbooks/formal_report_template.doc&embedded=true" frameborder="0"></iframe> -->
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="form-group">
-                            <label for="teamMembers" class="form-control-label">Anggota Tim</label>
-                            <!-- GET Team Member-->
-                            <p id="leaderTeam">
-                                <script>
-                                    document.write($('#finishedPorposal').data('proposal').leader);
-                                </script>
-                            </p>
-                            <p id="member1">
-                                <script>
-                                    document.write($('#finishedPorposal').data('proposal').member1);
-                                </script>
-                            </p>
-                            <p id="member2">
-                                <script>
-                                    document.write($('#finishedPorposal').data('proposal').member2);
-                                </script>
-                            </p>
-                            <p id="member3">
-                                <script>
-                                    document.write($('#finishedPorposal').data('proposal').member3);
-                                </script>
-                            </p>
-                            <p id="member4">
-                                <script>
-                                    document.write($('#finishedPorposal').data('proposal').member4);
-                                    document.write($('#finishedPorposal').data('proposal').linkProposal);
-                                </script>
-                            </p>
-                        </div>
-                        <div class="md-input-wrapper">
-                            <textarea id="dana" class="md-form-control md-static" cols="2" rows="1"  readonly>                                
-                            </textarea>
-                            <label>Jumlah dana yang disetujui</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <!-- download proposal -->
-                        <button type="button" class="btn btn-primary waves-effect waves-light">Download Proposal</button>
-                </div>
-                
-            </div>
-        </div>
-    </div>
-</div>
-
 
     <!-- Required Jqurey -->
     <script
@@ -302,36 +313,38 @@
         $('#finishedSubmissionTable').DataTable();
     } );
 
-    $(document).on("click", ".open-view-Modal-Preview", function () {
-        var idProposal = $('#finishedPorposal').data('proposal').id;
-        $(".modal-body #idProposal").val( idProposal );
-        var leaderTeam = $('#finishedPorposal').data('proposal').leader;
-        $(".modal-body #leaderTeam").val( leaderTeam );
-        var member1 = $('#finishedPorposal').data('proposal').member1;
-        $(".modal-body #member1").val( member1 );
-        var member2 = $('#finishedPorposal').data('proposal').member2;
-        $(".modal-body #member2").val( member2 );
-        var member3 = $('#finishedPorposal').data('proposal').member3;
-        $(".modal-body #member3").val( member3 );
-        var member4 = $('#finishedPorposal').data('proposal').member4;
-        $(".modal-body #member4").val( member4 );
-        var linkProposal = $('#finishedPorposal').data('proposal').linkProposal;
-        $(".modal-body #linkProposal").val( linkProposal );        
-        var dana = $('#finishedPorposal').data('proposal').dana;        
-        $(".modal-body #dana").val( dana );
+    // $(document).on("click", "#finishedPorposal", function () {
 
-        $("#propose").attr("src", "http://localhost/PKM/kompetisi-mahasiswa/data/".linkProposal."&embedded=true");
+    //     var idProposal = $('#finishedPorposal').data('proposal').id;
+    //     $(".modal-body #idProposal").val( idProposal );
+    //     var leaderTeam = $('#finishedPorposal').data('proposal').leader;
+    //     $(".modal-body #leaderTeam").val( leaderTeam );
+    //     var member1 = $('#finishedPorposal').data('proposal').member1;
+    //     $(".modal-body #member1").val( member1 );
+    //     var member2 = $('#finishedPorposal').data('proposal').member2;
+    //     $(".modal-body #member2").val( member2 );
+    //     var member3 = $('#finishedPorposal').data('proposal').member3;
+    //     $(".modal-body #member3").val( member3 );
+    //     var member4 = $('#finishedPorposal').data('proposal').member4;
+    //     $(".modal-body #member4").val( member4 );
+    //     var linkProposal = $('#finishedPorposal').data('proposal').linkProposal;
+    //     $(".modal-body #linkProposal").val( linkProposal );        
+    //     var dana = $('#finishedPorposal').data('proposal').dana;        
+    //     $(".modal-body #dana").val( dana );                
 
-        $('#view-Modal-Finished-Proposal').modal('show');
-        console.log(dana);
-    });
+    //     $('#view-Modal-Finished-Proposal').modal('show');
+    //     console.log(dana);
+    // });
 
     $(function () {
         $('.media').media({width: 800, height:450});
     });
 
-</script>
+    function test() {
 
+    }
+
+</script>
 
 </body>
 </html>

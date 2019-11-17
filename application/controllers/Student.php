@@ -115,8 +115,8 @@ class Student extends CI_Controller {
 	{
 		// setting konfigurasi upload
         $config['upload_path'] = './data/proposals/'; 
-        $config['allowed_types'] = 'doc|docx';
-        $new_name = time().$_FILES["proposal"]['name'];        
+        $config['allowed_types'] = 'pdf';
+        $new_name = "Proposal".$_POST['competition'].time().".pdf";        
         $config['file_name'] = $new_name;
 
         // load library upload
