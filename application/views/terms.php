@@ -58,27 +58,19 @@
                         
                         <?php if(!"belum login") {?>
                             <span style="float: right;">
-                                <a href="<?php echo base_url(); ?>index.php/Authentication/login">
-                                    <button type="button" class="btn btn-primary waves-effect waves-light prev">Login</button>
-                                </a>
+                                <a href="<?php echo base_url(); ?>index.php/Authentication/login" type="button" class="btn btn-primary waves-effect waves-light prev">Login</a>
                             </span>
                         <?php }else if("session role == admin") {?>
                             <span style="float: right;">
-                                <a href="<?php echo base_url(); ?>index.php/Admin/dashboard">
-                                    <button type="button" class="btn btn-primary waves-effect waves-light dashboard-button">kembali ke Dashboard</button>
-                                </a>
+                                <a href="<?php echo base_url(); ?>index.php/Admin/dashboard" type="button" class="btn btn-primary waves-effect waves-light dashboard-button">kembali ke Dashboard</a>
                             </span>
                         <?php }else if("session role == student") {?>
                             <span style="float: right;">
-                                <a href="<?php echo base_url(); ?>index.php/Student/dashboard">
-                                    <button type="button" class="btn btn-primary waves-effect waves-light dashboard-button">kembali ke Dashboard</button>
-                                </a>
+                                <a href="<?php echo base_url(); ?>index.php/Admin/dashboard" type="button" class="btn btn-primary waves-effect waves-light dashboard-button">kembali ke Dashboard</a>
                             </span>
                         <?php }else if("session role == reviewer") {?>
                             <span style="float: right;">
-                                <a href="<?php echo base_url(); ?>index.php/Reviewer/dashboard">
-                                    <button type="button" class="btn btn-primary waves-effect waves-light dashboard-button">kembali ke Dashboard</button>
-                                </a>
+                                <a href="<?php echo base_url(); ?>index.php/Admin/dashboard" type="button" class="btn btn-primary waves-effect waves-light dashboard-button">kembali ke Dashboard</a>
                             </span>
                         <?php }?>
                     </div>
@@ -93,7 +85,7 @@
                                     <li>	Anda dapat mengunduh template proposal pada link berikut <a href="<?php echo base_url(); ?>data/template/proposal_template.docx">Template Proposal</a>	</li>
                                     <li>	Proposal yang diupload berupa .pdf	</li>
                                     <li>	Progress pengajuan proposal dapat dilihat pada menu <b>"List Proposal (ongoing)"</b>	</li>
-                                    <li>	Pengajuan proposal memiliki 4 status, yaitu <b>pending</b> (belum direview bag. kemahasiswaan), <b>revisi</b> atau <b> ditolak</b>, <b>menunggu pencairan dana</b>, <b>dana telah cair</b>, <b>belum menyerahkan LPJ</b>, <b>selesai</b> 	</li>
+                                    <li>	Pengajuan proposal memiliki 6 status, yaitu <b>pending</b> (belum direview bag. kemahasiswaan), <b>revisi</b> atau <b> ditolak</b>, <b>menunggu pencairan dana</b>, <b>dana telah cair</b>, <b>belum menyerahkan LPJ</b>, <b>selesai</b> 	</li>
                                     <li>	Setiap catatan revisi yang diberikan oleh reviewer memiliki <b>deadline</b>, pastikan menyelesaikan revisi sebelum deadline. Jika melebihi deadline maka proposal anda akan otomatis <b>ditolak</b>	</li>
                                     <li>	Jika proposal telah <b>"disetujui"</b>, serahkan hardcopy proposal ke bagian kemahasiswaan	</li>
                                     <li>	Anda dapat mengambil dana jika proposal yang Anda ajukan telah berstatus <b>"dana telah cair"</b>	</li></p>

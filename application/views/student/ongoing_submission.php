@@ -164,8 +164,13 @@
                     </div>
                 </div>
                 <div class="modal-footer">
+                    <!-- ke form revisi proposal -->
+                    <!-- if status proposal adalah revisi -->
+                        <a type="button" href="<?php echo base_url();?>Student/revision_submission/<?php echo $pr->id ?>" class="btn btn-success waves-effect waves-light" >ke form upload revisi</a>
+                    <!-- end if -->
+                    
                     <!-- download proposal -->
-                         <a type="button" href="<?php echo base_url();?>data/proposals/<?php echo $pr->proposal->proposal?>" class="btn btn-primary waves-effect waves-light" >Download Proposal</a>
+                    <a type="button" href="<?php echo base_url();?>data/proposals/<?php echo $pr->proposal->proposal?>" class="btn btn-primary waves-effect waves-light" >Download Proposal</a>
                 </div>
                 
             </div>
