@@ -36,26 +36,32 @@ class Authentication extends CI_Controller {
 		curl_close($curl);				
 		$us = json_decode($user);
 
-		echo $us->user->username;
+		if($us->message == "success"){
+			$id = $us->user->username;
+			$name = $us->user->student->name;
+			$department = $us->user->student->department_id;
 
-		$id = $us->user->username;
+			if($us->user->role == 2){
+				$id = $us->user->lecturer->nip;
+				$name = $us->user->lecturer->name;
+				$department = $us->user->lecturer->department_id;
+			}
 
-		if($us->user->role == 2){
-			$id = $us->user->lecturer->nip;
+			$data_session = array(
+				'id' => $id,
+				'name' => $name,
+				'role' => $us->user->role,
+				'token' => $us->token,
+				'department' => $department,
+				'status' => "login"
+				);
+
+			$this->session->set_userdata($data_session);
+
+			$this->login_act();
 		}
 
-		$data_session = array(
-			'id' => $id,
-			'nama' => $us->user->student->name,
-			'role' => $us->user->role,
-			'token' => $us->token,
-			'status' => "login"
-			);
-
-		$this->session->set_userdata($data_session);
-
-		$this->login_act();
- 
+		redirect('Authentication/login');
 		
 	}
 

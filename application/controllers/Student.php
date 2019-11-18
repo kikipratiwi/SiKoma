@@ -14,8 +14,13 @@ class Student extends CI_Controller {
 
 	public function template()
 	{
+		$data['user'] = array(
+			'id' => $this->session->userdata('id'),
+			'name' => $this->session->userdata('name'),
+		);
+
 		$data['content'] = $this->load->view('templates/student/header');
-		$data['content'] = $this->load->view('templates/student/sidebar');
+		$data['content'] = $this->load->view('templates/student/sidebar', $data);
 		$data['content'] = $this->load->view('templates/student/footer');
 
 		return $this->load->view('templates/student/template',$data);
@@ -72,9 +77,10 @@ class Student extends CI_Controller {
 		$errcmp = curl_error($curl);
 		
 
-		//Cek LPJ		
+		//Cek LPJ	
+		$dptt = $this->session->userdata('department');	
 		curl_setopt_array($curl, array(
-		CURLOPT_URL => "http://localhost:8000/api/mahasiswa/proposal/report?department=1",
+		CURLOPT_URL => "http://localhost:8000/api/mahasiswa/proposal/report?department=".$dptt."",
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_ENCODING => "",		
 		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -164,7 +170,7 @@ class Student extends CI_Controller {
 	}
 
 	public function act_proposal_submission()
-	{
+	{		
 		// setting konfigurasi upload
         $config['upload_path'] = './data/proposals/'; 
         $config['allowed_types'] = 'pdf';

@@ -59,7 +59,7 @@
                                                 <form enctype="multipart/form-data" method="POST" action="<?php echo base_url().'index.php/Student/act_proposal_submission'; ?>">                                                       
 
                                                 <!-- Tab panes -->
-                                                <form enctype="multipart/form-data" action="<?=site_url('Student/act_proposal_submission')?>" method="post">
+                                                
                                                 <div class="tab-content">
 
                                                     <div class="tab-pane active" id="proposal-document" role="tabpanel">
