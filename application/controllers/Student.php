@@ -6,7 +6,10 @@ class Student extends CI_Controller {
 		parent::__construct();
 		// $this->load->model('student');
 		// $this->load->database(); // load database
-		$this->load->helper('url');			
+		$this->load->helper('url');	
+		if($this->session->userdata('status') != "login" OR $this->session->userdata('role') != 1){
+			redirect("Authentication/login");
+		}		
 	}
 
 	public function template()
@@ -20,10 +23,12 @@ class Student extends CI_Controller {
 
 	public function index()
 	{
+		$nim = $this->session->userdata('id');
+
 		$curl = curl_init();
 	
 		curl_setopt_array($curl, array(
-		CURLOPT_URL => "http://localhost:8000/api/mahasiswa/proposal/all?nim=171511046",
+		CURLOPT_URL => "http://localhost:8000/api/mahasiswa/proposal/all?nim=".$nim."",
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_ENCODING => "",		
 		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -113,10 +118,11 @@ class Student extends CI_Controller {
     
     public function ongoing_submission()
 	{
+		$nim = $this->session->userdata('id');
 		$curl = curl_init();
 		
 		curl_setopt_array($curl, array(
-		CURLOPT_URL => "http://localhost:8000/api/mahasiswa/proposal/ongoing?nim=171511046",
+		CURLOPT_URL => "http://localhost:8000/api/mahasiswa/proposal/ongoing?nim=".$nim."",
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_ENCODING => "",		
 		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -136,10 +142,11 @@ class Student extends CI_Controller {
     
     public function finished_submission()
 	{
+		$nim = $this->session->userdata('id');
 		$curl = curl_init();
 	
 		curl_setopt_array($curl, array(
-		CURLOPT_URL => "http://localhost:8000/api/mahasiswa/proposal/finished?nim=171511046",
+		CURLOPT_URL => "http://localhost:8000/api/mahasiswa/proposal/finished?nim=".$nim."",
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_ENCODING => "",		
 		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -210,18 +217,71 @@ class Student extends CI_Controller {
 			$index++;
 		}
 
-		$this->ongoing_submission();
+		redirect('Student/ongoing_submission');
 
 	}
 
 	public function revision_submission() {
-		// $proposal_id = $_POST['id']; /* define later*/
+		$proposal_id = $_GET['id']; /* define later*/
+		$curl = curl_init();
+	
+		curl_setopt_array($curl, array(
+		CURLOPT_URL => "http://localhost:8000/api/mahasiswa/proposal/?id=".$proposal_id."",
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_ENCODING => "",		
+		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST => "GET",
+		));
+
+		$proposal = curl_exec($curl);
+		$err = curl_error($curl);
+
+		curl_close($curl);
+
+		$data['proposal'] = json_decode($proposal);
 		$data['content'] = $this->template();
 		$this->load->view('student/revision_submission',$data);
 	}
 
 	public function act_revision_submission() {
-		
+		$new_name = $_POST['oldproposal'];		
+
+		echo $new_name;
+		unlink("./data/proposals/".$new_name."");
+		// setting konfigurasi upload
+        $config['upload_path'] = './data/proposals/'; 
+        $config['allowed_types'] = 'pdf';        
+        $config['file_name'] = $new_name;
+
+        // load library upload
+        $this->load->library('upload', $config);
+		$this->upload->initialize($config);
+
+        if (!$this->upload->do_upload('proposal')) {
+            $error = $this->upload->display_errors();            
+            print_r($error);
+        } else {
+            $result = $this->upload->data();            
+        }
+
+        $curl = curl_init();
+	
+		curl_setopt_array($curl, array(
+		CURLOPT_URL => "http://localhost:8000/api/mahasiswa/proposal/update",
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_ENCODING => "",		
+		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST => "POST",
+		CURLOPT_POSTFIELDS => "id=".$_POST['id_proposal']."",
+		));
+
+		$proposal = curl_exec($curl);
+		$err = curl_error($curl);
+
+		curl_close($curl);
+
+
+        redirect('Student/ongoing_submission');
 	}
 
 }

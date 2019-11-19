@@ -44,6 +44,7 @@
                                             <th>Tanggal Upload</th>
                                             <th>Ketua Tim</th>
                                             <th>Jurusan</th>
+                                            <th>Status</th>
                                             <th>Review</th>
                                         </tr>
                                         </thead>
@@ -71,6 +72,25 @@
 
                                                     <!-- GET departement -->
                                                     <td><?php echo $pr->department->name ?></td>
+                                                    <td>
+                                                        <?php 
+                                                        $revisi =  sizeof($pr->revision);
+                                                            if( $pr->revision != null){
+                                                                if( $pr->revision[$revisi-1]->status == 1  ){
+                                                            ?>
+                                                            <div class="label-main">
+                                                                <label class="label label-success">Sudah Revisi</label>
+                                                            </div>
+                                                        <?php } else  {
+
+                                                            ?>
+                                                            <div class="label-main">
+                                                                <label class="label bg-warning">Belum Revisi</label>
+                                                            </div>
+                                                        <?php }} ?>
+                                                        
+
+                                                    </td>
                                                     <td>
                                                         <a href="" id="finishedPorposal" class="btn btn-primary" data-toggle="modal" data-target="#view-Modal<?php echo $pr->id ?> ">
                                                             Review
@@ -129,11 +149,7 @@
                                                                             <div class="md-input-wrapper">
                                                                                 Sumber Dana<br>
                                                                                 <input type="text" name="source">
-                                                                            </div>
-                                                                            <div class="md-input-wrapper">
-                                                                                Sumber Dana<br>
-                                                                                <input type="text" name="budget">
-                                                                            </div>
+                                                                            </div>                                                                            
                                                                             <!-- SET status proposal -->
                                                                             <label class="bold">Status</label>
                                                                             <div class="form-radio">

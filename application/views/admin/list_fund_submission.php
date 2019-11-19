@@ -49,24 +49,26 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                            <?php
-                                                for ($no = 1; $no <= 4; $no++){
-                                                    $proposal_status='DISBURSED-FUND';?>
+                                            <?php   
+                                                    $index = 1;
+                                                    foreach($proposal as $key => $pr) : 
+                                            ?>
                                                 <tr>
-                                                    <td><?php echo $no ?></td>
+                                                    <td><?php echo $index ?></td>
                                                     <!-- GET name competition -->
-                                                    <td>Gemastik</td>
+                                                   <td><?php echo $pr->competition->name ?></td>
+
+                                                    <!-- GET date upload -->
+                                                
                                                     <!-- GET leader -->
-                                                    <td>Nussa</td>
-                                                    <!-- GET departement -->
-                                                    <td>Komputer</td>
-                                                    <!-- GET status proposal -->
+                                                    <td><?php echo $pr->profile->name ?></td>
+                                                    <td><?php echo $pr->department->name ?></td>
                                                     <td><?php
-                                                        if($proposal_status==='WAIT-TO-FUND'){?>
+                                                        if($pr->status==='WAITFUND'){?>
                                                             <div class="label-main">
                                                                 <label class="label bg-warning"> Tunggu Pencairan Dana</label>
                                                             </div>
-                                                        <?php } else if($proposal_status==='DISBURSED-FUND'){  ?>
+                                                        <?php } else if($pr->status==='DISBURSEDFUND'){  ?>
                                                             <div class="label-main">
                                                                 <label class="label bg-success"> Dana Telah Cair</label>
                                                             </div>
@@ -78,12 +80,12 @@
                                                         </a>
                                                     </td>
                                                     <td><?php
-                                                        if($proposal_status==='WAIT-TO-FUND'){?>
-                                                            <a href="" class="btn btn-success">
+                                                        if($pr->status==='WAITFUND'){?>
+                                                            <a href="<?php echo base_url();?>index.php/Admin/updatefund?id=<?php echo $pr->id; ?>" class="btn btn-success">
                                                                 Cairkan dana
                                                             </a>
-                                                        <?php } else if($proposal_status==='DISBURSED-FUND'){  ?>
-                                                            <a href="" class="btn btn-success">
+                                                        <?php } else if($pr->status==='DISBURSEDFUND'){  ?>
+                                                            <a href="<?php echo base_url();?>index.php/Admin/updatedisfund?id=<?php echo $pr->id; ?>" class="btn btn-success">
                                                                 Dana Diserahkan
                                                             </a>
                                                         <?php }?>
@@ -105,59 +107,37 @@
                                                                 <div class="row">
                                                                     <div class="col-sm-9">
                                                                         <!-- GET Link to review Proposal -->
-                                                                        <a class="media" id="propose" href="<?php echo base_url();?>data/<?php?>pdf"></a>
+                                                                        <a class="media" id="propose" href="<?php echo base_url();?>data/proposals/<?php echo $pr->proposal ?>"></a>
                                                                     </div>
-                                                                    <div class="col-sm-3">
-                                                                        <div class="form-group col-md-8" style="margin-bottom: .1rem;">
-                                                                            <label for="registDate" class="block form-control-label">Input Deadline</label>
-                                                                        </div>
-                                                                        <div class="form-row">
-                                                                            <div class="form-group col-md-8">
-                                                                                <div class="form-control-wrapper">
-                                                                                    <input type="date" name="regist_opendate" id="regist-date-start" class="form-control floating-label" placeholder="Start Date">
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
+                                                                    <div class="col-sm-3">                                                                  
                                                                         <br>
                                                                         <div class="form-group col-md-12" style="margin-bottom: .1rem;">
-                                                                            <label for="registDate" class="block form-control-label">Jumlah Dana *get data</label>
+                                                                            <label for="registDate" class="block form-control-label">Jumlah Dana</label>
+                                                                            <?php echo $pr->realisazion_budget ?>
                                                                         </div>
-                                                                        <div class="form-group col-md-8">
-                                                                            <div class="md-input-wrapper">
-                                                                                <input class="md-form-control md-static" ></input>
-                                                                                <!-- GET JUMLAH DANA echo $proposal['notes']; -->
-                                                                            </div>
-                                                                        </div>
+                                                                        
                                                                         <div class="form-group col-md-12" style="margin-bottom: .1rem;">
-                                                                            <label for="registDate" class="block form-control-label">Sumber Dana *get data</label>
+                                                                            <label for="registDate" class="block form-control-label">Sumber Dana</label>
+                                                                            <?php echo $pr->budget_source ?>
                                                                         </div>
-                                                                        <div class="form-group col-md-8">
-                                                                            <div class="md-input-wrapper">
-                                                                                <!-- GET SUMBER DANA echo $proposal['notes']; -->
-                                                                                <input class="md-form-control md-static" ></input>
-                                                                            </div>
-                                                                        </div>
+
                                                                         
                                                                         
                                                                             
                                                                     </div>
-                                                                </div>
-                                                                <div class="row" style="padding-top: 3px margin-bottom: 3px">
-                                                                    <div class="col-sm-12 text-center" style="padding-top: 3px margin-bottom: 3px">
-                                                                        <!-- SET status proposal -->
-                                                                        <button type="submit" style="padding-top: 3px margin-bottom: 3px" class="btn btn-success waves-effect waves-light">Submit</button>
-                                                                    </div>
-                                                                </div>
+                                                                </div>                                                               
                                                                 
-                                                            </div>
-                                                        </div>
+                                                            
+                                                        
                                                     </div>
                                                 </div>
 
                                                
 
-                                                <?php
-                                            };?>
+                                                <?php 
+                                                    $index++;
+                                                    endforeach;
+                                                ?>
                                         </tbody>
                                     </table>
                                 </div>

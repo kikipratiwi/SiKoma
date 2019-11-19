@@ -46,22 +46,29 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                            <?php
-                                                for ($no = 1; $no <= 4; $no++){
-                                                    $due_date=NULL;?>
+                                            <?php   
+                                                    $index = 1;
+                                                    foreach($proposal as $key => $pr) : 
+                                            ?>
                                                 <tr>
-                                                    <td><?php echo $no ?></td>
+                                                    <td><?php echo $index ?></td>
                                                     <!-- GET name competition -->
-                                                    <td>Gemastik</td>
-                                                    <!-- GET leader -->
-                                                    <td>Nussa</td>
-                                                    <!-- GET departement -->
-                                                    <td>Komputer</td>
-                                                    
-                                                </tr>
+                                                    <td><?php echo $pr->competition->name ?></td>
 
-                                                <?php
-                                            };?>
+                                                    <!-- GET date upload -->
+                                                
+                                                    <!-- GET leader -->
+                                                    <td><?php echo $pr->profile->name ?></td>
+
+                                                    <!-- GET departement -->
+                                                    <td><?php echo $pr->department->name ?></td>                                                    
+                                                </tr>
+                                                
+
+                                                 <?php 
+                                                    $index++;
+                                                    endforeach;
+                                                ?>
                                         </tbody>
                                     </table>
                                 </div>

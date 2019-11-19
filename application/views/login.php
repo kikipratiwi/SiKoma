@@ -5,7 +5,7 @@
 
 			<div class="col-sm-12">
 				<div class="login-card card-block">
-					<form class="md-float-material" type="POST" action="<?php echo base_url(); ?>index.php/Authentication/login">
+					<form class="md-float-material" method="POST" action="<?php echo base_url();?>index.php/Authentication/user_login">
 						<div class="text-center">
 							<a href="<?php echo base_url(); ?>index.php/Home"><img src="<?php echo base_url(); ?>assets/images/favicon.png" alt="logo"></a>
 						</div>
@@ -13,12 +13,12 @@
 							Login ke akun anda
 						</h3>
 						<div class="md-input-wrapper">
-							<input type="text" class="md-form-control" />
-							<label>NIM/NIDN</label>
+							<input type="text" class="md-form-control" name="username" />
+							<label>Username</label>
 						</div>
 						<div class="md-input-wrapper">
-							<input type="password" class="md-form-control" />
-							<label>Kata sandi</label>
+							<input type="password" class="md-form-control" name="password" />
+							<label>Password</label>
 						</div>
 						<div class="row">
 							<div class="col-xs-10 offset-xs-1">

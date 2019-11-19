@@ -48,35 +48,37 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                            <?php
-                                                for ($no = 1; $no <= 4; $no++){
-                                                    $proposal_status='WAIT-TO-REPORT';?>
+                                             <?php   
+                                                    $index = 1;
+                                                    foreach($proposal as $key => $pr) : 
+                                            ?>
                                                 <tr>
-                                                    <td><?php echo $no ?></td>
+                                                    <td><?php echo $index ?></td>
                                                     <!-- GET name competition -->
-                                                    <td>Gemastik</td>
-                                                    <!-- GET leader -->
-                                                    <td>Nussa</td>
-                                                    <!-- GET departement -->
-                                                    <td>Komputer</td>
-                                                    <!-- GET status proposal -->
-                                                    <td><?php
-                                                        if($proposal_status==='WAIT-TO-REPORT'){?>
-                                                            <div class="label-main">
-                                                                <label class="label bg-warning">Belum Menyerahkan LPJ</label>
-                                                            </div>
-                                                        <?php }  ?>
-                                                    </td>
-                                                    <td>
-                                                        <button type="button" id="add-competition" class="btn btn-primary" 
-                                                                style="margin-left: 15px;border-radius: .25rem;padding: .5rem .75rem;" >Update
-                                                        </button>
-                                                    </td>
-                                                    
-                                                </tr>
+                                                    <td><?php echo $pr->competition->name ?></td>
 
-                                                <?php
-                                            };?>
+                                                    <!-- GET date upload -->
+                                                
+                                                    <!-- GET leader -->
+                                                    <td><?php echo $pr->profile->name ?></td>
+                                                    <td><?php echo $pr->department->name ?></td>
+                                                    <td><div class="label-main">
+                                                                <label class="label bg-warning">Belum Menyerahkan LPJ</label>
+                                                            </div></td>
+                                                    <!-- GET departement -->
+                                                    
+                                                    <td>
+                                                        <a type="button" href="<?php echo base_url();?>index.php/Admin/updateReport?id=<?php echo $pr->id; ?>" class="btn btn-success waves-effect waves-light" >
+                                                        Update
+                                                        </a>
+                                                    </td>                                                    
+                                                </tr>
+                                                
+
+                                                 <?php 
+                                                    $index++;
+                                                    endforeach;
+                                                ?>
                                         </tbody>
                                     </table>
                                 </div>

@@ -111,7 +111,7 @@
                         </a>
                         <ul class="dropdown-menu settings-menu">
                             <li><a href="<?php echo base_url(); ?>index.php/Authentication/change_password"><i class="icon-settings"></i> Change Password</a></li>
-                            <li><a href="#!"><i class="icon-logout"></i> Logout</a></li>
+                         <li><a href="<?php echo base_url().'index.php/Authentication/logout'; ?>"><i class="icon-logout"></i> Logout</a></li>
                         </ul>
                     </li>
                 </ul>
