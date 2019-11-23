@@ -382,8 +382,8 @@ class Admin extends CI_Controller {
 		curl_close($curl);	
 
 		$competitions = json_decode($cmpt);
-
-		// foreach($competitions as $cmpt) {
+		// $test = $competitions->toArray();
+		// foreach($competitions as  $key => $cmpt) {
 		// 	echo $cmpt->competition->name;
 		// 	echo $cmpt->department->name;
 		// 	echo $cmpt->competition->location;
@@ -401,41 +401,42 @@ class Admin extends CI_Controller {
                       ->setCellValue('D1', 'Lokasi')
                       ->setCellValue('E1', 'Dana')
                       ->setCellValue('F1', 'Sumber Dana');
+
+                       // $spreadsheet->setActiveSheetIndex(0)->setCellValue('A2', 'ID')->setCellValue('B2', 'Kompetisi')->setCellValue('C2', 'Jurusan')->setCellValue('D2', 'Lokasi')->setCellValue('E2', 'Dana')->setCellValue('F2', 'Sumber Dana');
                       
 
-          $kolom = 2;
-          $nomor = 1;
-          foreach($competitions as $cmpt) {
+          // $kolom = 2;
+          // $nomor = 1;
+          // foreach($competitions as $cmpt) {
 
-               $spreadsheet->setActiveSheetIndex(0)
-                           ->setCellValue('A' . $kolom, $nomor)
-                           ->setCellValue('B' . $kolom, '$cmpt->competition->name')
-                           ->setCellValue('C' . $kolom, '$cmpt->department->name')
-                           ->setCellValue('D' . $kolom, '$cmpt->competition->location')
-                           ->setCellValue('E' . $kolom, '$cmpt->realisazion_budget')
-                           ->setCellValue('F' . $kolom, '$cmpt->budget_source');                           
+          //      $spreadsheet->setActiveSheetIndex(0)
+          //                  // ->setCellValue('A' . $kolom, $nomor)
+          //                  // ->setCellValue('B' . $kolom, $cmpt->competition->name)
+          //                  // ->setCellValue('C' . $kolom, $cmpt->department->name)
+          //                  // ->setCellValue('D' . $kolom, $cmpt->competition->location)
+          //                  // ->setCellValue('E' . $kolom, $cmpt->realisazion_budget)
+          //                  // ->setCellValue('F' . $kolom, $cmpt->budget_source);                           
+          //      				->setCellValue('A' . $kolom, 'ID')
+          //                  ->setCellValue('B' . $kolom, 'Kompetisi')
+          //                  ->setCellValue('C' . $kolom, 'Jurusan')
+          //                  ->setCellValue('D' . $kolom, 'lokasi')
+          //                  ->setCellValue('E' . $kolom, 'Dana')
+          //                  ->setCellValue('F' . $kolom, 'sumber');                           
 
-               $kolom++;
-               $nomor++;
+          //      $kolom++;
+          //      $nomor++;
 
-          }
+          // }
 
-          // $writer = new Xlsx($spreadsheet);
-		header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-		header('Content-Disposition: attachment;filename="laporan.xlsx"');
-		header('Cache-Control: max-age=0');
-		// header('Cache-Control: max-age=1');
-		header('Cache-Control: cache, must-revalidate');
-		header('Pragma: public');
-
-		$writer = IOFactory::createWriter($spreadsheet, 'Xlsx');
-		$writer->save('php://output');
+          $writer = new Xlsx($spreadsheet);
           
-	   //    header('Content-Type: application/vnd.ms-excel');
-		  // header('Content-Disposition: attachment;filename="Barang.xlsx"');
-		  // header('Cache-Control: max-age=0');
+	      header('Content-Type: application/vnd.ms-excel');
+		  header('Content-Disposition: attachment;filename="Kompetisi.xlsx"');
+		  header('Cache-Control: max-age=0');
+		  // header('Cache-Control: cache, must-revalidate'); 
+		  header('Pragma: public');
 
-		  // $writer->save('php://output');
+		  $writer->save('php://output');
 	}
 
 }
