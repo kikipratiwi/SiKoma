@@ -28,7 +28,7 @@ class Student extends CI_Controller {
 		$curl = curl_init();
 	
 		curl_setopt_array($curl, array(
-		CURLOPT_URL => "http://localhost:8000/api/mahasiswa/proposal/all?nim=".$nim."",
+		CURLOPT_URL => API_URL."/api/mahasiswa/proposal/all?nim=".$nim."",
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_ENCODING => "",		
 		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -50,7 +50,7 @@ class Student extends CI_Controller {
 		//Jurusan
 		$curl = curl_init();
 		curl_setopt_array($curl, array(
-		CURLOPT_URL => "http://localhost:8000/api/departments",
+		CURLOPT_URL => API_URL."/api/departments",
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_ENCODING => "",
 		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -61,7 +61,7 @@ class Student extends CI_Controller {
 
 		//Kompetisi
 		curl_setopt_array($curl, array(
-		CURLOPT_URL => "http://localhost:8000/api/competitions",
+		CURLOPT_URL => API_URL."/api/competitions",
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_ENCODING => "",
 		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -74,7 +74,7 @@ class Student extends CI_Controller {
 
 		//Cek LPJ		
 		curl_setopt_array($curl, array(
-		CURLOPT_URL => "http://localhost:8000/api/mahasiswa/proposal/report?department=1",
+		CURLOPT_URL => API_URL."/api/mahasiswa/proposal/report?department=1",
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_ENCODING => "",		
 		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -99,7 +99,7 @@ class Student extends CI_Controller {
 		//Kompetisi
 		$curl = curl_init();
 		curl_setopt_array($curl, array(
-		CURLOPT_URL => "http://localhost:8000/api/competitions",
+		CURLOPT_URL => API_URL."/api/competitions",
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_ENCODING => "",		
 		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -122,7 +122,7 @@ class Student extends CI_Controller {
 		$curl = curl_init();
 		
 		curl_setopt_array($curl, array(
-		CURLOPT_URL => "http://localhost:8000/api/mahasiswa/proposal/ongoing?nim=".$nim."",
+		CURLOPT_URL => API_URL."/api/mahasiswa/proposal/ongoing?nim=".$nim."",
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_ENCODING => "",		
 		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -146,7 +146,7 @@ class Student extends CI_Controller {
 		$curl = curl_init();
 	
 		curl_setopt_array($curl, array(
-		CURLOPT_URL => "http://localhost:8000/api/mahasiswa/proposal/finished?nim=".$nim."",
+		CURLOPT_URL => API_URL."/api/mahasiswa/proposal/finished?nim=".$nim."",
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_ENCODING => "",		
 		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -184,7 +184,7 @@ class Student extends CI_Controller {
 		//Proposal
 		$curl = curl_init();
 		curl_setopt_array($curl, array(
-		CURLOPT_URL => "http://localhost:8000/api/mahasiswa/proposal",
+		CURLOPT_URL => API_URL."/api/mahasiswa/proposal",
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_ENCODING => "",		
 		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -203,7 +203,7 @@ class Student extends CI_Controller {
 
 			$curl = curl_init();
 			curl_setopt_array($curl, array(
-			CURLOPT_URL => "http://localhost:8000/api/mahasiswa/team",
+			CURLOPT_URL => API_URL."/api/mahasiswa/team",
 			CURLOPT_RETURNTRANSFER => true,
 			CURLOPT_ENCODING => "",		
 			CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -226,7 +226,7 @@ class Student extends CI_Controller {
 		$curl = curl_init();
 	
 		curl_setopt_array($curl, array(
-		CURLOPT_URL => "http://localhost:8000/api/mahasiswa/proposal/?id=".$proposal_id."",
+		CURLOPT_URL => API_URL."/api/mahasiswa/proposal/?id=".$proposal_id."",
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_ENCODING => "",		
 		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -267,7 +267,7 @@ class Student extends CI_Controller {
         $curl = curl_init();
 	
 		curl_setopt_array($curl, array(
-		CURLOPT_URL => "http://localhost:8000/api/mahasiswa/proposal/update",
+		CURLOPT_URL => API_URL."/api/mahasiswa/proposal/update",
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_ENCODING => "",		
 		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,

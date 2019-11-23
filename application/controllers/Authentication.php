@@ -21,9 +21,9 @@ class Authentication extends CI_Controller {
 		$pwd = $this->input->post('password');
 		
 		$curl = curl_init();
-
+		echo API_URL."/api/login";
 		curl_setopt_array($curl, array(
-		CURLOPT_URL => "http://localhost:8000/api/login",
+		CURLOPT_URL => API_URL."/api/login",
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_ENCODING => "",		
 		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -95,7 +95,7 @@ class Authentication extends CI_Controller {
 		$curl = curl_init();
 
 		curl_setopt_array($curl, array(
-		CURLOPT_URL => "http://localhost:8000/api/logout",
+		CURLOPT_URL => API_URL."/api/logout",
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_ENCODING => "",		
 		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,

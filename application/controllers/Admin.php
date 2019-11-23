@@ -37,7 +37,7 @@ class Admin extends CI_Controller {
 	{
 		$curl = curl_init();
 		curl_setopt_array($curl, array(
-		CURLOPT_URL => "http://localhost:8000/api/admin/proposal/new",
+		CURLOPT_URL => API_URL."/api/admin/proposal/new",
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_ENCODING => "",
 		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -58,7 +58,7 @@ class Admin extends CI_Controller {
 	{
 		$curl = curl_init();
 		curl_setopt_array($curl, array(
-		CURLOPT_URL => "http://localhost:8000/api/competitions",
+		CURLOPT_URL => API_URL."/api/competitions",
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_ENCODING => "",
 		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -91,7 +91,7 @@ class Admin extends CI_Controller {
 	{
 		$curl = curl_init();
 		curl_setopt_array($curl, array(
-		CURLOPT_URL => "http://localhost:8000/api/admin/proposal/revision",
+		CURLOPT_URL => API_URL."/api/admin/proposal/revision",
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_ENCODING => "",
 		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -112,7 +112,7 @@ class Admin extends CI_Controller {
 	{
 		$curl = curl_init();
 		curl_setopt_array($curl, array(
-		CURLOPT_URL => "http://localhost:8000/api/admin/proposal/fund",
+		CURLOPT_URL => API_URL."/api/admin/proposal/fund",
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_ENCODING => "",
 		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -135,7 +135,7 @@ class Admin extends CI_Controller {
 
 		$curl = curl_init();
 		curl_setopt_array($curl, array(
-		CURLOPT_URL => "http://localhost:8000/api/admin/proposal/fund",
+		CURLOPT_URL => API_URL."/api/admin/proposal/fund",
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_ENCODING => "",		
 		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -158,7 +158,7 @@ class Admin extends CI_Controller {
 		
 		$curl = curl_init();
 		curl_setopt_array($curl, array(
-		CURLOPT_URL => "http://localhost:8000/api/admin/proposal/disfund",
+		CURLOPT_URL => API_URL."/api/admin/proposal/disfund",
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_ENCODING => "",		
 		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -185,7 +185,7 @@ class Admin extends CI_Controller {
 	{
 		$curl = curl_init();
 		curl_setopt_array($curl, array(
-		CURLOPT_URL => "http://localhost:8000/api/admin/proposal/reported",
+		CURLOPT_URL => API_URL."/api/admin/proposal/reported",
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_ENCODING => "",
 		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -209,7 +209,7 @@ class Admin extends CI_Controller {
 
 		$curl = curl_init();
 		curl_setopt_array($curl, array(
-		CURLOPT_URL => "http://localhost:8000/api/admin/proposal/reported",
+		CURLOPT_URL => API_URL."/api/admin/proposal/reported",
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_ENCODING => "",		
 		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -235,7 +235,7 @@ class Admin extends CI_Controller {
 	{
 		$curl = curl_init();
 		curl_setopt_array($curl, array(
-		CURLOPT_URL => "http://localhost:8000/api/admin/proposal/rejected",
+		CURLOPT_URL => API_URL."/api/admin/proposal/rejected",
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_ENCODING => "",
 		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -256,7 +256,7 @@ class Admin extends CI_Controller {
 	{
 		$curl = curl_init();
 		curl_setopt_array($curl, array(
-		CURLOPT_URL => "http://localhost:8000/api/admin/proposal/finished",
+		CURLOPT_URL => API_URL."/api/admin/proposal/finished",
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_ENCODING => "",
 		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -277,7 +277,7 @@ class Admin extends CI_Controller {
 	public function addDeadline(){
 		$curl = curl_init();
 		curl_setopt_array($curl, array(
-		CURLOPT_URL => "http://localhost:8000/api/admin/proposal/revision",
+		CURLOPT_URL => API_URL."/api/admin/proposal/revision",
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_ENCODING => "",		
 		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -298,7 +298,7 @@ class Admin extends CI_Controller {
 		//Kompetisi
 		$curl = curl_init();
 		curl_setopt_array($curl, array(
-		CURLOPT_URL => "http://localhost:8000/api/competitions",
+		CURLOPT_URL => API_URL."/api/competitions",
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_ENCODING => "",		
 		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
