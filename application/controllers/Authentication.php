@@ -46,7 +46,7 @@ class Authentication extends CI_Controller {
 
 		$data_session = array(
 			'id' => $id,
-			'nama' => $us->user->student->name,
+			'nama' => $us->user->ormawa->name,
 			'role' => $us->user->role,
 			'token' => $us->token,
 			'status' => "login"
@@ -61,11 +61,11 @@ class Authentication extends CI_Controller {
 
 	public function login_act()
 	{
-		// jika role student, maka ke /Student (index=dashboard)
+		// jika role ormawa, maka ke /Ormawa (index=dashboard)
 		$role = $this->session->userdata('role');
 
 		if($role == 1){
-			redirect("Student");
+			redirect("Ormawa");
 		}
 		else if($role == 2){
 			redirect("Mentor");

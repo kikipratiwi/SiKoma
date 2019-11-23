@@ -9,7 +9,7 @@
                         <div class="main-header">
                             <h4>Revisi Proposal</h4>
                             <ol class="breadcrumb breadcrumb-title breadcrumb-arrow">
-                                <li class="breadcrumb-item"><a href="student.html"><i class="icofont icofont-home"></i></a>
+                                <li class="breadcrumb-item"><a href="ormawa.html"><i class="icofont icofont-home"></i></a>
                                 </li>
                                 <li class="breadcrumb-item"><a href="#!">Proposal</a>
                                 </li>
@@ -35,7 +35,7 @@
                                         <div class="row">
                                             <div class="col-lg-12">
                                                 <!-- Proposal Document inputs starts -->
-                                                <form enctype="multipart/form-data" method="POST" action="<?php echo base_url().'index.php/Student/act_revision_submission'; ?>">                                                       
+                                                <form enctype="multipart/form-data" method="POST" action="<?php echo base_url().'index.php/Ormawa/act_revision_submission'; ?>">                                                       
                                                         <div class="form-group row">
                                                             <label for="department" class="col-xs-2 col-form-label form-control-label">Jurusan</label>
                                                             <div class="col-sm-10">

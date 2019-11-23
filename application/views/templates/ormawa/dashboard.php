@@ -11,7 +11,7 @@
             
             <!-- start row m-b-30 -->
             <div class="row dashboard-header">
-                <div class="col-lg-6 col-sm-12">
+                <div class="col-lg-3 col-sm-12">
                     <div class="col-sm-12 card dashboard-product">
                         <span>Pencairan Dana</span>
                         <h2 class="dashboard-total-products counter">
@@ -23,7 +23,31 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 col-sm-12">
+                <div class="col-lg-3 col-sm-12">
+                    <div class="col-sm-12 card dashboard-product">
+                        <span>Revisi Proposal</span>
+                        <h2 class="dashboard-total-products counter">
+                            <?php echo $proposal->disbursed?>
+                        </h2>
+                        Total Proposal <span class="label label-warning">direvisi</span>
+                        <div class="side-box bg-warning">
+                            <i class="icon-doc"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-12">
+                    <div class="col-sm-12 card dashboard-product">
+                        <span>LPJ</span>
+                        <h2 class="dashboard-total-products counter">
+                            <?php echo $proposal->disbursed?>
+                        </h2>
+                        Total LPJ <span class="label label-danger">yang harus diserahkan</span>
+                        <div class="side-box bg-danger">
+                            <i class="icon-doc"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-12">
                     <div class="col-sm-12 card dashboard-product">
                         <span>Proposal Disetujui</span>
                         <h2 class="dashboard-total-products">
