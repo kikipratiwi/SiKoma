@@ -284,4 +284,9 @@ class Ormawa extends CI_Controller {
         redirect('Ormawa/ongoing_submission');
 	}
 
+	public function realization_budget() {
+		$data['content'] = $this->template();
+		$this->load->view('ormawa/realization_budget',$data);
+	}
+
 }

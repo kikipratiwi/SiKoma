@@ -65,21 +65,11 @@
                                                     <div class="tab-pane active" id="proposal-document" role="tabpanel">
                                                         <!-- Proposal Document inputs starts -->
                                                             <div class="form-group row">
-                                                                <label for="department" class="col-xs-2 col-form-label form-control-label">Jurusan</label>
-                                                                <div class="col-sm-10">
-                                                                    <select class="form-control " name="department" id="department">
-                                                                    <?php	foreach($department as $key => $dpt) : ?>
-			                                                            <option value="<?= $dpt->id?>"> <?=$dpt->name ?></option>
-		                                                            <?php endforeach;?>
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group row">
                                                                 <label for="competition" class="col-xs-2 col-form-label form-control-label">Kompetisi</label>
                                                                 <div class="d-flex justify-content-between">
                                                                     <div class="col-sm-8">
-                                                                        <select class="form-control " name="competition" id="competition">
-                                                                        <?php	foreach($competition as $key => $cmp) : ?>
+                                                                        <select class="js-basic-single form-control" name="competition" id="competition">
+                                                                        <?php foreach($competition as $key => $cmp) : ?>
 			                                                                <option value="<?= $cmp->id?>"> <?=$cmp->name ?></option>
 		                                                                <?php endforeach;	?>
                                                                         </select>
@@ -368,6 +358,8 @@
 		<script type="text/javascript" src="<?php echo base_url();?>assets/pages/advance-form.js"></script>
 		<script src="<?php echo base_url();?>assets/js/menu.min.js"></script>
 		
+    <!-- select2 -->
+    <script src="<?php echo base_url();?>assets/select2.min.js"></script>    
 
 <script> 
   	window._data = {};
@@ -396,15 +388,32 @@
         // Components Initialization
         var fieldSet = $("<fieldset id='team" + key + "'></fieldset>");
         var legend = $("<legend>#"+ (index + 1) +"</legend>")
-        var categoryField = $("<input />", {"class": 'form-control', "type": 'text', "name": 'category[]', "placeholder":'ex: Ide Bisnis, UX Design, Smart City'});
-        var coachField = $("<input />", {"class": 'form-control', "type": 'text', "name": 'coach[]', "placeholder":'NIDN Pembimbing'});
-        var leaderField = $("<input />", {"class": 'form-control', "type": 'text', "name": 'leader[]', "placeholder":'NIM Ketua Tim'});
-        var member1Field = $("<input />", {"class": 'form-control', "type": 'text', "name": 'member1[]', "placeholder":'NIM Anggota 1'});
-        var member2Field = $("<input />", {"class": 'form-control', "type": 'text', "name": 'member2[]', "placeholder":'NIM Anggota 2'});
-        var member3Field = $("<input />", {"class": 'form-control', "type": 'text', "name": 'member3[]', "placeholder":'NIM Anggota 3'});
-        var member4Field = $("<input />", {"class": 'form-control', "type": 'text', "name": 'member4[]', "placeholder":'NIM Anggota 4'});
-        var removeButton = $("<button type='button' style='float:right' class='js-remove-button cancelBtn btn btn-warning waves-effect waves-light px-2 my-2'>Remove</button>")
+        var categoryField       = $("<select />", {"style": 'width', "class": 'select2-category form-control', "name": 'category[]'});
+        var categoryTextField   = $("<input />", {"class": 'category-text form-control', "name": 'category[]', });
+        var coachField      = $("<select />", {"class": 'select2-coach form-control', "name": 'coach[]'});
+        var leaderField     = $("<select />", {"class": 'select2-leader form-control', "name": 'leader[]'});
+        var member1Field =  $("<select />", {"class": 'select2-member1 form-control', "name": 'member1[]'});
+        var member2Field =  $("<select />", {"class": 'select2-member2 form-control', "name": 'member2[]'});
+        var member3Field =  $("<select />", {"class": 'select2-member3 form-control', "name": 'member3[]'});
+        var member4Field =  $("<select />", {"class": 'select2-member4 form-control', "name": 'member4[]'});
+        var removeButton =  $("<button type='button' style='float:right' class='js-remove-button cancelBtn btn btn-warning waves-effect waves-light px-2 my-2'>Remove</button>")
         
+        $('.select2-category').select2();
+        $('.select2-coach').select2();
+        $('.select2-leader').select2();
+        $('.select2-member1').select2();
+        $('.select2-member2').select2();
+        $('.select2-member3').select2();
+        $('.select2-member4').select2();
+
+        <?php foreach($department as $key => $dpt) : ?>
+            optionText = <?php echo json_encode($dpt->name, JSON_HEX_TAG); ?>;
+            optionValue = <?php echo json_encode($dpt->id, JSON_HEX_TAG); ?>;
+            categoryField.append(`<option value="${optionValue}"> 
+                                       ${optionText} 
+                                  </option>`); 
+        <?php endforeach; ?>
+
         // Components Set Value
         categoryField.val(datum.category);
         coachField.val(datum.coach);
@@ -451,7 +460,7 @@
                     $("<label/>", {"class": "col-xs-2 col-form-label form-control-label"}).append([
                     "Ketegori Kompetisi"
                 ]),
-                $("<div/>", {"class": "col-sm-10"}).append([
+                $("<div/>", {"class": "form-group"}).append([
                     categoryField
                 ])
             ]) 
@@ -558,6 +567,19 @@
         // use fileName however fits your app best, i.e. add it into a div
         infoArea.textContent = fileName;
     }
+</script>
+
+<script>
+// $(document).ready(function() {
+    $('.js-basic-single').select2();
+    $('.select2-category').select2();
+    $('.select2-coach').select2();
+    $('.select2-leader').select2();
+    $('.select2-member1').select2();
+    $('.select2-member2').select2();
+    $('.select2-member3').select2();
+    $('.select2-member4').select2();
+// });
 </script>
 
 <!-- select2 -->
