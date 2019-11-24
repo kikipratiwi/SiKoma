@@ -213,10 +213,11 @@
     <script src="<?php echo base_url();?>assets/js/menu.min.js"></script>
 		
 
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
-    <script type="text/javascript" src="http://malsup.github.com/jquery.media.js"></script>
-
-
+    <!-- Required Jqurey -->
+    <script src="<?php echo base_url();?>assets/js/2.1.3jquery.min.js"></script> 
+    <script src="<?php echo base_url();?>assets/js/jquery.media.js"></script>
+    <script src="<?php echo base_url();?>assets/js/jquery.dataTables.js"></script>
+    
 <script> 
     $(document).ready( function () {
         $('#ongoingSubmissionTable').DataTable();

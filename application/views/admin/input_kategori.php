@@ -13,9 +13,9 @@
                                     <i class="icofont icofont-home"></i>
                                 </a>
                             </li>
-                            <li class="breadcrumb-item"><a href="#">Proposal</a>
+                            <li class="breadcrumb-item"><a href="#">Kompetisi</a>
                             </li>
-                            <li class="breadcrumb-item"><a href="basic-table.html">LPJ</a>
+                            <li class="breadcrumb-item"><a href="basic-table.html">Kategori</a>
                             </li>
                         </ol>
                     </div>
@@ -31,79 +31,89 @@
                     <!-- Hover effect table starts -->
                     <div class="card">
                         <div class="card-header">
-                            <h5 class="card-header-text">LPJ</h5>
+                            <h5 class="card-header-text">Kategori</h5>
                         </div>
                         <div class="card-block">
+                            <button type="button" id="add-competition" class="btn btn-primary" 
+                                    style="margin-left: 5px; margin-bottom: 15px;border-radius: .25rem;padding: .5rem .75rem;" 
+                                    data-toggle="modal" data-target="#add-category-modal-form" >+ Kategori Kompetisi
+                            </button>
                             <div class="row">
                                 <div class="col-sm-12 table-responsive">
                                     <table class="table table-hover" id="ongoingSubmissionTable">
                                         <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Proposal</th>
-                                            <th>Ketua Tim</th>
-                                            <th>Jurusan</th>
-                                            <th>Status</th>
-                                            <th>LPJ</th>
+                                            <th>Kategori Kompetisi</th>
+                                            <th>Edit</th>
+                                            <th>Delete</th>
                                         </tr>
                                         </thead>
                                         <tbody>
-                                            <?php   
-                                                    $index = 1;
-                                                    foreach($proposal as $key => $pr) : 
-                                            ?>
-                                                <tr>
-                                                    <td><?php echo $index ?></td>
-                                                    <!-- GET name competition -->
-                                                    <td><?php echo $pr->competition->name ?></td>
-                                                    <!-- GET leader -->
-                                                    <td><?php echo $pr->profile->name ?></td>
-                                                    <!-- GET Depatement -->
-                                                    <td><?php echo $pr->department->name ?></td>
-                                                    <td>
-                                                        <div class="label-main">
-                                                            <label class="label bg-warning">Belum Menyerahkan LPJ</label>
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <!-- <a type="button" href=" echo base_url();?>index.php/Admin/updateReport?id=echo $pr->id; ?>" class="btn btn-success waves-effect waves-light" >
-                                                        Update
-                                                        </a> -->
-                                                        <a href="" id="previewPorposal" class="open-view-Modal-Preview btn btn-primary" data-toggle="modal" data-target="#view-Modal">
-                                                            Update
-                                                        </a>
-                                                    </td>                                                    
-                                                </tr>
-                                                
-                                                <!-- MODAL Pencairan -->
-                                                <div class="modal fade modal-flex" id="view-Modal" tabindex="-1" role="dialog">
-                                                    <div class="modal-dialog modal-sm" role="document" >
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                    <span aria-hidden="true">&times;</span>
-                                                                </button>
-                                                                <h5 class="modal-title">Jumlah dana yang dicairkan</h5>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                <div class="form-group col-md-12">
-                                                                    <label for="lecturertName" class="block form-control-label">Dana yang dicairkan*get dana yang disetujui*</label>
-                                                                    <input type="number" class="form-control" name="name">
-                                                                </div>
-                                                                <div class="label-main">
-                                                                    <label class="label bg-warning">Dana yang akan dicairkan pada termin selanjutnya adalah <br> &#82;&#112; <?php echo number_format(1000000);?> *jumlah dana dikurangi dana yg diinput*</label>
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                                        <?php   
+                                            for ($index = 1; $index <= 4; $index++){
+                                        ?>
+                                            <tr>
+                                                <td><?php echo $index; ?></td>
+                                                <td> Competitive Programming
+                                                <!-- echo $index ?> -->
+                                                </td>
+                                                <td>
+                                                    <!-- if(ever_used === null){?> -->
+                                                    <a href="" id="input_category" class="open-view-cateogry btn btn-primary" data-toggle="modal" data-target="#view-Modal-Category">
+                                                        Edit
+                                                    </a>
+                                                    <!-- }else{?> -->
+                                                    <!-- <a href="" id="input_category" class="btn btn-disable disabled"> -->
+                                                        <!-- Edit -->
+                                                    <!-- </a> -->
+                                                    <!-- }?> -->
+                                                </td>
+                                                <td>
+                                                    <!-- if(ever_used === null){?> -->
+                                                    <a href="" id="input_category" class="open-view-cateogry btn btn-danger" action="">
+                                                        Delete
+                                                    </a>
+                                                    <!-- }else{?> -->
+                                                    <!-- <a href="" id="input_category" class="btn btn-disable disabled">
+                                                    Delete
+                                                    </a> -->
+                                                    <!-- }?> -->
+                                                </td>
+                                            </tr>
+                                            
+                                            <!-- Edit Competition Category Modal -->
+                                            <div class="modal fade modal-flex" id="view-Modal-Category" tabindex="-1" role="dialog">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        <h5 class="modal-title">Edit Kategori Kompetisi</h5>
                                                     </div>
+
+                                                    <form method="POST" action="">
+                                                        <div class="modal-body">
+                                                            <div class="row">
+                                                                <div class="form-group col-md-12">
+                                                                    <label for="competitionName" class="block form-control-label">Kategori Kompetisi *get data*</label>
+                                                                    <input type="text" class="form-control" name="name">
+                                                                </div>
+                                                            </div>
+                                                        </div>                                              
+                                                        <div class="modal-footer" style="padding-top: 3pt">
+                                                            <button type="submit" class="btn btn-primary">Simpan</button>
+                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                                                        </div>
+                                                    </form>
                                                 </div>
-                                                <!-- END MODAL Pencairan -->
+                                            </div>
+                                            <!-- End of Edit Competition Category Modal -->
 
-
-                                                <?php 
-                                                    $index++;
-                                                    endforeach;
-                                                ?>
+                                            <?php 
+                                            };
+                                        ?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -117,10 +127,40 @@
             <!-- Row end -->
             <!-- Tables end -->
         </div>
-
         <!-- Container-fluid ends -->
     </div>
 </div>
+
+
+
+<!-- Add Category Modal -->
+<div class="modal fade modal-flex" id="add-category-modal-form" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            <h5 class="modal-title">Tambah Kategori Kompetisi</h5>
+        </div>
+
+        <form method="POST" action="">
+            <div class="modal-body">
+                <div class="row">
+                    <div class="form-group col-md-12">
+                        <label for="competitionName" class="block form-control-label">Kategori Kompetisi</label>
+                        <input type="text" class="form-control" name="name">
+                    </div>
+                </div>
+            </div>                                              
+            <div class="modal-footer" style="padding-top: 3pt">
+                <button type="submit" class="btn btn-primary">Simpan</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- End of Add Competition Modal -->
 
 <!-- Required Jqurey -->
     <script
@@ -237,9 +277,10 @@
     <script src="<?php echo base_url();?>assets/js/menu.min.js"></script>
 		
 
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
-    <script type="text/javascript" src="http://malsup.github.com/jquery.media.js"></script>
-
+    <script src="<?php echo base_url();?>assets/js/2.1.3jquery.min.js"></script> 
+    <script src="<?php echo base_url();?>assets/js/jquery.media.js"></script>
+    <script src="<?php echo base_url();?>assets/js/jquery.dataTables.js"></script>
+	
 
 <script> 
     $(document).ready( function () {

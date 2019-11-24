@@ -56,12 +56,9 @@
                                                     </li>
                                                 </ul>
 
-                                                <form enctype="multipart/form-data" method="POST" action="<?php echo base_url().'index.php/Ormawa/act_proposal_submission'; ?>">                                                       
-
                                                 <!-- Tab panes -->
-                                                <form enctype="multipart/form-data" action="<?=site_url('Ormawa/act_proposal_submission')?>" method="post">
+                                                <form enctype="multipart/form-data" method="POST" action="<?php echo base_url().'index.php/Ormawa/act_proposal_submission'; ?>">
                                                 <div class="tab-content">
-
                                                     <div class="tab-pane active" id="proposal-document" role="tabpanel">
                                                         <!-- Proposal Document inputs starts -->
                                                             <div class="form-group row">
@@ -300,8 +297,8 @@
     <!-- Required Jqurey -->
     <script src="<?php echo base_url();?>assets/plugins/jquery/dist/jquery.min.js"></script>
     <script src="<?php echo base_url();?>assets/plugins/jquery-ui/jquery-ui.min.js"></script>
-    <script src="<?php echo base_url();?>assets/plugins/tether/dist/js/tether.min.js"></script>
-
+    <script src="<?php echo base_url();?>assets/plugins/tether/dist/js/tether.min.js"></script>    
+                                                        
     <!-- Required Fremwork -->
     <script src="<?php echo base_url();?>assets/plugins/bootstrap/js/bootstrap.min.js"></script>
 
@@ -602,9 +599,42 @@ $(document).ready(function() {
 });
 </script>
 
-<!-- select2 -->
-<script src="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/js/select2.min.js"></script>
+<!-- Validation date -->
+<script>
+    var eventstart = document.getElementById('event-date-start');
+    var eventend = document.getElementById('event-date-end');   
+    var end = document.getElementById('regist-date-end');     
+    
+    eventstart.addEventListener('change', function() {        
+        if (eventstart.value){                                     
+            eventend.min = eventstart.value;
+            end.max = eventstart.value;
+            console.log(eventstart.value);
+        }
+            
+    }, false);
+    eventend.addEventLiseter('change', function() {
+        if (eventend.value)
+            eventstart.max = eventend.value;
+    }, false);
+</script>
 
+<script>    
+    var start = document.getElementById('regist-date-start');
+    var end = document.getElementById('regist-date-end');
+    var eventstart = document.getElementById('event-date-start');
+
+    start.addEventListener('change', function() {
+        if (start.value)
+            end.min = start.value;
+    }, false);
+    end.addEventLiseter('change', function() {
+        if (end.value){
+            start.max = end.value;            
+            eventstart.min = end.value;
+        }            
+    }, false); 
+</script> 
 
 </body>
 </html>
