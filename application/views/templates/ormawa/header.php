@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-<title>Mahasiswa | Sikoma</title>
+<title>Ormawa | Sikoma</title>
 	<!-- HTML5 Shim and Respond.js IE9 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 	<!--[if lt IE 9]>
@@ -107,7 +107,7 @@
                     <li class="dropdown">
                         <a href="#!" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle drop icon-circle drop-image">
                             <span><img class="img-circle " src="<?php echo base_url();?>assets/images/avatar-1.png" style="width:40px;" alt="User Image"></span>
-                            <span> User <b>Mahasiswa</b> <i class=" icofont icofont-simple-down"></i></span>
+                            <span><b>Ormawa</b> <i class=" icofont icofont-simple-down"></i></span>
                         </a>
                         <ul class="dropdown-menu settings-menu">
                             <li><a href="<?php echo base_url(); ?>index.php/Authentication/change_password"><i class="icon-settings"></i> Change Password</a></li>

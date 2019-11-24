@@ -42,7 +42,7 @@ class Admin extends CI_Controller {
 	{
 		$curl = curl_init();
 		curl_setopt_array($curl, array(
-		CURLOPT_URL => "http://localhost:8000/api/admin/proposal/new",
+		CURLOPT_URL => API_URL."/api/admin/proposal/new",
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_ENCODING => "",
 		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -63,7 +63,7 @@ class Admin extends CI_Controller {
 	{
 		$curl = curl_init();
 		curl_setopt_array($curl, array(
-		CURLOPT_URL => "http://localhost:8000/api/competitions",
+		CURLOPT_URL => API_URL."/api/competitions",
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_ENCODING => "",
 		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -96,7 +96,7 @@ class Admin extends CI_Controller {
 	{
 		$curl = curl_init();
 		curl_setopt_array($curl, array(
-		CURLOPT_URL => "http://localhost:8000/api/admin/proposal/revision",
+		CURLOPT_URL => API_URL."/api/admin/proposal/revision",
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_ENCODING => "",
 		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -117,7 +117,7 @@ class Admin extends CI_Controller {
 	{
 		$curl = curl_init();
 		curl_setopt_array($curl, array(
-		CURLOPT_URL => "http://localhost:8000/api/admin/proposal/fund",
+		CURLOPT_URL => API_URL."/api/admin/proposal/fund",
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_ENCODING => "",
 		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -140,7 +140,7 @@ class Admin extends CI_Controller {
 
 		$curl = curl_init();
 		curl_setopt_array($curl, array(
-		CURLOPT_URL => "http://localhost:8000/api/admin/proposal/fund",
+		CURLOPT_URL => API_URL."/api/admin/proposal/fund",
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_ENCODING => "",		
 		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -163,7 +163,7 @@ class Admin extends CI_Controller {
 		
 		$curl = curl_init();
 		curl_setopt_array($curl, array(
-		CURLOPT_URL => "http://localhost:8000/api/admin/proposal/disfund",
+		CURLOPT_URL => API_URL."/api/admin/proposal/disfund",
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_ENCODING => "",		
 		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -184,7 +184,7 @@ class Admin extends CI_Controller {
 	{
 		$curl = curl_init();
 		curl_setopt_array($curl, array(
-		CURLOPT_URL => "http://localhost:8000/api/users",
+		CURLOPT_URL =>  API_URL."/api/users",
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_ENCODING => "",
 		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -207,7 +207,7 @@ class Admin extends CI_Controller {
 
 		$curl = curl_init();
 		curl_setopt_array($curl, array(
-		CURLOPT_URL => "http://localhost:8000/api/user/reset",
+		CURLOPT_URL =>  API_URL."/api/user/reset",
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_ENCODING => "",
 		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -227,7 +227,7 @@ class Admin extends CI_Controller {
 	{
 		$curl = curl_init();
 		curl_setopt_array($curl, array(
-		CURLOPT_URL => "http://localhost:8000/api/admin/proposal/reported",
+		CURLOPT_URL => API_URL."/api/admin/proposal/reported",
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_ENCODING => "",
 		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -251,7 +251,7 @@ class Admin extends CI_Controller {
 
 		$curl = curl_init();
 		curl_setopt_array($curl, array(
-		CURLOPT_URL => "http://localhost:8000/api/admin/proposal/reported",
+		CURLOPT_URL => API_URL."/api/admin/proposal/reported",
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_ENCODING => "",		
 		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -277,7 +277,7 @@ class Admin extends CI_Controller {
 	{
 		$curl = curl_init();
 		curl_setopt_array($curl, array(
-		CURLOPT_URL => "http://localhost:8000/api/admin/proposal/rejected",
+		CURLOPT_URL => API_URL."/api/admin/proposal/rejected",
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_ENCODING => "",
 		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -298,7 +298,7 @@ class Admin extends CI_Controller {
 	{
 		$curl = curl_init();
 		curl_setopt_array($curl, array(
-		CURLOPT_URL => "http://localhost:8000/api/admin/proposal/finished",
+		CURLOPT_URL => API_URL."/api/admin/proposal/finished",
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_ENCODING => "",
 		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -319,7 +319,7 @@ class Admin extends CI_Controller {
 	public function addDeadline(){
 		$curl = curl_init();
 		curl_setopt_array($curl, array(
-		CURLOPT_URL => "http://localhost:8000/api/admin/proposal/revision",
+		CURLOPT_URL => API_URL."/api/admin/proposal/revision",
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_ENCODING => "",		
 		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -340,7 +340,7 @@ class Admin extends CI_Controller {
 		//Kompetisi
 		$curl = curl_init();
 		curl_setopt_array($curl, array(
-		CURLOPT_URL => "http://localhost:8000/api/competitions",
+		CURLOPT_URL => API_URL."/api/competitions",
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_ENCODING => "",		
 		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -368,7 +368,7 @@ class Admin extends CI_Controller {
 		//Kompetisi
 		$curl = curl_init();
 		curl_setopt_array($curl, array(
-		CURLOPT_URL => "http://localhost:8000/api/admin/report",
+		CURLOPT_URL =>  API_URL."/api/admin/report",
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_ENCODING => "",		
 		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -392,7 +392,12 @@ class Admin extends CI_Controller {
 		// }
 
 		//  GET KOMPETISI
-          $spreadsheet = new Spreadsheet;
+		$this->makeExcel($competitions);
+          
+	}
+
+	public function makeExcel($competitions){
+		$spreadsheet = new Spreadsheet;
 
           $spreadsheet->setActiveSheetIndex(0)
                       ->setCellValue('A1', 'ID')
@@ -405,28 +410,21 @@ class Admin extends CI_Controller {
                        // $spreadsheet->setActiveSheetIndex(0)->setCellValue('A2', 'ID')->setCellValue('B2', 'Kompetisi')->setCellValue('C2', 'Jurusan')->setCellValue('D2', 'Lokasi')->setCellValue('E2', 'Dana')->setCellValue('F2', 'Sumber Dana');
                       
 
-          // $kolom = 2;
-          // $nomor = 1;
-          // foreach($competitions as $cmpt) {
+          $kolom = 2;
+          $nomor = 1;
+          foreach($competitions as $cmpt) {
 
-          //      $spreadsheet->setActiveSheetIndex(0)
-          //                  // ->setCellValue('A' . $kolom, $nomor)
-          //                  // ->setCellValue('B' . $kolom, $cmpt->competition->name)
-          //                  // ->setCellValue('C' . $kolom, $cmpt->department->name)
-          //                  // ->setCellValue('D' . $kolom, $cmpt->competition->location)
-          //                  // ->setCellValue('E' . $kolom, $cmpt->realisazion_budget)
-          //                  // ->setCellValue('F' . $kolom, $cmpt->budget_source);                           
-          //      				->setCellValue('A' . $kolom, 'ID')
-          //                  ->setCellValue('B' . $kolom, 'Kompetisi')
-          //                  ->setCellValue('C' . $kolom, 'Jurusan')
-          //                  ->setCellValue('D' . $kolom, 'lokasi')
-          //                  ->setCellValue('E' . $kolom, 'Dana')
-          //                  ->setCellValue('F' . $kolom, 'sumber');                           
+               $spreadsheet->setActiveSheetIndex(0)
+                           ->setCellValue('A' . $kolom, $nomor)
+                           ->setCellValue('B' . $kolom, $cmpt->competition->name)
+                           ->setCellValue('C' . $kolom, $cmpt->department->name)
+                           ->setCellValue('D' . $kolom, $cmpt->competition->location)
+                           ->setCellValue('E' . $kolom, $cmpt->realisazion_budget)
+                           ->setCellValue('F' . $kolom, $cmpt->budget_source);                                          			
+               $kolom++;
+               $nomor++;
 
-          //      $kolom++;
-          //      $nomor++;
-
-          // }
+          }
 
           $writer = new Xlsx($spreadsheet);
           
@@ -435,7 +433,7 @@ class Admin extends CI_Controller {
 		  header('Cache-Control: max-age=0');
 		  // header('Cache-Control: cache, must-revalidate'); 
 		  header('Pragma: public');
-
+		  ob_end_clean();
 		  $writer->save('php://output');
 	}
 

@@ -1,10 +1,10 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Student extends CI_Controller {
+class Ormawa extends CI_Controller {
 	function __construct(){
 		parent::__construct();
-		// $this->load->model('student');
+		// $this->load->model('ormawa');
 		// $this->load->database(); // load database
 		$this->load->helper('url');	
 		if($this->session->userdata('status') != "login" OR $this->session->userdata('role') != 1){
@@ -15,15 +15,14 @@ class Student extends CI_Controller {
 	public function template()
 	{
 		$data['user'] = array(
-			'id' => $this->session->userdata('id'),
+			// 'id' => $this->session->userdata('id'),
 			'name' => $this->session->userdata('name'),
 		);
+		$data['content'] = $this->load->view('templates/ormawa/header');
+		$data['content'] = $this->load->view('templates/ormawa/sidebar', $data);
+		$data['content'] = $this->load->view('templates/ormawa/footer');
 
-		$data['content'] = $this->load->view('templates/student/header');
-		$data['content'] = $this->load->view('templates/student/sidebar', $data);
-		$data['content'] = $this->load->view('templates/student/footer');
-
-		return $this->load->view('templates/student/template',$data);
+		return $this->load->view('templates/ormawa/template',$data);
 	}
 
 	public function index()
@@ -33,7 +32,7 @@ class Student extends CI_Controller {
 		$curl = curl_init();
 	
 		curl_setopt_array($curl, array(
-		CURLOPT_URL => "http://localhost:8000/api/mahasiswa/proposal/all?nim=".$nim."",
+		CURLOPT_URL => API_URL."/api/mahasiswa/proposal/all?nim=".$nim."",
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_ENCODING => "",		
 		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -47,7 +46,7 @@ class Student extends CI_Controller {
 
 		$data['proposal'] = json_decode($proposal);
 		$data['content'] = $this->template();
-		$this->load->view('templates/student/dashboard',$data);
+		$this->load->view('templates/ormawa/dashboard',$data);
     }
     
     public function proposal_submission() //form
@@ -55,7 +54,7 @@ class Student extends CI_Controller {
 		//Jurusan
 		$curl = curl_init();
 		curl_setopt_array($curl, array(
-		CURLOPT_URL => "http://localhost:8000/api/departments",
+		CURLOPT_URL => API_URL."/api/departments",
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_ENCODING => "",
 		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -66,7 +65,7 @@ class Student extends CI_Controller {
 
 		//Kompetisi
 		curl_setopt_array($curl, array(
-		CURLOPT_URL => "http://localhost:8000/api/competitions",
+		CURLOPT_URL => API_URL."/api/competitions",
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_ENCODING => "",
 		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -80,7 +79,7 @@ class Student extends CI_Controller {
 		//Cek LPJ	
 		$dptt = $this->session->userdata('department');	
 		curl_setopt_array($curl, array(
-		CURLOPT_URL => "http://localhost:8000/api/mahasiswa/proposal/report?department=".$dptt."",
+		CURLOPT_URL => API_URL."/api/mahasiswa/proposal/report?department=1",
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_ENCODING => "",		
 		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -96,7 +95,7 @@ class Student extends CI_Controller {
 		$data['content'] = $this->template();
 		$data['department'] = json_decode($dpt);
 		$data['competition'] = json_decode($cmp);
-		$this->load->view('student/proposal_submission',$data);
+		$this->load->view('ormawa/proposal_submission',$data);
 	}
 	
 
@@ -105,7 +104,7 @@ class Student extends CI_Controller {
 		//Kompetisi
 		$curl = curl_init();
 		curl_setopt_array($curl, array(
-		CURLOPT_URL => "http://localhost:8000/api/competitions",
+		CURLOPT_URL => API_URL."/api/competitions",
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_ENCODING => "",		
 		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -118,7 +117,7 @@ class Student extends CI_Controller {
 		$err = curl_error($curl);				
 		curl_close($curl);		
 
-		redirect('Student/ongoing_submission');
+		redirect('Ormawa/ongoing_submission');
 		
 	}
     
@@ -128,7 +127,7 @@ class Student extends CI_Controller {
 		$curl = curl_init();
 		
 		curl_setopt_array($curl, array(
-		CURLOPT_URL => "http://localhost:8000/api/mahasiswa/proposal/ongoing?nim=".$nim."",
+		CURLOPT_URL => API_URL."/api/mahasiswa/proposal/ongoing?nim=".$nim."",
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_ENCODING => "",		
 		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -143,7 +142,7 @@ class Student extends CI_Controller {
 		
 		$data['proposal'] = json_decode($proposal);					
 		$data['content'] = $this->template();
-		$this->load->view('student/ongoing_submission',$data);
+		$this->load->view('ormawa/ongoing_submission',$data);
 	}
     
     public function finished_submission()
@@ -152,7 +151,7 @@ class Student extends CI_Controller {
 		$curl = curl_init();
 	
 		curl_setopt_array($curl, array(
-		CURLOPT_URL => "http://localhost:8000/api/mahasiswa/proposal/finished?nim=".$nim."",
+		CURLOPT_URL => API_URL."/api/mahasiswa/proposal/finished?nim=".$nim."",
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_ENCODING => "",		
 		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -166,7 +165,7 @@ class Student extends CI_Controller {
 
 		$data['proposal'] = json_decode($proposal);
 		$data['content'] = $this->template();
-		$this->load->view('student/finished_submission',$data);
+		$this->load->view('ormawa/finished_submission',$data);
 	}
 
 	public function act_proposal_submission()
@@ -190,7 +189,7 @@ class Student extends CI_Controller {
 		//Proposal
 		$curl = curl_init();
 		curl_setopt_array($curl, array(
-		CURLOPT_URL => "http://localhost:8000/api/mahasiswa/proposal",
+		CURLOPT_URL => API_URL."/api/mahasiswa/proposal",
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_ENCODING => "",		
 		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -209,7 +208,7 @@ class Student extends CI_Controller {
 
 			$curl = curl_init();
 			curl_setopt_array($curl, array(
-			CURLOPT_URL => "http://localhost:8000/api/mahasiswa/team",
+			CURLOPT_URL => API_URL."/api/mahasiswa/team",
 			CURLOPT_RETURNTRANSFER => true,
 			CURLOPT_ENCODING => "",		
 			CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -223,7 +222,7 @@ class Student extends CI_Controller {
 			$index++;
 		}
 
-		redirect('Student/ongoing_submission');
+		redirect('Ormawa/ongoing_submission');
 
 	}
 
@@ -232,7 +231,7 @@ class Student extends CI_Controller {
 		$curl = curl_init();
 	
 		curl_setopt_array($curl, array(
-		CURLOPT_URL => "http://localhost:8000/api/mahasiswa/proposal/?id=".$proposal_id."",
+		CURLOPT_URL => API_URL."/api/mahasiswa/proposal/?id=".$proposal_id."",
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_ENCODING => "",		
 		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -246,7 +245,7 @@ class Student extends CI_Controller {
 
 		$data['proposal'] = json_decode($proposal);
 		$data['content'] = $this->template();
-		$this->load->view('student/revision_submission',$data);
+		$this->load->view('ormawa/_revision_submission',$data);
 	}
 
 	public function act_revision_submission() {
@@ -273,7 +272,7 @@ class Student extends CI_Controller {
         $curl = curl_init();
 	
 		curl_setopt_array($curl, array(
-		CURLOPT_URL => "http://localhost:8000/api/mahasiswa/proposal/update",
+		CURLOPT_URL => API_URL."/api/mahasiswa/proposal/update",
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_ENCODING => "",		
 		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -287,7 +286,7 @@ class Student extends CI_Controller {
 		curl_close($curl);
 
 
-        redirect('Student/ongoing_submission');
+        redirect('Ormawa/ongoing_submission');
 	}
 
 }

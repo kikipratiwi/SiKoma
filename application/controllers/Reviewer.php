@@ -31,7 +31,7 @@ class Reviewer extends CI_Controller {
 	{
 		$curl = curl_init();
 		curl_setopt_array($curl, array(
-		CURLOPT_URL => "http://localhost:8000/api/reviewer/proposal/ongoing",
+		CURLOPT_URL => API_URL."/api/reviewer/proposal/ongoing",
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_ENCODING => "",
 		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -53,7 +53,7 @@ class Reviewer extends CI_Controller {
 	{
 		$curl = curl_init();
 		curl_setopt_array($curl, array(
-		CURLOPT_URL => "http://localhost:8000/api/reviewer/proposal/revision",
+		CURLOPT_URL => API_URL."/api/reviewer/proposal/revision",
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_ENCODING => "",
 		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -80,7 +80,7 @@ class Reviewer extends CI_Controller {
 
 		$curl = curl_init();
 		curl_setopt_array($curl, array(
-		CURLOPT_URL => "http://localhost:8000/api/reviewer/proposal",
+		CURLOPT_URL => API_URL."/api/reviewer/proposal",
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_ENCODING => "",		
 		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,

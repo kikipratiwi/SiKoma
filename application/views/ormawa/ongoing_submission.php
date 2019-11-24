@@ -184,7 +184,7 @@
                     <!-- ke form revisi proposal -->
                     <!-- if status proposal adalah revisi -->
                      <?php if($pr->proposal->status==='REVISION') { ?>
-                        <a type="button" href="<?php echo base_url();?>index.php/Student/revision_submission?id=<?php echo $pr->proposal_id; ?>" class="btn btn-success waves-effect waves-light" >ke form upload revisi</a>
+                        <a type="button" href="<?php echo base_url();?>index.php/Ormawa/revision_submission?id=<?php echo $pr->proposal_id; ?>" class="btn btn-success waves-effect waves-light" >ke form upload revisi</a>
                     <?php } ?>
                     <!-- end if -->
                     

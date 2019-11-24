@@ -9,7 +9,7 @@
                         <div class="main-header">
                             <h4>Pengajuan Proposal</h4>
                             <ol class="breadcrumb breadcrumb-title breadcrumb-arrow">
-                                <li class="breadcrumb-item"><a href="student.html"><i class="icofont icofont-home"></i></a>
+                                <li class="breadcrumb-item"><a href="ormawa.html"><i class="icofont icofont-home"></i></a>
                                 </li>
                                 <li class="breadcrumb-item"><a href="#!">Proposal</a>
                                 </li>
@@ -56,10 +56,14 @@
                                                     </li>
                                                 </ul>
 
-                                                <form enctype="multipart/form-data" method="POST" action="<?php echo base_url().'index.php/Student/act_proposal_submission'; ?>">                                                       
+                                                <form enctype="multipart/form-data" method="POST" action="<?php echo base_url().'index.php/Ormawa/act_proposal_submission'; ?>">                                                       
 
                                                 <!-- Tab panes -->
+<<<<<<< HEAD:application/views/student/proposal_submission.php
                                                 
+=======
+                                                <form enctype="multipart/form-data" action="<?=site_url('Ormawa/act_proposal_submission')?>" method="post">
+>>>>>>> 6e3c306e511723012f318260bf9af0a7a24873ca:application/views/ormawa/proposal_submission.php
                                                 <div class="tab-content">
 
                                                     <div class="tab-pane active" id="proposal-document" role="tabpanel">
@@ -178,7 +182,7 @@
             <h5 class="modal-title">Tambah Data Kompetisi</h5>
         </div>
 
-        <form method="POST" action="<?php echo base_url().'index.php/Student/act_add_competition'; ?>">
+        <form method="POST" action="<?php echo base_url().'index.php/Ormawa/act_add_competition'; ?>">
             <div class="modal-body">
                     <div class="form-group col-md-12">
                         <label for="competitionName" class="block form-control-label">Nama Kompetisi</label>
