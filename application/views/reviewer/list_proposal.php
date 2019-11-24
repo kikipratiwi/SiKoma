@@ -81,106 +81,106 @@
                                                 </tr>
                                                 
                                                 <!-- MODAL REVIEW REVISION -->
-                                                
-                                                    
-<div class="modal fade modal-flex" id="view-Modal<?php echo $pr->id ?>" tabindex="-1" role="dialog">
-    <div class="modal-dialog modal-lg" role="document" >
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <h5 class="modal-title">Review Proposal</h5>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <!-- get ID -->
-                    <!-- <input type="text" name="proposalId" id="idProposal" value=""/>
-                    <input type="text" name="proposalId" id="leaderProposal" value=""/> -->
-                    <!-- get ID -->
-                    <div class="col-sm-9">
-                        <!-- GET Link to review Proposal -->
-                        <a class="media" id="propose" href="<?php echo base_url();?>data/proposals/<?php echo $pr->proposal; ?>"></a>
-                    </div>
-                    <div class="col-sm-3">
-                    <div class="form-group">
-                            <label for="teamMembers" class="form-control-label">Dana Yang diajukan</label>
-                                                                                
-                                <p id="leaderTeam">
-                                    <?php echo $pr->draft_budget?>
-                                </p>                                                                                
+                                                <div class="modal fade modal-flex" id="view-Modal<?php echo $pr->id ?>" tabindex="-1" role="dialog">
+                                                    <div class="modal-dialog modal-lg" role="document" >
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                                <h5 class="modal-title">Review Proposal</h5>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <div class="row">
+                                                                    <!-- get ID -->
+                                                                    <!-- <input type="text" name="proposalId" id="idProposal" value=""/>
+                                                                    <input type="text" name="proposalId" id="leaderProposal" value=""/> -->
+                                                                    <!-- get ID -->
+                                                                    <div class="col-sm-9">
+                                                                        <!-- GET Link to review Proposal -->
+                                                                        <a class="media" id="propose" href="<?php echo base_url();?>data/proposals/<?php echo $pr->proposal; ?>"></a>
+                                                                    </div>
+                                                                    <div class="col-sm-3">
+                                                                    <div class="form-group">
+                                                                            <label for="teamMembers" class="form-control-label">Dana Yang diajukan</label>
+                                                                                                                                
+                                                                                <p id="leaderTeam">
+                                                                                    <?php echo $pr->draft_budget?>
+                                                                                </p>                                                                                
 
-                            <!-- <select multiple class="form-control multiple-select" id="teamMembers">
-                                <option>Ketua</option>
-                                <option>Anggota Tim 1</option>
-                                <option>Anggota Tim 2</option>
-                                <option>Anggota Tim 3</option>
-                                <option>Anggota Tim 4</option>
-                            </select> -->
-                        </div>
-                        <form enctype="multipart/form-data" method="POST" action="<?php echo base_url().'index.php/Reviewer/review_proposal_submission'; ?>">   
-                            <input type="hidden" id="proposal" name="proposal" value="<?php echo $pr->id ?>">
-                            <div class="md-input-wrapper">
-                                <textarea id="leaderTeam" class="md-form-control md-static" cols="2" rows="4" name="rab"></textarea>
-                                <label>Catatan RAB</label>
-                                <p id="dana">
-                             
-                            </p>
-                            </div>
-                            <div class="md-input-wrapper">
-                                <textarea id="contentNotes"  class="md-form-control md-static" cols="2" rows="4" name="konten"></textarea>
-                                <label>Catatan Konten</label>
-                                <p id="dana">
-                               
-                            </p>
-                            </div>
-                            <div class="md-input-wrapper">
-                                    Jumlah Dana yang Disetujui<br>
-                                    <input type="number" name="budget" min=0>
-                                </div>
-                                <div class="md-input-wrapper">
-                                    Sumber Dana<br>
-                                    <input type="text" name="source">
-                                </div>
-                            <label class="bold">Status</label>
-                            <div class="form-radio">
-                                
-                                    <div class="radio radio-inline">
-                                        <label>
-                                            <input type="radio" name="radio" value="WAITFUND">
-                                                <i class="helper"></i>Diterima
-                                        </label>
-                                    </div>
-                                    <div class="radio radio-inline">
-                                        <label>
-                                            <input type="radio" name="radio" value="REVISION">
-                                                <i class="helper"></i>Revisi
-                                        </label>
-                                    </div>
-                                    <div class="radio radio-inline">
-                                        <label>
-                                            <input type="radio" name="radio" value="REJECTED">
-                                                <i class="helper"></i>Ditolak
-                                        </label>
-                                    </div>
-                            
-                            </div>
-                        
-                        </div>
-                    </div>
-                    <div class="row" style="padding-top: 3pt">
-                        <div class="col-sm-12 text-center">
-                            <!-- SET status proposal -->
-                            <button type="submit" class="btn btn-success waves-effect waves-light">Submit</button>
-                        </div>
-                    </div>
-                </form>
-                
-            </div>
-        </div>
-    </div>
-</div>
-                                                 <?php 
+                                                                            <!-- <select multiple class="form-control multiple-select" id="teamMembers">
+                                                                                <option>Ketua</option>
+                                                                                <option>Anggota Tim 1</option>
+                                                                                <option>Anggota Tim 2</option>
+                                                                                <option>Anggota Tim 3</option>
+                                                                                <option>Anggota Tim 4</option>
+                                                                            </select> -->
+                                                                        </div>
+                                                                        <form enctype="multipart/form-data" method="POST" action="<?php echo base_url().'index.php/Reviewer/review_proposal_submission'; ?>">   
+                                                                            <input type="hidden" id="proposal" name="proposal" value="<?php echo $pr->id ?>">
+                                                                            <div class="md-input-wrapper">
+                                                                                <textarea id="leaderTeam" class="md-form-control md-static" cols="2" rows="4" name="rab"></textarea>
+                                                                                <label>Catatan RAB</label>
+                                                                                <p id="dana">
+                                                                            
+                                                                            </p>
+                                                                            </div>
+                                                                            <div class="md-input-wrapper">
+                                                                                <textarea id="contentNotes"  class="md-form-control md-static" cols="2" rows="4" name="konten"></textarea>
+                                                                                <label>Catatan Konten</label>
+                                                                                <p id="dana">
+                                                                            
+                                                                            </p>
+                                                                            </div>
+                                                                            <div class="md-input-wrapper">
+                                                                                    Jumlah Dana yang Disetujui<br>
+                                                                                    <input type="number" name="budget" min=0>
+                                                                                </div>
+                                                                                <div class="md-input-wrapper">
+                                                                                    Sumber Dana<br>
+                                                                                    <input type="text" name="source">
+                                                                                </div>
+                                                                            <label class="bold">Status</label>
+                                                                            <div class="form-radio">
+                                                                                
+                                                                                    <div class="radio radio-inline">
+                                                                                        <label>
+                                                                                            <input type="radio" name="radio" value="WAITFUND">
+                                                                                                <i class="helper"></i>Diterima
+                                                                                        </label>
+                                                                                    </div>
+                                                                                    <div class="radio radio-inline">
+                                                                                        <label>
+                                                                                            <input type="radio" name="radio" value="REVISION">
+                                                                                                <i class="helper"></i>Revisi
+                                                                                        </label>
+                                                                                    </div>
+                                                                                    <div class="radio radio-inline">
+                                                                                        <label>
+                                                                                            <input type="radio" name="radio" value="REJECTED">
+                                                                                                <i class="helper"></i>Ditolak
+                                                                                        </label>
+                                                                                    </div>
+                                                                            
+                                                                            </div>
+                                                                        
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row" style="padding-top: 3pt">
+                                                                        <div class="col-sm-12 text-center">
+                                                                            <!-- SET status proposal -->
+                                                                            <button type="submit" class="btn btn-success waves-effect waves-light">Submit</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </form>
+                                                                
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- END MODAL REVIEW REVISION -->
+
+                                                <?php 
                                                     $index++;
                                                     endforeach;
                                                 ?>
@@ -207,9 +207,10 @@
     <script src="<?php echo base_url();?>assets/plugins/jquery-ui/jquery-ui.min.js"></script>
     <script src="<?php echo base_url();?>assets/plugins/tether/dist/js/tether.min.js"></script>
 
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
-<script type="text/javascript" src="http://malsup.github.com/jquery.media.js"></script>
-
+    <script src="<?php echo base_url();?>assets/js/2.1.3jquery.min.js"></script> 
+    <script src="<?php echo base_url();?>assets/js/jquery.media.js"></script>
+    <script src="<?php echo base_url();?>assets/js/jquery.dataTables.js"></script>
+	
 <script>    
 
     $(document).ready( function () {

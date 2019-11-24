@@ -17,8 +17,12 @@
                     </a>                
                 </li>
                 <li class="nav-level">Proposal</li>
+                <!-- <li class="treeview"><a class="waves-effect waves-dark" href="#!"><i class="icon-briefcase"></i><span> List</span><i class="icon-arrow-down"></i></a> -->
+                    <!-- <ul class="treeview-menu"> -->
+                    <!-- </ul> -->
+                <!-- </li> -->
                 <li class=" <?php if(current_url() === base_url().'index.php/Admin/list_proposal'){
-                                echo 'active';}?> treeview">
+                                    echo 'active';}?> treeview">
                     <a class="waves-effect waves-dark" href="<?php echo base_url();?>index.php/Admin/list_proposal">
                         <i class="icon-docs"></i><span> Pengajuan Baru</span>
                     </a>                
@@ -60,6 +64,12 @@
                         <i class="icon-list"></i><span> List Kompetisi</span>
                     </a>                
                 </li>
+                <li class=" <?php if(current_url() === base_url().'index.php/Admin/input_kategori'){
+                                echo 'active';}?> treeview">
+                    <a class="waves-effect waves-dark" href="<?php echo base_url();?>index.php/Admin/input_kategori">
+                        <i class="icon-list"></i><span> Kategori</span>
+                    </a>                
+                </li>
                 <li class="nav-level">Laporan</li>
                 <li class=" <?php if(current_url() === base_url().'index.php/Admin/print_report'){
                                 echo 'active';}?> treeview">
@@ -78,6 +88,37 @@
                                 echo 'active';}?> treeview">
                     <a class="waves-effect waves-dark" href="<?php echo base_url();?>index.php/Admin/import_data">
                         <i class="icon-action-undo"></i><span> Import</span>
+                    </a>                
+                </li>
+                <li class="nav-level">Data Master</li>
+                <li class=" <?php if(current_url() === base_url().'index.php/Admin/master_student'){
+                                echo 'active';}?> treeview">
+                    <a class="waves-effect waves-dark" href="<?php echo base_url();?>index.php/Admin/master_student">
+                        <i class="icon-check"></i><span> Mahasiswa</span>
+                    </a>                
+                </li>
+                <li class=" <?php if(current_url() === base_url().'index.php/Admin/master_lecturer'){
+                                echo 'active';}?> treeview">
+                    <a class="waves-effect waves-dark" href="<?php echo base_url();?>index.php/Admin/master_lecturer">
+                        <i class="icon-check"></i><span> Dosen</span>
+                    </a>                
+                </li>
+                <li class=" <?php if(current_url() === base_url().'index.php/Admin/master_student_organizations'){
+                                echo 'active';}?> treeview">
+                    <a class="waves-effect waves-dark" href="<?php echo base_url();?>index.php/Admin/master_student_organizations">
+                        <i class="icon-check"></i><span> Ormawa</span>
+                    </a>                
+                </li>
+                <li class=" <?php if(current_url() === base_url().'index.php/Admin/master_departement'){
+                                echo 'active';}?> treeview">
+                    <a class="waves-effect waves-dark" href="<?php echo base_url();?>index.php/Admin/master_departement">
+                        <i class="icon-check"></i><span> Jurusan</span>
+                    </a>                
+                </li>
+                <li class=" <?php if(current_url() === base_url().'index.php/Admin/master_study_program'){
+                                echo 'active';}?> treeview">
+                    <a class="waves-effect waves-dark" href="<?php echo base_url();?>index.php/Admin/master_study_program">
+                        <i class="icon-check"></i><span> Program Studi</span>
                     </a>                
                 </li>
             </ul>

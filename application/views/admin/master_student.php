@@ -6,16 +6,16 @@
             <div class="row">
                 <div class="col-sm-12 p-0">
                     <div class="main-header">
-                        <h4>List Proposal</h4>
+                        <h4>Data Master</h4>
                         <ol class="breadcrumb breadcrumb-title breadcrumb-arrow">
                             <li class="breadcrumb-item">
                                 <a href="index.html">
                                     <i class="icofont icofont-home"></i>
                                 </a>
                             </li>
-                            <li class="breadcrumb-item"><a href="#">Mahasiswa</a>
+                            <li class="breadcrumb-item"><a href="#">Data Master</a>
                             </li>
-                            <li class="breadcrumb-item"><a href="basic-table.html">Atur Ulang Kata Sandi</a>
+                            <li class="breadcrumb-item"><a href="#">Mahasiswa</a>
                             </li>
                         </ol>
                     </div>
@@ -31,19 +31,25 @@
                     <!-- Hover effect table starts -->
                     <div class="card">
                         <div class="card-header">
-                            <h5 class="card-header-text">Atur Ulang Kata Sandi</h5>
+                            <h5 class="card-header-text">Mahasiswa</h5>
                         </div>
                         <div class="card-block">
+                            <button type="button" id="add-competition" class="btn btn-primary" 
+                                    style="margin-left: 5px; margin-bottom: 15px;border-radius: .25rem;padding: .5rem .75rem;" 
+                                    data-toggle="modal" data-target="#add-category-modal-form" >+ Mahasiswa
+                            </button>
+                            <button type="button" class="btn btn-primary" style="margin-left: 5px; margin-bottom: 15px;border-radius: .25rem;padding: .5rem .75rem;" >Import</button>
                             <div class="row">
                                 <div class="col-sm-12 table-responsive">
-                                    <table class="table table-hover" id="ongoingSubmissionTable">
+                                    <table class="table table-hover" id="master_mahasiswa">
                                         <thead>
                                         <tr>
                                             <th>No</th>
                                             <th>NIM</th>
                                             <th>Nama</th>
                                             <th>Jurusan</th>
-                                            <th>Atur Ulang</th>
+                                            <th>Edit</th>
+                                            <th>Delete</th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -51,7 +57,7 @@
                                                 for ($no = 1; $no <= 4; $no++){
                                                     ?>
                                                 <tr>
-                                                <td><?php echo $no ?></td>
+                                                    <td><?php echo $no ?></td>
                                                     <!-- GET NIM -->
                                                     <td>172411031</td>
                                                     <!-- GET Nama -->
@@ -59,11 +65,27 @@
                                                     <!-- GET Departement -->
                                                     <td>Komputer</td>
                                                     <td>
-                                                        <a href="" class="btn btn-primary">
-                                                            Atur Ulang
+                                                        <!-- if(ever_used === null){?> -->
+                                                        <a href="" id="input_category" class="open-view-cateogry btn btn-primary" data-toggle="modal" data-target="#view-Modal-Student">
+                                                            Edit
                                                         </a>
+                                                        <!-- }else{?> -->
+                                                        <!-- <a href="" id="input_category" class="btn btn-disable disabled"> -->
+                                                            <!-- Edit -->
+                                                        <!-- </a> -->
+                                                        <!-- }?> -->
                                                     </td>
-                                                    
+                                                    <td>
+                                                        <!-- if(ever_used === null){?> -->
+                                                        <a href="" id="input_category" class="open-view-cateogry btn btn-danger" action="">
+                                                            Delete
+                                                        </a>
+                                                        <!-- }else{?> -->
+                                                        <!-- <a href="" id="input_category" class="btn btn-disable disabled">
+                                                        Delete
+                                                        </a> -->
+                                                        <!-- }?> -->
+                                                    </td>
                                                 </tr>
 
                                                 <?php
@@ -86,7 +108,7 @@
     </div>
 </div>
 
-<!-- Required Jqurey -->
+    <!-- Required Jqurey -->
     <script
         src="<?php echo base_url();?>assets/js/jquery-3.4.1.slim.min.js"
         integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
@@ -205,10 +227,11 @@
     <script src="<?php echo base_url();?>assets/js/2.1.3jquery.min.js"></script> 
     <script src="<?php echo base_url();?>assets/js/jquery.media.js"></script>
     <script src="<?php echo base_url();?>assets/js/jquery.dataTables.js"></script>
-    
+	
+
 <script> 
     $(document).ready( function () {
-        $('#ongoingSubmissionTable').DataTable();
+        $('#master_mahasiswa').DataTable();
     });
 
     $(function () {

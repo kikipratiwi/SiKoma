@@ -87,6 +87,42 @@ class Admin extends CI_Controller {
 		$this->load->view('admin/print_report',$data);
 	}
 
+	public function input_kategori()
+	{
+		$data['content'] = $this->template();
+		$this->load->view('admin/input_kategori',$data);
+	}
+
+	public function master_student()
+	{
+		$data['content'] = $this->template();
+		$this->load->view('admin/master_student',$data);
+	}
+
+	public function master_lecturer()
+	{
+		$data['content'] = $this->template();
+		$this->load->view('admin/master_lecturer',$data);
+	}
+
+	public function master_student_organizations()
+	{
+		$data['content'] = $this->template();
+		$this->load->view('admin/master_student_organizations',$data);
+	}
+
+	public function master_departement()
+	{
+		$data['content'] = $this->template();
+		$this->load->view('admin/master_departement',$data);
+	}
+
+	public function master_study_program()
+	{
+		$data['content'] = $this->template();
+		$this->load->view('admin/master_study_program',$data);
+	}
+
 	public function list_revisi_proposal()
 	{
 		$curl = curl_init();

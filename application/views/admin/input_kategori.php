@@ -13,9 +13,9 @@
                                     <i class="icofont icofont-home"></i>
                                 </a>
                             </li>
-                            <li class="breadcrumb-item"><a href="#">Mahasiswa</a>
+                            <li class="breadcrumb-item"><a href="#">Kompetisi</a>
                             </li>
-                            <li class="breadcrumb-item"><a href="basic-table.html">Atur Ulang Kata Sandi</a>
+                            <li class="breadcrumb-item"><a href="basic-table.html">Kategori</a>
                             </li>
                         </ol>
                     </div>
@@ -31,43 +31,89 @@
                     <!-- Hover effect table starts -->
                     <div class="card">
                         <div class="card-header">
-                            <h5 class="card-header-text">Atur Ulang Kata Sandi</h5>
+                            <h5 class="card-header-text">Kategori</h5>
                         </div>
                         <div class="card-block">
+                            <button type="button" id="add-competition" class="btn btn-primary" 
+                                    style="margin-left: 5px; margin-bottom: 15px;border-radius: .25rem;padding: .5rem .75rem;" 
+                                    data-toggle="modal" data-target="#add-category-modal-form" >+ Kategori Kompetisi
+                            </button>
                             <div class="row">
                                 <div class="col-sm-12 table-responsive">
                                     <table class="table table-hover" id="ongoingSubmissionTable">
                                         <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>NIM</th>
-                                            <th>Nama</th>
-                                            <th>Jurusan</th>
-                                            <th>Atur Ulang</th>
+                                            <th>Kategori Kompetisi</th>
+                                            <th>Edit</th>
+                                            <th>Delete</th>
                                         </tr>
                                         </thead>
                                         <tbody>
-                                            <?php
-                                                for ($no = 1; $no <= 4; $no++){
-                                                    ?>
-                                                <tr>
-                                                <td><?php echo $no ?></td>
-                                                    <!-- GET NIM -->
-                                                    <td>172411031</td>
-                                                    <!-- GET Nama -->
-                                                    <td>Nussa</td>
-                                                    <!-- GET Departement -->
-                                                    <td>Komputer</td>
-                                                    <td>
-                                                        <a href="" class="btn btn-primary">
-                                                            Atur Ulang
-                                                        </a>
-                                                    </td>
-                                                    
-                                                </tr>
+                                        <?php   
+                                            for ($index = 1; $index <= 4; $index++){
+                                        ?>
+                                            <tr>
+                                                <td><?php echo $index; ?></td>
+                                                <td> Competitive Programming
+                                                <!-- echo $index ?> -->
+                                                </td>
+                                                <td>
+                                                    <!-- if(ever_used === null){?> -->
+                                                    <a href="" id="input_category" class="open-view-cateogry btn btn-primary" data-toggle="modal" data-target="#view-Modal-Category">
+                                                        Edit
+                                                    </a>
+                                                    <!-- }else{?> -->
+                                                    <!-- <a href="" id="input_category" class="btn btn-disable disabled"> -->
+                                                        <!-- Edit -->
+                                                    <!-- </a> -->
+                                                    <!-- }?> -->
+                                                </td>
+                                                <td>
+                                                    <!-- if(ever_used === null){?> -->
+                                                    <a href="" id="input_category" class="open-view-cateogry btn btn-danger" action="">
+                                                        Delete
+                                                    </a>
+                                                    <!-- }else{?> -->
+                                                    <!-- <a href="" id="input_category" class="btn btn-disable disabled">
+                                                    Delete
+                                                    </a> -->
+                                                    <!-- }?> -->
+                                                </td>
+                                            </tr>
+                                            
+                                            <!-- Edit Competition Category Modal -->
+                                            <div class="modal fade modal-flex" id="view-Modal-Category" tabindex="-1" role="dialog">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        <h5 class="modal-title">Edit Kategori Kompetisi</h5>
+                                                    </div>
 
-                                                <?php
-                                            };?>
+                                                    <form method="POST" action="">
+                                                        <div class="modal-body">
+                                                            <div class="row">
+                                                                <div class="form-group col-md-12">
+                                                                    <label for="competitionName" class="block form-control-label">Kategori Kompetisi *get data*</label>
+                                                                    <input type="text" class="form-control" name="name">
+                                                                </div>
+                                                            </div>
+                                                        </div>                                              
+                                                        <div class="modal-footer" style="padding-top: 3pt">
+                                                            <button type="submit" class="btn btn-primary">Simpan</button>
+                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                            <!-- End of Edit Competition Category Modal -->
+
+                                            <?php 
+                                            };
+                                        ?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -81,10 +127,40 @@
             <!-- Row end -->
             <!-- Tables end -->
         </div>
-
         <!-- Container-fluid ends -->
     </div>
 </div>
+
+
+
+<!-- Add Category Modal -->
+<div class="modal fade modal-flex" id="add-category-modal-form" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            <h5 class="modal-title">Tambah Kategori Kompetisi</h5>
+        </div>
+
+        <form method="POST" action="">
+            <div class="modal-body">
+                <div class="row">
+                    <div class="form-group col-md-12">
+                        <label for="competitionName" class="block form-control-label">Kategori Kompetisi</label>
+                        <input type="text" class="form-control" name="name">
+                    </div>
+                </div>
+            </div>                                              
+            <div class="modal-footer" style="padding-top: 3pt">
+                <button type="submit" class="btn btn-primary">Simpan</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- End of Add Competition Modal -->
 
 <!-- Required Jqurey -->
     <script
@@ -201,11 +277,11 @@
     <script src="<?php echo base_url();?>assets/js/menu.min.js"></script>
 		
 
-    <!-- Required Jqurey -->
     <script src="<?php echo base_url();?>assets/js/2.1.3jquery.min.js"></script> 
     <script src="<?php echo base_url();?>assets/js/jquery.media.js"></script>
     <script src="<?php echo base_url();?>assets/js/jquery.dataTables.js"></script>
-    
+	
+
 <script> 
     $(document).ready( function () {
         $('#ongoingSubmissionTable').DataTable();

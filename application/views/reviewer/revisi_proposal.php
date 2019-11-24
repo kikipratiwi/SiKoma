@@ -52,7 +52,7 @@
                                             <?php   
                                                 $index = 1;
                                                     foreach($proposal as $key => $pr) : 
-                                                 ?>
+                                                ?>
                                                 <tr>
                                                     <td><?php echo $index ?></td>
                                                     <!-- GET name competition -->
