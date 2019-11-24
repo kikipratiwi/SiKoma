@@ -70,11 +70,14 @@
     <!--color css-->
     <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/color/color-1.min.css" id="color"/>
 
-<!-- terms.css -->
+    <!-- terms.css -->
     <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/terms.css" id="color"/>
 
     <!--data table https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css-->
     <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/jquery.dataTables.css">
+    
+    <!-- select2 -->
+    <link href="<?php echo base_url();?>assets/css/select2.min.css" rel="stylesheet" />
 
 </head>
 

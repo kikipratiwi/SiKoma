@@ -35,6 +35,13 @@
                         <i class="icon-list"></i><span> Pengajuan (finished)</span>
                     </a>                  
                 </li>
+                <li class="nav-level">Data Pendanaan</li>
+                <li class=" <?php if(current_url() === base_url().'index.php/Ormawa/realization_budget'){
+                                echo 'active';}?> treeview">
+                    <a class="waves-effect waves-dark" href="<?php echo base_url();?>index.php/Ormawa/realization_budget">
+                    <i class="icon-wallet"></i><span> Serapan Dana</span>
+                    </a> 
+                </li>
             </ul>
         </section>
     </aside>
