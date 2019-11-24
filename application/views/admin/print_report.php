@@ -32,21 +32,24 @@
                                     <b>Cetak Laporan</b>
                                     <br>
                                     <br>
-                                    <div class="row">
-                                        <div class="form-row">
-                                            <div class="form-group col-md-3">
-                                                <div class="form-control-wrapper">
-                                                    <input type="date" name="regist_opendate" id="regist-date-start" class="form-control floating-label" placeholder="Start Date">
+
+                                    <form enctype="multipart/form-data" method="POST" action="<?php echo base_url().'index.php/Admin/export'; ?>">                                                       
+                                        <div class="row">
+                                            <div class="form-row">
+                                                <div class="form-group col-md-3">
+                                                    <div class="form-control-wrapper">
+                                                        <input type="date" name="regist_opendate" id="regist-date-start" class="form-control floating-label" placeholder="Start Date">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-3">
+                                                    <div class="form-control-wrapper">
+                                                        <input type="date" name="regist_closedate" id="regist-date-end" class="form-control floating-label" placeholder="End Date">
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="form-group col-md-3">
-                                                <div class="form-control-wrapper">
-                                                    <input type="date" name="regist_closedate" id="regist-date-end" class="form-control floating-label" placeholder="End Date">
-                                                </div>
-                                            </div>
+                                            <button type="submit" class="btn btn-primary waves-effect waves-light">Cetak</button>
                                         </div>
-                                        <button type="button" class="btn btn-primary waves-effect waves-light">Cetak</button>
-                                    </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>

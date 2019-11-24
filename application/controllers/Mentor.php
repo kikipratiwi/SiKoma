@@ -21,8 +21,14 @@ class Mentor extends CI_Controller {
     
 	public function template()
 	{
+		$data['user'] = array(
+			'id' => $this->session->userdata('id'),
+			'name' => $this->session->userdata('name'),
+		);
+
+
 		$data['content'] = $this->load->view('templates/mentor/header');
-		$data['content'] = $this->load->view('templates/mentor/sidebar');
+		$data['content'] = $this->load->view('templates/mentor/sidebar',$data);
 		$data['content'] = $this->load->view('templates/mentor/footer');
 
 		return $this->load->view('templates/mentor/template',$data);

@@ -40,34 +40,46 @@
                                         <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>NIM</th>
-                                            <th>Nama</th>
-                                            <th>Jurusan</th>
+                                            <th>Username</th>                                            
+                                            <th>Role</th>
                                             <th>Atur Ulang</th>
                                         </tr>
                                         </thead>
                                         <tbody>
-                                            <?php
-                                                for ($no = 1; $no <= 4; $no++){
-                                                    ?>
+                                            <?php   
+                                                    $index = 1;
+                                                    foreach($user as $key => $us) : 
+                                            ?>
                                                 <tr>
-                                                <td><?php echo $no ?></td>
-                                                    <!-- GET NIM -->
-                                                    <td>172411031</td>
-                                                    <!-- GET Nama -->
-                                                    <td>Nussa</td>
-                                                    <!-- GET Departement -->
-                                                    <td>Komputer</td>
+                                                <td><?php echo $index ?></td>
+                                                    <!-- GET USERNAME -->
+                                                    <td><?php echo $us->username ?></td>
+                                                    
+                                                    <!-- GET ROLE -->
                                                     <td>
-                                                        <a href="" class="btn btn-primary">
+                                                        <?php
+                                                        if($us->role===1){?>
+                                                            Mahasiswa
+                                                        <?php } else if($us->role===2){  ?>
+                                                            Pembimbing
+                                                        <?php } else if($us->role===3){ ?>
+                                                            Reviewer
+                                                        <?php } else { ?>
+                                                            Admin
+                                                        <?php } ?>                                                        
+                                                    </td>
+                                                    <td>
+                                                        <a href="<?php echo base_url().'index.php/Admin/act_reset_password?id='.$us->id.''; ?>" class="btn btn-primary">
                                                             Atur Ulang
                                                         </a>
                                                     </td>
                                                     
                                                 </tr>
 
-                                                <?php
-                                            };?>
+                                            <?php 
+                                                    $index++;
+                                                    endforeach;
+                                                ?>
                                         </tbody>
                                     </table>
                                 </div>
