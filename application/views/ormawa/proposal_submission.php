@@ -56,14 +56,9 @@
                                                     </li>
                                                 </ul>
 
-                                                <form enctype="multipart/form-data" method="POST" action="<?php echo base_url().'index.php/Ormawa/act_proposal_submission'; ?>">                                                       
 
                                                 <!-- Tab panes -->
-<<<<<<< HEAD:application/views/student/proposal_submission.php
-                                                
-=======
-                                                <form enctype="multipart/form-data" action="<?=site_url('Ormawa/act_proposal_submission')?>" method="post">
->>>>>>> 6e3c306e511723012f318260bf9af0a7a24873ca:application/views/ormawa/proposal_submission.php
+                                                <form enctype="multipart/form-data" method="POST" action="<?php echo base_url().'index.php/Ormawa/act_proposal_submission'; ?>">
                                                 <div class="tab-content">
 
                                                     <div class="tab-pane active" id="proposal-document" role="tabpanel">
