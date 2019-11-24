@@ -48,7 +48,7 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                             <?php   
+                                            <?php   
                                                     $index = 1;
                                                     foreach($proposal as $key => $pr) : 
                                             ?>
@@ -56,26 +56,51 @@
                                                     <td><?php echo $index ?></td>
                                                     <!-- GET name competition -->
                                                     <td><?php echo $pr->competition->name ?></td>
-
-                                                    <!-- GET date upload -->
-                                                
                                                     <!-- GET leader -->
                                                     <td><?php echo $pr->profile->name ?></td>
+                                                    <!-- GET Depatement -->
                                                     <td><?php echo $pr->department->name ?></td>
-                                                    <td><div class="label-main">
-                                                                <label class="label bg-warning">Belum Menyerahkan LPJ</label>
-                                                            </div></td>
-                                                    <!-- GET departement -->
-                                                    
                                                     <td>
-                                                        <a type="button" href="<?php echo base_url();?>index.php/Admin/updateReport?id=<?php echo $pr->id; ?>" class="btn btn-success waves-effect waves-light" >
+                                                        <div class="label-main">
+                                                            <label class="label bg-warning">Belum Menyerahkan LPJ</label>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <!-- <a type="button" href=" echo base_url();?>index.php/Admin/updateReport?id=echo $pr->id; ?>" class="btn btn-success waves-effect waves-light" >
                                                         Update
+                                                        </a> -->
+                                                        <a href="" id="previewPorposal" class="open-view-Modal-Preview btn btn-primary" data-toggle="modal" data-target="#view-Modal">
+                                                            Update
                                                         </a>
                                                     </td>                                                    
                                                 </tr>
                                                 
+                                                <!-- MODAL Pencairan -->
+                                                <div class="modal fade modal-flex" id="view-Modal" tabindex="-1" role="dialog">
+                                                    <div class="modal-dialog modal-sm" role="document" >
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                                <h5 class="modal-title">Jumlah dana yang dicairkan</h5>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <div class="form-group col-md-12">
+                                                                    <label for="lecturertName" class="block form-control-label">Dana yang dicairkan*get dana yang disetujui*</label>
+                                                                    <input type="number" class="form-control" name="name">
+                                                                </div>
+                                                                <div class="label-main">
+                                                                    <label class="label bg-warning">Dana yang akan dicairkan pada termin selanjutnya adalah <br> &#82;&#112; <?php echo number_format(1000000);?> *jumlah dana dikurangi dana yg diinput*</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- END MODAL Pencairan -->
 
-                                                 <?php 
+
+                                                <?php 
                                                     $index++;
                                                     endforeach;
                                                 ?>

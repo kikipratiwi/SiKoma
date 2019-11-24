@@ -92,10 +92,6 @@
                                                             </div>
                                                             <div class="modal-body">
                                                                 <div class="row">
-                                                                    <!-- get ID -->
-                                                                    <!-- <input type="text" name="proposalId" id="idProposal" value=""/>
-                                                                    <input type="text" name="proposalId" id="leaderProposal" value=""/> -->
-                                                                    <!-- get ID -->
                                                                     <div class="col-sm-9">
                                                                         <!-- GET Link to review Proposal -->
                                                                         <a class="media" id="propose" href="<?php echo base_url();?>data/proposals/<?php echo $pr->proposal; ?>"></a>
@@ -106,15 +102,7 @@
                                                                                                                                 
                                                                                 <p id="leaderTeam">
                                                                                     <?php echo $pr->draft_budget?>
-                                                                                </p>                                                                                
-
-                                                                            <!-- <select multiple class="form-control multiple-select" id="teamMembers">
-                                                                                <option>Ketua</option>
-                                                                                <option>Anggota Tim 1</option>
-                                                                                <option>Anggota Tim 2</option>
-                                                                                <option>Anggota Tim 3</option>
-                                                                                <option>Anggota Tim 4</option>
-                                                                            </select> -->
+                                                                                </p>    
                                                                         </div>
                                                                         <form enctype="multipart/form-data" method="POST" action="<?php echo base_url().'index.php/Reviewer/review_proposal_submission'; ?>">   
                                                                             <input type="hidden" id="proposal" name="proposal" value="<?php echo $pr->id ?>">
@@ -200,8 +188,7 @@
     <!-- Container-fluid end -->
 </div>
 
-<!-- MODAL REVIEW NEW SUBMISSION -->
-<!-- MODAL REVIEW -->
+
 <!-- Required Jqurey -->
     <script src="<?php echo base_url();?>assets/plugins/jquery/dist/jquery.min.js"></script>
     <script src="<?php echo base_url();?>assets/plugins/jquery-ui/jquery-ui.min.js"></script>
