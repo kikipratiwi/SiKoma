@@ -1,12 +1,17 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+require('application/third_party/phpoffice/vendor/autoload.php');
+
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\IOFactory;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+
 class Admin extends CI_Controller {
 	function __construct(){
 		parent::__construct();
 		$this->load->database(); // load database
 		$this->load->model('m_competitions');
-		$this->load->model('m_proposals');
 		$this->load->helper('url');
 		if($this->session->userdata('status') != "login" OR $this->session->userdata('role') != 4){
 			redirect("Authentication/login");
@@ -177,8 +182,45 @@ class Admin extends CI_Controller {
 
 	public function reset_password()
 	{
+		$curl = curl_init();
+		curl_setopt_array($curl, array(
+		CURLOPT_URL =>  API_URL."/api/users",
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_ENCODING => "",
+		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST => "GET",
+		));
+
+		$users = curl_exec($curl);
+		$err = curl_error($curl);
+
+		curl_close($curl);
+
+		$data['user'] = json_decode($users);
 		$data['content'] = $this->template();
 		$this->load->view('admin/reset_password',$data);
+	}
+
+	public function act_reset_password()
+	{
+		$id = $_GET['id'];
+
+		$curl = curl_init();
+		curl_setopt_array($curl, array(
+		CURLOPT_URL =>  API_URL."/api/user/reset",
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_ENCODING => "",
+		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST => "POST",
+		CURLOPT_POSTFIELDS => "id=".$id."",
+		));
+
+		$users = curl_exec($curl);
+		$err = curl_error($curl);
+
+		curl_close($curl);
+
+		redirect('Admin/reset_password');
 	}
 
 	public function report()
@@ -313,6 +355,86 @@ class Admin extends CI_Controller {
 
 		redirect('Admin/list_kompetisi');
 		
+	}
+
+	public function export()
+	{
+		$from = $_POST['regist_opendate'];
+		$to = $_POST['regist_closedate'];
+
+		echo $from;
+		echo $to;
+
+		//Kompetisi
+		$curl = curl_init();
+		curl_setopt_array($curl, array(
+		CURLOPT_URL =>  API_URL."/api/admin/report",
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_ENCODING => "",		
+		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST => "POST",
+		CURLOPT_POSTFIELDS => "from=".$from."&to=".$to."",
+		));
+
+		$cmpt = curl_exec($curl);
+
+		$err = curl_error($curl);				
+		curl_close($curl);	
+
+		$competitions = json_decode($cmpt);
+		// $test = $competitions->toArray();
+		// foreach($competitions as  $key => $cmpt) {
+		// 	echo $cmpt->competition->name;
+		// 	echo $cmpt->department->name;
+		// 	echo $cmpt->competition->location;
+		// 	echo $cmpt->realisazion_budget;
+		// 	echo $cmpt->budget_source;
+		// }
+
+		//  GET KOMPETISI
+		$this->makeExcel($competitions);
+          
+	}
+
+	public function makeExcel($competitions){
+		$spreadsheet = new Spreadsheet;
+
+          $spreadsheet->setActiveSheetIndex(0)
+                      ->setCellValue('A1', 'ID')
+                      ->setCellValue('B1', 'Kompetisi')
+                      ->setCellValue('C1', 'Jurusan')
+                      ->setCellValue('D1', 'Lokasi')
+                      ->setCellValue('E1', 'Dana')
+                      ->setCellValue('F1', 'Sumber Dana');
+
+                       // $spreadsheet->setActiveSheetIndex(0)->setCellValue('A2', 'ID')->setCellValue('B2', 'Kompetisi')->setCellValue('C2', 'Jurusan')->setCellValue('D2', 'Lokasi')->setCellValue('E2', 'Dana')->setCellValue('F2', 'Sumber Dana');
+                      
+
+          $kolom = 2;
+          $nomor = 1;
+          foreach($competitions as $cmpt) {
+
+               $spreadsheet->setActiveSheetIndex(0)
+                           ->setCellValue('A' . $kolom, $nomor)
+                           ->setCellValue('B' . $kolom, $cmpt->competition->name)
+                           ->setCellValue('C' . $kolom, $cmpt->department->name)
+                           ->setCellValue('D' . $kolom, $cmpt->competition->location)
+                           ->setCellValue('E' . $kolom, $cmpt->realisazion_budget)
+                           ->setCellValue('F' . $kolom, $cmpt->budget_source);                                          			
+               $kolom++;
+               $nomor++;
+
+          }
+
+          $writer = new Xlsx($spreadsheet);
+          
+	      header('Content-Type: application/vnd.ms-excel');
+		  header('Content-Disposition: attachment;filename="Kompetisi.xlsx"');
+		  header('Cache-Control: max-age=0');
+		  // header('Cache-Control: cache, must-revalidate'); 
+		  header('Pragma: public');
+		  ob_end_clean();
+		  $writer->save('php://output');
 	}
 
 }

@@ -28,7 +28,7 @@ class Authentication extends CI_Controller {
 		CURLOPT_ENCODING => "",		
 		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
 		CURLOPT_CUSTOMREQUEST => "POST",
-		CURLOPT_POSTFIELDS => "username=".$user."&password=".$pwd."",
+		CURLOPT_POSTFIELDS => "email=".$user."&password=".$pwd."",
 		));
 		$user = curl_exec($curl);
 
@@ -36,13 +36,29 @@ class Authentication extends CI_Controller {
 		curl_close($curl);				
 		$us = json_decode($user);
 
-		echo $us->user->username;
+		if($us->message == "success"){			
+			$name = $us->user->organization->acronym;
+			$department = $us->user->student->department_id;
 
-		$id = $us->user->username;
+			if($us->user->role == 2){				
+				$name = $us->user->lecturer->name;
+				$department = $us->user->lecturer->department_id;
+			}
 
-		if($us->user->role == 2){
-			$id = $us->user->lecturer->nip;
+			$data_session = array(
+				// 'id' => $id,
+				'name' => $name,
+				'role' => $us->user->role,
+				'token' => $us->token,
+				'department' => $department,
+				'status' => "login"
+				);
+
+			$this->session->set_userdata($data_session);
+
+			$this->login_act();
 		}
+
 
 		$data_session = array(
 			'id' => $id,
@@ -55,7 +71,7 @@ class Authentication extends CI_Controller {
 		$this->session->set_userdata($data_session);
 
 		$this->login_act();
- 
+
 		
 	}
 

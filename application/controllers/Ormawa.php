@@ -14,8 +14,12 @@ class Ormawa extends CI_Controller {
 
 	public function template()
 	{
+		$data['user'] = array(
+			// 'id' => $this->session->userdata('id'),
+			'name' => $this->session->userdata('name'),
+		);
 		$data['content'] = $this->load->view('templates/ormawa/header');
-		$data['content'] = $this->load->view('templates/ormawa/sidebar');
+		$data['content'] = $this->load->view('templates/ormawa/sidebar', $data);
 		$data['content'] = $this->load->view('templates/ormawa/footer');
 
 		return $this->load->view('templates/ormawa/template',$data);
@@ -72,7 +76,8 @@ class Ormawa extends CI_Controller {
 		$errcmp = curl_error($curl);
 		
 
-		//Cek LPJ		
+		//Cek LPJ	
+		$dptt = $this->session->userdata('department');	
 		curl_setopt_array($curl, array(
 		CURLOPT_URL => API_URL."/api/mahasiswa/proposal/report?department=1",
 		CURLOPT_RETURNTRANSFER => true,
@@ -164,7 +169,7 @@ class Ormawa extends CI_Controller {
 	}
 
 	public function act_proposal_submission()
-	{
+	{		
 		// setting konfigurasi upload
         $config['upload_path'] = './data/proposals/'; 
         $config['allowed_types'] = 'pdf';

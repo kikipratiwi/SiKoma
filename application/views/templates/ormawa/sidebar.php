@@ -4,8 +4,8 @@
             <div class="user-panel">
                 <div class="f-left image"><img src="<?php echo base_url();?>assets/images/avatar-1.png" alt="User Image" class="img-circle"></div>
                 <div class="f-left info">
-                    <p>Kiki Pratiwi</p>
-                    <p class="designation">171511046</p>
+                    <p><?php echo $user['name']?></p>
+                    <!-- <p class="designation"><?php echo $user['id']?></p> -->
                 </div>
             </div>
             <!-- Sidebar Menu-->

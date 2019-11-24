@@ -4,7 +4,7 @@
             <div class="user-panel">
                 <div class="f-left image"><img src="<?php echo base_url();?>assets/images/avatar-1.png" alt="User Image" class="img-circle"></div>
                 <div class="f-left info">
-                    <p>User</p>
+                    <p><?php echo $user['name']?></p>
                     <p class="designation">Pembimbing</p>
                 </div>
             </div>
