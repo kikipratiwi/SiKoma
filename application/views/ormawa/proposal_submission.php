@@ -388,9 +388,8 @@
         // Components Initialization
         var fieldSet = $("<fieldset id='team" + key + "'></fieldset>");
         var legend = $("<legend>#"+ (index + 1) +"</legend>");
-        // "onchange": 'youFunction();' onkeyup="this.onchange();" onpaste="this.onchange();" oninput="this.onchange();"
-        var categoryTextField   = $("<input />", {"class": 'js-text-category form-control', "id": key, "name": 'category[]'});
-        var categoryField   = $("<select />", {"class": 'js-select2 category-'+key+' form-control', "style": 'width: 100%',"name": 'category[]'});
+        var categoryTextField   = $("<input />", {"class": 'js-text-category form-control', "name": 'category[]'});
+        var categoryField   = $("<select />", {"class": 'js-select2 form-control', "style": 'width: 100%',"name": 'category[]'});
         var coachField      = $("<select />", {"class": 'js-select2 form-control', "style": 'width: 100%',"name": 'coach[]'});
         var leaderField     = $("<select />", {"class": 'js-select2 form-control', "style": 'width: 100%',"name": 'leader[]'});
         var member1Field =  $("<select />", {"class": 'js-select2 form-control', "style": 'width: 100%',"name": 'member1[]'});
@@ -430,6 +429,10 @@
         // Components Callbacks
         categoryTextField.on('change', function(event){
             _data[key].text_category = event.target.value;
+            
+            var value = event.target.value;
+            _data[key].categoryText = value;
+          	categoryField.prop('disabled', value.length > 0);
         });
         categoryField.on('change', function(event){
             _data[key].category = event.target.value;
@@ -562,15 +565,6 @@
         addComponent(key, _data[key], newIndex);
     });
 
-</script>
-
-<script>    
-    $(".js-text-category").on("change", function () {
-    // $(".js-text-category").keyup(function () {
-        alert($(this).attr('id'));
-        var id = $(this).attr('id');
-        $(".category-"+id).prop("disabled", true);
-    });
 </script>
 
 <script>
