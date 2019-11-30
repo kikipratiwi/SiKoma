@@ -57,7 +57,7 @@
                                                     <!-- GET status proposal -->
                                                     <?php 
 
-                                                        if($pr->proposal->status==='REVISION'){?>
+                                                        if($pr->status==='REVISION'){?>
 
                                                             <td>
                                                                 <div class="label-main">
@@ -80,16 +80,16 @@
                                                          <?php } else  {?>
                                                             <td>
                                                                 <?php 
-                                                                    if($pr->proposal->status==='PENDING'){?>
+                                                                    if($pr->status==='PENDING'){?>
                                                                         <div class="label-main">
                                                                             <label class="label bg-warning">Pending</label>
                                                                         </div>
-                                                                    <?php } else if($pr->proposal->status==='WAITFUND') {
+                                                                    <?php } else if($pr->status==='WAITFUND') {
                                                                         ?>
                                                                         <div class="label-main">
                                                                             <label class="label bg-warning">Menunggu Pencairan Dana</label>
                                                                         </div>
-                                                                    <?php } else if($pr->proposal->status==='DISBURSEDFUND') {
+                                                                    <?php } else if($pr->status==='DISBURSEDFUND') {
                                                                         ?>
                                                                         <div class="label-main">
                                                                             <label class="label bg-warning">Dana Telah Cair</label>
