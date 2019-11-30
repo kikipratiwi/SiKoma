@@ -36,17 +36,19 @@ class Authentication extends CI_Controller {
 		curl_close($curl);				
 		$us = json_decode($user);
 
-		if($us->message == "success"){			
+		if($us->message == "success"){	
+			$id = $us->user->organization->id;		
 			$name = $us->user->organization->acronym;
-			$department = $us->user->student->department_id;
+			$department = $us->user->organization->id;
 
-			if($us->user->role == 2){				
+			if($us->user->role == 2){		
+				$id = $us->user->lecturer->id;		
 				$name = $us->user->lecturer->name;
 				$department = $us->user->lecturer->department_id;
 			}
 
 			$data_session = array(
-				// 'id' => $id,
+				'id' => $id,
 				'name' => $name,
 				'role' => $us->user->role,
 				'token' => $us->token,

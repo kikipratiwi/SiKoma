@@ -60,7 +60,7 @@
                                                     <td><?php echo $pr->competition->year ?></td>
                                                     <!-- GET status proposal -->
                                                     <td><?php 
-                                                        if($pr->proposal->status==='DONE'){?>
+                                                        if($pr->status==='DONE'){?>
                                                             <div class="label-main">
                                                                 <label class="label label-success">Selesai</label>
                                                             </div>
@@ -92,40 +92,40 @@
                                                                 <div class="row">
                                                                     <div class="col-sm-9">
                                                                         <!-- GET Link to review Proposal File -->
-                                                                        <a class="media" id="propose" href="<?php echo base_url();?>data/proposals/<?php echo $pr->proposal->proposal ?>"></a>
+                                                                        <a class="media" id="propose" href="<?php echo base_url();?>data/proposals/<?php echo $pr->proposal ?>"></a>
                                                                         </div>
                                                                     <div class="col-sm-3">
                                                                         <div class="form-group">
                                                                             <label for="teamMembers" class="form-control-label">Anggota Tim</label>
                                                                             <!-- GET Team Member-->
                                                                             <p id="leaderTeam">
-                                                                                <?php echo $pr->leader_id ?>
+                                                                                <?php echo $pr->team[0]->leader_id ?>
                                                                             </p>
                                                                             <p id="member1">
-                                                                                <?php echo $pr->member1_id ?>
+                                                                                <?php echo $pr->team[0]->member1_id ?>
                                                                             </p>
                                                                             <p id="member2">
-                                                                                <?php echo $pr->member2_id ?>
+                                                                                <?php echo $pr->team[0]->member2_id ?>
                                                                             </p>
                                                                             <p id="member3">
-                                                                                <?php echo $pr->member3_id ?>
+                                                                                <?php echo $pr->team[0]->member3_id ?>
                                                                             </p>
                                                                             <p id="member4">
-                                                                                <?php echo $pr->member4_id ?>
+                                                                                <?php echo $pr->team[0]->member4_id ?>
                                                                             </p>
                                                                         </div>
                                                                         <div class="form-group">
                                                                             <label for="dana" class="form-control-label">Jumlah dana yang disetujui</label>
                                                                             <!-- GET Team Member-->
                                                                             <p id="dana">
-                                                                                <?php echo $pr->proposal->realisazion_budget ?>
+                                                                                <?php echo $pr->realisazion_budget ?>
                                                                             </p>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="modal-footer">
                                                                     <!-- download proposal -->
-                                                                        <a type="button" href="<?php echo base_url();?>data/proposals/<?php echo $pr->proposal->proposal?>" class="btn btn-primary waves-effect waves-light" >Download Proposal</a>
+                                                                        <a type="button" href="<?php echo base_url();?>data/proposals/<?php echo $pr->proposal?>" class="btn btn-primary waves-effect waves-light" >Download Proposal</a>
                                                                 </div>
                                                                 
                                                             </div>
