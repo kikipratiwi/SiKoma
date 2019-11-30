@@ -56,14 +56,8 @@
                                                     </li>
                                                 </ul>
 
-<<<<<<< HEAD
                                                 <!-- Tab panes -->
                                                 <form enctype="multipart/form-data" method="POST" action="<?php echo base_url().'index.php/Ormawa/act_proposal_submission'; ?>">                                                                                                       
-=======
-
-                                                <!-- Tab panes -->
-                                                <form enctype="multipart/form-data" method="POST" action="<?php echo base_url().'index.php/Ormawa/act_proposal_submission'; ?>">
->>>>>>> 897dce417a9d18db7903aed8a7ff9aaca8a672d3
                                                 <div class="tab-content">
                                                     <div class="tab-pane active" id="proposal-document" role="tabpanel">
                                                         <!-- Proposal Document inputs starts -->

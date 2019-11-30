@@ -129,12 +129,12 @@
                                                                             <input type="hidden" id="proposal" name="proposal" value="<?php echo $pr->id ?>">
                                                                             <div class="md-input-wrapper">
                                                                                 
-                                                                               <textarea id="leaderTeam" class="md-form-control md-static" cols="2" rows="4" name="rab"></textarea>
+                                                                            <textarea id="leaderTeam" class="md-form-control md-static" cols="2" rows="4" name="rab"></textarea>
                                                                                 <label>Catatan RAB</label>
                                                                                 
                                                                             </div>
                                                                             <div class="md-input-wrapper">                                                                                
-                                                                                 <textarea id="contentNotes"  class="md-form-control md-static" cols="2" rows="4" name="konten"></textarea>
+                                                                                <textarea id="contentNotes"  class="md-form-control md-static" cols="2" rows="4" name="konten"></textarea>
                                                                                 <label>Catatan Konten</label>
                                                                                 <p id="dana">
                                                                                 
