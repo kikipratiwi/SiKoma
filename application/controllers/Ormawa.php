@@ -123,11 +123,11 @@ class Ormawa extends CI_Controller {
     
     public function ongoing_submission()
 	{
-		$nim = $this->session->userdata('id');
+		$id = $this->session->userdata('id');
 		$curl = curl_init();
 		
 		curl_setopt_array($curl, array(
-		CURLOPT_URL => API_URL."/api/mahasiswa/proposal/ongoing?nim=".$nim."",
+		CURLOPT_URL => API_URL."/api/mahasiswa/proposal/ongoing?id=".$id."",
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_ENCODING => "",		
 		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -147,11 +147,11 @@ class Ormawa extends CI_Controller {
     
     public function finished_submission()
 	{
-		$nim = $this->session->userdata('id');
+		$id = $this->session->userdata('id');
 		$curl = curl_init();
 	
 		curl_setopt_array($curl, array(
-		CURLOPT_URL => API_URL."/api/mahasiswa/proposal/finished?nim=".$nim."",
+		CURLOPT_URL => API_URL."/api/mahasiswa/proposal/finished?id=".$id."",
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_ENCODING => "",		
 		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -290,6 +290,23 @@ class Ormawa extends CI_Controller {
 	}
 
 	public function realization_budget() {
+		$id = $this->session->userdata('id');
+		$curl = curl_init();
+	
+		curl_setopt_array($curl, array(
+		CURLOPT_URL => API_URL."/api/mahasiswa/proposal/finished?id=".$id."",
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_ENCODING => "",		
+		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST => "GET",
+		));
+
+		$proposal = curl_exec($curl);
+		$err = curl_error($curl);
+
+		curl_close($curl);
+
+		$data['proposal'] = json_decode($proposal);
 		$data['content'] = $this->template();
 		$this->load->view('ormawa/realization_budget',$data);
 	}
