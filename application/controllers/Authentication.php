@@ -17,7 +17,7 @@ class Authentication extends CI_Controller {
 
 	public function user_login()
 	{
-		$user = $this->input->post('username');
+		$user = $this->input->post('email');
 		$pwd = $this->input->post('password');
 		
 		$curl = curl_init();
