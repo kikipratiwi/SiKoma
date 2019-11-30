@@ -32,7 +32,7 @@ class Ormawa extends CI_Controller {
 		$curl = curl_init();
 	
 		curl_setopt_array($curl, array(
-		CURLOPT_URL => API_URL."/api/mahasiswa/proposal/all?nim=".$nim."",
+		CURLOPT_URL => API_URL."/api/ormawa/proposal/all?nim=".$nim."",
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_ENCODING => "",		
 		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -79,7 +79,7 @@ class Ormawa extends CI_Controller {
 		//Cek LPJ	
 		$dptt = $this->session->userdata('department');	
 		curl_setopt_array($curl, array(
-		CURLOPT_URL => API_URL."/api/mahasiswa/proposal/report?department=1",
+		CURLOPT_URL => API_URL."/api/ormawa/proposal/report?department=1",
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_ENCODING => "",		
 		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -127,7 +127,7 @@ class Ormawa extends CI_Controller {
 		$curl = curl_init();
 		
 		curl_setopt_array($curl, array(
-		CURLOPT_URL => API_URL."/api/mahasiswa/proposal/ongoing?id=".$id."",
+		CURLOPT_URL => API_URL."/api/ormawa/proposal/ongoing?id=".$id."",
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_ENCODING => "",		
 		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -151,7 +151,7 @@ class Ormawa extends CI_Controller {
 		$curl = curl_init();
 	
 		curl_setopt_array($curl, array(
-		CURLOPT_URL => API_URL."/api/mahasiswa/proposal/finished?id=".$id."",
+		CURLOPT_URL => API_URL."/api/ormawa/proposal/finished?id=".$id."",
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_ENCODING => "",		
 		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -208,7 +208,7 @@ class Ormawa extends CI_Controller {
 
 			$curl = curl_init();
 			curl_setopt_array($curl, array(
-			CURLOPT_URL => API_URL."/api/mahasiswa/team",
+			CURLOPT_URL => API_URL."/api/ormawa/team",
 			CURLOPT_RETURNTRANSFER => true,
 			CURLOPT_ENCODING => "",		
 			CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -231,7 +231,7 @@ class Ormawa extends CI_Controller {
 		$curl = curl_init();
 	
 		curl_setopt_array($curl, array(
-		CURLOPT_URL => API_URL."/api/mahasiswa/proposal/?id=".$proposal_id."",
+		CURLOPT_URL => API_URL."/api/ormawa/proposal/?id=".$proposal_id."",
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_ENCODING => "",		
 		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -272,7 +272,7 @@ class Ormawa extends CI_Controller {
         $curl = curl_init();
 	
 		curl_setopt_array($curl, array(
-		CURLOPT_URL => API_URL."/api/mahasiswa/proposal/update",
+		CURLOPT_URL => API_URL."/api/ormawa/proposal/update",
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_ENCODING => "",		
 		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -294,7 +294,7 @@ class Ormawa extends CI_Controller {
 		$curl = curl_init();
 	
 		curl_setopt_array($curl, array(
-		CURLOPT_URL => API_URL."/api/mahasiswa/proposal/finished?id=".$id."",
+		CURLOPT_URL => API_URL."/api/ormawa/proposal/finished?id=".$id."",
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_ENCODING => "",		
 		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,

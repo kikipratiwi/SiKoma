@@ -96,12 +96,18 @@
                                                                         </div>
                                                                     <div class="col-sm-3">
                                                                         <div class="form-group">
-                                                                            <label for="teamMembers" class="form-control-label">Anggota Tim</label>
+                                                                            <label for="teamMembers" class="form-control-label">Ketua Tim</label>
                                                                             <!-- GET Team Member-->
+                                                                            <?php                                                                              
+                                                                                foreach($pr->team as $key => $team) : 
+                                                                            ?>
+
                                                                             <p id="leaderTeam">
-                                                                                <?php echo $pr->team[0]->leader_id ?>
+                                                                                <?php echo $team?>
                                                                             </p>
-                                                                            <p id="member1">
+
+                                                                        <?php endforeach; ?>
+                                                                            <!-- <p id="member1">
                                                                                 <?php echo $pr->team[0]->member1_id ?>
                                                                             </p>
                                                                             <p id="member2">
@@ -112,7 +118,7 @@
                                                                             </p>
                                                                             <p id="member4">
                                                                                 <?php echo $pr->team[0]->member4_id ?>
-                                                                            </p>
+                                                                             --></p>
                                                                         </div>
                                                                         <div class="form-group">
                                                                             <label for="dana" class="form-control-label">Jumlah dana yang disetujui</label>
