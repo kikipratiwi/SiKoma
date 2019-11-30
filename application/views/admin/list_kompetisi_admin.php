@@ -90,12 +90,12 @@
                                                             </div>
                                                             <div class="modal-body">
                                                                 <div class="row">
-                                                                    <div class="col-sm-9">
+                                                                    <div class="col-sm-9 col-lg-9">
                                                                         <!-- GET Link to review Proposal -->
                                                                         <a class="media" id="propose" href="<?php echo base_url();?>data/proposals/Proposal41574015633.pdf"></a>
                                                                         
                                                                     </div>
-                                                                    <div class="col-sm-3">
+                                                                    <div class="col-sm-3 col-lg-3">
                                                                         
                                                                         <div class="form-group">
                                                                                 <label for="teamMembers" class="form-control-label">Dana Yang diajukan *get data*</label>
@@ -157,7 +157,7 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="row" style="padding-top: 3px margin-bottom: 3px">
+                                                                <div class="modal-footer">
                                                                     <div class="col-sm-12 text-center" style="padding-top: 3px margin-bottom: 3px">
                                                                         <button type="submit" style="padding-top: 3px margin-bottom: 13px" class="btn btn-success waves-effect waves-light">Submit</button>
                                                                     </div>
@@ -401,7 +401,7 @@
     });
 
     $(function () {
-        $('.media').media({width: 950, height:430});
+        $('.media').media({width:100%, height:430});
     });
 </script>
 
