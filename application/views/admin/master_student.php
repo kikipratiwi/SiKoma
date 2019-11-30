@@ -36,12 +36,12 @@
                         <div class="card-block">
                             <button type="button" id="add-competition" class="btn btn-primary" 
                                     style="margin-left: 5px; margin-bottom: 15px;border-radius: .25rem;padding: .5rem .75rem;" 
-                                    data-toggle="modal" data-target="#add-category-modal-form" >+ Mahasiswa
+                                    data-toggle="modal" data-target="#add-student-modal-form" >+ Mahasiswa
                             </button>
                             <button type="button" class="btn btn-primary" style="margin-left: 5px; margin-bottom: 15px;border-radius: .25rem;padding: .5rem .75rem;" >Import</button>
                             <div class="row">
                                 <div class="col-sm-12 table-responsive">
-                                    <table class="table table-hover" id="master_mahasiswa">
+                                    <table class="table table-hover" id="tbm_student">
                                         <thead>
                                         <tr>
                                             <th>No</th>
@@ -66,9 +66,10 @@
                                                     <td>Komputer</td>
                                                     <td>
                                                         <!-- if(ever_used === null){?> -->
-                                                        <a href="" id="input_category" class="open-view-cateogry btn btn-primary" data-toggle="modal" data-target="#view-Modal-Student">
-                                                            Edit
-                                                        </a>
+                                                        <button type="button" id="add-student" class="btn btn-primary" 
+                                                            style="margin-left: 5px; margin-bottom: 15px;border-radius: .25rem;padding: .5rem .75rem;" 
+                                                            data-toggle="modal" data-target="#edit-student-modal-form" >Edit
+                                                        </button>
                                                         <!-- }else{?> -->
                                                         <!-- <a href="" id="input_category" class="btn btn-disable disabled"> -->
                                                             <!-- Edit -->
@@ -87,6 +88,49 @@
                                                         <!-- }?> -->
                                                     </td>
                                                 </tr>
+
+                                                <!-- Edit Student Modal -->
+                                                <div class="modal fade modal-flex" id="edit-student-modal-form" tabindex="-1" role="dialog">
+                                                    <div class="modal-dialog" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                            <h5 class="modal-title">Edit Data Mahasiswa</h5>
+                                                        </div>
+
+                                                        <form method="POST" action="">
+                                                            <div class="modal-body">
+                                                                <div class="row">
+                                                                    <div class="form-group col-md-12">
+                                                                        <label for="studentName" class="block form-control-label">Nama Lengkap *get data</label>
+                                                                        <input type="text" class="form-control" name="name">
+                                                                    </div>
+                                                                    <div class="form-group col-md-12">
+                                                                        <label for="studentNIM" class="block form-control-label">NIM*get data<</label>
+                                                                        <input type="text" class="form-control" name="nim">
+                                                                    </div>
+                                                                    <!-- // !use select2 // -->
+                                                                    <div class="form-group col-md-12">
+                                                                        <label for="studentDepartement" class="block form-control-label">Jurusan*get data</label>
+                                                                        <select>
+                                                                            <option value="0">Teknik Komputer dan Informatika</option>
+                                                                            <option value="1">Teknik Kimia</option>
+                                                                            <option value="2">Teknik Mesin</option>
+                                                                            <option value="3">Akuntansi</option>
+                                                                        </select> 
+                                                                    </div>
+                                                                </div>
+                                                            </div>                                              
+                                                            <div class="modal-footer" style="padding-top: 3pt">
+                                                                <button type="submit" class="btn btn-primary">Simpan</button>
+                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                                <!-- End of Edit Student Modal -->
 
                                                 <?php
                                             };?>
@@ -108,6 +152,50 @@
     </div>
 </div>
 
+<!-- Add Student Modal -->
+<div class="modal fade modal-flex" id="add-student-modal-form" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            <h5 class="modal-title">Input Data Mahasiswa</h5>
+        </div>
+
+        <form method="POST" action="">
+            <div class="modal-body">
+                <div class="row">
+                    <div class="form-group col-md-12">
+                        <label for="studentName" class="block form-control-label">Nama Lengkap</label>
+                        <input type="text" class="form-control" name="name"  placeholder="contoh: Zharfan Ajda">
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label for="studentNIM" class="block form-control-label">NIM</label>
+                        <input type="text" class="form-control" name="nim" placeholder="contoh: 180012345">
+                    </div>
+                    <!-- // !use select2 // -->
+                    <div class="form-group col-md-12">
+                        <label for="studentDepartement" class="block form-control-label">Jurusan</label>
+                        <select>
+                            <option value="0">Teknik Komputer dan Informatika</option>
+                            <option value="1">Teknik Kimia</option>
+                            <option value="2">Teknik Mesin</option>
+                            <option value="3">Akuntansi</option>
+                        </select> 
+                    </div>
+                    
+                </div>
+            </div>                                              
+            <div class="modal-footer" style="padding-top: 3pt">
+                <button type="submit" class="btn btn-primary">Simpan</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- End of Add Student Modal -->
+
     <!-- Required Jqurey -->
     <script
         src="<?php echo base_url();?>assets/js/jquery-3.4.1.slim.min.js"
@@ -123,119 +211,19 @@
     <!-- https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js -->
     <script src="<?php echo base_url();?>assets/js/3.0.0-alpha1jquery.min.js"></script>
 
-    <!-- Required Fremwork -->
-    <script src="<?php echo base_url();?>assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-
-    <!-- waves effects.js -->
-    <script src="<?php echo base_url();?>assets/plugins/Waves/waves.min.js"></script>
 
     <!-- Scrollbar JS-->
     <script src="<?php echo base_url();?>assets/plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
     <script src="<?php echo base_url();?>assets/plugins/jquery.nicescroll/jquery.nicescroll.min.js"></script>
 
-    <!--classic JS-->
-    <script src="<?php echo base_url();?>assets/plugins/classie/classie.js"></script>
-
-    <!-- notification -->
-    <script src="<?php echo base_url();?>assets/plugins/notification/js/bootstrap-growl.min.js"></script>
-
-
-    <!-- Rickshaw Chart js -->
-    <script src="<?php echo base_url();?>assets/plugins/d3/d3.js"></script>
-    <script src="<?php echo base_url();?>assets/plugins/rickshaw/rickshaw.js"></script>
-
-    <!-- Sparkline charts -->
-    <script src="<?php echo base_url();?>assets/plugins/jquery-sparkline/dist/jquery.sparkline.js"></script>
-
-    <!-- Counter js  -->
-    <script src="<?php echo base_url();?>assets/plugins/waypoints/jquery.waypoints.min.js"></script>
-    <script src="<?php echo base_url();?>assets/plugins/countdown/js/jquery.counterup.js"></script>
-
-    <!-- custom js -->
-    <script type="text/javascript" src="<?php echo base_url();?>assets/js/main.min.js"></script>
-    <script type="text/javascript" src="<?php echo base_url();?>assets/pages/dashboard.js"></script>
-    <script type="text/javascript" src="<?php echo base_url();?>assets/pages/elements.js"></script>
-    <script src="<?php echo base_url();?>assets/js/menu.min.js"></script>
-		
-
-
-<!-- apache_response_headers -->
-
     <!-- Required Jqurey -->
-    <script src="<?php echo base_url();?>assets/plugins/jquery/dist/jquery.min.js"></script>
-    <script src="<?php echo base_url();?>assets/plugins/jquery-ui/jquery-ui.min.js"></script>
-    <script src="<?php echo base_url();?>assets/plugins/tether/dist/js/tether.min.js"></script>
-
-    <!-- Required Fremwork -->
-    <script src="<?php echo base_url();?>assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-
-    <!-- waves effects.js -->
-    <script src="<?php echo base_url();?>assets/plugins/Waves/waves.min.js"></script>
-
-    <!-- Scrollbar JS-->
-    <script src="<?php echo base_url();?>assets/plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
-    <script src="<?php echo base_url();?>assets/plugins/jquery.nicescroll/jquery.nicescroll.min.js"></script>
-
-    <!--classic JS-->
-    <script src="<?php echo base_url();?>assets/plugins/classie/classie.js"></script>
-
-    <!-- notification -->
-    <script src="<?php echo base_url();?>assets/plugins/notification/js/bootstrap-growl.min.js"></script>
-
-    <!-- Date picker.js -->
-    <script src="<?php echo base_url();?>assets/plugins/datepicker/js/moment-with-locales.min.js"></script>
-    <script src="<?php echo base_url();?>assets/plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js"></script>
-
-    <!-- Select 2 js -->
-    <script src="<?php echo base_url();?>assets/plugins/select2/dist/js/select2.full.min.js"></script>
-
-    <!-- Max-Length js -->
-    <script src="<?php echo base_url();?>assets/plugins/bootstrap-maxlength/src/bootstrap-maxlength.js"></script>
-
-    <!-- Multi Select js -->
-    <script src="<?php echo base_url();?>assets/plugins/bootstrap-multiselect/dist/js/bootstrap-multiselect.js"></script>
-    <script src="<?php echo base_url();?>assets/plugins/multiselect/js/jquery.multi-select.js"></script>
-    <script type="text/javascript" src="<?php echo base_url();?>assets/plugins/multi-select/js/jquery.quicksearch.js"></script>
-
-    <!-- Tags js -->
-    <script src="<?php echo base_url();?>assets/plugins/bootstrap-tagsinput/dist/bootstrap-tagsinput.js"></script>
-
-    <!-- Bootstrap Datepicker js -->
-    <script type="text/javascript" src="<?php echo base_url();?>assets/plugins/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
-    <script src="<?php echo base_url();?>assets/plugins/bootstrap-datepicker/js/bootstrap-datetimepicker.min.js"></script>
-
-    <!-- bootstrap range picker -->
-    <script type="text/javascript" src="<?php echo base_url();?>assets/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
-
-    <!-- color picker -->
-    <script type="text/javascript" src="<?php echo base_url();?>assets/plugins/spectrum/spectrum.js"></script>
-    <script type="text/javascript" src="<?php echo base_url();?>assets/plugins/jscolor/jscolor.js"></script>
-
-    <!-- highlite js -->
-    <script type="text/javascript" src="<?php echo base_url();?>assets/plugins/syntaxhighlighter/scripts/shCore.js"></script>
-    <script type="text/javascript" src="<?php echo base_url();?>assets/plugins/syntaxhighlighter/scripts/shBrushJScript.js"></script>
-    <script type="text/javascript" src="<?php echo base_url();?>assets/plugins/syntaxhighlighter/scripts/shBrushXml.js"></script>
-    <script type="text/javascript">SyntaxHighlighter.all();</script>
-
-    <!-- custom js -->
-    <script type="text/javascript" src="<?php echo base_url();?>assets/js/main.min.js"></script>
-    <script type="text/javascript" src="<?php echo base_url();?>assets/pages/advance-form.js"></script>
-    <script src="<?php echo base_url();?>assets/js/menu.min.js"></script>
-		
-
-    <!-- Required Jqurey -->
-    <script src="<?php echo base_url();?>assets/js/2.1.3jquery.min.js"></script> 
     <script src="<?php echo base_url();?>assets/js/jquery.media.js"></script>
     <script src="<?php echo base_url();?>assets/js/jquery.dataTables.js"></script>
 	
 
 <script> 
     $(document).ready( function () {
-        $('#master_mahasiswa').DataTable();
-    });
-
-    $(function () {
-        $('.media').media({width: 950, height:430});
+        $('#tbm_student').DataTable();
     });
 </script>
 

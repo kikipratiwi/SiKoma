@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-sm-12 p-0">
                     <div class="main-header">
-                        <h4>List Proposal</h4>
+                        <h4>Serapan Dana</h4>
                         <ol class="breadcrumb breadcrumb-title breadcrumb-arrow">
                             <li class="breadcrumb-item">
                                 <a href="index.html">
@@ -31,7 +31,7 @@
                     <!-- Hover effect table starts -->
                     <div class="card">
                         <div class="card-header">
-                            <h5 class="card-header-text">List Pengajuan (finished)</h5>
+                            <h5 class="card-header-text">Serapan Dana</h5>
                         </div>
                         <div class="card-block">
                             <div class="row">
@@ -46,7 +46,8 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                                <?php   
+                                                <?php 
+                                                    $this->load->helpers('money_format');  
                                                     $index = 1;
                                                     foreach($proposal as $key => $pr) : 
                                                 ?>
@@ -56,7 +57,7 @@
                                                     <!-- GET start year  -->
                                                     <td><?php echo "2019"; ?></td>
                                                     <!-- GET total realization budget per year -->
-                                                    <td><?php echo "29.000.000"; ?></td>
+                                                    <td><?php echo rupiah("29.000.000"); ?></td>
                                                     <td>
                                                         <a href="" id="detailRealization" class="btn btn-primary" data-toggle="modal" data-target="#view-Modal-Finished-Proposal<?php echo $pr->id ?> ">
                                                             Detail
@@ -99,11 +100,11 @@
                                                                                     <!-- GET total competition name -->
                                                                                     <td><?php echo "Ideafuse"; ?></td>
                                                                                     <!-- GET total draft budget -->
-                                                                                    <td><?php echo "29.000.000"; ?></td>
+                                                                                    <td><?php echo rupiah("29.000.000"); ?></td>
                                                                                     <!-- GET total approved budget -->
-                                                                                    <td><?php echo "29.000.000"; ?></td>
+                                                                                    <td><?php echo rupiah("29.000.000"); ?></td>
                                                                                     <!-- GET total realization budget -->
-                                                                                    <td><?php echo "29.000.000"; ?></td>
+                                                                                    <td><?php echo rupiah("29.000.000"); ?></td>
                                                                                 </tr>
                                                                                 <?php 
                                                                                     $index++;

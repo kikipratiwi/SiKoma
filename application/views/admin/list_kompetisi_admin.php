@@ -30,9 +30,10 @@
                                     <!-- Row start -->
                                     <div class="row">
                                         <div class="col-lg-12">
-                                            <button type="button" id="add-competition" class="btn btn-primary" 
-                                                style="margin-left: 5px;margin-botttom: 10px;border-radius: .25rem;padding: .5rem .75rem;" 
-                                                data-toggle="modal" data-target="#add-competition-modal-form" >+ Data Kompetisi</button>
+                                        <button type="button" id="add-competition" class="btn btn-primary" 
+                                            style="margin-left: 5px; margin-bottom: 15px;border-radius: .25rem;padding: .5rem .75rem;" 
+                                            data-toggle="modal" data-target="#add-competition-modal-form" >+ Data Kompetisi
+                                        </button>
                                             <!-- Tabel Proposal -->
                                             <div class="col-sm-12 table-responsive">
                                                 <table class="table table-hover" id="competition">
@@ -68,7 +69,7 @@
                                                                 <td><?php echo date_format($date1,"d M Y")." - ". date_format($date2,"d M Y");?></td>
                                                                 <td>
                                                                     <!-- <button type="button" class="btn btn-primary waves-effect waves-light">Edit</button> -->
-                                                                    <a href="" id="input_category" class="open-view-cateogry btn btn-primary" data-toggle="modal" data-target="#view-Modal<?php echo $cmpt->id ?>">
+                                                                    <a href="" id="input_category" class="open-view-cateogry btn btn-primary" data-toggle="modal" data-target="#edit-competition-modal-form">
                                                                         Edit
                                                                     </a>
                                                                 </td>
@@ -77,42 +78,95 @@
                                                                 </td>
                                                             </tr>
 
-                                                            <!-- Add Competition Category Modal -->
-                                                            <div class="modal fade modal-flex" id="view-Modal<?php echo $cmpt->id ?>" tabindex="-1" role="dialog">
-                                                                <div class="modal-dialog modal-sm" role="document" >
-                                                                    <div class="modal-content">
-                                                                        <div class="modal-header">
-                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                                <span aria-hidden="true">&times;</span>
-                                                                            </button>
-                                                                            <h5 class="modal-title">Input Kategori Kompetisi</h5>
-                                                                        </div>
-                                                                        <div class="modal-body">
-                                                                            <div class="row">
-                                                                                <div class="form-group col-md-12">
-                                                                                    <label for="competitionName" class="block form-control-label">Nama Kompetisi*get data*</label>
-                                                                                    <input type="text" class="form-control" name="name" readonly>
-                                                                                </div>
-                                                                                <div class="form-group col-md-12">
-                                                                                    <label for="competitionName" class="block form-control-label">Kategori Kompetisi</label>
-                                                                                    <input type="text" class="form-control" name="name">
-                                                                                </div>
-
-                                                                                </div>
-                                                                                <div class="row" style="padding-top: 3pt">
-                                                                                    <div class="col-sm-12 text-center">
-                                                                                        <!-- SET status proposal -->
-                                                                                        <button type="submit" class="btn btn-success waves-effect waves-light">Submit</button>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </form>
+                                                            <!-- MODAL REVIEW REVISION -->
+                                                <div class="modal fade modal-flex" id="edit-competition-modal-form" tabindex="-1" role="dialog">
+                                                    <div class="modal-dialog modal-lg" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                                <h5 class="modal-title">Review Proposal</h5>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <div class="row">
+                                                                    <div class="col-sm-9">
+                                                                        <!-- GET Link to review Proposal -->
+                                                                        <a class="media" id="propose" href="<?php echo base_url();?>data/proposals/Proposal41574015633.pdf"></a>
+                                                                        
+                                                                    </div>
+                                                                    <div class="col-sm-3">
+                                                                        
+                                                                        <div class="form-group">
+                                                                                <label for="teamMembers" class="form-control-label">Dana Yang diajukan *get data*</label>
+                                                                                <!-- GET Team member -->
+                                                                                <p id="leaderTeam">
+                                                                                
+                                                                                </p>                                                                                
+                                                                            </div>
+                                                                            <form enctype="multipart/form-data" method="POST" action="">   
                                                                             
+                                                                            <input type="hidden" id="proposal" name="proposal" value="">
+                                                                            <div class="md-input-wrapper">
+                                                                                
+                                                                            <textarea id="leaderTeam" class="md-form-control md-static" cols="2" rows="4" name="rab"></textarea>
+                                                                                <label>Catatan RAB</label>
+                                                                                
+                                                                            </div>
+                                                                            <div class="md-input-wrapper">                                                                                
+                                                                                <textarea id="contentNotes"  class="md-form-control md-static" cols="2" rows="4" name="konten"></textarea>
+                                                                                <label>Catatan Konten</label>
+                                                                                <p id="dana">
+                                                                                
+                                                                            </p>
+
+                                                                            </div>
+                                                                            <label>Rincian Dana</label>
+                                                                            <div class="md-input-wrapper">
+                                                                                Jumlah Dana yang Disetujui<br>
+                                                                                <input class="col-sm-9" type="number" name="budget" min=0>
+                                                                            </div>
+                                                                            <div class="md-input-wrapper">
+                                                                                <br>Sumber Dana<br>
+                                                                                <input class="col-sm-9" type="text" name="source">
+                                                                            </div><br>                                                                     
+                                                                            <!-- SET status proposal -->
+                                                                            <label class="bold">Status</label>
+                                                                            <div class="form-radio">
+                                                                                <form method="POST">
+                                                                                    <div class="radio radio-inline">
+                                                                                        <label>
+                                                                                            <input type="radio" name="radio" value="WAITFUND">
+                                                                                                <i class="helper"></i>Diterima
+                                                                                        </label>
+                                                                                    </div>
+                                                                                    <div class="radio radio-inline">
+                                                                                        <label>
+                                                                                            <input type="radio" name="radio" value="REVISION">
+                                                                                                <i class="helper"></i>Revisi
+                                                                                        </label>
+                                                                                    </div>
+                                                                                    <div class="radio radio-inline">
+                                                                                        <label>
+                                                                                            <input type="radio" name="radio" value="REJECTED">
+                                                                                                <i class="helper"></i>Ditolak
+                                                                                        </label>
+                                                                                    </div>
+                                                                                
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
+                                                                <div class="row" style="padding-top: 3px margin-bottom: 3px">
+                                                                    <div class="col-sm-12 text-center" style="padding-top: 3px margin-bottom: 3px">
+                                                                        <button type="submit" style="padding-top: 3px margin-bottom: 13px" class="btn btn-success waves-effect waves-light">Submit</button>
+                                                                    </div>
+                                                                </div>
+                                                                </form>
                                                             </div>
-                                                            <!-- End of Add Competition Category Modal -->
-                                                            
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                         <?php 
                                                     $index++;
                                                     endforeach;
@@ -337,8 +391,6 @@
     <script type="text/javascript" src="<?php echo base_url();?>assets/pages/advance-form.js"></script>
     <script src="<?php echo base_url();?>assets/js/menu.min.js"></script>
 		
-
-    <script src="<?php echo base_url();?>assets/js/2.1.3jquery.min.js"></script> 
     <script src="<?php echo base_url();?>assets/js/jquery.media.js"></script>
     <script src="<?php echo base_url();?>assets/js/jquery.dataTables.js"></script>
 	

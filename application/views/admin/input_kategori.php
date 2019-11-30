@@ -275,9 +275,7 @@
     <script type="text/javascript" src="<?php echo base_url();?>assets/js/main.min.js"></script>
     <script type="text/javascript" src="<?php echo base_url();?>assets/pages/advance-form.js"></script>
     <script src="<?php echo base_url();?>assets/js/menu.min.js"></script>
-		
-
-    <script src="<?php echo base_url();?>assets/js/2.1.3jquery.min.js"></script> 
+	
     <script src="<?php echo base_url();?>assets/js/jquery.media.js"></script>
     <script src="<?php echo base_url();?>assets/js/jquery.dataTables.js"></script>
 	
