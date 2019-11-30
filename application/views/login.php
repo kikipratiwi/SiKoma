@@ -13,8 +13,8 @@
 							Login ke akun anda
 						</h3>
 						<div class="md-input-wrapper">
-							<input type="text" class="md-form-control" name="username" />
-							<label>Username</label>
+							<input type="text" class="md-form-control" name="email" />
+							<label>Email</label>
 						</div>
 						<div class="md-input-wrapper">
 							<input type="password" class="md-form-control" name="password" />

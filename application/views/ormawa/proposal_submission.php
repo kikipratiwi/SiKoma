@@ -384,34 +384,37 @@
     function addComponent(key, datum, index) {
         // Components Initialization
         var fieldSet = $("<fieldset id='team" + key + "'></fieldset>");
-        var legend = $("<legend>#"+ (index + 1) +"</legend>")
-        var categoryField       = $("<select />", {"style": 'width', "class": 'select2-category form-control', "name": 'category[]'});
-        var categoryTextField   = $("<input />", {"class": 'category-text form-control', "name": 'category[]', });
-        var coachField      = $("<select />", {"class": 'select2-coach form-control', "name": 'coach[]'});
-        var leaderField     = $("<select />", {"class": 'select2-leader form-control', "name": 'leader[]'});
-        var member1Field =  $("<select />", {"class": 'select2-member1 form-control', "name": 'member1[]'});
-        var member2Field =  $("<select />", {"class": 'select2-member2 form-control', "name": 'member2[]'});
-        var member3Field =  $("<select />", {"class": 'select2-member3 form-control', "name": 'member3[]'});
-        var member4Field =  $("<select />", {"class": 'select2-member4 form-control', "name": 'member4[]'});
+        var legend = $("<legend>#"+ (index + 1) +"</legend>");
+        var categoryTextField   = $("<input />", {"class": 'js-text-category form-control', "name": 'category[]'});
+        var categoryField   = $("<select />", {"class": 'js-select2 form-control', "style": 'width: 100%',"name": 'category[]'});
+        var coachField      = $("<select />", {"class": 'js-select2 form-control', "style": 'width: 100%',"name": 'coach[]'});
+        var leaderField     = $("<select />", {"class": 'js-select2 form-control', "style": 'width: 100%',"name": 'leader[]'});
+        var member1Field =  $("<select />", {"class": 'js-select2 form-control', "style": 'width: 100%',"name": 'member1[]'});
+        var member2Field =  $("<select />", {"class": 'js-select2 form-control', "style": 'width: 100%',"name": 'member2[]'});
+        var member3Field =  $("<select />", {"class": 'js-select2 form-control', "style": 'width: 100%',"name": 'member3[]'});
+        var member4Field =  $("<select />", {"class": 'js-select2 form-control', "style": 'width: 100%',"name": 'member4[]'});
         var removeButton =  $("<button type='button' style='float:right' class='js-remove-button cancelBtn btn btn-warning waves-effect waves-light px-2 my-2'>Remove</button>")
         
-        $('.select2-category').select2();
-        $('.select2-coach').select2();
-        $('.select2-leader').select2();
-        $('.select2-member1').select2();
-        $('.select2-member2').select2();
-        $('.select2-member3').select2();
-        $('.select2-member4').select2();
-
+        // get option value from php
+        optionText = 1;
+        optionValue = 2;
         <?php foreach($department as $key => $dpt) : ?>
-            optionText = <?php echo json_encode($dpt->name, JSON_HEX_TAG); ?>;
-            optionValue = <?php echo json_encode($dpt->id, JSON_HEX_TAG); ?>;
-            categoryField.append(`<option value="${optionValue}"> 
-                                       ${optionText} 
-                                  </option>`); 
+            // optionText = <?php echo json_encode($dpt->name, JSON_HEX_TAG); ?>;
+            // optionValue = <?php echo json_encode($dpt->id, JSON_HEX_TAG); ?>;
+
+            categoryField.append(`<option value="${optionValue}"> ${optionText+2} </option>`); 
+            coachField.append(`<option value="${optionValue}"> ${optionText+2} </option>`); 
+            leaderField.append(`<option value="${optionValue}"> ${optionText+2} </option>`); 
+            member1Field.append(`<option value="${optionValue}"> ${optionText+2} </option>`); 
+            member2Field.append(`<option value="${optionValue}"> ${optionText+2} </option>`); 
+            member3Field.append(`<option value="${optionValue}"> ${optionText+2} </option>`); 
+            member4Field.append(`<option value="${optionValue}"> ${optionText+2} </option>`); 
+            optionText = optionText + 1;
+            optionValue = optionValue + 1;
         <?php endforeach; ?>
 
         // Components Set Value
+        categoryTextField.val(datum.text_category);
         categoryField.val(datum.category);
         coachField.val(datum.coach);
         leaderField.val(datum.leader);
@@ -421,10 +424,16 @@
         member4Field.val(datum.member4);
     
         // Components Callbacks
+        categoryTextField.on('change', function(event){
+            _data[key].text_category = event.target.value;
+            
+            var value = event.target.value;
+            _data[key].categoryText = value;
+          	categoryField.prop('disabled', value.length > 0);
+        });
         categoryField.on('change', function(event){
             _data[key].category = event.target.value;
         });
-        // Components Callbacks
         coachField.on('change', function(event){
             _data[key].coach = event.target.value;
         });
@@ -443,6 +452,7 @@
         member4Field.on('change', function(event){
             _data[key].member4 = event.target.value;
         });
+
         removeButton.on('click', function(event){
             delete _data[key];
             // we can use this function to remove component
@@ -450,19 +460,29 @@
             // but reloadComponents is much better since it will reset the numbering
             reloadComponents();
         });
+
         // Render Components
         fieldSet.append(legend);
         fieldSet.append(
             $("<div/>", {"class": "form-group row"}).append([
                     $("<label/>", {"class": "col-xs-2 col-form-label form-control-label"}).append([
-                    "Ketegori Kompetisi"
+                    "Tambah Ketegori Kompetisi (baru)"
                 ]),
-                $("<div/>", {"class": "form-group"}).append([
+                $("<div/>", {"class": "col-sm-10"}).append([
+                    categoryTextField
+                ])
+            ]) 
+        );
+        fieldSet.append(
+            $("<div/>", {"class": "form-group row"}).append([
+                    $("<label/>", {"class": "col-xs-2 col-form-label form-control-label"}).append([
+                    "Pilih Ketegori Kompetisi"
+                ]),
+                $("<div/>", {"class": "col-sm-10"}).append([
                     categoryField
                 ])
             ]) 
         );
-        fieldSet.append(legend);
         fieldSet.append(
             $("<div/>", {"class": "form-group row"}).append([
                     $("<label/>", {"class": "col-xs-2 col-form-label form-control-label"}).append([
@@ -525,16 +545,23 @@
         );
         fieldSet.append(removeButton);   
         $("#renderBox").append(fieldSet);
+
+        // Jquery library function for components
+      	$('.js-select2').select2({
+            width: 'resolve' // need to override the changed default
+        });
     }
+
     // Initialize data
-    _data[generateKey()] = { category: '', coach: '', leader: '', member1: '', member2: '', member3: '', member4: '' };
+    _data[generateKey()] = { text_category: '', category: '', coach: '', leader: '', member1: '', member2: '', member3: '', member4: '' };
     reloadComponents();
     $("body").on("click", "#add-team", function() {
         key = generateKey();
-        _data[key] = { category: '', coach: '', leader: '', member1: '', member2: '', member3: '', member4: '' };
+        _data[key] = { text_category: '', category: '', coach: '', leader: '', member1: '', member2: '', member3: '', member4: '' };
         newIndex = Object.keys(_data).length - 1
         addComponent(key, _data[key], newIndex);
     });
+
 </script>
 
 <script>
@@ -567,20 +594,10 @@
 </script>
 
 <script>
-// $(document).ready(function() {
+$(document).ready(function() {
     $('.js-basic-single').select2();
-    $('.select2-category').select2();
-    $('.select2-coach').select2();
-    $('.select2-leader').select2();
-    $('.select2-member1').select2();
-    $('.select2-member2').select2();
-    $('.select2-member3').select2();
-    $('.select2-member4').select2();
-// });
+});
 </script>
-
-<!-- select2 -->
-<script src="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/js/select2.min.js"></script>
 
 <!-- Validation date -->
 <script>
