@@ -60,7 +60,7 @@
 
                                                     <!-- GET date upload -->
                                                     <td>
-                                                        <?php                                                                                                 $time = strtotime($pr->created_at);
+                                                        <?php  $time = strtotime($pr->created_at);
                                                             $myFormatForView = date("d M Y", $time);
                                                             echo $myFormatForView;
                                                             
@@ -119,6 +119,7 @@
                                                                         
                                                                         <div class="form-group">
                                                                                 <label for="teamMembers" class="form-control-label">Dana Yang diajukan</label>
+                                                                                <br><?php  echo rupiah("2000000"); ?>  
                                                                                 <!-- GET Team member -->
                                                                                 <p id="leaderTeam">
                                                                                     <?php echo $pr->draft_budget ?>
@@ -177,9 +178,11 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="row" style="padding-top: 3px margin-bottom: 3px">
-                                                                    <div class="col-sm-12 text-center" style="padding-top: 3px margin-bottom: 3px">
-                                                                        <button type="submit" style="padding-top: 3px margin-bottom: 3px" class="btn btn-success waves-effect waves-light">Submit</button>
+                                                                <div class="modal-footer">
+                                                                    <div class="row" style="padding-top: 3px margin-bottom: 3px">
+                                                                        <div class="col-sm-12 text-center" style="padding-top: 3px margin-bottom: 3px">
+                                                                            <button type="submit" style="padding-top: 3px margin-bottom: 3px" class="btn btn-success waves-effect waves-light">Submit</button>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                                 </form>
