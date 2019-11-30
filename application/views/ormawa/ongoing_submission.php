@@ -134,7 +134,7 @@
                     </div>
                     <div class="col-sm-3">
                         <div class="form-group">
-                            <label for="teamMembers" class="form-control-label">Anggota Tim</label>
+                            <label for="teamMembers" class="form-control-label">Ketua Tim</label>
                             <!-- GET Team Member-->
                             <?php                                                                              
                                 foreach($pr->team as $key => $team) : 
