@@ -7,6 +7,7 @@ class Reviewer extends CI_Controller {
 		// $this->load->model('proposal');
 		// $this->load->database(); // load database
 		$this->load->helper('url');
+		$this->load->helpers('money_format');
 		if($this->session->userdata('status') != "login" OR $this->session->userdata('role') != '3'){
 			redirect("Authentication/login");
 		}

@@ -49,7 +49,8 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <?php   
+                                                        <?php  
+                                                            
                                                             $index = 1;
                                                             foreach($competition as $key => $cmpt) : 
                                                         ?>
@@ -92,13 +93,14 @@
                                                                 <div class="row">
                                                                     <div class="col-sm-9">
                                                                         <!-- GET Link to review Proposal -->
-                                                                        <a class="media" id="propose" href="<?php echo base_url();?>data/proposals/Proposal41574015633.pdf"></a>
+                                                                        <a class="media col-sm-9" id="propose" href="<?php echo base_url();?>data/proposals/Proposal41574015633.pdf"></a>
                                                                         
                                                                     </div>
                                                                     <div class="col-sm-3">
                                                                         
                                                                         <div class="form-group">
                                                                                 <label for="teamMembers" class="form-control-label">Dana Yang diajukan *get data*</label>
+                                                                                <br><?php  echo rupiah("2000000"); ?>
                                                                                 <!-- GET Team member -->
                                                                                 <p id="leaderTeam">
                                                                                 

@@ -113,7 +113,7 @@
                                                                         <br>
                                                                         <div class="form-group col-md-12" style="margin-bottom: .1rem;">
                                                                             <label for="registDate" class="block form-control-label">Jumlah Dana</label>
-                                                                            <?php echo $pr->realisazion_budget ?>
+                                                                            <?php echo rupiah($pr->realisazion_budget);?>
                                                                         </div>
                                                                         
                                                                         <div class="form-group col-md-12" style="margin-bottom: .1rem;">

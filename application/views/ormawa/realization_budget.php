@@ -57,7 +57,7 @@
                                                     <!-- GET start year  -->
                                                     <td><?php echo "2019"; ?></td>
                                                     <!-- GET total realization budget per year -->
-                                                    <td><?php echo rupiah("29.000.000"); ?></td>
+                                                    <td><?php echo rupiah("29000000"); ?></td>
                                                     <td>
                                                         <a href="" id="detailRealization" class="btn btn-primary" data-toggle="modal" data-target="#view-Modal-Finished-Proposal<?php echo $pr->id ?> ">
                                                             Detail
@@ -100,11 +100,11 @@
                                                                                     <!-- GET total competition name -->
                                                                                     <td><?php echo "Ideafuse"; ?></td>
                                                                                     <!-- GET total draft budget -->
-                                                                                    <td><?php echo rupiah("29.000.000"); ?></td>
+                                                                                    <td><?php echo rupiah("29000000"); ?></td>
                                                                                     <!-- GET total approved budget -->
-                                                                                    <td><?php echo rupiah("29.000.000"); ?></td>
+                                                                                    <td><?php echo rupiah("29000000"); ?></td>
                                                                                     <!-- GET total realization budget -->
-                                                                                    <td><?php echo rupiah("29.000.000"); ?></td>
+                                                                                    <td><?php echo rupiah("29000000"); ?></td>
                                                                                 </tr>
                                                                                 <?php 
                                                                                     $index++;

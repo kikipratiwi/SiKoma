@@ -143,12 +143,15 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="row" style="padding-top: 3px margin-bottom: 3px">
-                                                                    <div class="col-sm-12 text-center" style="padding-top: 3px margin-bottom: 3px">
-                                                                        <!-- SET status proposal -->
-                                                                        <button type="submit" style="padding-top: 3px margin-bottom: 3px" class="btn btn-success waves-effect waves-light">Submit</button>
+                                                                <div class="modal-footer">
+                                                                    <div class="row" style="padding-top: 3px margin-bottom: 3px">
+                                                                        <div class="col-sm-12 text-center" style="padding-top: 3px margin-bottom: 3px">
+                                                                            <!-- SET status proposal -->
+                                                                            <button type="submit" style="padding-top: 3px margin-bottom: 3px" class="btn btn-success waves-effect waves-light">Submit</button>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
+                                                                
                                                                 </form>
                                                                 
                                                             </div>
