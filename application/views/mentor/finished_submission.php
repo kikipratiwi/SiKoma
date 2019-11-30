@@ -119,7 +119,7 @@
                                                                             <label for="dana" class="form-control-label">Jumlah dana yang disetujui</label>
                                                                             <!-- GET Team Member-->
                                                                             <p id="dana">
-                                                                                <?php echo $pr->proposal->realisazion_budget ?>
+                                                                                <?php echo rupiah($pr->proposal->realisazion_budget);?>
                                                                             </p>
                                                                         </div>
                                                                     </div>

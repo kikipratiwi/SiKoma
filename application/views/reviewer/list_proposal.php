@@ -50,6 +50,7 @@
                                         <tbody>
 
                                                 <?php   
+                                                    $this->load->helpers('money_format');
                                                     $index = 1;
                                                     foreach($proposal as $key => $pr) : 
                                                 ?>
@@ -99,7 +100,7 @@
                                                                     <div class="col-sm-3">
                                                                     <div class="form-group">
                                                                             <label for="teamMembers" class="form-control-label">Dana Yang diajukan</label>
-                                                                                                                                
+                                                                                <br><?php  echo rupiah("2000000"); ?>                                        
                                                                                 <p id="leaderTeam">
                                                                                     <?php echo $pr->draft_budget?>
                                                                                 </p>    
@@ -154,12 +155,15 @@
                                                                         
                                                                         </div>
                                                                     </div>
-                                                                    <div class="row" style="padding-top: 3pt">
-                                                                        <div class="col-sm-12 text-center">
-                                                                            <!-- SET status proposal -->
-                                                                            <button type="submit" class="btn btn-success waves-effect waves-light">Submit</button>
+                                                                    <div class="modal-footer">
+                                                                        <div class="row" style="padding-top: 3pt">
+                                                                            <div class="col-sm-12 text-center">
+                                                                                <!-- SET status proposal -->
+                                                                                <button type="submit" class="btn btn-success waves-effect waves-light">Submit</button>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
+                                                                    
                                                                 </form>
                                                                 
                                                             </div>

@@ -6,6 +6,7 @@ class Mentor extends CI_Controller {
 		parent::__construct();
 		// $this->load->model('proposal');
 		// $this->load->database(); // load database
+		$this->load->helpers('money_format');
 		$this->load->helper('url');
 		if($this->session->userdata('status') != "login" OR $this->session->userdata('role') != 2){
 			redirect("Authentication/login");

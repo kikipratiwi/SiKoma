@@ -13,6 +13,7 @@ class Admin extends CI_Controller {
 		$this->load->database(); // load database
 		$this->load->model('m_competitions');
 		$this->load->helper('url');
+		$this->load->helpers('money_format');
 		if($this->session->userdata('status') != "login" OR $this->session->userdata('role') != 4){
 			redirect("Authentication/login");
 		}
