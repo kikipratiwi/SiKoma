@@ -81,7 +81,8 @@
                                                     </td>
                                                     <td><?php
                                                         if($pr->status==='WAITFUND'){?>
-                                                            <a href="<?php echo base_url();?>index.php/Admin/updatefund?id=<?php echo $pr->id; ?>" class="btn btn-success">
+                                                         <!-- echo base_url();?>index.php/Admin/updatefund?id= echo $pr->id; ?> -->
+                                                            <a href="" class="btn btn-success" data-toggle="modal" data-target="#view-Modal-Termin">
                                                                 Cairkan dana
                                                             </a>
                                                         <?php } else if($pr->status==='DISBURSEDFUND'){  ?>
@@ -93,21 +94,23 @@
                                                     
                                                 </tr>
 
-                                                <!-- MODAL REVIEW REVISION -->
-                                                <div class="modal fade modal-flex" id="view-Modal-Preview" tabindex="-1" role="dialog">
+                                                <!-- MODAL TERMIN -->
+                                                <div class="modal fade modal-flex" id="view-Modal-Termin" tabindex="-1" role="dialog">
                                                     <div class="modal-dialog modal-lg" role="document">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
                                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                                     <span aria-hidden="true">&times;</span>
                                                                 </button>
-                                                                <h5 class="modal-title">Review Proposal</h5>
+                                                                <h5 class="modal-title">Pencairan Dana</h5>
                                                             </div>
                                                             <div class="modal-body">
                                                                 <div class="row">
                                                                     <div class="col-sm-9">
                                                                         <!-- GET Link to review Proposal -->
-                                                                        <a class="media" id="propose" href="<?php echo base_url();?>data/proposals/<?php echo $pr->proposal ?>"></a>
+                                                                        <object id="pdf" height="500px" width="100%" type="application/pdf" data="<?php echo base_url();?>data/proposals/<?php echo $pr->proposal; ?>">
+                                                                            <span>PDF is not found or PDF plugin is not available</span>
+                                                                        </object>
                                                                     </div>
                                                                     <div class="col-sm-3">                                                                  
                                                                         <br>
@@ -115,22 +118,15 @@
                                                                             <label for="registDate" class="block form-control-label">Jumlah Dana</label>
                                                                             <?php echo rupiah($pr->realisazion_budget);?>
                                                                         </div>
-                                                                        
                                                                         <div class="form-group col-md-12" style="margin-bottom: .1rem;">
                                                                             <label for="registDate" class="block form-control-label">Sumber Dana</label>
                                                                             <?php echo $pr->budget_source ?>
                                                                         </div>
-
-                                                                        
-                                                                        
-                                                                            
                                                                     </div>
-                                                                </div>                                                               
-                                                                
-                                                            
-                                                        
+                                                                </div>
                                                     </div>
                                                 </div>
+                                                <!-- END MODAL TERMIN -->
 
                                                
 
@@ -278,10 +274,6 @@
 <script> 
     $(document).ready( function () {
         $('#ongoingSubmissionTable').DataTable();
-    });
-
-    $(function () {
-        $('.propose').media({width: 950, height:430});
     });
 </script>
 

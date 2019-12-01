@@ -143,7 +143,7 @@ class Ormawa extends CI_Controller {
 		$err = curl_error($curl);				
 		curl_close($curl);		
 
-		redirect('Ormawa/ongoing_submission');
+		redirect('Ormawa/proposal_submission');
 		
 	}
     

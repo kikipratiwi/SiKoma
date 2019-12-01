@@ -70,7 +70,7 @@
                                                                 <td><?php echo date_format($date1,"d M Y")." - ". date_format($date2,"d M Y");?></td>
                                                                 <td>
                                                                     <!-- <button type="button" class="btn btn-primary waves-effect waves-light">Edit</button> -->
-                                                                    <a href="" id="input_category" class="open-view-cateogry btn btn-primary preview-pdf" data-toggle="modal" data-target="#edit-competition-modal-form">
+                                                                    <a href="" id="input_category" class="open-view-cateogry btn btn-primary preview-pdf" data-toggle="modal" data-target="#view-Modal-Termin">
                                                                         Edit
                                                                     </a>
                                                                 </td>
@@ -79,96 +79,130 @@
                                                                 </td>
                                                             </tr>
 
-                                                            <!-- MODAL REVIEW REVISION -->
-                                                <div class="modal fade modal-flex" id="edit-competition-modal-form" tabindex="-1" role="dialog">
-                                                    <div class="modal-dialog modal-lg" role="document">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                    <span aria-hidden="true">&times;</span>
-                                                                </button>
-                                                                <h5 class="modal-title">Review Proposal</h5>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                <div class="row">
-                                                                    <div class="col-sm-9 col-lg-9">
-                                                                        <!-- GET Link to review Proposal -->
-                                                                        <a style="width:200% height:200%" class="media col-sm-9" id="propose" href="<?php echo base_url();?>data/proposals/Proposal41574015633.pdf"></a>
-                                                                        
-                                                                    </div>
-                                                                    <div class="col-sm-3 col-lg-3">
-                                                                        
-                                                                        <div class="form-group">
-                                                                                <label for="teamMembers" class="form-control-label">Dana Yang diajukan *get data*</label>
-                                                                                <br><?php  echo rupiah("2000000"); ?>
-                                                                                <!-- GET Team member -->
-                                                                                <p id="leaderTeam">
-                                                                                
-                                                                                </p>                                                                                
-                                                                            </div>
-                                                                            <form enctype="multipart/form-data" method="POST" action="">   
-                                                                            
-                                                                            <input type="hidden" id="proposal" name="proposal" value="">
-                                                                            <div class="md-input-wrapper">
-                                                                                
-                                                                            <textarea id="leaderTeam" class="md-form-control md-static" cols="2" rows="4" name="rab"></textarea>
-                                                                                <label>Catatan RAB</label>
-                                                                                
-                                                                            </div>
-                                                                            <div class="md-input-wrapper">                                                                                
-                                                                                <textarea id="contentNotes"  class="md-form-control md-static" cols="2" rows="4" name="konten"></textarea>
-                                                                                <label>Catatan Konten</label>
-                                                                                <p id="dana">
-                                                                                
-                                                                            </p>
-
-                                                                            </div>
-                                                                            <label>Rincian Dana</label>
-                                                                            <div class="md-input-wrapper">
-                                                                                Jumlah Dana yang Disetujui<br>
-                                                                                <input class="col-sm-9" type="number" name="budget" min=0>
-                                                                            </div>
-                                                                            <div class="md-input-wrapper">
-                                                                                <br>Sumber Dana<br>
-                                                                                <input class="col-sm-9" type="text" name="source">
-                                                                            </div><br>                                                                     
-                                                                            <!-- SET status proposal -->
-                                                                            <label class="bold">Status</label>
-                                                                            <div class="form-radio">
-                                                                                <form method="POST">
-                                                                                    <div class="radio radio-inline">
-                                                                                        <label>
-                                                                                            <input type="radio" name="radio" value="WAITFUND">
-                                                                                                <i class="helper"></i>Diterima
-                                                                                        </label>
+                                                                        <!-- MODAL TERMIN -->
+                                                            <div class="modal fade modal-flex" id="view-Modal-Termin" tabindex="-1" role="dialog">
+                                                                <div class="modal-dialog modal-sm" role="document">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                                <span aria-hidden="true">&times;</span>
+                                                                            </button>
+                                                                            <h5 class="modal-title">Pencairan Dana</h5>
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                            <div class="row">
+                                                                                <div class="col-sm-12">
+                                                                                    <div class="form-group col-md-12" style="margin-bottom: .1rem;">
+                                                                                        <label for="registDate" class="block form-control-label">Jumlah Dana</label>
+                                                                                        <!-- < echo rupiah($pr->realisazion_budget);?> -->
+                                                                                        <input type="number" name="budget" min=0>
+                                                                                        <!-- < -->
+                                                                                            <!-- if($pr->realisazion_budget==='yang diinputkan') -->
+                                                                                        
+                                                                                        <!-- ?> -->
+                                                                                        <br><span>Sisa dana yang akan dicairkan pada termin 2 adalah </span>
+                                                                                        <!-- < -->
+                                                                                            <!-- echo rupiah($pr->realisazion_budget) dikurang yang diinputkan; -->
+                                                                                        <!-- ?> -->
                                                                                     </div>
-                                                                                    <div class="radio radio-inline">
-                                                                                        <label>
-                                                                                            <input type="radio" name="radio" value="REVISION">
-                                                                                                <i class="helper"></i>Revisi
-                                                                                        </label>
+                                                                                    <div class="form-group col-md-12" style="margin-bottom: .1rem;">
+                                                                                        <label for="registDate" class="block form-control-label">Sumber Dana</label>
+                                                                                        <!-- < $pr->budget_source ?> -->
                                                                                     </div>
-                                                                                    <div class="radio radio-inline">
-                                                                                        <label>
-                                                                                            <input type="radio" name="radio" value="REJECTED">
-                                                                                                <i class="helper"></i>Ditolak
-                                                                                        </label>
-                                                                                    </div>
-                                                                                
+                                                                                </div>
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="modal-footer">
-                                                                    <div class="col-sm-12 text-center" style="padding-top: 3px margin-bottom: 3px">
-                                                                        <button type="submit" style="padding-top: 3px margin-bottom: 13px" class="btn btn-success waves-effect waves-light">Submit</button>
-                                                                    </div>
-                                                                </div>
-                                                                </form>
                                                             </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                            <!-- END MODAL TERMIN -->
+
+                                                            
+                                                            <!-- Edit Competition Modal -->
+                                                            <div class="modal fade modal-flex" id="edit-competition-modal-form" tabindex="-1" role="dialog">
+                                                                <div class="modal-dialog" role="document">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                                <span aria-hidden="true">&times;</span>
+                                                                            </button>
+                                                                        <h5 class="modal-title">Edit Data Kompetisi</h5>
+                                                                    </div>
+
+                                                                    <form method="POST" action="">
+                                                                        <div class="modal-body">
+                                                                                <div class="form-group col-md-12">
+                                                                                    <label for="competitionName" class="block form-control-label">Nama Kompetisi *get data*</label>
+                                                                                    <input type="text" class="form-control" name="name">
+                                                                                </div>
+                                                                                
+                                                                                <div class="form-group col-md-12">
+                                                                                    <label for="institusion" class="block form-control-label">Institusi Penyelenggara *get data*</label>
+                                                                                    <input type="text" class="form-control" name="institusion">
+                                                                                </div>
+                                                                            
+                                                                                <div class="form-row">
+                                                                                    <div class="form-group col-md-6">
+                                                                                        <label for="location" class="block form-control-label">Lokasi *get data*</label>
+                                                                                        <input type="text" class="form-control" name="location">
+                                                                                    </div>
+                                                                                    <div class="form-group col-md-6">
+                                                                                        <label for="level" class="block form-control-label">Level Kompetisi</label>
+                                                                                        <select class="form-control " name="level">
+                                                                                            <option value="4">Kota</option>
+                                                                                            <option value="3">Provinsi</option>
+                                                                                            <option value="2">Nasional</option>
+                                                                                            <option value="1">Internasional</option>
+                                                                                        </select>    
+                                                                                    </div>
+                                                                                </div>
+                                                                            
+                                                                                <div class="form-group col-md-12" style="margin-bottom: .1rem;">
+                                                                                    <label for="registDate" class="block form-control-label">Tanggal Pendaftaran *get data*</label>
+                                                                                </div>
+
+                                                                                <div class="form-row">
+                                                                                    <div class="form-group col-md-6">
+                                                                                        <div class="form-control-wrapper">
+                                                                                            <input type="date" name="regist_opendate" id="regist-date-start" class="form-control floating-label">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="form-group col-md-6">
+                                                                                        <div class="form-control-wrapper">
+                                                                                            <input type="date" name="regist_closedate" id="regist-date-end" class="form-control floating-label">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            
+                                                                                <div class="form-group col-md-12" style="margin-bottom: .1rem;">
+                                                                                    <label for="eventDate" class="block form-control-label">Tanggal Pelaksanaan Kompetisi*get data*</label>
+                                                                                </div>
+
+                                                                                <div class="form-row">
+                                                                                    <div class="form-group col-md-6">
+                                                                                        <div class="form-control-wrapper">
+                                                                                            <input type="date" name="event_startdate" id="event-date-start" class="form-control floating-label">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="form-group col-md-6">
+                                                                                        <div class="form-control-wrapper">
+                                                                                            <input type="date" name="event_closedate" id="event-date-end" class="form-control floating-label">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                
+                                                                                <div class="form-group row"> <div class="col-sm-10"> </div> </div>
+
+                                                                        </div>
+                                                                        <div class="modal-footer" style="padding-top: 3pt">
+                                                                            <button type="submit" class="btn btn-primary">Simpan</button>
+                                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                                                                        </div>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                            <!-- End of Edit Competition Modal -->
+
                                                         <?php 
                                                     $index++;
                                                     endforeach;
@@ -404,34 +438,10 @@
 
     $(function () {
         $('.media').media(
-            // {width: 950, height:430}
+            {width: 950, height:430}
             );
     });
 
-    $( document ).on( 'click', '.preview-pdf', function (e) {
-
-e.preventDefault();
-e.stopPropagation();
-
-var url = $(this).data('pdfurl');
-
-bootbox.dialog({
-  message: '<object class="preview-pdf-file" type="application/pdf" data="'+url+'">This is not working as expected</object>',      
-  title: "Preview PDF",
-  "className" : "preview-pdf-modal",
-  onEscape: function() {}
-})
-
-$('.preview-pdf-modal .modal-content')
-.draggable({
-    cancel: ".preview-pdf-modal .preview-pdf-file"
-})
-.resizable({
-  minWidth: 350,
-  minHeight: 350,
-  alsoResize: '.preview-pdf-modal .bootbox-body'
-});    
-})
 
 
 </script>
