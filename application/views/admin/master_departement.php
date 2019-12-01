@@ -83,7 +83,7 @@
                                                     </td>
                                                 </tr>
 
-                                                <!-- Edit Student Modal -->
+                                                <!-- Edit Department Modal -->
                                                 <div class="modal fade modal-flex" id="edit-departement-modal-form" tabindex="-1" role="dialog">
                                                     <div class="modal-dialog" role="document">
                                                         <div class="modal-content">
@@ -110,7 +110,7 @@
                                                         </form>
                                                     </div>
                                                 </div>
-                                                <!-- End of Edit Student Modal -->
+                                                <!-- End of Edit Departement Modal -->
 
                                                 <?php
                                             };?>
@@ -132,7 +132,7 @@
     </div>
 </div>
 
-<!-- Add Student Modal -->
+<!-- Add Department Modal -->
 <div class="modal fade modal-flex" id="add-departement-modal-form" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -159,7 +159,7 @@
         </form>
     </div>
 </div>
-<!-- End of Add Student Modal -->
+<!-- End of Add Department Modal -->
 
     <!-- Required Jqurey -->
     <script
