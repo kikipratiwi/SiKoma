@@ -42,7 +42,7 @@
                                             <th>No</th>
                                             <th>Proposal</th>
                                             <th>Ketua Tim</th>
-                                            <th>Jurusan</th>
+                                            <th>Organisasi</th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -53,16 +53,12 @@
                                                 <tr>
                                                     <td><?php echo $index ?></td>
                                                     <!-- GET name competition -->
-                                                    <td><?php echo $pr->competition->name ?></td>
-
-                                                    <!-- GET date upload -->
-                                                
-
+                                                    <td><?php echo $pr->competition->name ?></td>                                                    
                                                     <!-- GET leader -->
                                                     <td><?php echo $pr->profile->name ?></td>
 
                                                     <!-- GET departement -->
-                                                    <td><?php echo $pr->department->name ?></td>                                                    
+                                                    <td><?php echo $pr->organization->name ?></td>                                                    
                                                 </tr>
                                                 
 

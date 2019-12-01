@@ -76,10 +76,7 @@ class Authentication extends CI_Controller {
 			);
 
 		$this->session->set_userdata($data_session);
-
 		$this->login_act();
-
-		
 	}
 
 	public function login_act()

@@ -36,16 +36,11 @@
                                             <div class="col-lg-12">
                                                 <!-- Proposal Document inputs starts -->
                                                 <form enctype="multipart/form-data" method="POST" action="<?php echo base_url().'index.php/Ormawa/act_revision_submission'; ?>">                                                       
-                                                        <div class="form-group row">
-                                                            <label for="department" class="col-xs-2 col-form-label form-control-label">Jurusan</label>
-                                                            <div class="col-sm-10">
-                                                                <input type="text" class="form-control " name="department" id="department" value="<?php echo $proposal->department->name?>" readonly>
-                                                            </div>
-                                                        </div>
+                                                        
                                                         <div class="form-group row">
                                                             <label for="competition" class="col-xs-2 col-form-label form-control-label">Kompetisi</label>
                                                             <div class="col-sm-10">
-                                                                <input type="text" class="form-control " name="competition" id="competition" value="<?php echo $proposal->competition->name?>"  readonly>
+                                                                <input type="text" class="form-control " name="competition" id="competition" value="<?php echo $proposal->competition->name?>"  readonly >
                                                             </div> 
                                                         </div>
 
@@ -55,7 +50,7 @@
                                                         <div class="form-group row">
                                                             <label for="budget" class="col-xs-2 col-form-label form-control-label">Dana yang diajukan</label>
                                                             <div class="col-sm-10">
-                                                                <input class="form-control" type="number" name="budget" placeholder="Jumlah Dana" value="" id="budget">
+                                                                <input class="form-control" type="number" name="budget" placeholder="Jumlah Dana" value="" id="budget" required>
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">

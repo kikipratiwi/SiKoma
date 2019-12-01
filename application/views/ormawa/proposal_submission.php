@@ -169,7 +169,11 @@
             <div class="modal-body">
                     <div class="form-group col-md-12">
                         <label for="competitionName" class="block form-control-label">Nama Kompetisi</label>
+<<<<<<< HEAD
                         <input type="text" class="form-control" name="name" id="category-name" placeholder="ex: Gemastik" required>
+=======
+                        <input type="text" class="form-control" name="name" placeholder="ex: Gemastik" required>
+>>>>>>> 44a0e0bd5ed0ce619903d0d8232ed4263eef93d1
                     </div>
                     
                     <div class="form-group col-md-12">
@@ -405,23 +409,25 @@
         var member4Field =  $("<select />", {"class": 'js-select2 form-control', "style": 'width: 100%',"name": 'member4[]'});
         var removeButton =  $("<button type='button' style='float:right' class='js-remove-button cancelBtn btn btn-warning waves-effect waves-light px-2 my-2'>Remove</button>")
         
-        // get option value from php
-        optionText = 1;
-        optionValue = 2;
-        
-        <?php foreach($department as $key => $dpt) : ?>
-            // optionText = <?php echo json_encode($dpt->name, JSON_HEX_TAG); ?>;
-            // optionValue = <?php echo json_encode($dpt->id, JSON_HEX_TAG); ?>;
+        // mentor
+        <?php foreach($mentor as $key => $dpt) : ?>
+            optionText = <?php echo json_encode($dpt->name, JSON_HEX_TAG); ?>;
+            optionValue = <?php echo json_encode($dpt->id, JSON_HEX_TAG); ?>;
 
-            categoryField.append(`<option value="${optionValue}"> ${optionText+2} </option>`); 
-            coachField.append(`<option value="${optionValue}"> ${optionText+2} </option>`); 
-            leaderField.append(`<option value="${optionValue}"> ${optionText+2} </option>`); 
-            member1Field.append(`<option value="${optionValue}"> ${optionText+2} </option>`); 
-            member2Field.append(`<option value="${optionValue}"> ${optionText+2} </option>`); 
-            member3Field.append(`<option value="${optionValue}"> ${optionText+2} </option>`); 
-            member4Field.append(`<option value="${optionValue}"> ${optionText+2} </option>`); 
-            optionText = optionText + 1;
-            optionValue = optionValue + 1;
+            categoryField.append(`<option value="${optionValue}"> ${optionText} </option>`); 
+            coachField.append(`<option value="${optionValue}"> ${optionText} </option>`); 
+        <?php endforeach; ?>
+
+        // student
+        <?php foreach($student as $key => $dpt) : ?>
+            optionText = <?php echo json_encode($dpt->name, JSON_HEX_TAG); ?>;
+            optionValue = <?php echo json_encode($dpt->id, JSON_HEX_TAG); ?>;
+
+            leaderField.append(`<option value="${optionValue}"> ${optionText} </option>`); 
+            member1Field.append(`<option value="${optionValue}"> ${optionText} </option>`); 
+            member2Field.append(`<option value="${optionValue}"> ${optionText} </option>`); 
+            member3Field.append(`<option value="${optionValue}"> ${optionText} </option>`); 
+            member4Field.append(`<option value="${optionValue}"> ${optionText} </option>`); 
         <?php endforeach; ?>
 
         // Components Set Value
