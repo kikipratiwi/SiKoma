@@ -36,6 +36,12 @@
                                                 <label class="label bg-danger" style="white-space: pre-wrap; text-transform: uppercase;"><i class="icon-ban"></i> Anda tidak dapat mengajukan proposal. Pastikan jurusan Anda telah menyerahkan SPJ dan LPJ dari kompetisi sebelumnya ke bagian kemahasiswaan.</label>
                                             </div>
                                         <?php }?>
+
+                                        <?php if($this->session->flashdata('error') == TRUE ) {?>
+                                            <div class="label-main" style="padding-top:5px;">
+                                                <label class="label bg-danger" style="white-space: pre-wrap; text-transform: uppercase;"><i class="icon-ban"></i> <?php echo $this->session->flashdata('error');?></label>
+                                            </div>
+                                        <?php }?>
                                     
                                     </div>
                                     <div class="card-block tab-icon">
@@ -67,8 +73,14 @@
                                                                     <div class="col-sm-8">
                                                                         <select class="js-basic-single form-control" name="competition" id="competition" style="width: 100%" required>
                                                                         <?php foreach($competition as $key => $cmp) : ?>
+                                                                            <?php if($cmp->status == true){?>
 			                                                                <option value="<?= $cmp->id?>"> <?=$cmp->name ?></option>
-		                                                                <?php endforeach;	?>
+
+                                                                            <?php } else { ?>
+                                                                            <option value="<?= $cmp->id?>" disabled> <?=$cmp->name ?></option>
+                                                                            <
+
+		                                                                <?php } endforeach;	?>
                                                                         </select>
                                                                     </div>
                                                                     <span class="md-add-on-file float-right col-sm-12">
@@ -387,7 +399,7 @@
         var legend = $("<legend>#"+ (index + 1) +"</legend>");
         var categoryField   = $("<select />", {"class": 'js-select2 form-control js-required', "style": 'width: 100%',"name": 'category[]'});
         var coachField      = $("<select />", {"class": 'js-select2 form-control js-required', "style": 'width: 100%',"name": 'coach[]'});
-        var leaderField     = $("<select />", {"class": 'js-select2 form-control', "style": 'width: 100%',"name": 'leader[]'});
+        var leaderField     = $("<select />", {"class": 'js-select2 form-control js-required', "style": 'width: 100%',"name": 'leader[]'});
         var member1Field =  $("<select />", {"class": 'js-select2 form-control', "style": 'width: 100%',"name": 'member1[]'});
         var member2Field =  $("<select />", {"class": 'js-select2 form-control', "style": 'width: 100%',"name": 'member2[]'});
         var member3Field =  $("<select />", {"class": 'js-select2 form-control', "style": 'width: 100%',"name": 'member3[]'});

@@ -139,22 +139,35 @@ class Ormawa extends CI_Controller {
 
 	public function act_add_competition()
 	{
-		//Kompetisi
-		$curl = curl_init();
-		curl_setopt_array($curl, array(
-		CURLOPT_URL => API_URL."/api/competitions",
-		CURLOPT_RETURNTRANSFER => true,
-		CURLOPT_ENCODING => "",		
-		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-		CURLOPT_CUSTOMREQUEST => "POST",
-		CURLOPT_POSTFIELDS => "name=".$_POST['name']."&inst=".$_POST['institusion']."&cmpt_level=".$_POST['level']."&ropen=".$_POST['regist_opendate']."&rclose=".$_POST['regist_closedate']."&estart=".$_POST['event_startdate']."&eend=".$_POST['event_closedate']."&location=".$_POST['location']."",
-		));
+		$event = $_POST['event_startdate']; 
+		$currentDateTime = date('Y-m-d');
+		$date1 = new DateTime($currentDateTime);
+		$date2 = new DateTime($event);
 
-		$cmpt = curl_exec($curl);
+		$diff = $date1->diff($date2);
+		$selisih = $diff->format('%a');
 
-		$err = curl_error($curl);				
-		curl_close($curl);		
+		if($selisih >= 7){
+			//Kompetisi
+			$curl = curl_init();
+			curl_setopt_array($curl, array(
+			CURLOPT_URL => API_URL."/api/competitions",
+			CURLOPT_RETURNTRANSFER => true,
+			CURLOPT_ENCODING => "",		
+			CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+			CURLOPT_CUSTOMREQUEST => "POST",
+			CURLOPT_POSTFIELDS => "name=".$_POST['name']."&inst=".$_POST['institusion']."&cmpt_level=".$_POST['level']."&ropen=".$_POST['regist_opendate']."&rclose=".$_POST['regist_closedate']."&estart=".$_POST['event_startdate']."&eend=".$_POST['event_closedate']."&location=".$_POST['location']."",
+			));
 
+			$cmpt = curl_exec($curl);
+
+			$err = curl_error($curl);				
+			curl_close($curl);			
+		}
+		else{
+			$this->session->set_flashdata('error', 'Anda tidak bisa mengajukan proposal, pengajuan minimal h-7 lomba');
+		}
+		    	
 		redirect('Ormawa/proposal_submission');
 		
 	}
