@@ -65,7 +65,7 @@
                                                                 <label for="competition" class="col-xs-2 col-form-label form-control-label">Kompetisi</label>
                                                                 <div class="d-flex justify-content-between">
                                                                     <div class="col-sm-8">
-                                                                        <select class="js-basic-single form-control" name="competition" id="competition">
+                                                                        <select class="js-basic-single form-control" name="competition" id="competition" required>
                                                                         <?php foreach($competition as $key => $cmp) : ?>
 			                                                                <option value="<?= $cmp->id?>"> <?=$cmp->name ?></option>
 		                                                                <?php endforeach;	?>
@@ -83,13 +83,13 @@
                                                             <div class="form-group row">
                                                                 <label for="budget" class="col-xs-2 col-form-label form-control-label">Dana yang diajukan</label>
                                                                 <div class="col-sm-10">
-                                                                    <input class="form-control" type="number" name="budget" placeholder="Jumlah Dana" value="" id="budget">
+                                                                    <input class="form-control" type="number" name="budget" placeholder="Jumlah Dana" value="" id="budget" required>
                                                                 </div>
                                                             </div>
                                                             <div class="form-group row">
                                                                 <label for="summary" class="col-xs-2 col-form-label form-control-label">Ringkasan</label>
                                                                 <div class="col-sm-10">
-                                                                  <textarea name="summary" id="summary" class="form-control" rows="4"></textarea>
+                                                                  <textarea name="summary" id="summary" class="form-control" rows="4" required></textarea>
                                                                 </div>
                                                             </div>
                                                             <div class="form-group row">
@@ -99,7 +99,7 @@
                                                                         <button class="btn btn-primary" style="margin-left: 15px;border-radius: .25rem;padding: .5rem .75rem;">Browse</button>
                                                                     </span>
                                                                     <div class="md-input-file">
-                                                                        <input type="file" name="proposal" id="file-upload" />
+                                                                        <input type="file" name="proposal" id="file-upload"  required/>
                                                                         <input type="text" class="md-form-control md-form-file" style="margin-right: 18px;float: right;width: 97%;">
                                                                         <label class="md-label-file" id="file-upload-filename" style="padding-left: 5px; color: rgb(155, 156, 169);">doc Proposal</label>
                                                                     </div>
@@ -169,22 +169,22 @@
             <div class="modal-body">
                     <div class="form-group col-md-12">
                         <label for="competitionName" class="block form-control-label">Nama Kompetisi</label>
-                        <input type="text" class="form-control" name="name" placeholder="ex: Gemastik">
+                        <input type="text" class="form-control" name="name" id="category-name" placeholder="ex: Gemastik" required>
                     </div>
                     
                     <div class="form-group col-md-12">
                         <label for="institusion" class="block form-control-label">Institusi Penyelenggara</label>
-                        <input type="text" class="form-control" name="institusion" placeholder="ex: Universitas Gajah Mada">
+                        <input type="text" class="form-control" name="institusion" placeholder="ex: Universitas Gajah Mada" required>
                     </div>
                 
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="location" class="block form-control-label">Lokasi</label>
-                            <input type="text" class="form-control" name="location" placeholder="Lokasi Kompetisi">
+                            <input type="text" class="form-control" name="location" placeholder="Lokasi Kompetisi" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="level" class="block form-control-label">Level Kompetisi</label>
-                            <select class="form-control " name="level">
+                            <select class="form-control " name="level" required>
                                 <option value="4">Kota</option>
                                 <option value="3">Provinsi</option>
                                 <option value="2">Nasional</option>
@@ -200,12 +200,12 @@
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <div class="form-control-wrapper">
-                                <input type="date" name="regist_opendate" id="regist-date-start" class="form-control floating-label" placeholder="Start Date">
+                                <input type="date" name="regist_opendate" id="regist-date-start" class="form-control floating-label" placeholder="Start Date" required>
                             </div>
                         </div>
                         <div class="form-group col-md-6">
                             <div class="form-control-wrapper">
-                                <input type="date" name="regist_closedate" id="regist-date-end" class="form-control floating-label" placeholder="End Date">
+                                <input type="date" name="regist_closedate" id="regist-date-end" class="form-control floating-label" placeholder="End Date" required>
                             </div>
                         </div>
                     </div>
@@ -217,12 +217,12 @@
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <div class="form-control-wrapper">
-                                <input type="date" name="event_startdate" id="event-date-start" class="form-control floating-label" placeholder="Start Date">
+                                <input type="date" name="event_startdate" id="event-date-start" class="form-control floating-label" placeholder="Start Date" required>
                             </div>
                         </div>
                         <div class="form-group col-md-6">
                             <div class="form-control-wrapper">
-                                <input type="date" name="event_closedate" id="event-date-end" class="form-control floating-label" placeholder="End Date">
+                                <input type="date" name="event_closedate" id="event-date-end" class="form-control floating-label" placeholder="End Date" required>
                             </div>
                         </div>
                     </div>
@@ -231,7 +231,7 @@
 
             </div>
             <div class="modal-footer" style="padding-top: 3pt">
-                <button type="submit" class="btn btn-primary">Simpan</button>
+                <button type="submit" class="btn btn-primary js-save-category">Simpan</button>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
             </div>
         </form>
@@ -359,6 +359,16 @@
     <script src="<?php echo base_url();?>assets/select2.min.js"></script>    
 
 <script> 
+    $(".js-save-category").on('change', function(event){
+        var optionText = $("#category-name").val;
+        if( > 0) {
+            $("#competition").append(`<option value="${optionText}"> ${optionText} </option>`); 
+        }
+            $("#competition").val(optionText); 
+
+    }
+</script> 
+<script> 
   	window._data = {};
     // to generate random and unique key 
     function generateKey() { return window.performance.now(); }
@@ -386,8 +396,8 @@
         var fieldSet = $("<fieldset id='team" + key + "'></fieldset>");
         var legend = $("<legend>#"+ (index + 1) +"</legend>");
         var categoryTextField   = $("<input />", {"class": 'js-text-category form-control', "name": 'category[]'});
-        var categoryField   = $("<select />", {"class": 'js-select2 form-control', "style": 'width: 100%',"name": 'category[]'});
-        var coachField      = $("<select />", {"class": 'js-select2 form-control', "style": 'width: 100%',"name": 'coach[]'});
+        var categoryField   = $("<select />", {"class": 'js-select2 form-control js-required', "style": 'width: 100%',"name": 'category[]'});
+        var coachField      = $("<select />", {"class": 'js-select2 form-control js-required', "style": 'width: 100%',"name": 'coach[]'});
         var leaderField     = $("<select />", {"class": 'js-select2 form-control', "style": 'width: 100%',"name": 'leader[]'});
         var member1Field =  $("<select />", {"class": 'js-select2 form-control', "style": 'width: 100%',"name": 'member1[]'});
         var member2Field =  $("<select />", {"class": 'js-select2 form-control', "style": 'width: 100%',"name": 'member2[]'});
@@ -398,6 +408,7 @@
         // get option value from php
         optionText = 1;
         optionValue = 2;
+        
         <?php foreach($department as $key => $dpt) : ?>
             // optionText = <?php echo json_encode($dpt->name, JSON_HEX_TAG); ?>;
             // optionValue = <?php echo json_encode($dpt->id, JSON_HEX_TAG); ?>;
@@ -433,6 +444,7 @@
         });
         categoryField.on('change', function(event){
             _data[key].category = event.target.value;
+            categoryTextField.prop('disabled', value.length > 0);
         });
         coachField.on('change', function(event){
             _data[key].coach = event.target.value;
@@ -550,6 +562,9 @@
       	$('.js-select2').select2({
             width: 'resolve' // need to override the changed default
         });
+
+        $('.js-required').prop("required", true);
+
     }
 
     // Initialize data
