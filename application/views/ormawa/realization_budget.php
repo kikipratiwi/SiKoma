@@ -56,15 +56,15 @@
                                                     <tr>
                                                         <td><?php echo $index ?></td>
                                                         <!-- GET start year  -->
-                                                        <td><?php echo "2019"; ?></td>
+                                                        <td><?php echo $pr->competition->year; ?></td>
                                                         <!-- GET total competition name -->
-                                                        <td><?php echo "Ideafuse"; ?></td>
+                                                        <td><?php echo $pr->competition->name; ?></td>
                                                         <!-- GET total draft budget -->
-                                                        <td><?php echo rupiah("29000000"); ?></td>
+                                                        <td><?php echo rupiah($pr->draft_budget); ?></td>
                                                         <!-- GET total approved budget -->
-                                                        <td><?php echo rupiah("29000000"); ?></td>
+                                                        <td><?php echo rupiah($pr->realisazion_budget); ?></td>
                                                         <!-- GET total realization budget -->
-                                                        <td><?php echo rupiah("29000000"); ?></td>
+                                                        <td><?php echo rupiah($pr->approved_budget); ?></td>
                                                     </tr>
                                                 <?php 
                                                     $index++;
