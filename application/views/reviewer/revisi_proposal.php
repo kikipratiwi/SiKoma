@@ -112,8 +112,9 @@
                                                                 <div class="row">
                                                                     <div class="col-sm-9">
                                                                         <!-- GET Link to review Proposal -->
-                                                                        <a class="media" id="propose" href="<?php echo base_url();?>data/proposals/<?php echo $pr->proposal; ?>"></a>
-                                                                        </a>
+                                                                        <object id="pdf" height="500px" width="100%" type="application/pdf" data="<?php echo base_url();?>data/proposals/<?php echo $pr->proposal; ?>">
+                                                                            <span>PDF is not found or PDF plugin is not available</span>
+                                                                        </object>
                                                                     </div>
                                                                     <div class="col-sm-3">
                                                                         
@@ -221,10 +222,6 @@
 <script> 
     $(document).ready( function () {
         $('#previewNewProposal').DataTable();
-    });
-
-    $(function () {
-        $('.media').media({width: 950, height:430});
     });
 </script>
 
