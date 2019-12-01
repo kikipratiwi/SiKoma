@@ -129,28 +129,22 @@
                 <div class="row">
                     <div class="col-sm-9">
                         <!-- GET Link to review Proposal -->
-                       <a class="media" id="propose" href="<?php echo base_url();?>data/proposals/<?php echo $pr->proposal->proposal ?>">
+                       <a class="media" id="propose" href="<?php echo base_url();?>data/proposals/<?php echo $pr->proposal ?>">
                       </a>
                     </div>
                     <div class="col-sm-3">
                         <div class="form-group">
-                            <label for="teamMembers" class="form-control-label">Anggota Tim</label>
+                            <label for="teamMembers" class="form-control-label">Ketua Tim</label>
                             <!-- GET Team Member-->
-                            <p id="leaderTeam">
-                                <?php echo $pr->leader_id ?>
-                            </p>
-                            <p id="member1">
-                                <?php echo $pr->member1_id ?>
-                            </p>
-                            <p id="member2">
-                                <?php echo $pr->member2_id ?>
-                            </p>
-                            <p id="member3">
-                                <?php echo $pr->member3_id ?>
-                            </p>
-                            <p id="member4">
-                                <?php echo $pr->member4_id ?>
-                            </p>
+                            <?php                                                                              
+                                foreach($pr->team as $key => $team) : 
+                            ?>
+
+                                <p id="leaderTeam">
+                                    <?php echo $team?>
+                                </p>
+
+                            <?php endforeach; ?>
                         </div>
                         <div class="form-group">
                             <label for="dana" class="form-control-label">Catatan RAB</label>
@@ -183,13 +177,13 @@
                 <div class="modal-footer">
                     <!-- ke form revisi proposal -->
                     <!-- if status proposal adalah revisi -->
-                     <?php if($pr->proposal->status==='REVISION') { ?>
+                     <?php if($pr->status==='REVISION') { ?>
                         <a type="button" href="<?php echo base_url();?>index.php/Ormawa/revision_submission?id=<?php echo $pr->proposal_id; ?>" class="btn btn-success waves-effect waves-light" >ke form upload revisi</a>
                     <?php } ?>
                     <!-- end if -->
                     
                     <!-- download proposal -->
-                    <a type="button" href="<?php echo base_url();?>data/proposals/<?php echo $pr->proposal->proposal?>" class="btn btn-primary waves-effect waves-light" >Download Proposal</a>
+                    <a type="button" href="<?php echo base_url();?>data/proposals/<?php echo $pr->proposal?>" class="btn btn-primary waves-effect waves-light" >Download Proposal</a>
                 </div>
                 
             </div>

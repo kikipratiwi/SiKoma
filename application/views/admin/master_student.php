@@ -111,9 +111,15 @@
                                                                         <label for="studentNIM" class="block form-control-label">NIM*get data<</label>
                                                                         <input type="text" class="form-control" name="nim">
                                                                     </div>
-                                                                    <!-- // !use select2 // -->
                                                                     <div class="form-group col-md-12">
                                                                         <label for="studentDepartement" class="block form-control-label">Jurusan*get data</label>
+                                                                        <!-- // ! get departement from database //
+                                                                        <select class="form-control" name="organization" id="organization">
+                                                                        foreach($departement as $key => $dep) : ?>
+                                                                            <option value="$dep->id?>"> $dep->name ?></option>
+                                                                        endforeach;	?>
+                                                                        </select>
+                                                                        -->
                                                                         <select>
                                                                             <option value="0">Teknik Komputer dan Informatika</option>
                                                                             <option value="1">Teknik Kimia</option>
@@ -174,9 +180,15 @@
                         <label for="studentNIM" class="block form-control-label">NIM</label>
                         <input type="text" class="form-control" name="nim" placeholder="contoh: 180012345">
                     </div>
-                    <!-- // !use select2 // -->
                     <div class="form-group col-md-12">
                         <label for="studentDepartement" class="block form-control-label">Jurusan</label>
+                        <!-- // ! get departement from database //
+                        <select class="form-control" name="organization" id="organization">
+                        foreach($departement as $key => $dep) : ?>
+                            <option value="$dep->id?>"> $dep->name ?></option>
+                        endforeach;	?>
+                        </select>
+                        -->
                         <select>
                             <option value="0">Teknik Komputer dan Informatika</option>
                             <option value="1">Teknik Kimia</option>

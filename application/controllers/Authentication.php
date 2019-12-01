@@ -36,15 +36,21 @@ class Authentication extends CI_Controller {
 		curl_close($curl);				
 		$us = json_decode($user);
 
-		if($us->message == "success"){	
-			$id = $us->user->organization->id;		
-			$name = $us->user->organization->acronym;
-			$department = $us->user->organization->id;
-
-			if($us->user->role == 2){		
+		if($us->message == "success"){
+			if($us->user->role == 3 || $us->user->role == 4){
+				$id = 0;		
+				$name = "Special Role";
+				$department = 0;	
+			}
+			else if($us->user->role == 2){
 				$id = $us->user->lecturer->id;		
 				$name = $us->user->lecturer->name;
-				$department = $us->user->lecturer->department_id;
+				$department = $us->user->lecturer->department_id;	
+			}
+			else{
+				$id = $us->user->organization->id;		
+				$name = $us->user->organization->acronym;
+				$department = $us->user->organization->id;	
 			}
 
 			$data_session = array(
@@ -60,7 +66,6 @@ class Authentication extends CI_Controller {
 
 			$this->login_act();
 		}
-
 
 		$data_session = array(
 			'id' => $id,

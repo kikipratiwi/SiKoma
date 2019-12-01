@@ -70,7 +70,7 @@
                                                                 <td><?php echo date_format($date1,"d M Y")." - ". date_format($date2,"d M Y");?></td>
                                                                 <td>
                                                                     <!-- <button type="button" class="btn btn-primary waves-effect waves-light">Edit</button> -->
-                                                                    <a href="" id="input_category" class="open-view-cateogry btn btn-primary" data-toggle="modal" data-target="#edit-competition-modal-form">
+                                                                    <a href="" id="input_category" class="open-view-cateogry btn btn-primary preview-pdf" data-toggle="modal" data-target="#edit-competition-modal-form">
                                                                         Edit
                                                                     </a>
                                                                 </td>
@@ -93,7 +93,7 @@
                                                                 <div class="row">
                                                                     <div class="col-sm-9 col-lg-9">
                                                                         <!-- GET Link to review Proposal -->
-                                                                        <a class="media col-sm-9" id="propose" href="<?php echo base_url();?>data/proposals/Proposal41574015633.pdf"></a>
+                                                                        <a style="width:200% height:200%" class="media col-sm-9" id="propose" href="<?php echo base_url();?>data/proposals/Proposal41574015633.pdf"></a>
                                                                         
                                                                     </div>
                                                                     <div class="col-sm-3 col-lg-3">
@@ -403,8 +403,37 @@
     });
 
     $(function () {
-        $('.media').media({width:100%, height:430});
+        $('.media').media(
+            // {width: 950, height:430}
+            );
     });
+
+    $( document ).on( 'click', '.preview-pdf', function (e) {
+
+e.preventDefault();
+e.stopPropagation();
+
+var url = $(this).data('pdfurl');
+
+bootbox.dialog({
+  message: '<object class="preview-pdf-file" type="application/pdf" data="'+url+'">This is not working as expected</object>',      
+  title: "Preview PDF",
+  "className" : "preview-pdf-modal",
+  onEscape: function() {}
+})
+
+$('.preview-pdf-modal .modal-content')
+.draggable({
+    cancel: ".preview-pdf-modal .preview-pdf-file"
+})
+.resizable({
+  minWidth: 350,
+  minHeight: 350,
+  alsoResize: '.preview-pdf-modal .bootbox-body'
+});    
+})
+
+
 </script>
 
 
