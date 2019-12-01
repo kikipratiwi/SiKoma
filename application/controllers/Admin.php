@@ -496,7 +496,8 @@ class Admin extends CI_Controller {
 
 	public function updatefund()
 	{
-		$id = $_GET['id'];
+		$id = $_POST['id'];
+		$budget = $_POST['budget'];
 
 		$curl = curl_init();
 		curl_setopt_array($curl, array(
@@ -505,7 +506,7 @@ class Admin extends CI_Controller {
 		CURLOPT_ENCODING => "",		
 		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
 		CURLOPT_CUSTOMREQUEST => "POST",
-		CURLOPT_POSTFIELDS => "id=".$id."",
+		CURLOPT_POSTFIELDS => "id=".$id."&budget=".$budget,
 		));
 
 		$cmpt = curl_exec($curl);
@@ -606,8 +607,8 @@ class Admin extends CI_Controller {
 
 	public function updateReport()
 	{
-
-		$id = $_GET['id'];
+		$id = $_POST['id'];
+		$budget = $_POST['budget'];
 
 		$curl = curl_init();
 		curl_setopt_array($curl, array(
@@ -616,7 +617,7 @@ class Admin extends CI_Controller {
 		CURLOPT_ENCODING => "",		
 		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
 		CURLOPT_CUSTOMREQUEST => "POST",
-		CURLOPT_POSTFIELDS => "id=".$id."",
+		CURLOPT_POSTFIELDS => "id=".$id."&budget=".$budget,
 		));
 
 		$cmpt = curl_exec($curl);

@@ -59,10 +59,10 @@
                                                 
 
                                                     <!-- GET leader -->
-                                                    <td><?php echo $pr->profile->name ?></td>
+                                                    <td><?php echo $pr->team[0] ?></td>
 
                                                     <!-- GET departement -->
-                                                    <td><?php echo $pr->department->name ?></td>                                                    
+                                                    <td><?php echo $pr->organization->name ?></td>                                                    
                                                 </tr>
                                                 
 

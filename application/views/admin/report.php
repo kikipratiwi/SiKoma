@@ -43,7 +43,7 @@
                                             <th>No</th>
                                             <th>Proposal</th>
                                             <th>Ketua Tim</th>
-                                            <th>Jurusan</th>
+                                            <th>Organisasi</th>
                                             <th>Status</th>
                                             <th>LPJ</th>
                                         </tr>
@@ -59,9 +59,9 @@
                                                     <!-- GET name competition -->
                                                     <td><?php echo $pr->competition->name ?></td>
                                                     <!-- GET leader -->
-                                                    <td><?php echo $pr->profile->name ?></td>
+                                                    <td><?php echo $pr->team[0] ?></td>
                                                     <!-- GET Depatement -->
-                                                    <td><?php echo $pr->department->name ?></td>
+                                                    <td><?php echo $pr->organization->name ?></td>
                                                     <td>
                                                         <div class="label-main">
                                                             <label class="label bg-warning">Belum Menyerahkan LPJ</label>
@@ -88,13 +88,19 @@
                                                                 <h5 class="modal-title">Jumlah dana yang dicairkan</h5>
                                                             </div>
                                                             <div class="modal-body">
-                                                                <div class="form-group col-md-12">
-                                                                    <label for="lecturertName" class="block form-control-label">Dana yang dicairkan*get dana yang disetujui*</label>
-                                                                    <input type="number" class="form-control" name="name">
-                                                                </div>
-                                                                <div class="label-main">
-                                                                    <label class="label bg-warning">Dana yang akan dicairkan pada termin selanjutnya adalah <br> &#82;&#112; <?php echo 'Rp.'.number_format(1000000);?> *jumlah dana dikurangi dana yg diinput*</label>
-                                                                </div>
+                                                                <form method="post" action="<?php echo base_url().'index.php/Admin/updateReport'; ?>">
+                                                                    <div class="form-group col-md-12">
+                                                                        <label for="lecturertName" class="block form-control-label">Dana yang belum dicairkan</label>
+                                                                        <input type="hidden" class="form-control" name="id" value=<?php echo $pr->id?> >
+                                                                        <input type="number" class="form-control" name="budget" value=<?php echo $pr->realisazion_budget - $pr->approved_budget?> readonly>
+                                                                    </div>
+                                                                    <div class="label-main">
+                                                                        <label class="label bg-warning">Dana yang akan dicairkan pada termin selanjutnya adalah <br><?php echo rupiah($pr->realisazion_budget - $pr->approved_budget)?></label>
+                                                                    </div>
+                                                                    <br><center>
+                                                                    <button type="submit" class="btn btn-success">SUBMIT</button>
+                                                                    </center>
+                                                                </form>
                                                             </div>
                                                         </div>
                                                     </div>

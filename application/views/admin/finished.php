@@ -55,7 +55,7 @@
                                                     <!-- GET name competition -->
                                                     <td><?php echo $pr->competition->name ?></td>                                                    
                                                     <!-- GET leader -->
-                                                    <td><?php echo $pr->profile->name ?></td>
+                                                    <td><?php echo $pr->team[0] ?></td>
 
                                                     <!-- GET departement -->
                                                     <td><?php echo $pr->organization->name ?></td>                                                    

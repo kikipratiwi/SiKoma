@@ -237,15 +237,17 @@ class Ormawa extends CI_Controller {
             $result = $this->upload->data();            
         }
 
+        $organization = $this->session->userdata('department');
+        echo $organization;
 		//Proposal
 		$curl = curl_init();
 		curl_setopt_array($curl, array(
-		CURLOPT_URL => API_URL."/api/mahasiswa/proposal",
+		CURLOPT_URL => API_URL."/api/ormawa/proposal",
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_ENCODING => "",		
 		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
 		CURLOPT_CUSTOMREQUEST => "POST",
-		CURLOPT_POSTFIELDS => "competition=".$_POST['competition']."&proposal=".$new_name."&department=".$_POST['department']."&draftbudget=".$_POST['budget']."&summary=".$_POST['summary']."",
+		CURLOPT_POSTFIELDS => "competition=".$_POST['competition']."&proposal=".$new_name."&organization=".$organization."&draftbudget=".$_POST['budget']."&summary=".$_POST['summary']."",
 		));
 
 		$proposal = curl_exec($curl);
@@ -256,6 +258,15 @@ class Ormawa extends CI_Controller {
 		//Tim
 		$index = 0; // Set index array awal dengan 0    
 		foreach($this->input->post("leader") as $leader){ 
+			$member1 = $this->input->post("member1")[$index];
+			$member2 = $this->input->post("member2")[$index];
+			$member3 = $this->input->post("member3")[$index];
+			$member4 = $this->input->post("member4")[$index];
+
+			if(!isset($member1)){ $member1 = 0; }
+			if(!isset($member2)){ $member2 = 0; }
+			if(!isset($member3)){ $member3 = 0; }
+			if(!isset($member4)){ $member4 = 0; }
 
 			$curl = curl_init();
 			curl_setopt_array($curl, array(
@@ -264,7 +275,9 @@ class Ormawa extends CI_Controller {
 			CURLOPT_ENCODING => "",		
 			CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
 			CURLOPT_CUSTOMREQUEST => "POST",
-			CURLOPT_POSTFIELDS => "leader=".$leader."&member1=".$this->input->post("member1")[$index]."&member2=".$this->input->post("member2")[$index]."&member3=".$this->input->post("member3")[$index]."&member4=".$this->input->post("member4")[$index]."&mentor=".$this->input->post("coach")[$index]."&proposal=".$prop->id_proposal."&competition=".$this->input->post("category")[$index]."",
+			// CURLOPT_POSTFIELDS => "leader=".$leader."&member1=".$this->input->post("member1")[$index]."&member2=".$this->input->post("member2")[$index]."&member3=".$this->input->post("member3")[$index]."&member4=".$this->input->post("member4")[$index]."&mentor=".$this->input->post("coach")[$index]."&proposal=".$prop->id_proposal."&competition=".$this->input->post("category")[$index]."",
+			// ));	
+			CURLOPT_POSTFIELDS => "leader=".$leader."&member1=".$member1."&member2=".$member2."&member3=".$member3."&member4=".$member4."&mentor=".$this->input->post("coach")[$index]."&proposal=".$prop->id_proposal."&competition=".$this->input->post("category")[$index]."",
 			));	
 			$tim = curl_exec($curl);
 			$err = curl_error($curl);
@@ -273,7 +286,7 @@ class Ormawa extends CI_Controller {
 			$index++;
 		}
 
-		redirect('Ormawa/ongoing_submission');
+		// redirect('Ormawa/ongoing_submission');
 
 	}
 

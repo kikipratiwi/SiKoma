@@ -43,8 +43,9 @@
                                             <th>Proposal</th>
                                             <th>Ketua Tim</th>
                                             <th>Organisasi</th>
-                                            <th>Status</th>
-                                            <th>Preview</th>
+                                            <th>Status</th>                                            
+                                            <th>Termin 1</th>
+                                            <th>Termin 2</th>
                                             <th>Update</th>
                                         </tr>
                                         </thead>
@@ -61,8 +62,8 @@
                                                     <!-- GET date upload -->
                                                 
                                                     <!-- GET leader -->
-                                                    <td><?php echo $pr->profile->name ?></td>
-                                                    <td><?php echo $pr->department->name ?></td>
+                                                    <td><?php echo $pr->team[0] ?></td>
+                                                    <td><?php echo $pr->organization->name ?></td>
                                                     <td><?php
                                                         if($pr->status==='WAITFUND'){?>
                                                             <div class="label-main">
@@ -75,14 +76,25 @@
                                                         <?php }?>
                                                     </td>
                                                     <td>
-                                                        <a href="" class="btn btn-primary" data-toggle="modal" data-target="#view-Modal-Preview">
-                                                            Preview
-                                                        </a>
+                                                        <?php 
+                                                        echo rupiah($pr->approved_budget);?>
+
+                                                        
                                                     </td>
+                                                    <td>
+                                                        <?php 
+                                                            if($pr->approved_budget == 0)
+                                                            echo rupiah(0);
+
+                                                            else echo rupiah($pr->realisazion_budget - $pr->approved_budget);   
+                                                        
+                                                        ?>
+                                                    </td>
+
                                                     <td><?php
                                                         if($pr->status==='WAITFUND'){?>
                                                          <!-- echo base_url();?>index.php/Admin/updatefund?id= echo $pr->id; ?> -->
-                                                            <a href="" class="btn btn-success" data-toggle="modal" data-target="#view-Modal-Termin">
+                                                            <a href="" class="btn btn-success" data-toggle="modal" data-target="#view-Modal-Termin<?php echo $pr->id ?>">
                                                                 Cairkan dana
                                                             </a>
                                                         <?php } else if($pr->status==='DISBURSEDFUND'){  ?>
@@ -95,7 +107,7 @@
                                                 </tr>
                                                 
                                                 <!-- MODAL TERMIN -->
-                                                <div class="modal fade modal-flex" id="view-Modal-Termin" tabindex="-1" role="dialog">
+                                                <div class="modal fade modal-flex" id="view-Modal-Termin<?php echo $pr->id ?>" tabindex="-1" role="dialog">
                                                     <div class="modal-dialog modal-sm" role="document">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
@@ -108,21 +120,30 @@
                                                                 <div class="row">
                                                                     <div class="col-sm-12">
                                                                         <div class="form-group col-md-12" style="margin-bottom: .1rem;">
-                                                                            <label for="registDate" class="block form-control-label">Jumlah Dana</label>
-                                                                            <!-- < echo rupiah($pr->realisazion_budget);?> -->
-                                                                            <input type="number" name="budget" min=0>
-                                                                            <!-- < -->
-                                                                                <!-- if($pr->realisazion_budget==='yang diinputkan') -->
+                                                                            <label for="registDate" class="block form-control-label">Jumlah Dana Yang Disetujui</label>
+                                                                            <p><?php echo rupiah($pr->realisazion_budget);?></p><br>
+
+                                                                            <label for="registDate" class="block form-control-label">Sumber Dana</label>
+                                                                            <p><?php echo $pr->budget_source ?></p>
+                                                                            <br>
                                                                             
-                                                                            <!-- ?> -->
-                                                                            <br><span>Sisa dana yang akan dicairkan pada termin 2 adalah </span>
-                                                                            <!-- < -->
-                                                                                <!-- echo rupiah($pr->realisazion_budget) dikurang yang diinputkan; -->
-                                                                            <!-- ?> -->
+                                                                        
                                                                         </div>
                                                                         <div class="form-group col-md-12" style="margin-bottom: .1rem;">
-                                                                            <label for="registDate" class="block form-control-label">Sumber Dana</label>
-                                                                            <!-- < $pr->budget_source ?> -->
+                                                                            <form method="post" action="<?php echo base_url().'index.php/Admin/updatefund'; ?>">
+                                                                            <label for="registDate" class="block form-control-label">Pencairan Dana</label>
+
+                                                                            <input type="hidden" name="id" value="<?php echo $pr->id?>" >
+
+                                                                            <?php if($pr->approved_budget == 0) {?>
+                                                                            <input type="number" name="budget" min=0 max=<?php echo$pr->realisazion_budget?>>
+                                                                            <?php } else {?>
+                                                                            <input type="number" readonly name="budget" min=0  value=<?php echo$pr->realisazion_budget - $pr->approved_budget?>>
+                                                                            <?php } ?>   
+
+                                                                            <button type="submit" class="btn btn-success">SUBMIT</button>                      
+                                                                            </form>                                                   
+                                                                                                                                                       
                                                                         </div>
                                                                     </div>
                                                                 </div>

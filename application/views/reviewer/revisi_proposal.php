@@ -43,7 +43,7 @@
                                             <th>Proposal</th>
                                             <th>Tanggal Upload</th>
                                             <th>Ketua Tim</th>
-                                            <th>Jurusan</th>
+                                            <th>Organisasi</th>
                                             <th>Status</th>
                                             <th>Review</th>
                                         </tr>
@@ -68,10 +68,10 @@
                                                     </td>
 
                                                     <!-- GET leader -->
-                                                    <td><?php echo $pr->profile->name ?></td>
+                                                    <td><?php echo $pr->team[0] ?></td>
 
                                                     <!-- GET departement -->
-                                                    <td><?php echo $pr->department->name ?></td>
+                                                    <td><?php echo $pr->organization->name ?></td>
                                                     <td>
                                                         <?php 
                                                         $revisi =  sizeof($pr->revision);
@@ -120,11 +120,8 @@
                                                                         
                                                                         <div class="form-group">
                                                                                 <label for="teamMembers" class="form-control-label">Dana Yang diajukan</label>
-                                                                                <br><?php  echo rupiah("2000000"); ?>  
-                                                                                <!-- GET Team member -->
-                                                                                <p id="leaderTeam">
-                                                                                    <?php echo $pr->draft_budget ?>
-                                                                                </p>                                                                                
+                                                                                <br><?php  echo rupiah($pr->draft_budget); ?>  
+                                                                                                                                                  
                                                                             </div>
                                                                             <form enctype="multipart/form-data" method="POST" action="<?php echo base_url().'index.php/Reviewer/review_proposal_submission'; ?>">   
                                                                             
