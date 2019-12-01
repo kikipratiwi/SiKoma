@@ -763,10 +763,13 @@ class Admin extends CI_Controller {
           $spreadsheet->setActiveSheetIndex(0)
                       ->setCellValue('A1', 'ID')
                       ->setCellValue('B1', 'Kompetisi')
-                      ->setCellValue('C1', 'Jurusan')
-                      ->setCellValue('D1', 'Lokasi')
-                      ->setCellValue('E1', 'Dana')
-                      ->setCellValue('F1', 'Sumber Dana');
+                      ->setCellValue('C1', 'Tahun')
+                      ->setCellValue('D1', 'Organisasi')
+                      ->setCellValue('E1', 'Lokasi')
+                      ->setCellValue('F1', 'Pengajuan Dana')
+                      ->setCellValue('G1', 'Dana yang disetujui')
+                      ->setCellValue('H1', 'Realisasi Dana')
+                      ->setCellValue('I1', 'Sumber Dana');
 
                        // $spreadsheet->setActiveSheetIndex(0)->setCellValue('A2', 'ID')->setCellValue('B2', 'Kompetisi')->setCellValue('C2', 'Jurusan')->setCellValue('D2', 'Lokasi')->setCellValue('E2', 'Dana')->setCellValue('F2', 'Sumber Dana');
                       
@@ -778,10 +781,13 @@ class Admin extends CI_Controller {
                $spreadsheet->setActiveSheetIndex(0)
                            ->setCellValue('A' . $kolom, $nomor)
                            ->setCellValue('B' . $kolom, $cmpt->competition->name)
-                           ->setCellValue('C' . $kolom, $cmpt->department->name)
-                           ->setCellValue('D' . $kolom, $cmpt->competition->location)
-                           ->setCellValue('E' . $kolom, $cmpt->realisazion_budget)
-                           ->setCellValue('F' . $kolom, $cmpt->budget_source);                                          			
+                           ->setCellValue('C' . $kolom, $cmpt->competition->year)
+                           ->setCellValue('D' . $kolom, $cmpt->organization->name)
+                           ->setCellValue('E' . $kolom, $cmpt->competition->location)
+                           ->setCellValue('F' . $kolom, $cmpt->draft_budget)
+                           ->setCellValue('G' . $kolom, $cmpt->realisazion_budget)
+                           ->setCellValue('H' . $kolom, $cmpt->approved_budget)
+                           ->setCellValue('I' . $kolom, $cmpt->budget_source);                                          			
                $kolom++;
                $nomor++;
 
@@ -794,7 +800,7 @@ class Admin extends CI_Controller {
 		  header('Cache-Control: max-age=0');
 		  // header('Cache-Control: cache, must-revalidate'); 
 		  header('Pragma: public');
-		  ob_end_clean();
+		  ob_end_clean();		    
 		  $writer->save('php://output');
 	}
 

@@ -45,26 +45,9 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <br> <br> <br>
-                                            <div class="form-row">
-                                                <div class="form-group col-md-3">
-                                                    <label for="studentDepartement" class="block form-control-label">Ormawa*get data</label>
-                                                    <!-- // ! get orwama from database //
-                                                        <select class="form-control" name="organization" id="organization">
-                                                        foreach($organization as $key => $org) : ?>
-                                                            <option value="$org->id?>"> $org->acronym ?></option>
-                                                        endforeach;	?>
-                                                        </select>
-                                                        -->
-                                                    <select>
-                                                        <option value="0">HIMAKOM</option>
-                                                        <option value="1">HMJTK</option>
-                                                        <option value="2">HMM</option>
-                                                        <option value="3">HMAK</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <br> <br> <br>
+                                            
+                                            
+                                            
                                             <button type="submit" class="btn btn-primary waves-effect waves-light">Cetak</button>
                                         <!-- </div> -->
                                     </form>
