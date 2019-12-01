@@ -52,20 +52,21 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                            <?php
-                                                for ($no = 1; $no <= 4; $no++){
-                                                    ?>
+                                            <?php   
+                                              $index = 1;
+                                              foreach($ormawa as $key => $org) : 
+                                            ?>
                                                 <tr>
-                                                    <td><?php echo $no ?></td>
+                                                    <td><?php echo $index; ?></td>
                                                     <!-- GET akronim -->
-                                                    <td>HIMAKOM</td>
+                                                    <td><?php echo $org->acronym; ?></td>
                                                     <!-- GET ormawa -->
-                                                    <td>Himpunan Mahasiswa Komputer</td>
+                                                    <td><?php echo $org->name; ?></td>
                                                     <td>
                                                         <!-- if(ever_used === null){?> -->
                                                         <button type="button" id="edit-student-organization" class="btn btn-primary" 
                                                             style="margin-left: 5px; margin-bottom: 15px;border-radius: .25rem;padding: .5rem .75rem;" 
-                                                            data-toggle="modal" data-target="#edit-student-organization-modal-form" >Edit
+                                                            data-toggle="modal" data-target="#edit-student-organization-modal-form<?php echo $org->id ?>" >Edit
                                                         </button>
                                                         <!-- }else{?> -->
                                                         <!-- <a href="" id="input_category" class="btn btn-disable disabled"> -->
@@ -75,7 +76,7 @@
                                                     </td>
                                                     <td>
                                                         <!-- if(ever_used === null){?> -->
-                                                        <a href="" id="input_category" class="open-view-cateogry btn btn-danger" action="">
+                                                        <a href="<?php echo base_url();?>index.php/Admin/act_delete_ormawa?id=<?php echo $org->id; ?>" id="input_category" class="open-view-cateogry btn btn-danger" action="">
                                                             Delete
                                                         </a>
                                                         <!-- }else{?> -->
@@ -87,7 +88,7 @@
                                                 </tr>
 
                                                 <!-- Edit Student Organization Modal -->
-                                                <div class="modal fade modal-flex" id="edit-student-organization-modal-form" tabindex="-1" role="dialog">
+                                                <div class="modal fade modal-flex" id="edit-student-organization-modal-form<?php echo $org->id ?>" tabindex="-1" role="dialog">
                                                     <div class="modal-dialog" role="document">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
@@ -97,16 +98,17 @@
                                                             <h5 class="modal-title">Edit Data Ormawa</h5>
                                                         </div>
 
-                                                        <form method="POST" action="">
+                                                        <form method="POST" action="<?php echo base_url();?>index.php/Admin/act_update_ormawa">
                                                             <div class="modal-body">
                                                                 <div class="row">
                                                                     <div class="form-group col-md-12">
-                                                                        <label for="studentOrganizatioName" class="block form-control-label">Ormawa*get data*</label>
-                                                                        <input type="text" class="form-control" name="name">
+                                                                        <label for="studentOrganizatioName" class="block form-control-label">Ormawa</label>
+                                                                        <input type="hidden" class="form-control" name="id" value="<?php echo $org->id?>">
+                                                                        <input type="text" class="form-control" name="name" value="<?php echo $org->name ?>">
                                                                     </div>
                                                                     <div class="form-group col-md-12">
-                                                                        <label for="studentOrganizatioAcronym" class="block form-control-label">Akronim*get data*</label>
-                                                                        <input type="text" class="form-control" name="name">
+                                                                        <label for="studentOrganizatioAcronym" class="block form-control-label">Akronim</label>
+                                                                        <input type="text" class="form-control" name="acr" value="<?php echo $org->acronym ?>">
                                                                     </div>
                                                                 </div>
                                                             </div>                                              
@@ -119,8 +121,10 @@
                                                 </div>
                                                 <!-- End of Edit Student Organization Modal -->
 
-                                                <?php
-                                            };?>
+                                                <?php 
+                                                    $index++;
+                                                    endforeach;
+                                         ?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -150,16 +154,16 @@
             <h5 class="modal-title">Input Data Ormawa</h5>
         </div>
 
-        <form method="POST" action="">
+        <form method="POST" action="<?php echo base_url();?>index.php/Admin/act_input_ormawa">
             <div class="modal-body">
                 <div class="row">
                     <div class="form-group col-md-12">
                         <label for="studentOrganizatioName" class="block form-control-label">Ormawa</label>
-                        <input type="text" class="form-control" name="name" placeholder="contoh: Himpunan Mahasiswa">
+                        <input type="text" class="form-control" name="name" placeholder="contoh: Himpunan Mahasiswa" required=""> 
                     </div>
                     <div class="form-group col-md-12">
                         <label for="studentOrganizatioAcronym" class="block form-control-label">Akronim</label>
-                        <input type="text" class="form-control" name="name" placeholder="contoh: HM">
+                        <input type="text" class="form-control" name="acr" placeholder="contoh: HM" required>
                     </div>
                 </div>
             </div>                                              

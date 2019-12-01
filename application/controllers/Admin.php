@@ -188,10 +188,86 @@ class Admin extends CI_Controller {
 		$this->load->view('admin/master_lecturer',$data);
 	}
 
+
+	//ORMAWA
 	public function master_student_organizations()
 	{
+		$curl = curl_init();
+		curl_setopt_array($curl, array(
+		CURLOPT_URL => API_URL."/api/ormawa",
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_ENCODING => "",
+		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST => "GET",
+		));
+
+		$cmpt = curl_exec($curl);
+		$err = curl_error($curl);
+
+		curl_close($curl);
+
+		$data['ormawa'] = json_decode($cmpt);		
 		$data['content'] = $this->template();
 		$this->load->view('admin/master_student_organizations',$data);
+	}
+
+	public function act_input_ormawa()
+	{
+		//Kompetisi
+		$curl = curl_init();
+		curl_setopt_array($curl, array(
+		CURLOPT_URL => API_URL."/api/ormawa",
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_ENCODING => "",		
+		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST => "POST",
+		CURLOPT_POSTFIELDS => "name=".$_POST['name']."&acr=".$_POST['acr'],
+		));
+
+		$cmpt = curl_exec($curl);
+
+		$err = curl_error($curl);				
+		curl_close($curl);	
+
+		redirect("Admin/master_student_organizations");	
+	}
+
+	public function act_delete_ormawa(){
+		$id = $_GET['id']; /* define later*/
+		$curl = curl_init();
+	
+		curl_setopt_array($curl, array(
+		CURLOPT_URL => API_URL."/api/ormawa?id=".$id."",
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_ENCODING => "",		
+		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST => "DELETE",
+		));
+
+		$cmpt = curl_exec($curl);
+		$err = curl_error($curl);
+
+		curl_close($curl);
+		redirect("Admin/master_student_organizations");	
+	}
+
+	public function act_update_ormawa(){
+		$curl = curl_init();
+	
+		curl_setopt_array($curl, array(
+		CURLOPT_URL => API_URL."/api/ormawau",
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_ENCODING => "",		
+		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST => "POST",
+		CURLOPT_POSTFIELDS => "id=".$_POST['id']."&name=".$_POST['name']."&acr=".$_POST['acr'],
+		));
+
+		$cmpt = curl_exec($curl);
+		$err = curl_error($curl);
+
+		curl_close($curl);
+		redirect("Admin/master_student_organizations");	
 	}
 
 	//JURUSAN
