@@ -52,20 +52,21 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                            <?php
-                                                for ($no = 1; $no <= 4; $no++){
-                                                    ?>
+                                            <?php   
+                                              $index = 1;
+                                              foreach($program as $key => $prg) : 
+                                            ?>
                                                 <tr>
-                                                    <td><?php echo $no ?></td>
+                                                    <td><?php echo $index ?></td>
                                                     <!-- GET Study Programme -->
-                                                    <td>D3 - TIF</td>
+                                                    <td><?php echo $prg->name ?></td>
                                                     <!-- GET Departement -->
-                                                    <td>Komputer</td>
+                                                    <td><?php echo $prg->department->name ?></td>
                                                     <td>
                                                         <!-- if(ever_used === null){?> -->
                                                         <button type="button" id="edit-study-programme" class="btn btn-primary" 
                                                             style="margin-left: 5px; margin-bottom: 15px;border-radius: .25rem;padding: .5rem .75rem;" 
-                                                            data-toggle="modal" data-target="#edit-study-programme-modal-form" >Edit
+                                                            data-toggle="modal" data-target="#edit-study-programme-modal-form<?php echo $prg->id ?>" >Edit
                                                         </button>
                                                         <!-- }else{?> -->
                                                         <!-- <a href="" id="input_category" class="btn btn-disable disabled"> -->
@@ -75,7 +76,7 @@
                                                     </td>
                                                     <td>
                                                         <!-- if(ever_used === null){?> -->
-                                                        <a href="" id="input_category" class="open-view-cateogry btn btn-danger" action="">
+                                                        <a href="<?php echo base_url();?>index.php/Admin/act_delete_program?id=<?php echo $prg->id; ?>" id="input_category" class="open-view-cateogry btn btn-danger" action="">
                                                             Delete
                                                         </a>
                                                         <!-- }else{?> -->
@@ -87,7 +88,7 @@
                                                 </tr>
 
                                                 <!-- Edit Study Programme Modal -->
-                                                <div class="modal fade modal-flex" id="edit-study-programme-modal-form" tabindex="-1" role="dialog">
+                                                <div class="modal fade modal-flex" id="edit-study-programme-modal-form<?php echo $prg->id?>" tabindex="-1" role="dialog">
                                                     <div class="modal-dialog" role="document">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
@@ -97,27 +98,21 @@
                                                             <h5 class="modal-title">Edit Data Program Studi</h5>
                                                         </div>
 
-                                                        <form method="POST" action="">
+                                                        <form method="POST" action="<?php echo base_url();?>index.php/Admin/act_update_program">
                                                             <div class="modal-body">
                                                                 <div class="row">
                                                                     <div class="form-group col-md-12">
-                                                                        <label for="departmentName" class="block form-control-label">Program Studi*get data*</label>
-                                                                        <input type="text" class="form-control" name="name">
+                                                                        <label for="departmentName" class="block form-control-label">Program Studi</label>
+                                                                        <input type="hidden" class="form-control" name="id" value="<?php echo $prg->id ?>" required>
+                                                                        <input type="text" class="
+                                                                        form-control" name="name" value="<?php echo $prg->name ?>" required>
                                                                     </div>
                                                                     <div class="form-group col-md-12">
-                                                                        <label for="studentDepartement" class="block form-control-label">Jurusan*get data</label>
-                                                                        <!-- // ! get departement from database //
-                                                                            <select class="form-control" name="organization" id="organization">
-                                                                            foreach($departement as $key => $dep) : ?>
-                                                                                <option value="$dep->id?>"> $dep->name ?></option>
-                                                                            endforeach;	?>
-                                                                            </select>
-                                                                            -->
-                                                                        <select>
-                                                                            <option value="0">Teknik Komputer dan Informatika</option>
-                                                                            <option value="1">Teknik Kimia</option>
-                                                                            <option value="2">Teknik Mesin</option>
-                                                                            <option value="3">Akuntansi</option>
+                                                                        <label for="studentDepartement" class="block form-control-label">Jurusan</label>                                                                  
+                                                                        <select class="js-basic-single form-control" name="dpt" id="dpt" required>
+                                                                            <?php foreach($department as $key => $dpt) : ?>
+                                                                            <option value="<?= $dpt->id?>"> <?=$dpt->name ?></option>
+                                                                            <?php endforeach;   ?>
                                                                         </select> 
                                                                     </div>
                                                                 </div>
@@ -130,8 +125,10 @@
                                                     </div>
                                                 </div>
                                                 <!-- End of Edit Study Programme Modal -->
-                                                <?php
-                                            };?>
+                                                <?php 
+                                                    $index++;
+                                                    endforeach;
+                                         ?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -160,7 +157,7 @@
             <h5 class="modal-title">Input Data Program Studi</h5>
         </div>
 
-        <form method="POST" action="">
+        <form method="POST" action="<?php echo base_url();?>index.php/Admin/act_input_program">
             <div class="modal-body">
                 <div class="row">
                     <div class="form-group col-md-12">
@@ -169,18 +166,10 @@
                     </div>
                     <div class="form-group col-md-12">
                         <label for="studentDepartement" class="block form-control-label">Jurusan*get data</label>
-                        <!-- // ! get departement from database //
-                        <select class="form-control" name="organization" id="organization">
-                        foreach($departement as $key => $dep) : ?>
-                            <option value="$dep->id?>"> $dep->name ?></option>
-                        endforeach;	?>
-                        </select>
-                        -->
-                        <select>
-                            <option value="0">Teknik Komputer dan Informatika</option>
-                            <option value="1">Teknik Kimia</option>
-                            <option value="2">Teknik Mesin</option>
-                            <option value="3">Akuntansi</option>
+                        <select class="js-basic-single form-control" name="dpt" id="dpt" required>
+                            <?php foreach($department as $key => $dpt) : ?>
+                            <option value="<?= $dpt->id?>"> <?=$dpt->name ?></option>
+                            <?php endforeach;   ?>
                         </select> 
                     </div>
                 </div>

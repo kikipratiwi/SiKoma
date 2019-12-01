@@ -194,6 +194,7 @@ class Admin extends CI_Controller {
 		$this->load->view('admin/master_student_organizations',$data);
 	}
 
+	//JURUSAN
 	public function master_departement()
 	{
 		$curl = curl_init();
@@ -274,13 +275,101 @@ class Admin extends CI_Controller {
 		redirect("Admin/master_departement");	
 	}
 
-
+	//Program STUDI
 	public function master_study_program()
 	{
+		$curl = curl_init();
+		curl_setopt_array($curl, array(
+		CURLOPT_URL => API_URL."/api/programs",
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_ENCODING => "",
+		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST => "GET",
+		));
+
+		$cmpt = curl_exec($curl);
+		$err = curl_error($curl);
+
+		//Department
+		curl_setopt_array($curl, array(
+		CURLOPT_URL => API_URL."/api/departments",
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_ENCODING => "",
+		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST => "GET",
+		));
+
+		$dpt = curl_exec($curl);
+		$errcmp = curl_error($curl);
+		curl_close($curl);
+
+		$data['department'] = json_decode($dpt);		
+		$data['program'] = json_decode($cmpt);		
 		$data['content'] = $this->template();
 		$this->load->view('admin/master_study_program',$data);
 	}
 
+	public function act_input_program()
+	{
+		//Kompetisi
+		$curl = curl_init();
+		curl_setopt_array($curl, array(
+		CURLOPT_URL => API_URL."/api/programs",
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_ENCODING => "",		
+		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST => "POST",
+		CURLOPT_POSTFIELDS => "name=".$_POST['name']."&dpt=".$_POST['dpt'],
+		));
+
+		$cmpt = curl_exec($curl);
+
+		$err = curl_error($curl);				
+		curl_close($curl);	
+
+		redirect("Admin/master_study_program");	
+	}
+
+	public function act_delete_program(){
+		$id = $_GET['id']; /* define later*/
+		$curl = curl_init();
+	
+		curl_setopt_array($curl, array(
+		CURLOPT_URL => API_URL."/api/programs?id=".$id."",
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_ENCODING => "",		
+		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST => "DELETE",
+		));
+
+		$cmpt = curl_exec($curl);
+		$err = curl_error($curl);
+
+		curl_close($curl);
+		redirect("Admin/master_study_program");	
+	}
+
+	public function act_update_program(){
+		$curl = curl_init();
+	
+		curl_setopt_array($curl, array(
+		CURLOPT_URL => API_URL."/api/programsu",
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_ENCODING => "",		
+		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST => "POST",
+		CURLOPT_POSTFIELDS => "id=".$_POST['id']."&name=".$_POST['name']."&dpt=".$_POST['dpt'],
+		));
+
+		$cmpt = curl_exec($curl);
+		$err = curl_error($curl);
+
+		curl_close($curl);
+		redirect("Admin/master_study_program");	
+	}
+
+
+	//USER
 	public function master_user()
 	{
 		$data['content'] = $this->template();
