@@ -118,7 +118,7 @@
                                                                             <label for="dana" class="form-control-label">Jumlah dana yang disetujui</label>
                                                                             <!-- GET Team Member-->
                                                                             <p id="dana">
-                                                                                <?php echo $pr->realisazion_budget ?>
+                                                                                <?php $this->load->helpers('money_format'); echo rupiah($pr->realisazion_budget); ?>
                                                                             </p>
                                                                         </div>
                                                                     </div>
