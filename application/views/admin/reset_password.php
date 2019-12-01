@@ -53,7 +53,7 @@
                                                 <tr>
                                                 <td><?php echo $index ?></td>
                                                     <!-- GET USERNAME -->
-                                                    <td><?php echo $us->username ?></td>
+                                                    <td><?php echo $us->email ?></td>
                                                     
                                                     <!-- GET ROLE -->
                                                     <td>

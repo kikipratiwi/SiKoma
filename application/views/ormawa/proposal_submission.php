@@ -398,9 +398,16 @@
         <?php foreach($mentor as $key => $dpt) : ?>
             optionText = <?php echo json_encode($dpt->name, JSON_HEX_TAG); ?>;
             optionValue = <?php echo json_encode($dpt->id, JSON_HEX_TAG); ?>;
+            
+            coachField.append(`<option value="${optionValue}"> ${optionText} </option>`); 
+        <?php endforeach; ?>
+
+        // cat
+        <?php foreach($competitioncat as $key => $cat) : ?>
+            optionText = <?php echo json_encode($cat->name, JSON_HEX_TAG); ?>;
+            optionValue = <?php echo json_encode($cat->id, JSON_HEX_TAG); ?>;
 
             categoryField.append(`<option value="${optionValue}"> ${optionText} </option>`); 
-            coachField.append(`<option value="${optionValue}"> ${optionText} </option>`); 
         <?php endforeach; ?>
 
         // student

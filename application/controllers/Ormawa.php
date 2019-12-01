@@ -99,6 +99,17 @@ class Ormawa extends CI_Controller {
 		$cmp = curl_exec($curl);
 		$errcmp = curl_error($curl);
 		
+		//Kategori
+		curl_setopt_array($curl, array(
+		CURLOPT_URL => API_URL."/api/admin/competitionscat",
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_ENCODING => "",
+		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST => "GET",
+		));
+
+		$cmpcat = curl_exec($curl);
+		$errcmp = curl_error($curl);
 
 		//Cek LPJ	
 		$dptt = $this->session->userdata('department');	
@@ -121,6 +132,7 @@ class Ormawa extends CI_Controller {
 		$data['mentor'] = json_decode($mentor);
 		$data['department'] = json_decode($dpt);
 		$data['competition'] = json_decode($cmp);
+		$data['competitioncat'] = json_decode($cmpcat);
 		$this->load->view('ormawa/proposal_submission',$data);
 	}
 	
