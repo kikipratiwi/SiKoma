@@ -42,7 +42,7 @@
                                             <th>No</th>
                                             <th>Proposal</th>
                                             <th>Ketua Tim</th>
-                                            <th>Jurusan</th>
+                                            <th>Organisasi</th>
                                         </tr>
                                         </thead>
                                         <tbody>

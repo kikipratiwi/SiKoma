@@ -63,6 +63,30 @@ class Ormawa extends CI_Controller {
 		$dpt = curl_exec($curl);
 		$err = curl_error($curl);
 
+		//Mahasiswa
+		curl_setopt_array($curl, array(
+		CURLOPT_URL => API_URL."/api/students",
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_ENCODING => "",
+		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST => "GET",
+		));
+
+		$student = curl_exec($curl);
+		$errStudent = curl_error($curl);
+
+		//Dosen
+		curl_setopt_array($curl, array(
+		CURLOPT_URL => API_URL."/api/mentors",
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_ENCODING => "",
+		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST => "GET",
+		));
+
+		$mentor = curl_exec($curl);
+		$errMentor = curl_error($curl);
+
 		//Kompetisi
 		curl_setopt_array($curl, array(
 		CURLOPT_URL => API_URL."/api/competitions",
@@ -93,6 +117,8 @@ class Ormawa extends CI_Controller {
 
 		$data['accountability_report'] = json_decode($lpj);
 		$data['content'] = $this->template();
+		$data['student'] = json_decode($student);
+		$data['mentor'] = json_decode($mentor);
 		$data['department'] = json_decode($dpt);
 		$data['competition'] = json_decode($cmp);
 		$this->load->view('ormawa/proposal_submission',$data);
