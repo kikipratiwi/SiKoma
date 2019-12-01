@@ -42,7 +42,7 @@
                                             <th>No</th>
                                             <th>Proposal</th>
                                             <th>Ketua Tim</th>
-                                            <th>Jurusan</th>
+                                            <th>Organisasi</th>
                                             <th>Deadline</th>
                                             <th>Preview</th>
                                         </tr>
@@ -59,7 +59,7 @@
                                                     <!-- GET leader -->
                                                     <td><?php echo $pr->profile->name ?></td>
                                                     <!-- GET departement -->
-                                                    <td><?php echo $pr->department->name ?></td>
+                                                    <td><?php echo $pr->organization->name ?></td>
                                                     <!-- GET deadline proposal -->
                                                     <td> <?php 
                                                             $revisi =  sizeof($pr->revision);

@@ -42,7 +42,7 @@
                                             <th>No</th>
                                             <th>Proposal</th>
                                             <th>Ketua Tim</th>
-                                            <th>Jurusan</th>
+                                            <th>Organisasi</th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -61,7 +61,7 @@
                                                     <td><?php echo $pr->profile->name ?></td>
 
                                                     <!-- GET departement -->
-                                                    <td><?php echo $pr->department->name ?></td>                                                    
+                                                    <td><?php echo $pr->organization->name ?></td>                                                    
                                                 </tr>
                                                 
 
