@@ -93,7 +93,7 @@ class Admin extends CI_Controller {
 		$this->load->view('admin/print_report',$data);
 	}
 
-	//Kategori Kompetiti
+	//Kategori Kompetisi
 	public function input_kategori()
 	{
 		$curl = curl_init();
@@ -196,9 +196,84 @@ class Admin extends CI_Controller {
 
 	public function master_departement()
 	{
+		$curl = curl_init();
+		curl_setopt_array($curl, array(
+		CURLOPT_URL => API_URL."/api/departments",
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_ENCODING => "",
+		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST => "GET",
+		));
+
+		$cmpt = curl_exec($curl);
+		$err = curl_error($curl);
+
+		curl_close($curl);
+
+		$data['department'] = json_decode($cmpt);		
 		$data['content'] = $this->template();
 		$this->load->view('admin/master_departement',$data);
 	}
+
+	public function act_input_department()
+	{
+		//Kompetisi
+		$curl = curl_init();
+		curl_setopt_array($curl, array(
+		CURLOPT_URL => API_URL."/api/departments",
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_ENCODING => "",		
+		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST => "POST",
+		CURLOPT_POSTFIELDS => "name=".$_POST['name'],
+		));
+
+		$cmpt = curl_exec($curl);
+
+		$err = curl_error($curl);				
+		curl_close($curl);	
+
+		redirect("Admin/master_departement");	
+	}
+
+	public function act_delete_department(){
+		$id = $_GET['id']; /* define later*/
+		$curl = curl_init();
+	
+		curl_setopt_array($curl, array(
+		CURLOPT_URL => API_URL."/api/departments?id=".$id."",
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_ENCODING => "",		
+		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST => "DELETE",
+		));
+
+		$cmpt = curl_exec($curl);
+		$err = curl_error($curl);
+
+		curl_close($curl);
+		redirect("Admin/master_departement");	
+	}
+
+	public function act_update_department(){
+		$curl = curl_init();
+	
+		curl_setopt_array($curl, array(
+		CURLOPT_URL => API_URL."/api/departmentsu",
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_ENCODING => "",		
+		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST => "POST",
+		CURLOPT_POSTFIELDS => "id=".$_POST['id']."&name=".$_POST['name'],
+		));
+
+		$cmpt = curl_exec($curl);
+		$err = curl_error($curl);
+
+		curl_close($curl);
+		redirect("Admin/master_departement");	
+	}
+
 
 	public function master_study_program()
 	{

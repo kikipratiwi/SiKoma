@@ -51,40 +51,31 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                            <?php
-                                                for ($no = 1; $no <= 4; $no++){
-                                                    ?>
-                                                <tr>
-                                                    <td><?php echo $no ?></td>
-                                                    <!-- GET Departement -->
-                                                    <td>Komputer</td>
-                                                    <td>
+                                            <?php   
+                                              $index = 1;
+                                              foreach($department as $key => $dpt) : 
+                                            ?>
+                                            <tr>
+                                                <td><?php echo $index; ?></td>
+                                                <td> <?php echo $dpt->name; ?><td>
                                                         <!-- if(ever_used === null){?> -->
                                                         <button type="button" id="add-departement" class="btn btn-primary" 
                                                             style="margin-left: 5px; margin-bottom: 15px;border-radius: .25rem;padding: .5rem .75rem;" 
-                                                            data-toggle="modal" data-target="#edit-departement-modal-form" >Edit
+                                                            data-toggle="modal" data-target="#edit-departement-modal-form<?php echo $dpt->id ?>" >Edit
                                                         </button>
-                                                        <!-- }else{?> -->
-                                                        <!-- <a href="" id="input_category" class="btn btn-disable disabled"> -->
-                                                            <!-- Edit -->
-                                                        <!-- </a> -->
-                                                        <!-- }?> -->
+                                                        
                                                     </td>
                                                     <td>
                                                         <!-- if(ever_used === null){?> -->
-                                                        <a href="" id="input_category" class="open-view-cateogry btn btn-danger" action="">
+                                                        <a href="<?php echo base_url();?>index.php/Admin/act_delete_department?id=<?php echo $dpt->id; ?>" id="input_category" class="open-view-cateogry btn btn-danger" >
                                                             Delete
                                                         </a>
-                                                        <!-- }else{?> -->
-                                                        <!-- <a href="" id="input_category" class="btn btn-disable disabled">
-                                                        Delete
-                                                        </a> -->
-                                                        <!-- }?> -->
+                                                        
                                                     </td>
                                                 </tr>
 
                                                 <!-- Edit Department Modal -->
-                                                <div class="modal fade modal-flex" id="edit-departement-modal-form" tabindex="-1" role="dialog">
+                                                <div class="modal fade modal-flex" id="edit-departement-modal-form<?php echo $dpt->id ?>" tabindex="-1" role="dialog">
                                                     <div class="modal-dialog" role="document">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
@@ -94,12 +85,13 @@
                                                             <h5 class="modal-title">Edit Data Jurusan</h5>
                                                         </div>
 
-                                                        <form method="POST" action="">
+                                                        <form method="POST" action="<?php echo base_url();?>index.php/Admin/act_update_department">
                                                             <div class="modal-body">
                                                                 <div class="row">
                                                                     <div class="form-group col-md-12">
-                                                                        <label for="departmentName" class="block form-control-label">Jurusan*get data*</label>
-                                                                        <input type="text" class="form-control" name="name">
+                                                                        <label for="departmentName" class="block form-control-label">Jurusan</label>
+                                                                        <input type="hidden" class="form-control" name="id" value ="<?php echo $dpt->id ?>">
+                                                                        <input type="text" class="form-control" name="name" value ="<?php echo $dpt->name ?>">
                                                                     </div>
                                                                 </div>
                                                             </div>                                              
@@ -112,8 +104,10 @@
                                                 </div>
                                                 <!-- End of Edit Departement Modal -->
 
-                                                <?php
-                                            };?>
+                                                <?php 
+                                                    $index++;
+                                                    endforeach;
+                                         ?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -143,7 +137,7 @@
             <h5 class="modal-title">Input Data Jurusan</h5>
         </div>
 
-        <form method="POST" action="">
+        <form method="POST" action="<?php echo base_url();?>index.php/Admin/act_input_department">
             <div class="modal-body">
                 <div class="row">
                     <div class="form-group col-md-12">
