@@ -79,6 +79,12 @@
     <!-- select2 -->
     <link href="<?php echo base_url();?>assets/css/select2.min.css" rel="stylesheet" />
 
+    <style>
+    .select2-results .select2-disabled,  .select2-results__option[aria-disabled=true] { 
+    display: none;
+    }
+  </style>
+
 </head>
 
 <body class="sidebar-mini fixed">
