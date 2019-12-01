@@ -15,7 +15,7 @@
                             </li>
                             <li class="breadcrumb-item"><a href="#">Data Master</a>
                             </li>
-                            <li class="breadcrumb-item"><a href="#">Jurusan</a>
+                            <li class="breadcrumb-item"><a href="#">User</a>
                             </li>
                         </ol>
                     </div>
@@ -31,68 +31,102 @@
                     <!-- Hover effect table starts -->
                     <div class="card">
                         <div class="card-header">
-                            <h5 class="card-header-text">Jurusan</h5>
+                            <h5 class="card-header-text">User</h5>
                         </div>
                         <div class="card-block">
                             <button type="button" id="add-competition" class="btn btn-primary" 
                                     style="margin-left: 5px; margin-bottom: 15px;border-radius: .25rem;padding: .5rem .75rem;" 
-                                    data-toggle="modal" data-target="#add-departement-modal-form" >+ Jurusan
+                                    data-toggle="modal" data-target="#add-user-modal-form" >+ User
                             </button>
-                            <button type="button" class="btn btn-primary" style="margin-left: 5px; margin-bottom: 15px;border-radius: .25rem;padding: .5rem .75rem;" >Import</button>
                             <div class="row">
                                 <div class="col-sm-12 table-responsive">
-                                    <table class="table table-hover" id="tbm_departement">
+                                    <table class="table table-hover" id="tbm_user">
                                         <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Jurusan</th>
+                                            <th>Email</th>
+                                            <th>Role</th>
                                             <th>Edit</th>
                                             <th>Delete</th>
+                                            <!-- <th>Reset Password</th> -->
                                         </tr>
                                         </thead>
                                         <tbody>
-                                            <?php   
-                                              $index = 1;
-                                              foreach($department as $key => $dpt) : 
-                                            ?>
-                                            <tr>
-                                                <td><?php echo $index; ?></td>
-                                                <td> <?php echo $dpt->name; ?><td>
+                                            <?php
+                                                for ($no = 1; $no <= 4; $no++){
+                                                    ?>
+                                                <tr>
+                                                    <td><?php echo $no ?></td>
+                                                    <!-- GET Email -->
+                                                    <td>himakom@polban.ac.id</td>
+                                                    <!-- GET Role -->
+                                                    <td>Ormawa</td>
+                                                    <td>
                                                         <!-- if(ever_used === null){?> -->
-                                                        <button type="button" id="add-departement" class="btn btn-primary" 
+                                                        <button type="button" id="add-student" class="btn btn-primary" 
                                                             style="margin-left: 5px; margin-bottom: 15px;border-radius: .25rem;padding: .5rem .75rem;" 
-                                                            data-toggle="modal" data-target="#edit-departement-modal-form<?php echo $dpt->id ?>" >Edit
+                                                            data-toggle="modal" data-target="#edit-user-modal-form" >Edit
                                                         </button>
-                                                        
+                                                        <!-- }else{?> -->
+                                                        <!-- <a href="" id="input_category" class="btn btn-disable disabled"> -->
+                                                            <!-- Edit -->
+                                                        <!-- </a> -->
+                                                        <!-- }?> -->
                                                     </td>
                                                     <td>
                                                         <!-- if(ever_used === null){?> -->
-                                                        <a href="<?php echo base_url();?>index.php/Admin/act_delete_department?id=<?php echo $dpt->id; ?>" id="input_category" class="open-view-cateogry btn btn-danger" >
+                                                        <a href="" id="input_category" class="open-view-cateogry btn btn-danger" action="">
                                                             Delete
                                                         </a>
-                                                        
+                                                        <!-- }else{?> -->
+                                                        <!-- <a href="" id="input_category" class="btn btn-disable disabled">
+                                                        Delete
+                                                        </a> -->
+                                                        <!-- }?> -->
                                                     </td>
+                                                    <!-- <td>
+                                                        <a href="" class="btn btn-primary">
+                                                            Reset Password
+                                                        </a>
+                                                    </!--> -->
+
                                                 </tr>
 
-                                                <!-- Edit Department Modal -->
-                                                <div class="modal fade modal-flex" id="edit-departement-modal-form<?php echo $dpt->id ?>" tabindex="-1" role="dialog">
+                                                <!-- Add User Modal -->
+                                                <div class="modal fade modal-flex" id="edit-user-modal-form" tabindex="-1" role="dialog">
                                                     <div class="modal-dialog" role="document">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
                                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                                     <span aria-hidden="true">&times;</span>
                                                                 </button>
-                                                            <h5 class="modal-title">Edit Data Jurusan</h5>
+                                                            <h5 class="modal-title">Edit Data User</h5>
                                                         </div>
 
-                                                        <form method="POST" action="<?php echo base_url();?>index.php/Admin/act_update_department">
+                                                        <form method="POST" action="">
                                                             <div class="modal-body">
                                                                 <div class="row">
                                                                     <div class="form-group col-md-12">
-                                                                        <label for="departmentName" class="block form-control-label">Jurusan</label>
-                                                                        <input type="hidden" class="form-control" name="id" value ="<?php echo $dpt->id ?>">
-                                                                        <input type="text" class="form-control" name="name" value ="<?php echo $dpt->name ?>">
+                                                                        <label for="userEmail" class="block form-control-label">Email *get data</label>
+                                                                        <input type="email" class="form-control" name="name"  placeholder="contoh: user@polban.ac.id">
                                                                     </div>
+                                                                    <div class="form-group col-md-12">
+                                                                        <label for="studentDepartement" class="block form-control-label">Role *get data</label>
+                                                                        <!-- // ! get role from database //
+                                                                        <select class="form-control" name="organization" id="organization">
+                                                                        foreach($roles as $key => $role) : ?>
+                                                                            <option value="$role->id?>"> $dep->role ?></option>
+                                                                        endforeach;	?>
+                                                                        </select>
+                                                                        -->
+                                                                        <select>
+                                                                            <option value="0">Ormawa</option>
+                                                                            <option value="1">Dosen</option>
+                                                                            <option value="2">Reviewer</option>
+                                                                            <option value="3"></option>
+                                                                        </select> 
+                                                                    </div>
+                                                                    
                                                                 </div>
                                                             </div>                                              
                                                             <div class="modal-footer" style="padding-top: 3pt">
@@ -102,12 +136,10 @@
                                                         </form>
                                                     </div>
                                                 </div>
-                                                <!-- End of Edit Departement Modal -->
+                                                <!-- End of Edit User Modal -->
 
-                                                <?php 
-                                                    $index++;
-                                                    endforeach;
-                                         ?>
+                                                <?php
+                                            };?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -126,24 +158,45 @@
     </div>
 </div>
 
-<!-- Add Department Modal -->
-<div class="modal fade modal-flex" id="add-departement-modal-form" tabindex="-1" role="dialog">
+<!-- Add User Modal -->
+<div class="modal fade modal-flex" id="add-user-modal-form" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
-            <h5 class="modal-title">Input Data Jurusan</h5>
+            <h5 class="modal-title">Input Data User</h5>
         </div>
 
-        <form method="POST" action="<?php echo base_url();?>index.php/Admin/act_input_department">
+        <form method="POST" action="">
             <div class="modal-body">
                 <div class="row">
                     <div class="form-group col-md-12">
-                        <label for="departmentName" class="block form-control-label">Jurusan</label>
-                        <input type="text" class="form-control" name="name"  placeholder="contoh: Teknik Informatika">
+                        <label for="userEmail" class="block form-control-label">Email</label>
+                        <input type="email" class="form-control" name="name"  placeholder="contoh: user@polban.ac.id">
                     </div>
+                    <div class="form-group col-md-12">
+                        <label for="userPassword" class="block form-control-label">Password</label>
+                        <input type="password" class="form-control" name="nim" placeholder="">
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label for="studentDepartement" class="block form-control-label">Role</label>
+                        <!-- // ! get role from database //
+                        <select class="form-control" name="organization" id="organization">
+                        foreach($roles as $key => $role) : ?>
+                            <option value="$role->id?>"> $dep->role ?></option>
+                        endforeach;	?>
+                        </select>
+                        -->
+                        <select>
+                            <option value="0">Ormawa</option>
+                            <option value="1">Dosen</option>
+                            <option value="2">Reviewer</option>
+                            <option value="3"></option>
+                        </select> 
+                    </div>
+                    
                 </div>
             </div>                                              
             <div class="modal-footer" style="padding-top: 3pt">
@@ -153,7 +206,7 @@
         </form>
     </div>
 </div>
-<!-- End of Add Department Modal -->
+<!-- End of Add User Modal -->
 
     <!-- Required Jqurey -->
     <script
@@ -182,7 +235,7 @@
 
 <script> 
     $(document).ready( function () {
-        $('#tbm_departement').DataTable();
+        $('#tbm_user').DataTable();
     });
 </script>
 

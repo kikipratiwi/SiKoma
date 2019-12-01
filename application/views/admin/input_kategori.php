@@ -51,16 +51,17 @@
                                         </thead>
                                         <tbody>
                                         <?php   
-                                            for ($index = 1; $index <= 4; $index++){
+                                              $index = 1;
+                                              foreach($competitioncat as $key => $cmpt) : 
                                         ?>
                                             <tr>
                                                 <td><?php echo $index; ?></td>
-                                                <td> Competitive Programming
+                                                <td> <?php echo $cmpt->name; ?>
                                                 <!-- echo $index ?> -->
                                                 </td>
                                                 <td>
                                                     <!-- if(ever_used === null){?> -->
-                                                    <a href="" id="input_category" class="open-view-cateogry btn btn-primary" data-toggle="modal" data-target="#view-Modal-Category">
+                                                    <a href="" id="input_category" class="open-view-cateogry btn btn-primary" data-toggle="modal" data-target="#view-Modal-Category<?php echo $cmpt->id ?>">
                                                         Edit
                                                     </a>
                                                     <!-- }else{?> -->
@@ -71,7 +72,7 @@
                                                 </td>
                                                 <td>
                                                     <!-- if(ever_used === null){?> -->
-                                                    <a href="" id="input_category" class="open-view-cateogry btn btn-danger" action="">
+                                                    <a href="<?php echo base_url();?>index.php/Admin/act_delete_kategori?id=<?php echo $cmpt->id; ?>" id="input_category" class="open-view-cateogry btn btn-danger">
                                                         Delete
                                                     </a>
                                                     <!-- }else{?> -->
@@ -83,7 +84,7 @@
                                             </tr>
                                             
                                             <!-- Edit Competition Category Modal -->
-                                            <div class="modal fade modal-flex" id="view-Modal-Category" tabindex="-1" role="dialog">
+                                            <div class="modal fade modal-flex" id="view-Modal-Category<?php echo $cmpt->id ?>" tabindex="-1" role="dialog">
                                                 <div class="modal-dialog" role="document">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
@@ -93,12 +94,13 @@
                                                         <h5 class="modal-title">Edit Kategori Kompetisi</h5>
                                                     </div>
 
-                                                    <form method="POST" action="">
+                                                    <form method="POST" action="<?php echo base_url();?>index.php/Admin/act_update_kategori">
                                                         <div class="modal-body">
                                                             <div class="row">
                                                                 <div class="form-group col-md-12">
-                                                                    <label for="competitionName" class="block form-control-label">Kategori Kompetisi *get data*</label>
-                                                                    <input type="text" class="form-control" name="name">
+                                                                    <label for="competitionName" class="block form-control-label">Kategori Kompetisi</label>
+                                                                    <input type="hidden" class="form-control" name="id" value="<?php echo $cmpt->id; ?>" required>
+                                                                    <input type="text" class="form-control" name="name" value="<?php echo $cmpt->name; ?>" required>
                                                                 </div>
                                                             </div>
                                                         </div>                                              
@@ -111,9 +113,10 @@
                                             </div>
                                             <!-- End of Edit Competition Category Modal -->
 
-                                            <?php 
-                                            };
-                                        ?>
+                                          <?php 
+                                                    $index++;
+                                                    endforeach;
+                                         ?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -144,7 +147,7 @@
             <h5 class="modal-title">Tambah Kategori Kompetisi</h5>
         </div>
 
-        <form method="POST" action="">
+        <form method="POST" action="<?php echo base_url().'index.php/Admin/act_input_kategori'; ?>">
             <div class="modal-body">
                 <div class="row">
                     <div class="form-group col-md-12">
