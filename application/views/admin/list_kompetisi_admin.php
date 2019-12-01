@@ -70,7 +70,7 @@
                                                                 <td><?php echo date_format($date1,"d M Y")." - ". date_format($date2,"d M Y");?></td>
                                                                 <td>
                                                                     <!-- <button type="button" class="btn btn-primary waves-effect waves-light">Edit</button> -->
-                                                                    <a href="" id="input_category" class="open-view-cateogry btn btn-primary preview-pdf" data-toggle="modal" data-target="#view-Modal-Termin">
+                                                                    <a href="" id="input_category" class="open-view-cateogry btn btn-primary preview-pdf" data-toggle="modal" data-target="#edit-competition-modal-form">
                                                                         Edit
                                                                     </a>
                                                                 </td>
@@ -79,45 +79,6 @@
                                                                 </td>
                                                             </tr>
 
-                                                                        <!-- MODAL TERMIN -->
-                                                            <div class="modal fade modal-flex" id="view-Modal-Termin" tabindex="-1" role="dialog">
-                                                                <div class="modal-dialog modal-sm" role="document">
-                                                                    <div class="modal-content">
-                                                                        <div class="modal-header">
-                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                                <span aria-hidden="true">&times;</span>
-                                                                            </button>
-                                                                            <h5 class="modal-title">Pencairan Dana</h5>
-                                                                        </div>
-                                                                        <div class="modal-body">
-                                                                            <div class="row">
-                                                                                <div class="col-sm-12">
-                                                                                    <div class="form-group col-md-12" style="margin-bottom: .1rem;">
-                                                                                        <label for="registDate" class="block form-control-label">Jumlah Dana</label>
-                                                                                        <!-- < echo rupiah($pr->realisazion_budget);?> -->
-                                                                                        <input type="number" name="budget" min=0>
-                                                                                        <!-- < -->
-                                                                                            <!-- if($pr->realisazion_budget==='yang diinputkan') -->
-                                                                                        
-                                                                                        <!-- ?> -->
-                                                                                        <br><span>Sisa dana yang akan dicairkan pada termin 2 adalah </span>
-                                                                                        <!-- < -->
-                                                                                            <!-- echo rupiah($pr->realisazion_budget) dikurang yang diinputkan; -->
-                                                                                        <!-- ?> -->
-                                                                                    </div>
-                                                                                    <div class="form-group col-md-12" style="margin-bottom: .1rem;">
-                                                                                        <label for="registDate" class="block form-control-label">Sumber Dana</label>
-                                                                                        <!-- < $pr->budget_source ?> -->
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <!-- END MODAL TERMIN -->
-
-                                                            
                                                             <!-- Edit Competition Modal -->
                                                             <div class="modal fade modal-flex" id="edit-competition-modal-form" tabindex="-1" role="dialog">
                                                                 <div class="modal-dialog" role="document">

@@ -93,10 +93,10 @@
                                                     </td>
                                                     
                                                 </tr>
-
+                                                
                                                 <!-- MODAL TERMIN -->
                                                 <div class="modal fade modal-flex" id="view-Modal-Termin" tabindex="-1" role="dialog">
-                                                    <div class="modal-dialog modal-lg" role="document">
+                                                    <div class="modal-dialog modal-sm" role="document">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
                                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -106,29 +106,33 @@
                                                             </div>
                                                             <div class="modal-body">
                                                                 <div class="row">
-                                                                    <div class="col-sm-9">
-                                                                        <!-- GET Link to review Proposal -->
-                                                                        <object id="pdf" height="500px" width="100%" type="application/pdf" data="<?php echo base_url();?>data/proposals/<?php echo $pr->proposal; ?>">
-                                                                            <span>PDF is not found or PDF plugin is not available</span>
-                                                                        </object>
-                                                                    </div>
-                                                                    <div class="col-sm-3">                                                                  
-                                                                        <br>
+                                                                    <div class="col-sm-12">
                                                                         <div class="form-group col-md-12" style="margin-bottom: .1rem;">
                                                                             <label for="registDate" class="block form-control-label">Jumlah Dana</label>
-                                                                            <?php echo rupiah($pr->realisazion_budget);?>
+                                                                            <!-- < echo rupiah($pr->realisazion_budget);?> -->
+                                                                            <input type="number" name="budget" min=0>
+                                                                            <!-- < -->
+                                                                                <!-- if($pr->realisazion_budget==='yang diinputkan') -->
+                                                                            
+                                                                            <!-- ?> -->
+                                                                            <br><span>Sisa dana yang akan dicairkan pada termin 2 adalah </span>
+                                                                            <!-- < -->
+                                                                                <!-- echo rupiah($pr->realisazion_budget) dikurang yang diinputkan; -->
+                                                                            <!-- ?> -->
                                                                         </div>
                                                                         <div class="form-group col-md-12" style="margin-bottom: .1rem;">
                                                                             <label for="registDate" class="block form-control-label">Sumber Dana</label>
-                                                                            <?php echo $pr->budget_source ?>
+                                                                            <!-- < $pr->budget_source ?> -->
                                                                         </div>
                                                                     </div>
                                                                 </div>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <!-- END MODAL TERMIN -->
 
-                                               
+                                                            
 
                                                 <?php 
                                                     $index++;

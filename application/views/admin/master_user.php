@@ -46,8 +46,6 @@
                                             <th>No</th>
                                             <th>Email</th>
                                             <th>Role</th>
-                                            <th>Edit</th>
-                                            <th>Delete</th>
                                             <!-- <th>Reset Password</th> -->
                                         </tr>
                                         </thead>
@@ -61,83 +59,12 @@
                                                     <td>himakom@polban.ac.id</td>
                                                     <!-- GET Role -->
                                                     <td>Ormawa</td>
-                                                    <td>
-                                                        <!-- if(ever_used === null){?> -->
-                                                        <button type="button" id="add-student" class="btn btn-primary" 
-                                                            style="margin-left: 5px; margin-bottom: 15px;border-radius: .25rem;padding: .5rem .75rem;" 
-                                                            data-toggle="modal" data-target="#edit-user-modal-form" >Edit
-                                                        </button>
-                                                        <!-- }else{?> -->
-                                                        <!-- <a href="" id="input_category" class="btn btn-disable disabled"> -->
-                                                            <!-- Edit -->
-                                                        <!-- </a> -->
-                                                        <!-- }?> -->
-                                                    </td>
-                                                    <td>
-                                                        <!-- if(ever_used === null){?> -->
-                                                        <a href="" id="input_category" class="open-view-cateogry btn btn-danger" action="">
-                                                            Delete
-                                                        </a>
-                                                        <!-- }else{?> -->
-                                                        <!-- <a href="" id="input_category" class="btn btn-disable disabled">
-                                                        Delete
-                                                        </a> -->
-                                                        <!-- }?> -->
-                                                    </td>
                                                     <!-- <td>
                                                         <a href="" class="btn btn-primary">
                                                             Reset Password
                                                         </a>
-                                                    </!--> -->
-
+                                                    </!-->
                                                 </tr>
-
-                                                <!-- Add User Modal -->
-                                                <div class="modal fade modal-flex" id="edit-user-modal-form" tabindex="-1" role="dialog">
-                                                    <div class="modal-dialog" role="document">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                    <span aria-hidden="true">&times;</span>
-                                                                </button>
-                                                            <h5 class="modal-title">Edit Data User</h5>
-                                                        </div>
-
-                                                        <form method="POST" action="">
-                                                            <div class="modal-body">
-                                                                <div class="row">
-                                                                    <div class="form-group col-md-12">
-                                                                        <label for="userEmail" class="block form-control-label">Email *get data</label>
-                                                                        <input type="email" class="form-control" name="name"  placeholder="contoh: user@polban.ac.id">
-                                                                    </div>
-                                                                    <div class="form-group col-md-12">
-                                                                        <label for="studentDepartement" class="block form-control-label">Role *get data</label>
-                                                                        <!-- // ! get role from database //
-                                                                        <select class="form-control" name="organization" id="organization">
-                                                                        foreach($roles as $key => $role) : ?>
-                                                                            <option value="$role->id?>"> $dep->role ?></option>
-                                                                        endforeach;	?>
-                                                                        </select>
-                                                                        -->
-                                                                        <select>
-                                                                            <option value="0">Ormawa</option>
-                                                                            <option value="1">Dosen</option>
-                                                                            <option value="2">Reviewer</option>
-                                                                            <option value="3"></option>
-                                                                        </select> 
-                                                                    </div>
-                                                                    
-                                                                </div>
-                                                            </div>                                              
-                                                            <div class="modal-footer" style="padding-top: 3pt">
-                                                                <button type="submit" class="btn btn-primary">Simpan</button>
-                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                                                            </div>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                                <!-- End of Edit User Modal -->
-
                                                 <?php
                                             };?>
                                         </tbody>
