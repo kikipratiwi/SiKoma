@@ -359,16 +359,6 @@
     <script src="<?php echo base_url();?>assets/select2.min.js"></script>    
 
 <script> 
-    $(".js-save-category").on('change', function(event){
-        var optionText = $("#category-name").val;
-        if( > 0) {
-            $("#competition").append(`<option value="${optionText}"> ${optionText} </option>`); 
-        }
-            $("#competition").val(optionText); 
-
-    }
-</script> 
-<script> 
   	window._data = {};
     // to generate random and unique key 
     function generateKey() { return window.performance.now(); }
@@ -395,7 +385,6 @@
         // Components Initialization
         var fieldSet = $("<fieldset id='team" + key + "'></fieldset>");
         var legend = $("<legend>#"+ (index + 1) +"</legend>");
-        var categoryTextField   = $("<input />", {"class": 'js-text-category form-control', "name": 'category[]'});
         var categoryField   = $("<select />", {"class": 'js-select2 form-control js-required', "style": 'width: 100%',"name": 'category[]'});
         var coachField      = $("<select />", {"class": 'js-select2 form-control js-required', "style": 'width: 100%',"name": 'coach[]'});
         var leaderField     = $("<select />", {"class": 'js-select2 form-control', "style": 'width: 100%',"name": 'leader[]'});
@@ -427,7 +416,6 @@
         <?php endforeach; ?>
 
         // Components Set Value
-        categoryTextField.val(datum.text_category);
         categoryField.val(datum.category);
         coachField.val(datum.coach);
         leaderField.val(datum.leader);
@@ -437,16 +425,8 @@
         member4Field.val(datum.member4);
     
         // Components Callbacks
-        categoryTextField.on('change', function(event){
-            _data[key].text_category = event.target.value;
-            
-            var value = event.target.value;
-            _data[key].categoryText = value;
-          	categoryField.prop('disabled', value.length > 0);
-        });
         categoryField.on('change', function(event){
             _data[key].category = event.target.value;
-            categoryTextField.prop('disabled', value.length > 0);
         });
         coachField.on('change', function(event){
             _data[key].coach = event.target.value;
@@ -477,16 +457,6 @@
 
         // Render Components
         fieldSet.append(legend);
-        fieldSet.append(
-            $("<div/>", {"class": "form-group row"}).append([
-                    $("<label/>", {"class": "col-xs-2 col-form-label form-control-label"}).append([
-                    "Tambah Ketegori Kompetisi (baru)"
-                ]),
-                $("<div/>", {"class": "col-sm-10"}).append([
-                    categoryTextField
-                ])
-            ]) 
-        );
         fieldSet.append(
             $("<div/>", {"class": "form-group row"}).append([
                     $("<label/>", {"class": "col-xs-2 col-form-label form-control-label"}).append([
