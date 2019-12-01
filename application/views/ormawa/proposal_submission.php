@@ -169,11 +169,7 @@
             <div class="modal-body">
                     <div class="form-group col-md-12">
                         <label for="competitionName" class="block form-control-label">Nama Kompetisi</label>
-<<<<<<< HEAD
                         <input type="text" class="form-control" name="name" id="category-name" placeholder="ex: Gemastik" required>
-=======
-                        <input type="text" class="form-control" name="name" placeholder="ex: Gemastik" required>
->>>>>>> 44a0e0bd5ed0ce619903d0d8232ed4263eef93d1
                     </div>
                     
                     <div class="form-group col-md-12">
