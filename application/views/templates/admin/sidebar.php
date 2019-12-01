@@ -91,6 +91,12 @@
                     </a>                
                 </li>
                 <li class="nav-level">Data Master</li>
+                <li class=" <?php if(current_url() === base_url().'index.php/Admin/master_user'){
+                                echo 'active';}?> treeview">
+                    <a class="waves-effect waves-dark" href="<?php echo base_url();?>index.php/Admin/master_user">
+                        <i class="icon-people"></i><span> User</span>
+                    </a>                
+                </li>
                 <li class=" <?php if(current_url() === base_url().'index.php/Admin/master_student'){
                                 echo 'active';}?> treeview">
                     <a class="waves-effect waves-dark" href="<?php echo base_url();?>index.php/Admin/master_student">

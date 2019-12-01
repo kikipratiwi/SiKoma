@@ -81,7 +81,8 @@
                                                     </td>
                                                     <td><?php
                                                         if($pr->status==='WAITFUND'){?>
-                                                            <a href="<?php echo base_url();?>index.php/Admin/updatefund?id=<?php echo $pr->id; ?>" class="btn btn-success">
+                                                         <!-- echo base_url();?>index.php/Admin/updatefund?id= echo $pr->id; ?> -->
+                                                            <a href="" class="btn btn-success" data-toggle="modal" data-target="#view-Modal-Termin">
                                                                 Cairkan dana
                                                             </a>
                                                         <?php } else if($pr->status==='DISBURSEDFUND'){  ?>
@@ -93,15 +94,15 @@
                                                     
                                                 </tr>
 
-                                                <!-- MODAL REVIEW REVISION -->
-                                                <div class="modal fade modal-flex" id="view-Modal-Preview" tabindex="-1" role="dialog">
+                                                <!-- MODAL TERMIN -->
+                                                <div class="modal fade modal-flex" id="view-Modal-Termin" tabindex="-1" role="dialog">
                                                     <div class="modal-dialog modal-lg" role="document">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
                                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                                     <span aria-hidden="true">&times;</span>
                                                                 </button>
-                                                                <h5 class="modal-title">Review Proposal</h5>
+                                                                <h5 class="modal-title">Pencairan Dana</h5>
                                                             </div>
                                                             <div class="modal-body">
                                                                 <div class="row">
@@ -115,22 +116,15 @@
                                                                             <label for="registDate" class="block form-control-label">Jumlah Dana</label>
                                                                             <?php echo rupiah($pr->realisazion_budget);?>
                                                                         </div>
-                                                                        
                                                                         <div class="form-group col-md-12" style="margin-bottom: .1rem;">
                                                                             <label for="registDate" class="block form-control-label">Sumber Dana</label>
                                                                             <?php echo $pr->budget_source ?>
                                                                         </div>
-
-                                                                        
-                                                                        
-                                                                            
                                                                     </div>
-                                                                </div>                                                               
-                                                                
-                                                            
-                                                        
+                                                                </div>
                                                     </div>
                                                 </div>
+                                                <!-- END MODAL TERMIN -->
 
                                                
 
