@@ -86,7 +86,7 @@
                                                     </td>
                                                 </tr>
 
-                                                <!-- Edit Student Modal -->
+                                                <!-- Edit Study Programme Modal -->
                                                 <div class="modal fade modal-flex" id="edit-study-programme-modal-form" tabindex="-1" role="dialog">
                                                     <div class="modal-dialog" role="document">
                                                         <div class="modal-content">
@@ -105,8 +105,14 @@
                                                                         <input type="text" class="form-control" name="name">
                                                                     </div>
                                                                     <div class="form-group col-md-12">
-                                                                        <!-- // !use select2 // -->
                                                                         <label for="studentDepartement" class="block form-control-label">Jurusan*get data</label>
+                                                                        <!-- // ! get departement from database //
+                                                                            <select class="form-control" name="organization" id="organization">
+                                                                            foreach($departement as $key => $dep) : ?>
+                                                                                <option value="$dep->id?>"> $dep->name ?></option>
+                                                                            endforeach;	?>
+                                                                            </select>
+                                                                            -->
                                                                         <select>
                                                                             <option value="0">Teknik Komputer dan Informatika</option>
                                                                             <option value="1">Teknik Kimia</option>
@@ -123,7 +129,7 @@
                                                         </form>
                                                     </div>
                                                 </div>
-                                                <!-- End of Edit Student Modal -->
+                                                <!-- End of Edit Study Programme Modal -->
                                                 <?php
                                             };?>
                                         </tbody>
@@ -143,7 +149,7 @@
     </div>
 </div>
 
-<!-- Add Student Modal -->
+<!-- Add Study Programme Modal -->
 <div class="modal fade modal-flex" id="add-study-programme-modal-form" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -162,8 +168,14 @@
                         <input type="text" class="form-control" name="name"  placeholder="contoh: D3 Teknik Informatika">
                     </div>
                     <div class="form-group col-md-12">
-                    <!-- // !use select2 // -->
                         <label for="studentDepartement" class="block form-control-label">Jurusan*get data</label>
+                        <!-- // ! get departement from database //
+                        <select class="form-control" name="organization" id="organization">
+                        foreach($departement as $key => $dep) : ?>
+                            <option value="$dep->id?>"> $dep->name ?></option>
+                        endforeach;	?>
+                        </select>
+                        -->
                         <select>
                             <option value="0">Teknik Komputer dan Informatika</option>
                             <option value="1">Teknik Kimia</option>
@@ -180,7 +192,7 @@
         </form>
     </div>
 </div>
-<!-- End of Add Student Modal -->
+<!-- End of Add Study Programme Modal -->
 
     <!-- Required Jqurey -->
     <script

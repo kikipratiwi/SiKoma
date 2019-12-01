@@ -112,9 +112,15 @@
                                                                         <label for="lecturerNIM" class="block form-control-label">NIP*get data<</label>
                                                                         <input type="text" class="form-control" name="nim">
                                                                     </div>
-                                                                    <!-- // !use select2 // -->
                                                                     <div class="form-group col-md-12">
                                                                         <label for="lecturerDepartement" class="block form-control-label">Jurusan*get data</label>
+                                                                        <!-- // ! get departement from database //
+                                                                        <select class="form-control" name="organization" id="organization">
+                                                                        foreach($departement as $key => $dep) : ?>
+                                                                            <option value="$dep->id?>"> $dep->name ?></option>
+                                                                        endforeach;	?>
+                                                                        </select>
+                                                                        -->
                                                                         <select>
                                                                             <option value="0">Teknik Komputer dan Informatika</option>
                                                                             <option value="1">Teknik Kimia</option>
@@ -131,7 +137,7 @@
                                                         </form>
                                                     </div>
                                                 </div>
-                                                <!-- End of Edit Student Modal -->
+                                                <!-- End of Edit Lecturer Modal -->
 
                                                 <?php
                                             };?>
@@ -153,7 +159,7 @@
     </div>
 </div>
 
-<!-- Add Student Modal -->
+<!-- Add Lecturer Modal -->
 <div class="modal fade modal-flex" id="add-lecturer-modal-form" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -175,9 +181,15 @@
                         <label for="lecturerNIM" class="block form-control-label">NIP*get data<</label>
                         <input type="text" class="form-control" name="nim">
                     </div>
-                    <!-- // !use select2 // -->
                     <div class="form-group col-md-12">
                         <label for="lecturerDepartement" class="block form-control-label">Jurusan*get data</label>
+                        <!-- // ! get departement from database //
+                        <select class="form-control" name="organization" id="organization">
+                        foreach($departement as $key => $dep) : ?>
+                            <option value="$dep->id?>"> $dep->name ?></option>
+                        endforeach;	?>
+                        </select>
+                        -->
                         <select>
                             <option value="0">Teknik Komputer dan Informatika</option>
                             <option value="1">Teknik Kimia</option>
@@ -194,7 +206,7 @@
         </form>
     </div>
 </div>
-<!-- End of Add Student Modal -->
+<!-- End of Add Lecturer Modal -->
 
     <!-- Required Jqurey -->
     <script
