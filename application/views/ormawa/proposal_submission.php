@@ -65,13 +65,13 @@
                                                                 <label for="competition" class="col-xs-2 col-form-label form-control-label">Kompetisi</label>
                                                                 <div class="d-flex justify-content-between">
                                                                     <div class="col-sm-8">
-                                                                        <select class="js-basic-single form-control" name="competition" id="competition" required>
+                                                                        <select class="js-basic-single form-control" name="competition" id="competition" style="width: 100%" required>
                                                                         <?php foreach($competition as $key => $cmp) : ?>
 			                                                                <option value="<?= $cmp->id?>"> <?=$cmp->name ?></option>
 		                                                                <?php endforeach;	?>
                                                                         </select>
                                                                     </div>
-                                                                    <span class="md-add-on-file float-right">
+                                                                    <span class="md-add-on-file float-right col-sm-12">
                                                                         Atau
                                                                         <!-- Button trigger modal -->
                                                                         <button type="button" id="add-competition" class="btn btn-primary" 
@@ -536,7 +536,6 @@
         });
 
         $('.js-required').prop("required", true);
-
     }
 
     // Initialize data
@@ -549,6 +548,16 @@
         addComponent(key, _data[key], newIndex);
     });
 
+</script>
+
+<script>
+    $('select').on('change', function(event ) {
+        var prevValue = $(this).data('previous');
+        $('select').not(this).find('option[value="'+prevValue+'"]').removeAttr('disabled', 'disabled');
+        var value = $(this).val();
+        $(this).data('previous',value); 
+        $('select').not(this).find('option[value="'+value+'"]').attr('disabled', 'disabled');
+    });
 </script>
 
 <script>
@@ -582,7 +591,9 @@
 
 <script>
 $(document).ready(function() {
-    $('.js-basic-single').select2();
+    $('.js-basic-single').select2({
+        width: 'resolve' // need to override the changed default
+    });
 });
 </script>
 
