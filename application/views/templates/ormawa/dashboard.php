@@ -27,7 +27,7 @@
                     <div class="col-sm-12 card dashboard-product">
                         <span>Revisi Proposal</span>
                         <h2 class="dashboard-total-products counter">
-                            <?php echo $proposal->disbursed?>
+                            <?php echo $proposal->revision?>
                         </h2>
                         Total Proposal <span class="label label-warning">direvisi</span>
                         <div class="side-box bg-warning">
@@ -39,7 +39,7 @@
                     <div class="col-sm-12 card dashboard-product">
                         <span>LPJ</span>
                         <h2 class="dashboard-total-products counter">
-                            <?php echo $proposal->disbursed?>
+                            <?php echo $proposal->waitreport?>
                         </h2>
                         Total LPJ <span class="label label-danger">yang harus diserahkan</span>
                         <div class="side-box bg-danger">

@@ -27,12 +27,12 @@ class Ormawa extends CI_Controller {
 
 	public function index()
 	{
-		$nim = $this->session->userdata('id');
+		$id = $this->session->userdata('id');
 
 		$curl = curl_init();
 	
 		curl_setopt_array($curl, array(
-		CURLOPT_URL => API_URL."/api/ormawa/proposal/all?nim=".$nim."",
+		CURLOPT_URL => API_URL."/api/ormawa/proposal/all?id=".$id."",
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_ENCODING => "",		
 		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -320,7 +320,7 @@ class Ormawa extends CI_Controller {
 		$curl = curl_init();
 	
 		curl_setopt_array($curl, array(
-		CURLOPT_URL => API_URL."/api/ormawa/proposal/allBudget?id=".$id."",
+		CURLOPT_URL => API_URL."/api/ormawa/proposal/finished?id=".$id."",
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_ENCODING => "",		
 		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
