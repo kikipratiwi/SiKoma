@@ -54,22 +54,23 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                            <?php
-                                                for ($no = 1; $no <= 4; $no++){
-                                                    ?>
+                                            <?php   
+                                              $index = 1;
+                                              foreach($dosen as $key => $ds) : 
+                                            ?>
                                                 <tr>
-                                                    <td><?php echo $no ?></td>
+                                                    <td><?php echo $index ?></td>
                                                     <!-- GET NIM -->
-                                                    <td>172411031</td>
+                                                    <td><?php echo $ds->nip ?></td>
                                                     <!-- GET Nama -->
-                                                    <td>Nussa</td>
+                                                    <td><?php echo $ds->name?></td>
                                                     <!-- GET Departement -->
-                                                    <td>Komputer</td>
+                                                    <td><?php echo $ds->department->name ?></td>
                                                     <td>
                                                         <!-- if(ever_used === null){?> -->
                                                         <button type="button" id="edit-lecturer" class="btn btn-primary" 
                                                             style="margin-left: 5px; margin-bottom: 15px;border-radius: .25rem;padding: .5rem .75rem;" 
-                                                            data-toggle="modal" data-target="#dit-lecturer-modal-form" >Edit
+                                                            data-toggle="modal" data-target="#edit-lecturer-modal-form<?php echo $ds->id?> " >Edit
                                                         </button>
                                                         <!-- }else{?> -->
                                                         <!-- <a href="" id="input_category" class="btn btn-disable disabled"> -->
@@ -79,7 +80,7 @@
                                                     </td>
                                                     <td>
                                                         <!-- if(ever_used === null){?> -->
-                                                        <a href="" id="input_category" class="btn btn-danger" action="">
+                                                        <a href="<?php echo base_url();?>index.php/Admin/act_delete_lecturer?id=<?php echo $ds->id; ?>" id="input_category" class="btn btn-danger" action="">
                                                             Delete
                                                         </a>
                                                         <!-- }else{?> -->
@@ -91,7 +92,7 @@
                                                 </tr>
 
                                                 <!-- Edit Lecturer Modal -->
-                                                <div class="modal fade modal-flex" id="edit-lecturer-modal-form" tabindex="-1" role="dialog">
+                                                <div class="modal fade modal-flex" id="edit-lecturer-modal-form<?php echo $ds->id?>" tabindex="-1" role="dialog">
                                                     <div class="modal-dialog" role="document">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
@@ -101,19 +102,20 @@
                                                             <h5 class="modal-title">Edit Data Dosen</h5>
                                                         </div>
 
-                                                        <form method="POST" action="">
+                                                        <form method="POST" action="<?php echo base_url();?>index.php/Admin/act_update_lecturer">
                                                             <div class="modal-body">
                                                                 <div class="row">
                                                                     <div class="form-group col-md-12">
-                                                                        <label for="lecturertName" class="block form-control-label">Nama Lengkap *get data</label>
-                                                                        <input type="text" class="form-control" name="name">
+                                                                        <input type="hidden" class="form-control" name="id" value="<?php echo $ds->id?>">
+                                                                        <label for="lecturertName" class="block form-control-label">Nama Lengkap </label>
+                                                                        <input type="text" class="form-control" name="name" value="<?php echo $ds->name?>">
                                                                     </div>
                                                                     <div class="form-group col-md-12">
-                                                                        <label for="lecturerNIM" class="block form-control-label">NIP*get data<</label>
-                                                                        <input type="text" class="form-control" name="nim">
+                                                                        <label for="lecturerNIM" class="block form-control-label">NIP</label>
+                                                                        <input type="text" class="form-control" name="nip" value="<?php echo $ds->nip?>">
                                                                     </div>
                                                                     <div class="form-group col-md-12">
-                                                                        <label for="lecturerDepartement" class="block form-control-label">Jurusan*get data</label>
+                                                                        <label for="lecturerDepartement" class="block form-control-label">Jurusan</label>
                                                                         <!-- // ! get departement from database //
                                                                         <select class="form-control" name="organization" id="organization">
                                                                         foreach($departement as $key => $dep) : ?>
@@ -121,11 +123,10 @@
                                                                         endforeach;	?>
                                                                         </select>
                                                                         -->
-                                                                        <select>
-                                                                            <option value="0">Teknik Komputer dan Informatika</option>
-                                                                            <option value="1">Teknik Kimia</option>
-                                                                            <option value="2">Teknik Mesin</option>
-                                                                            <option value="3">Akuntansi</option>
+                                                                         <select class="js-basic-single form-control" name="dpt" id="dpt" required>
+                                                                            <?php foreach($department as $key => $dpt) : ?>
+                                                                            <option value="<?= $dpt->id?>"> <?=$dpt->name ?></option>
+                                                                            <?php endforeach;   ?>
                                                                         </select> 
                                                                     </div>
                                                                 </div>
@@ -139,8 +140,10 @@
                                                 </div>
                                                 <!-- End of Edit Lecturer Modal -->
 
-                                                <?php
-                                            };?>
+                                         <?php 
+                                            $index++;
+                                            endforeach;
+                                         ?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -170,31 +173,23 @@
             <h5 class="modal-title">Input Data Jurusan</h5>
         </div>
 
-        <form method="POST" action="">
+        <form method="POST" action="<?php echo base_url();?>index.php/Admin/act_input_lecturer">
             <div class="modal-body">
                 <div class="row">
                     <div class="form-group col-md-12">
-                        <label for="lecturerName" class="block form-control-label">Nama Lengkap *get data</label>
+                        <label for="lecturerName" class="block form-control-label">Nama Lengkap </label>
                         <input type="text" class="form-control" name="name">
                     </div>
                     <div class="form-group col-md-12">
-                        <label for="lecturerNIM" class="block form-control-label">NIP*get data<</label>
-                        <input type="text" class="form-control" name="nim">
+                        <label for="lecturerNIM" class="block form-control-label">NIP</label>
+                        <input type="text" class="form-control" name="nip">
                     </div>
                     <div class="form-group col-md-12">
-                        <label for="lecturerDepartement" class="block form-control-label">Jurusan*get data</label>
-                        <!-- // ! get departement from database //
-                        <select class="form-control" name="organization" id="organization">
-                        foreach($departement as $key => $dep) : ?>
-                            <option value="$dep->id?>"> $dep->name ?></option>
-                        endforeach;	?>
-                        </select>
-                        -->
-                        <select>
-                            <option value="0">Teknik Komputer dan Informatika</option>
-                            <option value="1">Teknik Kimia</option>
-                            <option value="2">Teknik Mesin</option>
-                            <option value="3">Akuntansi</option>
+                        <label for="lecturerDepartement" class="block form-control-label">Jurusan</label>                        
+                        <select class="js-basic-single form-control" name="dpt" id="dpt" required>
+                            <?php foreach($department as $key => $dpt) : ?>
+                            <option value="<?= $dpt->id?>"> <?=$dpt->name ?></option>
+                            <?php endforeach;   ?>
                         </select> 
                     </div>
                 </div>
