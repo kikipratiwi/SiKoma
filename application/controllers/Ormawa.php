@@ -286,7 +286,7 @@ class Ormawa extends CI_Controller {
 			$index++;
 		}
 
-		// redirect('Ormawa/ongoing_submission');
+		redirect('Ormawa/ongoing_submission');
 
 	}
 

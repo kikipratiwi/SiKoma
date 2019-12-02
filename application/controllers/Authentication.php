@@ -67,16 +67,17 @@ class Authentication extends CI_Controller {
 			$this->login_act();
 		}
 
-		$data_session = array(
-			'id' => $id,
-			'nama' => $us->user->ormawa->name,
-			'role' => $us->user->role,
-			'token' => $us->token,
-			'status' => "login"
-			);
+		redirect('Authentication/login');
+		// $data_session = array(
+		// 	'id' => $id,
+		// 	'nama' => $us->user->ormawa->name,
+		// 	'role' => $us->user->role,
+		// 	'token' => $us->token,
+		// 	'status' => "login"
+		// 	);
 
-		$this->session->set_userdata($data_session);
-		$this->login_act();
+		// $this->session->set_userdata($data_session);
+		// $this->login_act();
 	}
 
 	public function login_act()
