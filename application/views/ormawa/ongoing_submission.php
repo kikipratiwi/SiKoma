@@ -234,9 +234,6 @@
     <script src="<?php echo base_url();?>assets/plugins/jquery/dist/jquery.min.js"></script>
     <script src="<?php echo base_url();?>assets/plugins/jquery-ui/jquery-ui.min.js"></script>
     <script src="<?php echo base_url();?>assets/plugins/tether/dist/js/tether.min.js"></script>
-    <!-- https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js -->
-    <script src="<?php echo base_url();?>assets/js/2.1.3jquery.min.js"></script> 
-    <!-- https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js -->
     <script src="<?php echo base_url();?>assets/js/3.0.0-alpha1jquery.min.js"></script>
 
     <!-- Required Fremwork -->
@@ -252,13 +249,6 @@
       <!--classic JS-->
       <script src="<?php echo base_url();?>assets/plugins/classie/classie.js"></script>
 
-      <!-- notification -->
-      <script src="<?php echo base_url();?>assets/plugins/notification/js/bootstrap-growl.min.js"></script>
-
-
-      <!-- Rickshaw Chart js -->
-      <script src="<?php echo base_url();?>assets/plugins/d3/d3.js"></script>
-      <script src="<?php echo base_url();?>assets/plugins/rickshaw/rickshaw.js"></script>
     <!-- Required Jqurey -->
     <script src="<?php echo base_url();?>assets/js/2.1.3jquery.min.js"></script> 
     <script src="<?php echo base_url();?>assets/js/jquery.media.js"></script>
