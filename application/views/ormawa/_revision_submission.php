@@ -50,13 +50,13 @@
                                                         <div class="form-group row">
                                                             <label for="budget" class="col-xs-2 col-form-label form-control-label">Dana yang diajukan</label>
                                                             <div class="col-sm-10">
-                                                                <input class="form-control" type="number" name="budget" placeholder="Jumlah Dana" value="" id="budget" required>
+                                                                <input class="form-control" type="number" name="budget" placeholder="Jumlah Dana" value="<?php echo $proposal->draft_budget?>" id="budget" required>
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
                                                             <label for="summary" class="col-xs-2 col-form-label form-control-label">Ringkasan</label>
                                                             <div class="col-sm-10">
-                                                                <textarea name="summary" id="summary" class="form-control" rows="4"></textarea>
+                                                                <textarea value ="<?php echo $proposal->summary?>" name="summary" id="summary" class="form-control" rows="4" required></textarea>
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
