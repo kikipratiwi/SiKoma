@@ -47,23 +47,24 @@
                                             <th>No</th>
                                             <th>NIM</th>
                                             <th>Nama</th>
-                                            <th>Jurusan</th>
+                                            <th>Program Studi</th>
                                             <th>Edit</th>
                                             <th>Delete</th>
                                         </tr>
                                         </thead>
                                         <tbody>
-                                            <?php
-                                                for ($no = 1; $no <= 4; $no++){
-                                                    ?>
+                                            <?php   
+                                              $index = 1;
+                                              foreach($student as $key => $std) : 
+                                            ?>
                                                 <tr>
-                                                    <td><?php echo $no ?></td>
+                                                    <td><?php echo $index ?></td>
                                                     <!-- GET NIM -->
-                                                    <td>172411031</td>
+                                                    <td><?php echo $std->nim ?></td>
                                                     <!-- GET Nama -->
-                                                    <td>Nussa</td>
+                                                    <td><?php echo $std->name ?></td>
                                                     <!-- GET Departement -->
-                                                    <td>Komputer</td>
+                                                    <td><?php echo $std->program->name ?></td>
                                                     <td>
                                                         <!-- if(ever_used === null){?> -->
                                                         <button type="button" id="add-student" class="btn btn-primary" 
@@ -78,7 +79,7 @@
                                                     </td>
                                                     <td>
                                                         <!-- if(ever_used === null){?> -->
-                                                        <a href="" id="input_category" class="open-view-cateogry btn btn-danger" action="">
+                                                        <a href=""<?php echo base_url();?>index.php/Admin/act_delete_student?id=<?php echo $std->id; ?>"" id="input_category" class="open-view-cateogry btn btn-danger" action="">
                                                             Delete
                                                         </a>
                                                         <!-- }else{?> -->
@@ -138,8 +139,10 @@
                                                 </div>
                                                 <!-- End of Edit Student Modal -->
 
-                                                <?php
-                                            };?>
+                                                <?php 
+                                            $index++;
+                                            endforeach;
+                                         ?>
                                         </tbody>
                                     </table>
                                 </div>

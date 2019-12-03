@@ -175,11 +175,56 @@ class Admin extends CI_Controller {
 	}
 
 
-
+	//MAHASISWA
 	public function master_student()
 	{
+		$curl = curl_init();
+		curl_setopt_array($curl, array(
+		CURLOPT_URL => API_URL."/api/programs",
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_ENCODING => "",
+		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST => "GET",
+		));
+
+		$cmpt = curl_exec($curl);
+		$err = curl_error($curl);		
+
+		curl_setopt_array($curl, array(
+		CURLOPT_URL => API_URL."/api/students",
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_ENCODING => "",
+		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST => "GET",
+		));
+
+		$std = curl_exec($curl);
+		$err = curl_error($curl);
+		curl_close($curl);
+
+		$data['student'] = json_decode($std);	
+		$data['program'] = json_decode($cmpt);		
 		$data['content'] = $this->template();
 		$this->load->view('admin/master_student',$data);
+	}
+
+	public function act_delete_student(){
+		$id = $_GET['id']; /* define later*/
+		$curl = curl_init();
+	
+		curl_setopt_array($curl, array(
+		CURLOPT_URL => API_URL."/api/students?id=".$id."",
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_ENCODING => "",		
+		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST => "DELETE",
+		));
+
+		$cmpt = curl_exec($curl);
+		$err = curl_error($curl);
+
+		curl_close($curl);
+		redirect("Admin/master_student");	
 	}
 
 
@@ -768,22 +813,53 @@ class Admin extends CI_Controller {
 
 	//
 	public function addDeadline(){
-		$curl = curl_init();
-		curl_setopt_array($curl, array(
-		CURLOPT_URL => API_URL."/api/admin/proposal/revision",
-		CURLOPT_RETURNTRANSFER => true,
-		CURLOPT_ENCODING => "",		
-		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-		CURLOPT_CUSTOMREQUEST => "POST",
-		CURLOPT_POSTFIELDS => "proposal=".$_POST['proposal']."&deadline=".$_POST['deadline']."",
-		));
 
-		$cmpt = curl_exec($curl);
+		$deadline = $_POST['deadline']; 
+		$currentDateTime = date('Y-m-d');
+		$date1 = new DateTime($currentDateTime);
+		$date2 = new DateTime($deadline);
+		
+		if($date1 < $date2){
+			$curl = curl_init();
+			curl_setopt_array($curl, array(
+			CURLOPT_URL => API_URL."/api/admin/proposal/revision",
+			CURLOPT_RETURNTRANSFER => true,
+			CURLOPT_ENCODING => "",		
+			CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+			CURLOPT_CUSTOMREQUEST => "POST",
+			CURLOPT_POSTFIELDS => "proposal=".$_POST['proposal']."&deadline=".$deadline."",
+			));
 
-		$err = curl_error($curl);				
-		curl_close($curl);		
+			$cmpt = curl_exec($curl);
 
-		redirect('Admin/list_revisi_proposal');
+			$err = curl_error($curl);				
+			curl_close($curl);		
+
+			redirect('Admin/list_revisi_proposal');
+		}
+		else{
+			$this->session->set_flashdata('error', 'Deadline tidak sesuai');
+			redirect('Admin/list_revisi_proposal');
+		}
+
+		//echo $selisih;
+
+		// $curl = curl_init();
+		// curl_setopt_array($curl, array(
+		// CURLOPT_URL => API_URL."/api/admin/proposal/revision",
+		// CURLOPT_RETURNTRANSFER => true,
+		// CURLOPT_ENCODING => "",		
+		// CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		// CURLOPT_CUSTOMREQUEST => "POST",
+		// CURLOPT_POSTFIELDS => "proposal=".$_POST['proposal']."&deadline=".$deadline."",
+		// ));
+
+		// $cmpt = curl_exec($curl);
+
+		// $err = curl_error($curl);				
+		// curl_close($curl);		
+
+		//redirect('Admin/list_revisi_proposal');
 	}
 
 	public function act_add_competition()
