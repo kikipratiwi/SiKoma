@@ -571,11 +571,11 @@
 
 <script>
     $('select').on('change', function(event ) {
-        var prevValue = $(this).data('previous');
-        $('select').not(this).find('option[value="'+prevValue+'"]').removeAttr('disabled', 'disabled');
-        var value = $(this).val();
-        $(this).data('previous',value); 
-        $('select').not(this).find('option[value="'+value+'"]').attr('disabled', 'disabled');
+        // var prevValue = $(this).data('previous');
+        // $('select').not(this).find('option[value="'+prevValue+'"]').removeAttr('disabled', 'disabled');
+        // var value = $(this).val();
+        // $(this).data('previous',value); 
+        // $('select').not(this).find('option[value="'+value+'"]').attr('disabled', 'disabled');
     });
 </script>
 

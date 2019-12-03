@@ -43,11 +43,16 @@
                                             <th>Proposal</th>
                                             <th>Status</th>
                                             <th>Deadline Revisi</th>
+                                            <th>Dana yang disetujui</th>                                            
+                                            
+                                            <th>Dana yang belum cair</th>
+                                            
                                             <th>Preview</th>
                                         </tr>
                                         </thead>
                                         <tbody>                                            
                                                  <?php   
+                                                 $this->load->helpers('money_format');  
                                                     $index = 1;
                                                     foreach($proposal as $key => $pr) : 
                                                  ?>
@@ -103,7 +108,10 @@
                                                             <td>
                                                                 <p>-</p>
                                                             </td>
+                                                            </td>
                                                         <?php } ?>
+                                                            <td><?php echo rupiah($pr->realisazion_budget) ?></td>                                                                          
+                                                            <td><?php echo rupiah($pr->realisazion_budget -  $pr->approved_budget)?>
                                                     <!-- GET status proposal -->
                                                     <td>
                                                         <!-- <div class="row"> -->

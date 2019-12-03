@@ -85,18 +85,24 @@
                                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                                     <span aria-hidden="true">&times;</span>
                                                                 </button>
-                                                                <h5 class="modal-title">Jumlah dana yang dicairkan</h5>
+                                                                <h5 class="modal-title">Jumlah dana yang digunakan</h5>
                                                             </div>
                                                             <div class="modal-body">
                                                                 <form method="post" action="<?php echo base_url().'index.php/Admin/updateReport'; ?>">
                                                                     <div class="form-group col-md-12">
-                                                                        <label for="lecturertName" class="block form-control-label">Dana yang belum dicairkan</label>
+                                                                        <label for="lecturertName" class="block form-control-label">Dana yang telah cair</label>
+                                                                        <label for="lecturertName" class="block form-control-label"><?php echo rupiah($pr->approved_budget)?></label>
+                                                                        
+                                                                    </div>
+
+                                                                    <div class="form-group col-md-12">
+                                                                        <label for="lecturertName" class="block form-control-label">Dana yang digunakan</label>
                                                                         <input type="hidden" class="form-control" name="id" value=<?php echo $pr->id?> >
-                                                                        <input type="number" class="form-control" name="budget" value=<?php echo $pr->realisazion_budget - $pr->approved_budget?> readonly>
+                                                                        <input type="number" class="form-control" name="budget" max=<?php echo $pr->realisazion_budget?> required>
                                                                     </div>
-                                                                    <div class="label-main">
+                                                                    <!-- <div class="label-main">
                                                                         <label class="label bg-warning">Dana yang akan dicairkan pada termin selanjutnya adalah <br><?php echo rupiah($pr->realisazion_budget - $pr->approved_budget)?></label>
-                                                                    </div>
+                                                                    </div> -->
                                                                     <br><center>
                                                                     <button type="submit" class="btn btn-success">SUBMIT</button>
                                                                     </center>
