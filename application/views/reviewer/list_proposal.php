@@ -43,7 +43,7 @@
                                             <th>Proposal</th>
                                             <th>Tanggal Upload</th>
                                             <th>Ketua Tim</th>
-                                            <th>Jurusan</th>                                            
+                                            <th>Organisasi</th>                                            
                                             <th>Review</th>
                                         </tr>
                                         </thead>
@@ -70,10 +70,10 @@
                                                     </td>
 
                                                     <!-- GET leader -->
-                                                    <td><?php echo $pr->profile->name ?></td>
+                                                    <td><?php echo $pr->team[0] ?></td>
 
                                                     <!-- GET departement -->
-                                                    <td><?php echo $pr->department->name ?></td>
+                                                    <td><?php echo $pr->organization->name ?></td>
                                                     <td>
                                                         <a href="" id="previewPorposal" class="open-view-Modal-Preview btn btn-primary" data-toggle="modal" data-target="#view-Modal<?php echo $pr->id ?>">
                                                             Review
@@ -102,59 +102,48 @@
                                                                     <div class="col-sm-3">
                                                                     <div class="form-group">
                                                                             <label for="teamMembers" class="form-control-label">Dana Yang diajukan</label>
-                                                                                <br><?php  echo rupiah("2000000"); ?>                                        
-                                                                                <p id="leaderTeam">
-                                                                                    <?php echo $pr->draft_budget?>
-                                                                                </p>    
+                                                                                <br><?php  echo rupiah($pr->draft_budget); ?>                                        
+                                                                                    
                                                                         </div>
                                                                         <form enctype="multipart/form-data" method="POST" action="<?php echo base_url().'index.php/Reviewer/review_proposal_submission'; ?>">   
                                                                             <input type="hidden" id="proposal" name="proposal" value="<?php echo $pr->id ?>">
-                                                                            <div class="md-input-wrapper">
-                                                                                <textarea id="leaderTeam" class="md-form-control md-static" cols="2" rows="4" name="rab"></textarea>
-                                                                                <label>Catatan RAB</label>
-                                                                                <p id="dana">
-                                                                            
-                                                                            </p>
-                                                                            </div>
-                                                                            <div class="md-input-wrapper">
-                                                                                <textarea id="contentNotes"  class="md-form-control md-static" cols="2" rows="4" name="konten"></textarea>
-                                                                                <label>Catatan Konten</label>
-                                                                                <p id="dana">
-                                                                            
-                                                                            </p>
-                                                                            </div>
-                                                                            <div class="md-input-wrapper">
-                                                                                    Jumlah Dana yang Disetujui<br>
-                                                                                    <input type="number" name="budget" min=0>
-                                                                                </div>
-                                                                                <div class="md-input-wrapper">
-                                                                                    Sumber Dana<br>
-                                                                                    <input type="text" name="source">
-                                                                                </div>
                                                                             <label class="bold">Status</label>
                                                                             <div class="form-radio">
-                                                                                
-                                                                                    <div class="radio radio-inline">
-                                                                                        <label>
-                                                                                            <input type="radio" name="radio" value="WAITFUND">
-                                                                                                <i class="helper"></i>Diterima
-                                                                                        </label>
-                                                                                    </div>
-                                                                                    <div class="radio radio-inline">
-                                                                                        <label>
-                                                                                            <input type="radio" name="radio" value="REVISION">
-                                                                                                <i class="helper"></i>Revisi
-                                                                                        </label>
-                                                                                    </div>
-                                                                                    <div class="radio radio-inline">
-                                                                                        <label>
-                                                                                            <input type="radio" name="radio" value="REJECTED">
-                                                                                                <i class="helper"></i>Ditolak
-                                                                                        </label>
-                                                                                    </div>
-                                                                            
+                                                                                <div class="radio radio-inline">
+                                                                                    <label>
+                                                                                        <input id="accept" type="radio" name="radio" value="WAITFUND">
+                                                                                            <i class="helper"></i>Diterima
+                                                                                    </label>
+                                                                                </div>
+                                                                                <div class="radio radio-inline">
+                                                                                    <label>
+                                                                                        <input id="revision" type="radio" name="radio" value="REVISION">
+                                                                                            <i class="helper"></i>Revisi
+                                                                                    </label>
+                                                                                </div>
+                                                                                <div class="radio radio-inline">
+                                                                                    <label>
+                                                                                        <input id="reject" type="radio" name="radio" value="REJECTED">
+                                                                                            <i class="helper"></i>Ditolak
+                                                                                    </label>
+                                                                                </div>
                                                                             </div>
-                                                                        
+                                                                            <div class="md-input-wrapper">
+                                                                                <textarea id="budgetNotes" class="md-form-control md-static" cols="2" rows="4" name="rab" disabled></textarea>
+                                                                                <label>Catatan RAB</label>
+                                                                                <p id="dana"></p>
+                                                                            </div>
+                                                                            <div class="md-input-wrapper">
+                                                                                <textarea id="contentNotes"  class="md-form-control md-static" cols="2" rows="4" name="konten" disabled></textarea>
+                                                                                <label>Catatan Konten</label>
+                                                                                <p id="dana"></p>
+                                                                            </div>
+                                                                            <div class="md-input-wrapper">Jumlah Dana yang Disetujui<br>
+                                                                                <input id="budget" type="number" name="budget" min=0 disabled>
+                                                                            </div>
+                                                                            <div class="md-input-wrapper">Sumber Dana<br>
+                                                                                <input id="source" type="text" name="source" disabled>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                     <div class="modal-footer">
@@ -205,10 +194,39 @@
     <script src="<?php echo base_url();?>assets/js/jquery.dataTables.js"></script>
 	
 <script>    
-
     $(document).ready( function () {
         $('#previewNewProposal').DataTable();
     });
+
+    $("#revision").click(function(){
+        $("#source").prop('required', false);
+        $("#source").prop('disabled', true);
+        $("#budget").prop('required', false);
+        $("#budget").prop('disabled', true);
+        $("#budgetNotes").prop('required', true);
+        $("#budgetNotes").prop('disabled', false);
+        $("#contentNotes").prop('required', true);
+        $("#contentNotes").prop('disabled', false);
+    });
+
+    $("#accept").click(function(){
+        $("#contentNotes").prop('required', false);
+        $("#contentNotes").prop('disabled', true);
+        $("#budgetNotes").prop('required', false);
+        $("#budgetNotes").prop('disabled', true);
+        $("#budget").prop('required', true);
+        $("#budget").prop('disabled', false);
+        $("#source").prop('required', true);
+        $("#source").prop('disabled', false);
+    });
+
+    $("#reject").click(function(){
+        $("#contentNotes").prop('disabled', true);
+        $("#budgetNotes").prop('disabled', true);
+        $("#budget").prop('disabled', true);
+        $("#source").prop('disabled', true);
+    });
+
 </script>
 
 

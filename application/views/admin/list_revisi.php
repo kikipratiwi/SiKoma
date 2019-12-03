@@ -32,6 +32,11 @@
                     <div class="card">
                         <div class="card-header">
                             <h5 class="card-header-text">List Proposal Revisi</h5>
+                            <?php if($this->session->flashdata('error') == TRUE ) {?>
+                                <div class="label-main" style="padding-top:5px;">
+                                    <label class="label bg-danger" style="white-space: pre-wrap; text-transform: uppercase;"><i class="icon-ban"></i> <?php echo $this->session->flashdata('error');?></label>
+                                </div>
+                            <?php }?>
                         </div>
                         <div class="card-block">
                             <div class="row">
@@ -57,7 +62,7 @@
                                                     <!-- GET name competition -->
                                                     <td><?php echo $pr->competition->name ?></td>
                                                     <!-- GET leader -->
-                                                    <td><?php echo $pr->profile->name ?></td>
+                                                    <td><?php echo $pr->team[0] ?></td>
                                                     <!-- GET departement -->
                                                     <td><?php echo $pr->organization->name ?></td>
                                                     <!-- GET deadline proposal -->

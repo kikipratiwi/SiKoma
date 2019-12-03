@@ -175,25 +175,277 @@ class Admin extends CI_Controller {
 	}
 
 
-
+	//MAHASISWA
 	public function master_student()
 	{
+		$curl = curl_init();
+		curl_setopt_array($curl, array(
+		CURLOPT_URL => API_URL."/api/programs",
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_ENCODING => "",
+		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST => "GET",
+		));
+
+		$cmpt = curl_exec($curl);
+		$err = curl_error($curl);		
+
+		curl_setopt_array($curl, array(
+		CURLOPT_URL => API_URL."/api/students",
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_ENCODING => "",
+		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST => "GET",
+		));
+
+		$std = curl_exec($curl);
+		$err = curl_error($curl);
+		curl_close($curl);
+
+		$data['student'] = json_decode($std);	
+		$data['program'] = json_decode($cmpt);		
 		$data['content'] = $this->template();
 		$this->load->view('admin/master_student',$data);
 	}
+	public function act_input_student()
+	{
+		
+		// //Kompetisi
+		$curl = curl_init();
+		curl_setopt_array($curl, array(
+		CURLOPT_URL => API_URL."/api/students",
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_ENCODING => "",		
+		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST => "POST",
+		CURLOPT_POSTFIELDS => "name=".$_POST['name']."&program=".$_POST['program']."&nim=".$_POST['nim']."&year=".$_POST['year']."&email=".$_POST['email'],
+		));
 
+		$cmpt = curl_exec($curl);
+
+		$err = curl_error($curl);				
+		curl_close($curl);	
+
+		redirect("Admin/master_student");	
+	}
+
+	public function act_update_student()
+	{			
+		//student
+		$curl = curl_init();
+		curl_setopt_array($curl, array(
+		CURLOPT_URL => API_URL."/api/student",
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_ENCODING => "",		
+		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST => "POST",
+		CURLOPT_POSTFIELDS => "name=".$_POST['name']."&program=".$_POST['program']."&nim=".$_POST['nim']."&year=".$_POST['year']."&email=".$_POST['email']."&id=".$_POST['id'],
+		));
+
+		$cmpt = curl_exec($curl);
+
+		$err = curl_error($curl);				
+		curl_close($curl);	
+
+		redirect("Admin/master_student");	
+	}
+
+	public function act_delete_student(){
+		$id = $_GET['id']; /* define later*/
+		$curl = curl_init();
+	
+		curl_setopt_array($curl, array(
+		CURLOPT_URL => API_URL."/api/students?id=".$id."",
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_ENCODING => "",		
+		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST => "DELETE",
+		));
+
+		$cmpt = curl_exec($curl);
+		$err = curl_error($curl);
+
+		curl_close($curl);
+		redirect("Admin/master_student");	
+	}
+
+	//DOSEN
 	public function master_lecturer()
 	{
+		$curl = curl_init();
+
+		curl_setopt_array($curl, array(
+		CURLOPT_URL => API_URL."/api/mentors",
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_ENCODING => "",
+		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST => "GET",
+		));
+
+		$cmpt = curl_exec($curl);
+		$err = curl_error($curl);
+
+		curl_setopt_array($curl, array(
+		CURLOPT_URL => API_URL."/api/departments",
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_ENCODING => "",
+		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST => "GET",
+		));
+
+		$dpt = curl_exec($curl);
+		$err = curl_error($curl);
+
+		curl_close($curl);
+
+		$data['department'] = json_decode($dpt);	
+		$data['dosen'] = json_decode($cmpt);		
 		$data['content'] = $this->template();
 		$this->load->view('admin/master_lecturer',$data);
 	}
 
+	public function act_input_lecturer()
+	{
+		//Kompetisi
+		$curl = curl_init();
+		curl_setopt_array($curl, array(
+		CURLOPT_URL => API_URL."/api/mentors",
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_ENCODING => "",		
+		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST => "POST",
+		CURLOPT_POSTFIELDS => "name=".$_POST['name']."&dpt=".$_POST['dpt']."&nip=".$_POST['nip'],
+		));
+
+		$cmpt = curl_exec($curl);
+
+		$err = curl_error($curl);				
+		curl_close($curl);	
+
+		redirect("Admin/master_lecturer");	
+	}
+
+	public function act_delete_lecturer(){
+		$id = $_GET['id']; /* define later*/
+		$curl = curl_init();
+	
+		curl_setopt_array($curl, array(
+		CURLOPT_URL => API_URL."/api/mentors?id=".$id."",
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_ENCODING => "",		
+		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST => "DELETE",
+		));
+
+		$cmpt = curl_exec($curl);
+		$err = curl_error($curl);
+
+		curl_close($curl);
+		redirect("Admin/master_lecturer");	
+	}
+
+	public function act_update_lecturer(){
+		$curl = curl_init();
+	
+		curl_setopt_array($curl, array(
+		CURLOPT_URL => API_URL."/api/mentor",
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_ENCODING => "",		
+		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST => "POST",
+		CURLOPT_POSTFIELDS => "id=".$_POST['id']."&name=".$_POST['name']."&dpt=".$_POST['dpt']."&nip=".$_POST['nip'],
+		));
+
+		$cmpt = curl_exec($curl);
+		$err = curl_error($curl);
+
+		curl_close($curl);
+		redirect("Admin/master_lecturer");	
+	}
+
+
+	//ORMAWA
 	public function master_student_organizations()
 	{
+		$curl = curl_init();
+		curl_setopt_array($curl, array(
+		CURLOPT_URL => API_URL."/api/ormawa",
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_ENCODING => "",
+		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST => "GET",
+		));
+
+		$cmpt = curl_exec($curl);
+		$err = curl_error($curl);
+
+		curl_close($curl);
+
+		$data['ormawa'] = json_decode($cmpt);		
 		$data['content'] = $this->template();
 		$this->load->view('admin/master_student_organizations',$data);
 	}
 
+	public function act_input_ormawa()
+	{
+		//Kompetisi
+		$curl = curl_init();
+		curl_setopt_array($curl, array(
+		CURLOPT_URL => API_URL."/api/ormawa",
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_ENCODING => "",		
+		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST => "POST",
+		CURLOPT_POSTFIELDS => "name=".$_POST['name']."&acr=".$_POST['acr'],
+		));
+
+		$cmpt = curl_exec($curl);
+
+		$err = curl_error($curl);				
+		curl_close($curl);	
+
+		redirect("Admin/master_student_organizations");	
+	}
+
+	public function act_delete_ormawa(){
+		$id = $_GET['id']; /* define later*/
+		$curl = curl_init();
+	
+		curl_setopt_array($curl, array(
+		CURLOPT_URL => API_URL."/api/ormawa?id=".$id."",
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_ENCODING => "",		
+		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST => "DELETE",
+		));
+
+		$cmpt = curl_exec($curl);
+		$err = curl_error($curl);
+
+		curl_close($curl);
+		redirect("Admin/master_student_organizations");	
+	}
+
+	public function act_update_ormawa(){
+		$curl = curl_init();
+	
+		curl_setopt_array($curl, array(
+		CURLOPT_URL => API_URL."/api/ormawau",
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_ENCODING => "",		
+		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST => "POST",
+		CURLOPT_POSTFIELDS => "id=".$_POST['id']."&name=".$_POST['name']."&acr=".$_POST['acr'],
+		));
+
+		$cmpt = curl_exec($curl);
+		$err = curl_error($curl);
+
+		curl_close($curl);
+		redirect("Admin/master_student_organizations");	
+	}
+
+	//JURUSAN
 	public function master_departement()
 	{
 		$curl = curl_init();
@@ -207,6 +459,7 @@ class Admin extends CI_Controller {
 
 		$cmpt = curl_exec($curl);
 		$err = curl_error($curl);
+
 
 		curl_close($curl);
 
@@ -274,17 +527,97 @@ class Admin extends CI_Controller {
 		redirect("Admin/master_departement");	
 	}
 
-
+	//Program STUDI
 	public function master_study_program()
 	{
+		$curl = curl_init();
+		curl_setopt_array($curl, array(
+		CURLOPT_URL => API_URL."/api/programs",
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_ENCODING => "",
+		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST => "GET",
+		));
+
+		$cmpt = curl_exec($curl);
+		$err = curl_error($curl);
+
+		//Department
+		curl_setopt_array($curl, array(
+		CURLOPT_URL => API_URL."/api/departments",
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_ENCODING => "",
+		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST => "GET",
+		));
+
+		$dpt = curl_exec($curl);
+		$errcmp = curl_error($curl);
+		curl_close($curl);
+
+		$data['department'] = json_decode($dpt);		
+		$data['program'] = json_decode($cmpt);		
 		$data['content'] = $this->template();
 		$this->load->view('admin/master_study_program',$data);
 	}
 
-	public function master_user()
+	public function act_input_program()
 	{
-		$data['content'] = $this->template();
-		$this->load->view('admin/master_user',$data);
+		//Kompetisi
+		$curl = curl_init();
+		curl_setopt_array($curl, array(
+		CURLOPT_URL => API_URL."/api/programs",
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_ENCODING => "",		
+		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST => "POST",
+		CURLOPT_POSTFIELDS => "name=".$_POST['name']."&dpt=".$_POST['dpt'],
+		));
+
+		$cmpt = curl_exec($curl);
+
+		$err = curl_error($curl);				
+		curl_close($curl);	
+
+		redirect("Admin/master_study_program");	
+	}
+
+	public function act_delete_program(){
+		$id = $_GET['id']; /* define later*/
+		$curl = curl_init();
+	
+		curl_setopt_array($curl, array(
+		CURLOPT_URL => API_URL."/api/programs?id=".$id."",
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_ENCODING => "",		
+		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST => "DELETE",
+		));
+
+		$cmpt = curl_exec($curl);
+		$err = curl_error($curl);
+
+		curl_close($curl);
+		redirect("Admin/master_study_program");	
+	}
+
+	public function act_update_program(){
+		$curl = curl_init();
+	
+		curl_setopt_array($curl, array(
+		CURLOPT_URL => API_URL."/api/programsu",
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_ENCODING => "",		
+		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST => "POST",
+		CURLOPT_POSTFIELDS => "id=".$_POST['id']."&name=".$_POST['name']."&dpt=".$_POST['dpt'],
+		));
+
+		$cmpt = curl_exec($curl);
+		$err = curl_error($curl);
+
+		curl_close($curl);
+		redirect("Admin/master_study_program");	
 	}
 
 	public function list_revisi_proposal()
@@ -331,7 +664,8 @@ class Admin extends CI_Controller {
 
 	public function updatefund()
 	{
-		$id = $_GET['id'];
+		$id = $_POST['id'];
+		$budget = $_POST['budget'];
 
 		$curl = curl_init();
 		curl_setopt_array($curl, array(
@@ -340,7 +674,7 @@ class Admin extends CI_Controller {
 		CURLOPT_ENCODING => "",		
 		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
 		CURLOPT_CUSTOMREQUEST => "POST",
-		CURLOPT_POSTFIELDS => "id=".$id."",
+		CURLOPT_POSTFIELDS => "id=".$id."&budget=".$budget,
 		));
 
 		$cmpt = curl_exec($curl);
@@ -441,8 +775,8 @@ class Admin extends CI_Controller {
 
 	public function updateReport()
 	{
-
-		$id = $_GET['id'];
+		$id = $_POST['id'];
+		$budget = $_POST['budget'];
 
 		$curl = curl_init();
 		curl_setopt_array($curl, array(
@@ -451,7 +785,7 @@ class Admin extends CI_Controller {
 		CURLOPT_ENCODING => "",		
 		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
 		CURLOPT_CUSTOMREQUEST => "POST",
-		CURLOPT_POSTFIELDS => "id=".$id."",
+		CURLOPT_POSTFIELDS => "id=".$id."&budget=".$budget,
 		));
 
 		$cmpt = curl_exec($curl);
@@ -460,12 +794,6 @@ class Admin extends CI_Controller {
 		curl_close($curl);		
 
 		redirect('Admin/report');
-	}
-
-	public function import_data()
-	{
-		$data['content'] = $this->template();
-		$this->load->view('admin/import_data',$data);
 	}
 
 	public function rejected()
@@ -512,22 +840,53 @@ class Admin extends CI_Controller {
 
 	//
 	public function addDeadline(){
-		$curl = curl_init();
-		curl_setopt_array($curl, array(
-		CURLOPT_URL => API_URL."/api/admin/proposal/revision",
-		CURLOPT_RETURNTRANSFER => true,
-		CURLOPT_ENCODING => "",		
-		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-		CURLOPT_CUSTOMREQUEST => "POST",
-		CURLOPT_POSTFIELDS => "proposal=".$_POST['proposal']."&deadline=".$_POST['deadline']."",
-		));
 
-		$cmpt = curl_exec($curl);
+		$deadline = $_POST['deadline']; 
+		$currentDateTime = date('Y-m-d');
+		$date1 = new DateTime($currentDateTime);
+		$date2 = new DateTime($deadline);
+		
+		if($date1 < $date2){
+			$curl = curl_init();
+			curl_setopt_array($curl, array(
+			CURLOPT_URL => API_URL."/api/admin/proposal/revision",
+			CURLOPT_RETURNTRANSFER => true,
+			CURLOPT_ENCODING => "",		
+			CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+			CURLOPT_CUSTOMREQUEST => "POST",
+			CURLOPT_POSTFIELDS => "proposal=".$_POST['proposal']."&deadline=".$deadline."",
+			));
 
-		$err = curl_error($curl);				
-		curl_close($curl);		
+			$cmpt = curl_exec($curl);
 
-		redirect('Admin/list_revisi_proposal');
+			$err = curl_error($curl);				
+			curl_close($curl);		
+
+			redirect('Admin/list_revisi_proposal');
+		}
+		else{
+			$this->session->set_flashdata('error', 'Deadline tidak sesuai');
+			redirect('Admin/list_revisi_proposal');
+		}
+
+		//echo $selisih;
+
+		// $curl = curl_init();
+		// curl_setopt_array($curl, array(
+		// CURLOPT_URL => API_URL."/api/admin/proposal/revision",
+		// CURLOPT_RETURNTRANSFER => true,
+		// CURLOPT_ENCODING => "",		
+		// CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		// CURLOPT_CUSTOMREQUEST => "POST",
+		// CURLOPT_POSTFIELDS => "proposal=".$_POST['proposal']."&deadline=".$deadline."",
+		// ));
+
+		// $cmpt = curl_exec($curl);
+
+		// $err = curl_error($curl);				
+		// curl_close($curl);		
+
+		//redirect('Admin/list_revisi_proposal');
 	}
 
 	public function act_add_competition()
@@ -597,10 +956,13 @@ class Admin extends CI_Controller {
           $spreadsheet->setActiveSheetIndex(0)
                       ->setCellValue('A1', 'ID')
                       ->setCellValue('B1', 'Kompetisi')
-                      ->setCellValue('C1', 'Jurusan')
-                      ->setCellValue('D1', 'Lokasi')
-                      ->setCellValue('E1', 'Dana')
-                      ->setCellValue('F1', 'Sumber Dana');
+                      ->setCellValue('C1', 'Tahun')
+                      ->setCellValue('D1', 'Organisasi')
+                      ->setCellValue('E1', 'Lokasi')
+                      ->setCellValue('F1', 'Pengajuan Dana')
+                      ->setCellValue('G1', 'Dana yang disetujui')
+                      ->setCellValue('H1', 'Realisasi Dana')
+                      ->setCellValue('I1', 'Sumber Dana');
 
                        // $spreadsheet->setActiveSheetIndex(0)->setCellValue('A2', 'ID')->setCellValue('B2', 'Kompetisi')->setCellValue('C2', 'Jurusan')->setCellValue('D2', 'Lokasi')->setCellValue('E2', 'Dana')->setCellValue('F2', 'Sumber Dana');
                       
@@ -612,10 +974,13 @@ class Admin extends CI_Controller {
                $spreadsheet->setActiveSheetIndex(0)
                            ->setCellValue('A' . $kolom, $nomor)
                            ->setCellValue('B' . $kolom, $cmpt->competition->name)
-                           ->setCellValue('C' . $kolom, $cmpt->department->name)
-                           ->setCellValue('D' . $kolom, $cmpt->competition->location)
-                           ->setCellValue('E' . $kolom, $cmpt->realisazion_budget)
-                           ->setCellValue('F' . $kolom, $cmpt->budget_source);                                          			
+                           ->setCellValue('C' . $kolom, $cmpt->competition->year)
+                           ->setCellValue('D' . $kolom, $cmpt->organization->name)
+                           ->setCellValue('E' . $kolom, $cmpt->competition->location)
+                           ->setCellValue('F' . $kolom, $cmpt->draft_budget)
+                           ->setCellValue('G' . $kolom, $cmpt->realisazion_budget)
+                           ->setCellValue('H' . $kolom, $cmpt->approved_budget)
+                           ->setCellValue('I' . $kolom, $cmpt->budget_source);                                          			
                $kolom++;
                $nomor++;
 
@@ -628,8 +993,9 @@ class Admin extends CI_Controller {
 		  header('Cache-Control: max-age=0');
 		  // header('Cache-Control: cache, must-revalidate'); 
 		  header('Pragma: public');
-		  ob_end_clean();
+		  ob_end_clean();		    
 		  $writer->save('php://output');
 	}
 
 }
+

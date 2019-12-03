@@ -43,6 +43,9 @@
                                             <th>Proposal</th>
                                             <th>Ketua Tim</th>
                                             <th>Organisasi</th>
+                                            <th>Diajukan</th>
+                                            <th>Disetujui</th>
+                                            <th>Realisasi Dana</th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -55,10 +58,16 @@
                                                     <!-- GET name competition -->
                                                     <td><?php echo $pr->competition->name ?></td>                                                    
                                                     <!-- GET leader -->
-                                                    <td><?php echo $pr->profile->name ?></td>
+                                                    <td><?php echo $pr->team[0] ?></td>
 
                                                     <!-- GET departement -->
-                                                    <td><?php echo $pr->organization->name ?></td>                                                    
+                                                    <td><?php echo $pr->organization->name ?></td>
+                                                    <!-- GET total draft budget -->
+                                                        <td><?php echo rupiah($pr->draft_budget); ?></td>
+                                                        <!-- GET total approved budget -->
+                                                        <td><?php echo rupiah($pr->realisazion_budget); ?></td>
+                                                        <!-- GET total realization budget -->
+                                                        <td><?php echo rupiah($pr->approved_budget); ?></td>                                                    
                                                 </tr>
                                                 
 

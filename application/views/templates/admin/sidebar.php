@@ -17,10 +17,6 @@
                     </a>                
                 </li>
                 <li class="nav-level">Proposal</li>
-                <!-- <li class="treeview"><a class="waves-effect waves-dark" href="#!"><i class="icon-briefcase"></i><span> List</span><i class="icon-arrow-down"></i></a> -->
-                    <!-- <ul class="treeview-menu"> -->
-                    <!-- </ul> -->
-                <!-- </li> -->
                 <li class=" <?php if(current_url() === base_url().'index.php/Admin/list_proposal'){
                                     echo 'active';}?> treeview">
                     <a class="waves-effect waves-dark" href="<?php echo base_url();?>index.php/Admin/list_proposal">
@@ -36,7 +32,7 @@
                 <li class=" <?php if(current_url() === base_url().'index.php/Admin/list_fund_submission'){
                                 echo 'active';}?> treeview">
                     <a class="waves-effect waves-dark" href="<?php echo base_url();?>index.php/Admin/list_fund_submission">
-                        <i class="icon-badge"></i><span> Telah Disetujui</span>
+                        <i class="icon-badge"></i><span> Proses Pendanaan</span>
                     </a>                
                 </li>
                 <li class=" <?php if(current_url() === base_url().'index.php/Admin/report'){
@@ -84,19 +80,7 @@
                         <i class="icon-check"></i><span> Atur Ulang Kata Sandi</span>
                     </a>                
                 </li>
-                <li class=" <?php if(current_url() === base_url().'index.php/Admin/import_data'){
-                                echo 'active';}?> treeview">
-                    <a class="waves-effect waves-dark" href="<?php echo base_url();?>index.php/Admin/import_data">
-                        <i class="fa fa-file-excel-o"></i><span> Import</span>
-                    </a>                
-                </li>
                 <li class="nav-level">Data Master</li>
-                <li class=" <?php if(current_url() === base_url().'index.php/Admin/master_user'){
-                                echo 'active';}?> treeview">
-                    <a class="waves-effect waves-dark" href="<?php echo base_url();?>index.php/Admin/master_user">
-                        <i class="icon-people"></i><span> User</span>
-                    </a>                
-                </li>
                 <li class=" <?php if(current_url() === base_url().'index.php/Admin/master_student'){
                                 echo 'active';}?> treeview">
                     <a class="waves-effect waves-dark" href="<?php echo base_url();?>index.php/Admin/master_student">
