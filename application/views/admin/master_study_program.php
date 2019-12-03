@@ -38,7 +38,6 @@
                                     style="margin-left: 5px; margin-bottom: 15px;border-radius: .25rem;padding: .5rem .75rem;" 
                                     data-toggle="modal" data-target="#add-study-programme-modal-form" >+ Program Studi
                             </button>
-                            <button type="button" class="btn btn-primary" style="margin-left: 5px; margin-bottom: 15px;border-radius: .25rem;padding: .5rem .75rem;" >Import</button>
                             <div class="row">
                                 <div class="col-sm-12 table-responsive">
                                     <table class="table table-hover" id="tbm_study_programme">
@@ -53,8 +52,8 @@
                                         </thead>
                                         <tbody>
                                             <?php   
-                                              $index = 1;
-                                              foreach($program as $key => $prg) : 
+                                                $index = 1;
+                                                foreach($program as $key => $prg) : 
                                             ?>
                                                 <tr>
                                                     <td><?php echo $index ?></td>
@@ -128,7 +127,7 @@
                                                 <?php 
                                                     $index++;
                                                     endforeach;
-                                         ?>
+                                        ?>
                                         </tbody>
                                     </table>
                                 </div>

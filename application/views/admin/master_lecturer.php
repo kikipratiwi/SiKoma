@@ -45,8 +45,6 @@
                                         <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>NIP</th>
-                                            <!-- <th>NIDN</th> -->
                                             <th>Nama</th>
                                             <th>Jurusan</th>
                                             <th>Edit</th>
@@ -55,16 +53,13 @@
                                         </thead>
                                         <tbody>
                                             <?php   
-                                              $index = 1;
-                                              foreach($dosen as $key => $ds) : 
+                                                $index = 1;
+                                                foreach($dosen as $key => $ds) : 
                                             ?>
                                                 <tr>
                                                     <td><?php echo $index ?></td>
-                                                    <!-- GET NIM -->
                                                     <td><?php echo $ds->nip ?></td>
-                                                    <!-- GET Nama -->
                                                     <td><?php echo $ds->name?></td>
-                                                    <!-- GET Departement -->
                                                     <td><?php echo $ds->department->name ?></td>
                                                     <td>
                                                         <!-- if(ever_used === null){?> -->

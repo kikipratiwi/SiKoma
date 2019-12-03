@@ -38,7 +38,6 @@
                                     style="margin-left: 5px; margin-bottom: 15px;border-radius: .25rem;padding: .5rem .75rem;" 
                                     data-toggle="modal" data-target="#add-student-modal-form" >+ Mahasiswa
                             </button>
-                            <button type="button" class="btn btn-primary" style="margin-left: 5px; margin-bottom: 15px;border-radius: .25rem;padding: .5rem .75rem;" >Import</button>
                             <div class="row">
                                 <div class="col-sm-12 table-responsive">
                                     <table class="table table-hover" id="tbm_student">
@@ -54,8 +53,8 @@
                                         </thead>
                                         <tbody>
                                             <?php   
-                                              $index = 1;
-                                              foreach($student as $key => $std) : 
+                                                $index = 1;
+                                                foreach($student as $key => $std) : 
                                             ?>
                                                 <tr>
                                                     <td><?php echo $index ?></td>
@@ -79,7 +78,9 @@
                                                     </td>
                                                     <!-- <td> -->
                                                         <!-- if(ever_used === null){?> -->
+
                                                  <!--        <a href="<?php echo base_url();?>index.php/Admin/act_delete_student?id=<?php echo $std->id; ?>" id="input_category" class="open-view-cateogry btn btn-danger" action="">
+
                                                             Delete
                                                   -->       </a>
                                                         <!-- }else{?> -->
