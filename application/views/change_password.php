@@ -13,15 +13,15 @@
 							Ubah Kata Sandi
 						</h3>
 						<div class="md-input-wrapper">
-							<input type="password" name="current_password" class="md-form-control" />
+							<input type="password" name="current_password" class="md-form-control md-valid" />
 							<label>Kata sandi saat ini</label>
 						</div>
 						<div class="md-input-wrapper">
-							<input type="password" name="new_password" class="md-form-control" />
+							<input type="password" name="new_password" class="md-form-control md-valid" />
 							<label>Kata sandi baru</label>
 						</div>
 						<div class="md-input-wrapper">
-							<input type="password" name="confirmation_new_password" class="md-form-control" />
+							<input type="password" name="confirmation_new_password" class="md-form-control md-valid" />
 							<label>Konfirmasi kata sandi baru</label>
 						</div>
 						<div class="row">
