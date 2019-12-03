@@ -399,11 +399,11 @@
         var legend = $("<legend>#"+ (index + 1) +"</legend>");
         var categoryField   = $("<select />", {"class": 'js-select2 form-control js-required', "style": 'width: 100%',"name": 'category[]'});
         var coachField      = $("<select />", {"class": 'js-select2 form-control js-required', "style": 'width: 100%',"name": 'coach[]'});
-        var leaderField     = $("<select />", {"class": 'js-select2 form-control js-required', "style": 'width: 100%',"name": 'leader[]'});
-        var member1Field =  $("<select />", {"class": 'js-select2 form-control', "style": 'width: 100%',"name": 'member1[]'});
-        var member2Field =  $("<select />", {"class": 'js-select2 form-control', "style": 'width: 100%',"name": 'member2[]'});
-        var member3Field =  $("<select />", {"class": 'js-select2 form-control', "style": 'width: 100%',"name": 'member3[]'});
-        var member4Field =  $("<select />", {"class": 'js-select2 form-control', "style": 'width: 100%',"name": 'member4[]'});
+        var leaderField     = $("<select />", {"class": 'js-select2 form-control js-required js-team', "style": 'width: 100%',"name": 'leader[]'});
+        var member1Field =  $("<select />", {"class": 'js-select2 form-control js-team', "style": 'width: 100%',"name": 'member1[]'});
+        var member2Field =  $("<select />", {"class": 'js-select2 form-control js-team', "style": 'width: 100%',"name": 'member2[]'});
+        var member3Field =  $("<select />", {"class": 'js-select2 form-control js-team', "style": 'width: 100%',"name": 'member3[]'});
+        var member4Field =  $("<select />", {"class": 'js-select2 form-control js-team', "style": 'width: 100%',"name": 'member4[]'});
         var removeButton =  $("<button type='button' style='float:right' class='js-remove-button cancelBtn btn btn-warning waves-effect waves-light px-2 my-2'>Remove</button>")
         
         // mentor
@@ -570,12 +570,14 @@
 </script>
 
 <script>
-    $('select').on('change', function(event ) {
-        // var prevValue = $(this).data('previous');
-        // $('select').not(this).find('option[value="'+prevValue+'"]').removeAttr('disabled', 'disabled');
-        // var value = $(this).val();
-        // $(this).data('previous',value); 
-        // $('select').not(this).find('option[value="'+value+'"]').attr('disabled', 'disabled');
+    $('.js-team').on('change', function(event ) {
+        var prevValue = $(this).data('previous');
+        $('.js-team').not(this).find('option[value="'+prevValue+'"]').removeAttr('disabled', 'disabled');
+        
+        var value = $(this).val();
+        $(this).data('previous',value); 
+        var txt = $(".js-team option[value='"+value+"']").text();
+        $('select').not(this).find('option[value="'+value+'"]').attr('disabled', 'disabled');
     });
 </script>
 
