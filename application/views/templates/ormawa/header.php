@@ -119,7 +119,7 @@
                             <span><b>Ormawa</b> <i class=" icofont icofont-simple-down"></i></span>
                         </a>
                         <ul class="dropdown-menu settings-menu">
-                            <li><a href="<?php echo base_url(); ?>index.php/Authentication/change_password"><i class="icon-settings"></i> Change Password</a></li>
+                            <li><a href="<?php echo base_url(); ?>index.php/Authentication/change_password?id=<?php echo $user_id['id']?>"><i class="icon-settings"></i> Change Password</a></li>
                             <li><a href="<?php echo base_url().'index.php/Authentication/logout'; ?>"><i class="icon-logout"></i> Logout</a></li>
                         </ul>
                     </li>
