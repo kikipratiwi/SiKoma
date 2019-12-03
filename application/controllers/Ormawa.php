@@ -313,44 +313,48 @@ class Ormawa extends CI_Controller {
 	}
 
 	public function act_revision_submission() {
-		$new_name = $_POST['oldproposal'];		
+		$new_name = $_POST['oldproposal'];
+		$id_proposal = $_POST['id_proposal'];		
 
-		echo $new_name;
-		unlink("./data/proposals/".$new_name."");
-		// setting konfigurasi upload
-        $config['upload_path'] = './data/proposals/'; 
-        $config['allowed_types'] = 'pdf';        
-        $config['file_name'] = $new_name;
+		if(!empty($_FILES['proposal']['name']) && pathinfo($_FILES["proposal"]["name"], PATHINFO_EXTENSION) == 'pdf') {
+			unlink("./data/proposals/".$new_name."");
+			// setting konfigurasi upload
+	        $config['upload_path'] = './data/proposals/'; 
+	        $config['allowed_types'] = 'pdf';        
+	        $config['file_name'] = $new_name;
 
-        // load library upload
-        $this->load->library('upload', $config);
-		$this->upload->initialize($config);
+	        // load library upload
+	        $this->load->library('upload', $config);
+			$this->upload->initialize($config);
 
-        if (!$this->upload->do_upload('proposal')) {
-            $error = $this->upload->display_errors();            
-            print_r($error);
-        } else {
-            $result = $this->upload->data();            
-        }
+	        if (!$this->upload->do_upload('proposal')) {
+	            $error = $this->upload->display_errors();            
+	            print_r($error);
+	        } else {
+	            $result = $this->upload->data();            
+	        }
 
-        $curl = curl_init();
-	
-		curl_setopt_array($curl, array(
-		CURLOPT_URL => API_URL."/api/ormawa/proposal/update",
-		CURLOPT_RETURNTRANSFER => true,
-		CURLOPT_ENCODING => "",		
-		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-		CURLOPT_CUSTOMREQUEST => "POST",
-		CURLOPT_POSTFIELDS => "id=".$_POST['id_proposal']."",
-		));
+	        $curl = curl_init();
+		
+			curl_setopt_array($curl, array(
+			CURLOPT_URL => API_URL."/api/ormawa/proposal/update",
+			CURLOPT_RETURNTRANSFER => true,
+			CURLOPT_ENCODING => "",		
+			CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+			CURLOPT_CUSTOMREQUEST => "POST",
+			CURLOPT_POSTFIELDS => "id=".$id_proposal."&budget=".$_POST['budget']."&summary=".$_POST['summary'],
+			));
 
-		$proposal = curl_exec($curl);
-		$err = curl_error($curl);
+			$proposal = curl_exec($curl);
+			$err = curl_error($curl);
 
-		curl_close($curl);
-
-
-        redirect('Ormawa/ongoing_submission');
+			curl_close($curl);
+			redirect('Ormawa/ongoing_submission');
+		}
+		else{
+			$this->session->set_flashdata('error', 'File Proposal Tidak Sesuai');
+			redirect('ormawa/revision_submission?id='.$id_proposal);
+		}
 	}
 
 	public function realization_budget() {

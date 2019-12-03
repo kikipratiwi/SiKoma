@@ -29,7 +29,13 @@
                             <div class="col-lg-12">
                                 <div class="card">
                                     <!-- Radio-Button start -->
-                                    <div class="card-header"><h5 class="card-header-text">Form Revisi Proposal</h5></div>
+                                    <div class="card-header"><h5 class="card-header-text">Form Revisi Proposal</h5>
+                                        <?php if($this->session->flashdata('error') == TRUE ) {?>
+                                            <div class="label-main" style="padding-top:5px;">
+                                                <label class="label bg-danger" style="white-space: pre-wrap; text-transform: uppercase;"><i class="icon-ban"></i> <?php echo $this->session->flashdata('error');?></label>
+                                            </div>
+                                        <?php }?>
+                                    </div>
                                     <div class="card-block tab-icon">
                                         <!-- Row start -->
                                         <div class="row">
