@@ -579,14 +579,6 @@ class Admin extends CI_Controller {
 		redirect("Admin/master_study_program");	
 	}
 
-
-	//USER
-	public function master_user()
-	{
-		$data['content'] = $this->template();
-		$this->load->view('admin/master_user',$data);
-	}
-
 	public function list_revisi_proposal()
 	{
 		$curl = curl_init();
