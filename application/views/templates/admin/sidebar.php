@@ -32,7 +32,7 @@
                 <li class=" <?php if(current_url() === base_url().'index.php/Admin/list_fund_submission'){
                                 echo 'active';}?> treeview">
                     <a class="waves-effect waves-dark" href="<?php echo base_url();?>index.php/Admin/list_fund_submission">
-                        <i class="icon-badge"></i><span> Telah Disetujui</span>
+                        <i class="icon-badge"></i><span> Proses Pendanaan</span>
                     </a>                
                 </li>
                 <li class=" <?php if(current_url() === base_url().'index.php/Admin/report'){
