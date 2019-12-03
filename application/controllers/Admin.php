@@ -755,12 +755,6 @@ class Admin extends CI_Controller {
 		redirect('Admin/report');
 	}
 
-	public function import_data()
-	{
-		$data['content'] = $this->template();
-		$this->load->view('admin/import_data',$data);
-	}
-
 	public function rejected()
 	{
 		$curl = curl_init();

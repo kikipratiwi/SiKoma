@@ -80,12 +80,6 @@
                         <i class="icon-check"></i><span> Atur Ulang Kata Sandi</span>
                     </a>                
                 </li>
-                <li class=" <?php if(current_url() === base_url().'index.php/Admin/import_data'){
-                                echo 'active';}?> treeview">
-                    <a class="waves-effect waves-dark" href="<?php echo base_url();?>index.php/Admin/import_data">
-                        <i class="fa fa-file-excel-o"></i><span> Import</span>
-                    </a>                
-                </li>
                 <li class="nav-level">Data Master</li>
                 <li class=" <?php if(current_url() === base_url().'index.php/Admin/master_student'){
                                 echo 'active';}?> treeview">

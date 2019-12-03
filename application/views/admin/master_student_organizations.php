@@ -38,7 +38,6 @@
                                     style="margin-left: 5px; margin-bottom: 15px;border-radius: .25rem;padding: .5rem .75rem;" 
                                     data-toggle="modal" data-target="#add-student-organization-modal-form" >+ Ormawa
                             </button>
-                            <button type="button" class="btn btn-primary" style="margin-left: 5px; margin-bottom: 15px;border-radius: .25rem;padding: .5rem .75rem;" >Import</button>
                             <div class="row">
                                 <div class="col-sm-12 table-responsive">
                                     <table class="table table-hover" id="tbm_student_organization">
@@ -53,8 +52,8 @@
                                         </thead>
                                         <tbody>
                                             <?php   
-                                              $index = 1;
-                                              foreach($ormawa as $key => $org) : 
+                                                $index = 1;
+                                                foreach($ormawa as $key => $org) : 
                                             ?>
                                                 <tr>
                                                     <td><?php echo $index; ?></td>
