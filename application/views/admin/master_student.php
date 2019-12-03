@@ -49,7 +49,7 @@
                                             <th>Nama</th>
                                             <th>Program Studi</th>
                                             <th>Edit</th>
-                                            <th>Delete</th>
+                                            <!-- <th>Delete</th> -->
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -69,7 +69,7 @@
                                                         <!-- if(ever_used === null){?> -->
                                                         <button type="button" id="add-student" class="btn btn-primary" 
                                                             style="margin-left: 5px; margin-bottom: 15px;border-radius: .25rem;padding: .5rem .75rem;" 
-                                                            data-toggle="modal" data-target="#edit-student-modal-form" >Edit
+                                                            data-toggle="modal" data-target="#edit-student-modal-form<?php echo $std->id ?>" >Edit
                                                         </button>
                                                         <!-- }else{?> -->
                                                         <!-- <a href="" id="input_category" class="btn btn-disable disabled"> -->
@@ -77,21 +77,21 @@
                                                         <!-- </a> -->
                                                         <!-- }?> -->
                                                     </td>
-                                                    <td>
+                                                    <!-- <td> -->
                                                         <!-- if(ever_used === null){?> -->
-                                                        <a href=""<?php echo base_url();?>index.php/Admin/act_delete_student?id=<?php echo $std->id; ?>"" id="input_category" class="open-view-cateogry btn btn-danger" action="">
+                                                 <!--        <a href="<?php echo base_url();?>index.php/Admin/act_delete_student?id=<?php echo $std->id; ?>" id="input_category" class="open-view-cateogry btn btn-danger" action="">
                                                             Delete
-                                                        </a>
+                                                  -->       </a>
                                                         <!-- }else{?> -->
                                                         <!-- <a href="" id="input_category" class="btn btn-disable disabled">
                                                         Delete
                                                         </a> -->
                                                         <!-- }?> -->
-                                                    </td>
+                                                    <!-- </td> -->
                                                 </tr>
 
                                                 <!-- Edit Student Modal -->
-                                                <div class="modal fade modal-flex" id="edit-student-modal-form" tabindex="-1" role="dialog">
+                                                <div class="modal fade modal-flex" id="edit-student-modal-form<?php echo $std->id ?>" tabindex="-1" role="dialog">
                                                     <div class="modal-dialog" role="document">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
@@ -101,32 +101,36 @@
                                                             <h5 class="modal-title">Edit Data Mahasiswa</h5>
                                                         </div>
 
-                                                        <form method="POST" action="">
+                                                        <form method="POST" action="<?php echo base_url();?>index.php/Admin/act_update_student">
                                                             <div class="modal-body">
                                                                 <div class="row">
                                                                     <div class="form-group col-md-12">
-                                                                        <label for="studentName" class="block form-control-label">Nama Lengkap *get data</label>
-                                                                        <input type="text" class="form-control" name="name">
+                                                                        <input type="hidden" class="form-control" name="id" value="<?php echo $std->id ?>">
+                                                                        <label for="studentName" class="block form-control-label">Nama Lengkap</label>
+                                                                        <input type="text" class="form-control" name="name" value="<?php echo $std->name ?>">
                                                                     </div>
                                                                     <div class="form-group col-md-12">
-                                                                        <label for="studentNIM" class="block form-control-label">NIM*get data<</label>
-                                                                        <input type="text" class="form-control" name="nim">
+                                                                        <label for="studentNIM" class="block form-control-label">NIM</label>
+                                                                        <input type="text" class="form-control" name="nim" value="<?php echo $std->nim ?>">
                                                                     </div>
                                                                     <div class="form-group col-md-12">
-                                                                        <label for="studentDepartement" class="block form-control-label">Jurusan*get data</label>
-                                                                        <!-- // ! get departement from database //
-                                                                        <select class="form-control" name="organization" id="organization">
-                                                                        foreach($departement as $key => $dep) : ?>
-                                                                            <option value="$dep->id?>"> $dep->name ?></option>
-                                                                        endforeach;	?>
+                                                                        <label for="studentNIM" class="block form-control-label">ANGKATAN</label>
+                                                                        <input type="text" class="form-control" name="year" value="<?php echo $std->year ?>">
+                                                                    </div>
+                                                                    <div class="form-group col-md-12">
+                                                                        <label for="studentNIM" class="block form-control-label">EMAIL</label>
+                                                                        <input type="text" class="form-control" name="email" value="<?php echo $std->email ?>">
+                                                                    </div>
+                                                                    <div class="form-group col-md-12">
+                                                                        <label for="studentDepartement" class="block form-control-label">Program Studi</label>
+                                                                        <!-- // ! get departement from database // -->
+                                                                        <select class="form-control" name="program" id="organization">
+                                                                            <?php foreach($program as $key => $dep) : ?>
+                                                                                <option value=<?php echo $dep->id ?>> <?php echo $dep->name ?></option>
+                                                                            <?php endforeach; ?>
                                                                         </select>
-                                                                        -->
-                                                                        <select>
-                                                                            <option value="0">Teknik Komputer dan Informatika</option>
-                                                                            <option value="1">Teknik Kimia</option>
-                                                                            <option value="2">Teknik Mesin</option>
-                                                                            <option value="3">Akuntansi</option>
-                                                                        </select> 
+                                                                       
+                                                                        
                                                                     </div>
                                                                 </div>
                                                             </div>                                              
@@ -172,7 +176,7 @@
             <h5 class="modal-title">Input Data Mahasiswa</h5>
         </div>
 
-        <form method="POST" action="">
+        <form method="POST" action="<?php echo base_url();?>index.php/Admin/act_input_student">
             <div class="modal-body">
                 <div class="row">
                     <div class="form-group col-md-12">
@@ -184,20 +188,22 @@
                         <input type="text" class="form-control" name="nim" placeholder="contoh: 180012345">
                     </div>
                     <div class="form-group col-md-12">
-                        <label for="studentDepartement" class="block form-control-label">Jurusan</label>
-                        <!-- // ! get departement from database //
-                        <select class="form-control" name="organization" id="organization">
-                        foreach($departement as $key => $dep) : ?>
-                            <option value="$dep->id?>"> $dep->name ?></option>
-                        endforeach;	?>
+                        <label for="studentNIM" class="block form-control-label">ANGKATAN</label>
+                        <input type="number" class="form-control" name="year" min=2016 placeholder="contoh: 2017">
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label for="studentNIM" class="block form-control-label">EMAIL</label>
+                        <input type="text" class="form-control" name="email" placeholder="contoh: user@polban.ac.id">
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label for="studentDepartement" class="block form-control-label">Program Studi</label>
+                        <!-- // ! get departement from database // -->
+                        
+                         <select class="form-control" name="program" id="organization">
+                            <?php foreach($program as $key => $dep) : ?>
+                                <option value=<?php echo $dep->id ?>> <?php echo $dep->name ?></option>
+                            <?php endforeach; ?>
                         </select>
-                        -->
-                        <select>
-                            <option value="0">Teknik Komputer dan Informatika</option>
-                            <option value="1">Teknik Kimia</option>
-                            <option value="2">Teknik Mesin</option>
-                            <option value="3">Akuntansi</option>
-                        </select> 
                     </div>
                     
                 </div>
@@ -209,7 +215,7 @@
         </form>
     </div>
 </div>
-<!-- End of Add Student Modal -->
+<!-- End of Add Student Modal
 
     <!-- Required Jqurey -->
     <script

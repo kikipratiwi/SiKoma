@@ -207,6 +207,48 @@ class Admin extends CI_Controller {
 		$data['content'] = $this->template();
 		$this->load->view('admin/master_student',$data);
 	}
+	public function act_input_student()
+	{
+		
+		// //Kompetisi
+		$curl = curl_init();
+		curl_setopt_array($curl, array(
+		CURLOPT_URL => API_URL."/api/students",
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_ENCODING => "",		
+		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST => "POST",
+		CURLOPT_POSTFIELDS => "name=".$_POST['name']."&program=".$_POST['program']."&nim=".$_POST['nim']."&year=".$_POST['year']."&email=".$_POST['email'],
+		));
+
+		$cmpt = curl_exec($curl);
+
+		$err = curl_error($curl);				
+		curl_close($curl);	
+
+		redirect("Admin/master_student");	
+	}
+
+	public function act_update_student()
+	{			
+		//student
+		$curl = curl_init();
+		curl_setopt_array($curl, array(
+		CURLOPT_URL => API_URL."/api/student",
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_ENCODING => "",		
+		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST => "POST",
+		CURLOPT_POSTFIELDS => "name=".$_POST['name']."&program=".$_POST['program']."&nim=".$_POST['nim']."&year=".$_POST['year']."&email=".$_POST['email']."&id=".$_POST['id'],
+		));
+
+		$cmpt = curl_exec($curl);
+
+		$err = curl_error($curl);				
+		curl_close($curl);	
+
+		redirect("Admin/master_student");	
+	}
 
 	public function act_delete_student(){
 		$id = $_GET['id']; /* define later*/
@@ -226,7 +268,6 @@ class Admin extends CI_Controller {
 		curl_close($curl);
 		redirect("Admin/master_student");	
 	}
-
 
 	//DOSEN
 	public function master_lecturer()
@@ -971,3 +1012,4 @@ class Admin extends CI_Controller {
 	}
 
 }
+
