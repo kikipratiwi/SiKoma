@@ -14,11 +14,13 @@ class Ormawa extends CI_Controller {
 
 	public function template()
 	{
-		$data['user'] = array(
-			// 'id' => $this->session->userdata('id'),
+		$data['user'] = array(			
 			'name' => $this->session->userdata('name'),
 		);
-		$data['content'] = $this->load->view('templates/ormawa/header');
+		$data['user_id'] = array(			
+			'id' => $this->session->userdata('user_id'),
+		);
+		$data['content'] = $this->load->view('templates/ormawa/header', $data);
 		$data['content'] = $this->load->view('templates/ormawa/sidebar', $data);
 		$data['content'] = $this->load->view('templates/ormawa/footer');
 

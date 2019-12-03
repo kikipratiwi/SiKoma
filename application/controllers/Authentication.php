@@ -59,7 +59,8 @@ class Authentication extends CI_Controller {
 				'role' => $us->user->role,
 				'token' => $us->token,
 				'department' => $department,
-				'status' => "login"
+				'status' => "login",
+				'user_id' => $us->user->id
 				);
 
 			$this->session->set_userdata($data_session);
@@ -100,8 +101,42 @@ class Authentication extends CI_Controller {
 	}
 
 	public function change_password() {
+
+		$data['user_id'] = $this->input->get('id');
 		$data['content'] = $this->template();
 		$this->load->view('change_password',$data);
+	}
+
+	public function act_change_password() {
+
+		$curl = curl_init();
+		curl_setopt_array($curl, array(
+		CURLOPT_URL => API_URL."/api/users/password",
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_ENCODING => "",		
+		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST => "POST",		
+		CURLOPT_POSTFIELDS => "id=".$_POST['id']."&cur_password=".$_POST['current_password']."&password=".$_POST['new_password']."&password_confirm=".$_POST['confirmation_new_password']."",
+		));
+
+		$tim = curl_exec($curl);
+		$err = curl_error($curl);
+		curl_close($curl);
+
+		$role = $this->session->userdata('role');
+
+		if($role == 1){
+			redirect("Ormawa");
+		}
+		else if($role == 2){
+			redirect("Mentor");
+		}
+		else if($role == 3){
+			redirect("Reviewer");
+		}
+		else{
+			redirect("admin");		
+		}
 	}
 
     public function template()
@@ -133,3 +168,4 @@ class Authentication extends CI_Controller {
 	}
 
 }
+

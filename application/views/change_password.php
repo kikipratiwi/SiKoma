@@ -5,7 +5,7 @@
 
 			<div class="col-sm-12">
 				<div class="login-card card-block">
-					<form class="md-float-material" type="POST" action="<?php echo base_url(); ?>index.php/Authentication/act_change_password">
+					<form class="md-float-material" method="post" action="<?php echo base_url(); ?>index.php/Authentication/act_change_password">
 						<div class="text-center">
 							<img src="<?php echo base_url(); ?>assets/images/favicon.png" alt="logo">
 						</div>
@@ -13,15 +13,16 @@
 							Ubah Kata Sandi
 						</h3>
 						<div class="md-input-wrapper">
-							<input type="password" name="current_password" class="md-form-control md-valid" />
+							<input type="hidden" name="id" value="<?php echo $user_id?>" class="md-form-control md-valid" />
+							<input type="password" name="current_password" class="md-form-control md-valid" required/>
 							<label>Kata sandi saat ini</label>
 						</div>
 						<div class="md-input-wrapper">
-							<input type="password" name="new_password" class="md-form-control md-valid" />
+							<input type="password" name="new_password" class="md-form-control md-valid" required/>
 							<label>Kata sandi baru</label>
 						</div>
 						<div class="md-input-wrapper">
-							<input type="password" name="confirmation_new_password" class="md-form-control md-valid" />
+							<input type="password" name="confirmation_new_password" class="md-form-control md-valid" required />
 							<label>Konfirmasi kata sandi baru</label>
 						</div>
 						<div class="row">
