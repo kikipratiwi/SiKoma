@@ -77,7 +77,7 @@
                                                          ?>
                                                     </td>
                                                     <td>
-                                                        <a href="" class="btn btn-primary" data-toggle="modal" data-target="#view-Modal-Deadline">
+                                                        <a href="" class="btn btn-primary" data-toggle="modal" data-target="#view-Modal-Deadline<?php echo $pr->id ?>">
                                                             Preview
                                                         </a>
                                                     </td>
@@ -85,7 +85,7 @@
                                                 </tr>
 
                                                 <!-- MODAL REVIEW REVISION -->
-                                                <div class="modal fade modal-flex" id="view-Modal-Deadline" tabindex="-1" role="dialog">
+                                                <div class="modal fade modal-flex" id="view-Modal-Deadline<?php echo $pr->id ?>" tabindex="-1" role="dialog">
                                                     <div class="modal-dialog modal-lg" role="document">
                                                         <div class="modal-content">
                                                             <div class="modal-header">

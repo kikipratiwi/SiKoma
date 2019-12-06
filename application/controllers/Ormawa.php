@@ -137,6 +137,86 @@ class Ormawa extends CI_Controller {
 		$data['competitioncat'] = json_decode($cmpcat);
 		$this->load->view('ormawa/proposal_submission',$data);
 	}
+
+	public function act_proposal_submission()
+	{		
+		if(!empty($_FILES['proposal']['name']) && pathinfo($_FILES["proposal"]["name"], PATHINFO_EXTENSION) == 'pdf') {
+			// setting konfigurasi upload
+	        $config['upload_path'] = './data/proposals/'; 
+	        $config['allowed_types'] = 'pdf';
+	        $new_name = "Proposal".$_POST['competition'].time().".pdf";        
+	        $config['file_name'] = $new_name;
+
+	        // load library upload
+	        $this->load->library('upload', $config);
+			$this->upload->initialize($config);
+	        if (!$this->upload->do_upload('proposal')) {
+	            $error = $this->upload->display_errors();            
+	            print_r($error);
+	        } else {
+	            $result = $this->upload->data();            
+	        }
+
+	        $organization = $this->session->userdata('department');
+	        // echo $organization;
+			//Proposal
+			$curl = curl_init();
+			curl_setopt_array($curl, array(
+			CURLOPT_URL => API_URL."/api/ormawa/proposal",
+			CURLOPT_RETURNTRANSFER => true,
+			CURLOPT_ENCODING => "",		
+			CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+			CURLOPT_CUSTOMREQUEST => "POST",
+			CURLOPT_POSTFIELDS => "competition=".$_POST['competition']."&proposal=".$new_name."&organization=".$organization."&draftbudget=".$_POST['budget']."&summary=".$_POST['summary']."",
+			));
+			$proposal = curl_exec($curl);
+			$err = curl_error($curl);
+			$prop = json_decode($proposal);		
+			curl_close($curl);
+
+			//Tim
+			$index = 0; // Set index array awal dengan 0    
+			foreach($this->input->post("leader") as $key => $leader){ 
+				$member1 = $this->input->post("member1")[$index];
+				$member2 = $this->input->post("member2")[$index];
+				$member3 = $this->input->post("member3")[$index];
+				$member4 = $this->input->post("member4")[$index];
+				$coach = $this->input->post("coach")[$index];
+				$category = $this->input->post("category")[$index];
+
+				if(!isset($member1)){ $member1 = 0; }
+				if(!isset($member2)){ $member2 = 0; }
+				if(!isset($member3)){ $member3 = 0; }
+				if(!isset($member4)){ $member4 = 0; }
+
+				echo $category;
+				echo $leader;
+				echo $coach;
+				echo $member1;
+				echo $member2;
+				echo $member3;
+				echo $member4;
+				echo " ";
+				
+				$curl = curl_init();
+				curl_setopt_array($curl, array(
+				CURLOPT_URL => API_URL."/api/ormawa/team",
+				CURLOPT_RETURNTRANSFER => true,
+				CURLOPT_ENCODING => "",		
+				CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+				CURLOPT_CUSTOMREQUEST => "POST",			
+				CURLOPT_POSTFIELDS => "leader=".$leader."&member1=".$member1."&member2=".$member2."&member3=".$member3."&member4=".$member4."&mentor=".$coach."&proposal=".$prop->id_proposal."&competition=".$category."",
+				));	
+				$tim = curl_exec($curl);
+				$err = curl_error($curl);
+				curl_close($curl);
+
+				$index++;
+			}
+		}
+
+		redirect('Ormawa/ongoing_submission');
+	}
 	
 
 	public function act_add_competition()
@@ -221,76 +301,6 @@ class Ormawa extends CI_Controller {
 		$this->load->view('ormawa/finished_submission',$data);
 	}
 
-	public function act_proposal_submission()
-	{		
-		// setting konfigurasi upload
-        $config['upload_path'] = './data/proposals/'; 
-        $config['allowed_types'] = 'pdf';
-        $new_name = "Proposal".$_POST['competition'].time().".pdf";        
-        $config['file_name'] = $new_name;
-
-        // load library upload
-        $this->load->library('upload', $config);
-		$this->upload->initialize($config);
-        if (!$this->upload->do_upload('proposal')) {
-            $error = $this->upload->display_errors();            
-            print_r($error);
-        } else {
-            $result = $this->upload->data();            
-        }
-
-        $organization = $this->session->userdata('department');
-        echo $organization;
-		//Proposal
-		$curl = curl_init();
-		curl_setopt_array($curl, array(
-		CURLOPT_URL => API_URL."/api/ormawa/proposal",
-		CURLOPT_RETURNTRANSFER => true,
-		CURLOPT_ENCODING => "",		
-		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-		CURLOPT_CUSTOMREQUEST => "POST",
-		CURLOPT_POSTFIELDS => "competition=".$_POST['competition']."&proposal=".$new_name."&organization=".$organization."&draftbudget=".$_POST['budget']."&summary=".$_POST['summary']."",
-		));
-
-		$proposal = curl_exec($curl);
-		$err = curl_error($curl);
-		$prop = json_decode($proposal);		
-		curl_close($curl);
-
-		//Tim
-		$index = 0; // Set index array awal dengan 0    
-		foreach($this->input->post("leader") as $leader){ 
-			$member1 = $this->input->post("member1")[$index];
-			$member2 = $this->input->post("member2")[$index];
-			$member3 = $this->input->post("member3")[$index];
-			$member4 = $this->input->post("member4")[$index];
-
-			if(!isset($member1)){ $member1 = 0; }
-			if(!isset($member2)){ $member2 = 0; }
-			if(!isset($member3)){ $member3 = 0; }
-			if(!isset($member4)){ $member4 = 0; }
-
-			$curl = curl_init();
-			curl_setopt_array($curl, array(
-			CURLOPT_URL => API_URL."/api/ormawa/team",
-			CURLOPT_RETURNTRANSFER => true,
-			CURLOPT_ENCODING => "",		
-			CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-			CURLOPT_CUSTOMREQUEST => "POST",
-			// CURLOPT_POSTFIELDS => "leader=".$leader."&member1=".$this->input->post("member1")[$index]."&member2=".$this->input->post("member2")[$index]."&member3=".$this->input->post("member3")[$index]."&member4=".$this->input->post("member4")[$index]."&mentor=".$this->input->post("coach")[$index]."&proposal=".$prop->id_proposal."&competition=".$this->input->post("category")[$index]."",
-			// ));	
-			CURLOPT_POSTFIELDS => "leader=".$leader."&member1=".$member1."&member2=".$member2."&member3=".$member3."&member4=".$member4."&mentor=".$this->input->post("coach")[$index]."&proposal=".$prop->id_proposal."&competition=".$this->input->post("category")[$index]."",
-			));	
-			$tim = curl_exec($curl);
-			$err = curl_error($curl);
-			curl_close($curl);
-
-			$index++;
-		}
-
-		redirect('Ormawa/ongoing_submission');
-
-	}
 
 	public function revision_submission() {
 		$proposal_id = $_GET['id']; /* define later*/
@@ -335,6 +345,10 @@ class Ormawa extends CI_Controller {
 	        } else {
 	            $result = $this->upload->data();            
 	        }
+
+	        echo $id_proposal;
+	        echo $_POST['budget'];
+	        echo $_POST['summary'];
 
 	        $curl = curl_init();
 		
