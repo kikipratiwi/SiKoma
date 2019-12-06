@@ -136,7 +136,7 @@
                                                                             <input type="hidden" name="id" value="<?php echo $pr->id?>" >
 
                                                                             <?php if($pr->approved_budget == 0) {?>
-                                                                            <input type="number" readonly name="budget" min=0 max=<?php echo$pr->realisazion_budget?>>
+                                                                            <input type="number" name="budget" min=0 max=<?php echo$pr->realisazion_budget?>>
                                                                             <?php } else {?>
                                                                             <input type="number" readonly name="budget" min=0  value=<?php echo $pr->realisazion_budget - $pr->approved_budget?>>
                                                                             <?php } ?>   

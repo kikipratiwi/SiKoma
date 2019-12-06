@@ -114,13 +114,11 @@
                                                             <td><?php echo rupiah($pr->realisazion_budget -  $pr->approved_budget)?>
                                                     <!-- GET status proposal -->
                                                     <td>
-                                                        <!-- <div class="row"> -->
-                                                            <!-- <div class="col-sm-12"> -->
+                                                        
                                                                 <a href="" id="previewPorposal" class=" btn btn-primary" data-toggle="modal" data-target="#view-Modal-Preview-Proposal<?php echo $pr->id ?> ">
                                                                     Preview
                                                                 </a>
-                                                            <!-- </div> -->
-                                                        <!-- </div> -->
+                                                            
                                                     </td>
                                                 </tr>
 <!-- MODAL PREVIEW PROPOSAL -->
@@ -186,7 +184,7 @@
                 <div class="modal-footer">
                     <!-- ke form revisi proposal -->
                     <!-- if status proposal adalah revisi -->
-                     <?php if($pr->status==='REVISION') { ?>
+                     <?php if($pr->status==='REVISION' && $pr->revision[$revisi-1]->due_date != null) { ?>
                         <a type="button" href="<?php echo base_url();?>index.php/Ormawa/revision_submission?id=<?php echo $pr->id; ?>" class="btn btn-success waves-effect waves-light" >ke form upload revisi</a>
                     <?php } ?>
                     <!-- end if -->

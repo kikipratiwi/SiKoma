@@ -846,6 +846,9 @@ class Admin extends CI_Controller {
 		$date1 = new DateTime($currentDateTime);
 		$date2 = new DateTime($deadline);
 		
+		echo $_POST['proposal'];
+		echo $deadline;
+
 		if($date1 < $date2){
 			$curl = curl_init();
 			curl_setopt_array($curl, array(
@@ -869,24 +872,24 @@ class Admin extends CI_Controller {
 			redirect('Admin/list_revisi_proposal');
 		}
 
-		//echo $selisih;
+		echo $selisih;
 
-		// $curl = curl_init();
-		// curl_setopt_array($curl, array(
-		// CURLOPT_URL => API_URL."/api/admin/proposal/revision",
-		// CURLOPT_RETURNTRANSFER => true,
-		// CURLOPT_ENCODING => "",		
-		// CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-		// CURLOPT_CUSTOMREQUEST => "POST",
-		// CURLOPT_POSTFIELDS => "proposal=".$_POST['proposal']."&deadline=".$deadline."",
-		// ));
+		$curl = curl_init();
+		curl_setopt_array($curl, array(
+		CURLOPT_URL => API_URL."/api/admin/proposal/revision",
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_ENCODING => "",		
+		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST => "POST",
+		CURLOPT_POSTFIELDS => "proposal=".$_POST['proposal']."&deadline=".$deadline."",
+		));
 
-		// $cmpt = curl_exec($curl);
+		$cmpt = curl_exec($curl);
 
-		// $err = curl_error($curl);				
-		// curl_close($curl);		
+		$err = curl_error($curl);				
+		curl_close($curl);		
 
-		//redirect('Admin/list_revisi_proposal');
+		redirect('Admin/list_revisi_proposal');
 	}
 
 	public function act_add_competition()

@@ -94,7 +94,11 @@
                                                                         <div class="label-main">
                                                                             <label class="label bg-warning">Dana Telah Cair</label>
                                                                         </div>
-                                                                    <?php } ?>
+                                                                    <?php } else{ ?>
+                                                                        <div class="label-main">
+                                                                            <label class="label bg-warning">Belum menyerahkan LPJ</label>
+                                                                        </div>
+                                                                    <?php }  ?>
                                                             </td>
                                                             <td>
                                                                 <p>-</p>
@@ -125,7 +129,7 @@
                 <div class="row">
                     <div class="col-sm-9">
                         <!-- GET Link to review Proposal -->
-                        <object id="pdf" height="500px" width="100%" type="application/pdf" data="<?php echo base_url();?>data/proposals/<?php echo $pr->proposal; ?>">
+                        <object id="pdf" height="500px" width="100%" type="application/pdf" data="<?php echo base_url();?>data/proposals/<?php echo $pr->proposal->proposal; ?>">
                             <span>PDF is not found or PDF plugin is not available</span>
                         </object>
                     </div>
