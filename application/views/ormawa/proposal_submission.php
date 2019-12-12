@@ -69,9 +69,8 @@
                                                         <!-- Proposal Document inputs starts -->
                                                             <div class="form-group row">
                                                                 <label for="competition" class="col-xs-2 col-form-label form-control-label">Kompetisi</label>
-                                                                <div class="d-flex justify-content-between">
-                                                                    <div class="col-sm-8">
-                                                                        <select class="js-basic-single form-control" name="competition" id="competition" style="width: 100%" required>
+                                                                    <div class="col-sm-10">
+                                                                        <select class="js-select2-competition form-control" name="competition" id="competition" style="width: 100%" required>
                                                                         <?php foreach($competition as $key => $cmp) : ?>
                                                                             <?php if($cmp->status == true){?>
 			                                                                <option value="<?= $cmp->id?>"> <?=$cmp->name ?></option>
@@ -83,25 +82,11 @@
 		                                                                <?php } endforeach;	?>
                                                                         </select>
                                                                     </div>
-                                                                    <span class="md-add-on-file float-right col-sm-12">
-                                                                        Atau
-                                                                        <!-- Button trigger modal -->
-                                                                        <button type="button" id="add-competition" class="btn btn-primary" 
-                                                                        style="margin-left: 15px;border-radius: .25rem;padding: .5rem .75rem;" 
-                                                                        data-toggle="modal" data-target="#add-competition-modal-form" >+ Data Kompetisi</button>
-                                                                    </span>
-                                                                </div>   
                                                             </div>
                                                             <div class="form-group row">
                                                                 <label for="budget" class="col-xs-2 col-form-label form-control-label">Dana yang diajukan</label>
                                                                 <div class="col-sm-10">
-                                                                    <input class="form-control" type="number" name="budget" placeholder="Jumlah Dana" value="" id="budget" required>
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group row">
-                                                                <label for="summary" class="col-xs-2 col-form-label form-control-label">Ringkasan</label>
-                                                                <div class="col-sm-10">
-                                                                  <textarea name="summary" id="summary" class="form-control" rows="4" required></textarea>
+                                                                    <input class="form-control" type="text" id="currency-field" pattern="^\$\d{1,3}(.\d{3})*(\,\d+)?Rp" value="" data-type="currency" placeholder="Jumlah Dana" required>
                                                                 </div>
                                                             </div>
                                                             <div class="form-group row">
@@ -164,94 +149,6 @@
         <!-- Container-fluid ends -->
     </div>
 </div>
-
-
-<!-- Add Competition Modal -->
-<div class="modal fade modal-flex" id="add-competition-modal-form" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            <h5 class="modal-title">Tambah Data Kompetisi</h5>
-        </div>
-
-        <form method="POST" action="<?php echo base_url().'index.php/Ormawa/act_add_competition'; ?>">
-            <div class="modal-body">
-                    <div class="form-group col-md-12">
-                        <label for="competitionName" class="block form-control-label">Nama Kompetisi</label>
-                        <input type="text" class="form-control" name="name" id="category-name" placeholder="ex: Gemastik" required>
-                    </div>
-                    
-                    <div class="form-group col-md-12">
-                        <label for="institusion" class="block form-control-label">Institusi Penyelenggara</label>
-                        <input type="text" class="form-control" name="institusion" placeholder="ex: Universitas Gajah Mada" required>
-                    </div>
-                
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="location" class="block form-control-label">Lokasi</label>
-                            <input type="text" class="form-control" name="location" placeholder="Lokasi Kompetisi" required>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="level" class="block form-control-label">Level Kompetisi</label>
-                            <select class="form-control " name="level" required>
-                                <option value="4">Kota</option>
-                                <option value="3">Provinsi</option>
-                                <option value="2">Nasional</option>
-                                <option value="1">Internasional</option>
-                            </select>    
-                        </div>
-                    </div>
-                
-                    <div class="form-group col-md-12" style="margin-bottom: .1rem;">
-                        <label for="registDate" class="block form-control-label">Tanggal Pendaftaran</label>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <div class="form-control-wrapper">
-                                <input type="date" name="regist_opendate" id="regist-date-start" class="form-control floating-label" placeholder="Start Date" required>
-                            </div>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <div class="form-control-wrapper">
-                                <input type="date" name="regist_closedate" id="regist-date-end" class="form-control floating-label" placeholder="End Date" required>
-                            </div>
-                        </div>
-                    </div>
-                
-                    <div class="form-group col-md-12" style="margin-bottom: .1rem;">
-                        <label for="eventDate" class="block form-control-label">Tanggal Pelaksanaan Kompetisi</label>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <div class="form-control-wrapper">
-                                <input type="date" name="event_startdate" id="event-date-start" class="form-control floating-label" placeholder="Start Date" required>
-                            </div>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <div class="form-control-wrapper">
-                                <input type="date" name="event_closedate" id="event-date-end" class="form-control floating-label" placeholder="End Date" required>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group row"> <div class="col-sm-10"> </div> </div>
-
-            </div>
-            <div class="modal-footer" style="padding-top: 3pt">
-                <button type="submit" class="btn btn-primary js-save-category">Simpan</button>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-            </div>
-        </form>
-    </div>
-</div>
-<!-- End of Add Competition Modal -->
-
-
 
     <!-- Required Jqurey -->
     <script
@@ -345,6 +242,9 @@
 		<script type="text/javascript" src="<?php echo base_url();?>assets/js/main.min.js"></script>
 		<script type="text/javascript" src="<?php echo base_url();?>assets/pages/advance-form.js"></script>
 		<script src="<?php echo base_url();?>assets/js/menu.min.js"></script>
+
+		<!-- currency format js -->
+		<script src="<?php echo base_url();?>assets/js/currency-format.js"></script>
 		
     <!-- select2 -->
     <script src="<?php echo base_url();?>assets/select2.min.js"></script>    
@@ -376,13 +276,13 @@
         // Components Initialization
         var fieldSet = $("<fieldset id='team" + key + "'></fieldset>");
         var legend = $("<legend>#"+ (index + 1) +"</legend>");
-        var categoryField   = $("<select />", {"class": 'js-select2 form-control js-required', "style": 'width: 100%',"name": 'category[]'});
+        var categoryField   = $("<select />", {"class": 'js-category js-select2 form-control js-required', "style": 'width: 100%',"name": 'category[]'});
         var coachField      = $("<select />", {"class": 'js-select2 form-control js-required', "style": 'width: 100%',"name": 'coach[]'});
-        var leaderField     = $("<select />", {"class": 'js-select2 form-control js-required ', "style": 'width: 100%',"name": 'leader[]'});
-        var member1Field =  $("<select />", {"class": 'js-select2 form-control ', "style": 'width: 100%',"name": 'member1[]'});
-        var member2Field =  $("<select />", {"class": 'js-select2 form-control ', "style": 'width: 100%',"name": 'member2[]'});
-        var member3Field =  $("<select />", {"class": 'js-select2 form-control ', "style": 'width: 100%',"name": 'member3[]'});
-        var member4Field =  $("<select />", {"class": 'js-select2 form-control ', "style": 'width: 100%',"name": 'member4[]'});
+        var leaderField     = $("<select />", {"class": 'js-team js-select2 form-control js-required ', "style": 'width: 100%',"name": 'leader[]'});
+        var member1Field =  $("<select />", {"class": 'js-team js-select2 form-control ', "style": 'width: 100%',"name": 'member1[]'});
+        var member2Field =  $("<select />", {"class": 'js-team js-select2 form-control ', "style": 'width: 100%',"name": 'member2[]'});
+        var member3Field =  $("<select />", {"class": 'js-team js-select2 form-control ', "style": 'width: 100%',"name": 'member3[]'});
+        var member4Field =  $("<select />", {"class": 'js-team js-select2 form-control ', "style": 'width: 100%',"name": 'member4[]'});
         var removeButton =  $("<button type='button' style='float:right' class='js-remove-button cancelBtn btn btn-warning waves-effect waves-light px-2 my-2'>Remove</button>")
         
         // mentor
@@ -458,7 +358,7 @@
         fieldSet.append(
             $("<div/>", {"class": "form-group row"}).append([
                     $("<label/>", {"class": "col-xs-2 col-form-label form-control-label"}).append([
-                    "Pilih Ketegori Kompetisi"
+                    "Ketegori Kompetisi"
                 ]),
                 $("<div/>", {"class": "col-sm-10"}).append([
                     categoryField
@@ -530,7 +430,15 @@
 
         // Jquery library function for components
       	$('.js-select2').select2({
-            width: 'resolve' // need to override the changed default
+            width: 'resolve',
+            placeholder: "Cari Nama",
+            allowClear: true // need to override the changed default
+        });
+
+        $('.js-category').select2({
+            width: 'resolve',
+            placeholder: "Cari Kategori Kompetisi atau Yang Lainnya",
+            allowClear: true // need to override the changed default
         });
 
         $('.js-required').prop("required", true);
@@ -591,8 +499,10 @@
 
 <script>
 $(document).ready(function() {
-    $('.js-basic-single').select2({
-        width: 'resolve' // need to override the changed default
+    $('.js-select2-competition').select2({
+        width: 'resolve', // need to override the changed default
+        placeholder: "Cari Nama Kompetisi atau singkatan",
+        allowClear: true
     });
 });
 </script>
@@ -633,6 +543,18 @@ $(document).ready(function() {
         }            
     }, false); 
 </script> 
+
+<script>
+
+$("input[data-type='currency']").on({
+  keyup: function() {
+    formatCurrency($(this));
+  },
+  blur: function() { 
+    formatCurrency($(this), "blur");
+  }
+});
+</script>
 
 </body>
 </html>
