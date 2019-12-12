@@ -83,7 +83,7 @@
                     <li class="dropdown">
                         <a href="#!" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle drop icon-circle drop-image">
                             <span><img class="img-circle " src="<?php echo base_url();?>assets/images/avatar-1.png" style="width:40px;" alt="User Image"></span>
-                            <span> User <b>Reviewer</b> <i class=" icofont icofont-simple-down"></i></span>
+                            <span> User <b>Staff</b> <i class=" icofont icofont-simple-down"></i></span>
                         </a>
                         <ul class="dropdown-menu settings-menu">
                             <li><a href="<?php echo base_url(); ?>index.php/Authentication/change_password"><i class="icon-settings"></i> Change Password</a></li>

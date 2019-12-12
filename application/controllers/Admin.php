@@ -204,8 +204,6 @@ class Admin extends CI_Controller {
 	}
 	public function act_input_student()
 	{
-		
-		// //Kompetisi
 		$curl = curl_init();
 		curl_setopt_array($curl, array(
 		CURLOPT_URL => API_URL."/api/students",

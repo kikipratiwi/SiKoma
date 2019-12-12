@@ -24,6 +24,51 @@ class Staff extends CI_Controller {
 		$this->load->view('templates/staff/dashboard',$data);
 	}
 
+	public function list_proposal()
+	{
+		$data['content'] = $this->template();
+		$this->load->view('staff/list_proposal',$data);
+	}
+
+	public function list_revisi_proposal()
+	{
+		$data['content'] = $this->template();
+		$this->load->view('staff/list_revisi',$data);
+	}
+
+	public function rejected()
+	{
+		$data['content'] = $this->template();
+		$this->load->view('staff/rejected',$data);
+	}
+
+	public function list_fund_submission()
+	{	
+		$data['content'] = $this->template();
+		$this->load->view('staff/list_fund_submission',$data);
+	}
+	
+	public function finished()
+	{		
+		$data['content'] = $this->template();
+		$this->load->view('staff/finished',$data);
+	}
+
+	public function report()
+	{
+		$data['content'] = $this->template();
+		$this->load->view('staff/report',$data);
+	}
+
+	public function print_report()
+	{
+		$data['content'] = $this->template();
+		$this->load->view('staff/print_report',$data);
+	}
+
+
+
+
 }
 
 ?>
