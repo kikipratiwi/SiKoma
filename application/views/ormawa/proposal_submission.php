@@ -86,7 +86,7 @@
                                                             <div class="form-group row">
                                                                 <label for="budget" class="col-xs-2 col-form-label form-control-label">Dana yang diajukan</label>
                                                                 <div class="col-sm-10">
-                                                                    <input class="form-control" type="number" id="currency" name="budget" placeholder="Jumlah Dana" required>
+                                                                    <input class="form-control" type="text" id="currency-field" pattern="^\$\d{1,3}(.\d{3})*(\,\d+)?Rp" value="" data-type="currency" placeholder="Jumlah Dana" required>
                                                                 </div>
                                                             </div>
                                                             <div class="form-group row">
@@ -533,6 +533,18 @@ $(document).ready(function() {
         }            
     }, false); 
 </script> 
+
+<script>
+
+$("input[data-type='currency']").on({
+  keyup: function() {
+    formatCurrency($(this));
+  },
+  blur: function() { 
+    formatCurrency($(this), "blur");
+  }
+});
+</script>
 
 </body>
 </html>
