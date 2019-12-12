@@ -99,12 +99,6 @@
                                                                 </div>
                                                             </div>
                                                             <div class="form-group row">
-                                                                <label for="summary" class="col-xs-2 col-form-label form-control-label">Ringkasan</label>
-                                                                <div class="col-sm-10">
-                                                                  <textarea name="summary" id="summary" class="form-control" rows="4" required></textarea>
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group row">
                                                                 <label for="proposal" class="col-xs-2 col-form-label form-control-label">Proposal</label>
                                                                 <div class="md-group-add-on">
                                                                     <span class="md-add-on-file">
