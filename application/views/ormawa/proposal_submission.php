@@ -69,9 +69,8 @@
                                                         <!-- Proposal Document inputs starts -->
                                                             <div class="form-group row">
                                                                 <label for="competition" class="col-xs-2 col-form-label form-control-label">Kompetisi</label>
-                                                                <div class="d-flex justify-content-between">
-                                                                    <div class="col-sm-8">
-                                                                        <select class="js-basic-single form-control" name="competition" id="competition" style="width: 100%" required>
+                                                                    <div class="col-sm-10">
+                                                                        <select class="js-select2-competition form-control" name="competition" id="competition" style="width: 100%" required>
                                                                         <?php foreach($competition as $key => $cmp) : ?>
                                                                             <?php if($cmp->status == true){?>
 			                                                                <option value="<?= $cmp->id?>"> <?=$cmp->name ?></option>
@@ -83,14 +82,6 @@
 		                                                                <?php } endforeach;	?>
                                                                         </select>
                                                                     </div>
-                                                                    <span class="md-add-on-file float-right col-sm-12">
-                                                                        Atau
-                                                                        <!-- Button trigger modal -->
-                                                                        <button type="button" id="add-competition" class="btn btn-primary" 
-                                                                        style="margin-left: 15px;border-radius: .25rem;padding: .5rem .75rem;" 
-                                                                        data-toggle="modal" data-target="#add-competition-modal-form" >+ Data Kompetisi</button>
-                                                                    </span>
-                                                                </div>   
                                                             </div>
                                                             <div class="form-group row">
                                                                 <label for="budget" class="col-xs-2 col-form-label form-control-label">Dana yang diajukan</label>
@@ -158,94 +149,6 @@
         <!-- Container-fluid ends -->
     </div>
 </div>
-
-
-<!-- Add Competition Modal -->
-<div class="modal fade modal-flex" id="add-competition-modal-form" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            <h5 class="modal-title">Tambah Data Kompetisi</h5>
-        </div>
-
-        <form method="POST" action="<?php echo base_url().'index.php/Ormawa/act_add_competition'; ?>">
-            <div class="modal-body">
-                    <div class="form-group col-md-12">
-                        <label for="competitionName" class="block form-control-label">Nama Kompetisi</label>
-                        <input type="text" class="form-control" name="name" id="category-name" placeholder="ex: Gemastik" required>
-                    </div>
-                    
-                    <div class="form-group col-md-12">
-                        <label for="institusion" class="block form-control-label">Institusi Penyelenggara</label>
-                        <input type="text" class="form-control" name="institusion" placeholder="ex: Universitas Gajah Mada" required>
-                    </div>
-                
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="location" class="block form-control-label">Lokasi</label>
-                            <input type="text" class="form-control" name="location" placeholder="Lokasi Kompetisi" required>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="level" class="block form-control-label">Level Kompetisi</label>
-                            <select class="form-control " name="level" required>
-                                <option value="4">Kota</option>
-                                <option value="3">Provinsi</option>
-                                <option value="2">Nasional</option>
-                                <option value="1">Internasional</option>
-                            </select>    
-                        </div>
-                    </div>
-                
-                    <div class="form-group col-md-12" style="margin-bottom: .1rem;">
-                        <label for="registDate" class="block form-control-label">Tanggal Pendaftaran</label>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <div class="form-control-wrapper">
-                                <input type="date" name="regist_opendate" id="regist-date-start" class="form-control floating-label" placeholder="Start Date" required>
-                            </div>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <div class="form-control-wrapper">
-                                <input type="date" name="regist_closedate" id="regist-date-end" class="form-control floating-label" placeholder="End Date" required>
-                            </div>
-                        </div>
-                    </div>
-                
-                    <div class="form-group col-md-12" style="margin-bottom: .1rem;">
-                        <label for="eventDate" class="block form-control-label">Tanggal Pelaksanaan Kompetisi</label>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <div class="form-control-wrapper">
-                                <input type="date" name="event_startdate" id="event-date-start" class="form-control floating-label" placeholder="Start Date" required>
-                            </div>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <div class="form-control-wrapper">
-                                <input type="date" name="event_closedate" id="event-date-end" class="form-control floating-label" placeholder="End Date" required>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group row"> <div class="col-sm-10"> </div> </div>
-
-            </div>
-            <div class="modal-footer" style="padding-top: 3pt">
-                <button type="submit" class="btn btn-primary js-save-category">Simpan</button>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-            </div>
-        </form>
-    </div>
-</div>
-<!-- End of Add Competition Modal -->
-
-
 
     <!-- Required Jqurey -->
     <script
@@ -588,7 +491,7 @@
 
 <script>
 $(document).ready(function() {
-    $('.js-basic-single').select2({
+    $('.js-select2-competition').select2({
         width: 'resolve' // need to override the changed default
     });
 });
