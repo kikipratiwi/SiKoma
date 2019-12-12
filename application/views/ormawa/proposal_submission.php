@@ -95,7 +95,7 @@
                                                             <div class="form-group row">
                                                                 <label for="budget" class="col-xs-2 col-form-label form-control-label">Dana yang diajukan</label>
                                                                 <div class="col-sm-10">
-                                                                    <input class="form-control" type="number" id="currency" oninput="setIDRFormat('currency')" name="budget" placeholder="Jumlah Dana" value="" id="budget" required>
+                                                                    <input class="form-control" type="number" id="currency" name="budget" placeholder="Jumlah Dana" required>
                                                                 </div>
                                                             </div>
                                                             <div class="form-group row">
