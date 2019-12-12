@@ -45,6 +45,7 @@
                                             <th>Ketua Tim</th>
                                             <th>Organisasi</th>
                                             <th>Status</th>
+                                            <th>SPJ</th>
                                             <th>LPJ</th>
                                         </tr>
                                         </thead>
@@ -74,7 +75,12 @@
                                                         <a href="" id="previewPorposal" class="open-view-Modal-Preview btn btn-primary" data-toggle="modal" data-target="#view-Modal">
                                                             Update
                                                         </a>
-                                                    </td>                                                    
+                                                    </td>   
+                                                    <td>
+                                                        <a href="">
+                                                            Update
+                                                        </a>
+                                                    </td>                                                
                                                 </tr>
                                                 
                                                 <!-- MODAL Pencairan -->
