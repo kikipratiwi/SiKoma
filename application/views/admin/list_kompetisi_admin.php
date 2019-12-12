@@ -204,12 +204,12 @@
             <div class="modal-body">
                     <div class="form-group col-md-12">
                         <label for="competitionName" class="block form-control-label">Nama Kompetisi</label>
-                        <input type="text" class="form-control" name="name" placeholder="ex: Gemastik">
+                        <input type="text" class="form-control" name="name" placeholder="ex: Pagelaran Mahasiswa Nasional Bidang Tekonologi Informasi dan Komunikasi (GEMASTIK)">
                     </div>
                     
                     <div class="form-group col-md-12">
                         <label for="institusion" class="block form-control-label">Institusi Penyelenggara</label>
-                        <input type="text" class="form-control" name="institusion" placeholder="ex: Universitas Gajah Mada">
+                        <input type="text" class="form-control" name="institusion" placeholder="ex: Universitas Gajah Mada (UGM)">
                     </div>
                 
                     <div class="form-row">
