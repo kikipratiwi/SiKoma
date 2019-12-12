@@ -37,16 +37,16 @@
                         <div class="card-block">
                             <div class="row">
                                 <div class="col-sm-12 table-responsive">
-                                    <table class="table table-hover" id="ongoingSubmissionTable">
+                                    <table class="table table-hover" id="reportTable">
                                         <thead>
                                         <tr>
                                             <th>No</th>
                                             <th>Proposal</th>
                                             <th>Ketua Tim</th>
                                             <th>Organisasi</th>
-                                            <th>Status</th>
                                             <th>SPJ</th>
                                             <th>LPJ</th>
+                                            <th>Pengesahan</th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -64,27 +64,24 @@
                                                     <!-- GET Depatement -->
                                                     <td><?php echo $pr->organization->name ?></td>
                                                     <td>
-                                                        <div class="label-main">
-                                                            <label class="label bg-warning">Belum Menyerahkan LPJ</label>
-                                                        </div>
+                                                        <a href="" id="" class="open-view-Modal-Preview btn btn-primary" data-toggle="modal" data-target="#view-modal-spj">
+                                                            Update
+                                                        </a>
+                                                    </td> 
+                                                    <td>
+                                                        <a href="" id="previewProposal" class="open-view-Modal-Preview btn btn-primary" data-toggle="modal" data-target="#view-modal-lpj">
+                                                            Update
+                                                        </a>
                                                     </td>
                                                     <td>
-                                                        <!-- <a type="button" href=" echo base_url();?>index.php/Admin/updateReport?id=echo $pr->id; ?>" class="btn btn-success waves-effect waves-light" >
-                                                        Update
-                                                        </a> -->
-                                                        <a href="" id="previewPorposal" class="open-view-Modal-Preview btn btn-primary" data-toggle="modal" data-target="#view-Modal">
-                                                            Update
+                                                        <a href="" id="" class="open-view-Modal-Preview btn btn-primary" data-toggle="modal" data-target="#view-modal-pengesahan">
+                                                            Upload
                                                         </a>
-                                                    </td>   
-                                                    <td>
-                                                        <a href="">
-                                                            Update
-                                                        </a>
-                                                    </td>                                                
+                                                    </td>
                                                 </tr>
                                                 
-                                                <!-- MODAL Pencairan -->
-                                                <div class="modal fade modal-flex" id="view-Modal" tabindex="-1" role="dialog">
+                                                <!-- MODAL LPJ Pencairan -->
+                                                <div class="modal fade modal-flex" id="view-modal-lpj" tabindex="-1" role="dialog">
                                                     <div class="modal-dialog modal-sm" role="document" >
                                                         <div class="modal-content">
                                                             <div class="modal-header">
@@ -106,19 +103,88 @@
                                                                         <input type="hidden" class="form-control" name="id" value=<?php echo $pr->id?> >
                                                                         <input type="number" class="form-control" name="budget" max=<?php echo $pr->realisazion_budget?> required>
                                                                     </div>
-                                                                    <!-- <div class="label-main">
-                                                                        <label class="label bg-warning">Dana yang akan dicairkan pada termin selanjutnya adalah <br><?php echo rupiah($pr->realisazion_budget - $pr->approved_budget)?></label>
-                                                                    </div> -->
-                                                                    <br><center>
-                                                                    <button type="submit" class="btn btn-success">SUBMIT</button>
-                                                                    </center>
-                                                                </form>
                                                             </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="submit" class="btn btn-success">SUBMIT</button>
+                                                                    </div>
+                                                                </form>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <!-- END MODAL Pencairan -->
+                                                <!-- END MODAL LPJ Pencairan -->
 
+                                                <!-- MODAL SPJ Pencairan -->
+                                                <div class="modal fade modal-flex" id="view-modal-spj" tabindex="-1" role="dialog">
+                                                    <div class="modal-dialog modal-sm" role="document" >
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                                <h5 class="modal-title">Penyerahan SPJ</h5>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <form method="post" action="">
+                                                                    <label class="bold">Status</label>
+                                                                    <div class="form-radio">
+                                                                        <div class="radio radio-inline">
+                                                                            <label for="accept">
+                                                                                <input class="js-incomplete" type="radio" name="radio" value="0">
+                                                                                    <i class="helper"></i>Lengkapi SPJ
+                                                                            </label>
+                                                                        </div>
+                                                                        <div class="radio radio-inline">
+                                                                            <label for="revision">
+                                                                                <input class="js-complete" type="radio" name="radio" value="1">
+                                                                                    <i class="helper"></i>Selesai
+                                                                            </label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="md-input-wrapper">
+                                                                        <textarea class="js-spj" class="md-form-control md-static" cols="2" rows="4" name="spj" disabled></textarea>
+                                                                        <label>Catatan SPJ</label>
+                                                                    </div>
+                                                            </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="submit" class="btn btn-success">Submit</button>
+                                                                    </div>
+                                                                </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- END MODAL SPJ Pencairan -->
+                                                
+                                                <!-- MODAL Pengesahan -->
+                                                <div class="modal fade modal-flex" id="view-modal-pengesahan" tabindex="-1" role="dialog">
+                                                    <div class="modal-dialog modal-sm" role="document" >
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                                <h5 class="modal-title">Upload Pengesahan</h5>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <form method="post" action="">
+                                                                <div class="md-group-add-on">
+                                                                    <span class="md-add-on-file">
+                                                                        <button class="btn btn-success waves-effect waves-light">File</button>
+                                                                    </span>
+                                                                    <div class="md-input-file">
+                                                                        <input type="file" class=""/>
+                                                                        <input type="text" class="md-form-control md-form-file">
+                                                                        <label class="md-label-file">Upload File</label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                                                    </div>
+                                                                </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- END MODAL Pengesahan -->
 
                                                 <?php 
                                                     $index++;
@@ -169,11 +235,17 @@
 
 <script> 
     $(document).ready( function () {
-        $('#ongoingSubmissionTable').DataTable();
+        $('#reportTable').DataTable();
     });
 
-    $(function () {
-        $('.media').media({width: 950, height:430});
+    $(".js-incomplete").click(function(){
+        $(".js-spj").prop('required', true);
+        $(".js-spj").prop('disabled', false);
+    });
+
+    $(".js-complete").click(function(){
+        $(".js-spj").prop('required', false);
+        $(".js-spj").prop('disabled', true);
     });
 </script>
 
