@@ -73,6 +73,10 @@
                                                             <div class="label-main">
                                                                 <label class="label bg-success"> Dana Telah Cair</label>
                                                             </div>
+                                                        <?php } else if($pr->status==='PROSES'){  ?>
+                                                            <div class="label-main">
+                                                                <label class="label bg-primary"> Proses Pencairan Dana</label>
+                                                            </div>
                                                         <?php }?>
                                                     </td>
                                                     <td>
