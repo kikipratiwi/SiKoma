@@ -358,7 +358,7 @@
         fieldSet.append(
             $("<div/>", {"class": "form-group row"}).append([
                     $("<label/>", {"class": "col-xs-2 col-form-label form-control-label"}).append([
-                    "Pilih Ketegori Kompetisi"
+                    "Ketegori Kompetisi"
                 ]),
                 $("<div/>", {"class": "col-sm-10"}).append([
                     categoryField
