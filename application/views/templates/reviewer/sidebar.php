@@ -29,6 +29,13 @@
                         <i class="icon-list"></i><span>Revisi</span>
                     </a>                
                 </li>
+                <li class="nav-level">Laporan</li>
+                <li class=" <?php if(current_url() === base_url().'index.php/Reviewer/print_report'){
+                                echo 'active';}?> treeview">
+                    <a class="waves-effect waves-dark" href="<?php echo base_url();?>index.php/Reviewer/print_report">
+                        <i class="icon-printer"></i><span> Cetak Laporan</span>
+                    </a>                
+                </li>
             </ul>
         </section>
     </aside>

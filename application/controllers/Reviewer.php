@@ -94,8 +94,12 @@ class Reviewer extends CI_Controller {
 		curl_close($curl);		
 
 		redirect('Reviewer/list_proposal');
+	}
 
-
+	public function print_report()
+	{
+		$data['content'] = $this->template();
+		$this->load->view('staff/print_report',$data);
 	}
 }
 
