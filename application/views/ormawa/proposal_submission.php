@@ -276,7 +276,7 @@
         // Components Initialization
         var fieldSet = $("<fieldset id='team" + key + "'></fieldset>");
         var legend = $("<legend>#"+ (index + 1) +"</legend>");
-        var categoryField   = $("<select />", {"class": 'js-select2 form-control js-required', "style": 'width: 100%',"name": 'category[]'});
+        var categoryField   = $("<select />", {"class": 'js-category js-select2 form-control js-required', "style": 'width: 100%',"name": 'category[]'});
         var coachField      = $("<select />", {"class": 'js-select2 form-control js-required', "style": 'width: 100%',"name": 'coach[]'});
         var leaderField     = $("<select />", {"class": 'js-team js-select2 form-control js-required ', "style": 'width: 100%',"name": 'leader[]'});
         var member1Field =  $("<select />", {"class": 'js-team js-select2 form-control ', "style": 'width: 100%',"name": 'member1[]'});
@@ -430,7 +430,15 @@
 
         // Jquery library function for components
       	$('.js-select2').select2({
-            width: 'resolve' // need to override the changed default
+            width: 'resolve',
+            placeholder: "Cari Nama",
+            allowClear: true // need to override the changed default
+        });
+
+        $('.js-category').select2({
+            width: 'resolve',
+            placeholder: "Cari Kategori Kompetisi atau Yang Lainnya",
+            allowClear: true // need to override the changed default
         });
 
         $('.js-required').prop("required", true);
@@ -492,7 +500,9 @@
 <script>
 $(document).ready(function() {
     $('.js-select2-competition').select2({
-        width: 'resolve' // need to override the changed default
+        width: 'resolve', // need to override the changed default
+        placeholder: "Cari Nama Kompetisi atau singkatan",
+        allowClear: true
     });
 });
 </script>
