@@ -223,35 +223,9 @@
 <!-- MODAL PREVIEW -->
 
     <!-- Required Jqurey -->
-    <script
-        src="<?php echo base_url();?>assets/js/jquery-3.4.1.slim.min.js"
-        integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
-        crossorigin="anonymous">
-    </script>
-
-    <script src="<?php echo base_url();?>assets/plugins/jquery/dist/jquery.min.js"></script>
-    <script src="<?php echo base_url();?>assets/plugins/jquery-ui/jquery-ui.min.js"></script>
-    <script src="<?php echo base_url();?>assets/plugins/tether/dist/js/tether.min.js"></script>
-    <script src="<?php echo base_url();?>assets/js/3.0.0-alpha1jquery.min.js"></script>
-
-    <!-- Required Fremwork -->
-    <script src="<?php echo base_url();?>assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-
-      <!-- waves effects.js -->
-      <script src="<?php echo base_url();?>assets/plugins/Waves/waves.min.js"></script>
-
-      <!-- Scrollbar JS-->
-      <script src="<?php echo base_url();?>assets/plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
-      <script src="<?php echo base_url();?>assets/plugins/jquery.nicescroll/jquery.nicescroll.min.js"></script>
-
-      <!--classic JS-->
-      <script src="<?php echo base_url();?>assets/plugins/classie/classie.js"></script>
-
-    <!-- Required Jqurey -->
     <script src="<?php echo base_url();?>assets/js/2.1.3jquery.min.js"></script> 
     <script src="<?php echo base_url();?>assets/js/jquery.media.js"></script>
     <script src="<?php echo base_url();?>assets/js/jquery.dataTables.js"></script>
-
 
 <script> 
     $(document).ready( function () {

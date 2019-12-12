@@ -268,23 +268,6 @@
     <!-- https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js -->
     <script src="<?php echo base_url();?>assets/js/3.0.0-alpha1jquery.min.js"></script>
 
-    <!-- Required Fremwork -->
-    <script src="<?php echo base_url();?>assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-
-      <!-- waves effects.js -->
-      <script src="<?php echo base_url();?>assets/plugins/Waves/waves.min.js"></script>
-
-      <!-- Scrollbar JS-->
-      <script src="<?php echo base_url();?>assets/plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
-      <script src="<?php echo base_url();?>assets/plugins/jquery.nicescroll/jquery.nicescroll.min.js"></script>
-
-      <!--classic JS-->
-      <script src="<?php echo base_url();?>assets/plugins/classie/classie.js"></script>
-
-      <!-- notification -->
-      <script src="<?php echo base_url();?>assets/plugins/notification/js/bootstrap-growl.min.js"></script>
-
-
       <!-- Rickshaw Chart js -->
       <script src="<?php echo base_url();?>assets/plugins/d3/d3.js"></script>
       <script src="<?php echo base_url();?>assets/plugins/rickshaw/rickshaw.js"></script>
@@ -296,36 +279,32 @@
       <script src="<?php echo base_url();?>assets/plugins/waypoints/jquery.waypoints.min.js"></script>
       <script src="<?php echo base_url();?>assets/plugins/countdown/js/jquery.counterup.js"></script>
 
-		<!-- custom js -->
-		<script type="text/javascript" src="<?php echo base_url();?>assets/js/main.min.js"></script>
-      <script type="text/javascript" src="<?php echo base_url();?>assets/pages/dashboard.js"></script>
-      <script type="text/javascript" src="<?php echo base_url();?>assets/pages/elements.js"></script>
-		<script src="<?php echo base_url();?>assets/js/menu.min.js"></script>
-		
+        <!-- custom js -->
+        <script type="text/javascript" src="<?php echo base_url();?>assets/js/main.min.js"></script>
+        <script type="text/javascript" src="<?php echo base_url();?>assets/pages/dashboard.js"></script>
+        <script type="text/javascript" src="<?php echo base_url();?>assets/pages/elements.js"></script>
+        <script src="<?php echo base_url();?>assets/js/menu.min.js"></script>
 
+        <!-- Required Jqurey -->
+        <script src="<?php echo base_url();?>assets/plugins/jquery/dist/jquery.min.js"></script>
+        <script src="<?php echo base_url();?>assets/plugins/jquery-ui/jquery-ui.min.js"></script>
+        <script src="<?php echo base_url();?>assets/plugins/tether/dist/js/tether.min.js"></script>    
+                                                            
+        <!-- Required Fremwork -->
+        <script src="<?php echo base_url();?>assets/plugins/bootstrap/js/bootstrap.min.js"></script>
 
-<!-- apache_response_headers -->
+        <!-- waves effects.js -->
+        <script src="<?php echo base_url();?>assets/plugins/Waves/waves.min.js"></script>
 
-    <!-- Required Jqurey -->
-    <script src="<?php echo base_url();?>assets/plugins/jquery/dist/jquery.min.js"></script>
-    <script src="<?php echo base_url();?>assets/plugins/jquery-ui/jquery-ui.min.js"></script>
-    <script src="<?php echo base_url();?>assets/plugins/tether/dist/js/tether.min.js"></script>    
-                                                        
-    <!-- Required Fremwork -->
-    <script src="<?php echo base_url();?>assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+        <!-- Scrollbar JS-->
+        <script src="<?php echo base_url();?>assets/plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
+        <script src="<?php echo base_url();?>assets/plugins/jquery.nicescroll/jquery.nicescroll.min.js"></script>
 
-    <!-- waves effects.js -->
-    <script src="<?php echo base_url();?>assets/plugins/Waves/waves.min.js"></script>
+        <!--classic JS-->
+        <script src="<?php echo base_url();?>assets/plugins/classie/classie.js"></script>
 
-    <!-- Scrollbar JS-->
-    <script src="<?php echo base_url();?>assets/plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
-    <script src="<?php echo base_url();?>assets/plugins/jquery.nicescroll/jquery.nicescroll.min.js"></script>
-
-    <!--classic JS-->
-    <script src="<?php echo base_url();?>assets/plugins/classie/classie.js"></script>
-
-    <!-- notification -->
-    <script src="<?php echo base_url();?>assets/plugins/notification/js/bootstrap-growl.min.js"></script>
+        <!-- notification -->
+        <script src="<?php echo base_url();?>assets/plugins/notification/js/bootstrap-growl.min.js"></script>
 
 		<!-- Date picker.js -->
 		<script src="<?php echo base_url();?>assets/plugins/datepicker/js/moment-with-locales.min.js"></script>
@@ -346,11 +325,11 @@
 		<script src="<?php echo base_url();?>assets/plugins/bootstrap-tagsinput/dist/bootstrap-tagsinput.js"></script>
 
 		<!-- Bootstrap Datepicker js -->
-    <script type="text/javascript" src="<?php echo base_url();?>assets/plugins/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
-    <script src="<?php echo base_url();?>assets/plugins/bootstrap-datepicker/js/bootstrap-datetimepicker.min.js"></script>
+        <script type="text/javascript" src="<?php echo base_url();?>assets/plugins/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+        <script src="<?php echo base_url();?>assets/plugins/bootstrap-datepicker/js/bootstrap-datetimepicker.min.js"></script>
 
-    <!-- bootstrap range picker -->
-    <script type="text/javascript" src="<?php echo base_url();?>assets/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
+        <!-- bootstrap range picker -->
+        <script type="text/javascript" src="<?php echo base_url();?>assets/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
 
 		<!-- color picker -->
 		<script type="text/javascript" src="<?php echo base_url();?>assets/plugins/spectrum/spectrum.js"></script>
@@ -360,7 +339,7 @@
 		<script type="text/javascript" src="<?php echo base_url();?>assets/plugins/syntaxhighlighter/scripts/shCore.js"></script>
 		<script type="text/javascript" src="<?php echo base_url();?>assets/plugins/syntaxhighlighter/scripts/shBrushJScript.js"></script>
 		<script type="text/javascript" src="<?php echo base_url();?>assets/plugins/syntaxhighlighter/scripts/shBrushXml.js"></script>
-    <script type="text/javascript">SyntaxHighlighter.all();</script>
+        <script type="text/javascript">SyntaxHighlighter.all();</script>
 
 		<!-- custom js -->
 		<script type="text/javascript" src="<?php echo base_url();?>assets/js/main.min.js"></script>
