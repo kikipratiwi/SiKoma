@@ -17,12 +17,6 @@
                     </a>                
                 </li>
                 <li class="nav-level">Proposal</li>
-                <li class=" <?php if(current_url() === base_url().'index.php/Admin/edit_deadline'){
-                                echo 'active';}?> treeview">
-                    <a class="waves-effect waves-dark" href="<?php echo base_url();?>index.php/Admin/edit_deadline">
-                        <i class="icon-key"></i><span>Edit Deadline</span>
-                    </a>                
-                </li>
                 <li class=" <?php if(current_url() === base_url().'index.php/Admin/list_proposal'){
                                     echo 'active';}?> treeview">
                     <a class="waves-effect waves-dark" href="<?php echo base_url();?>index.php/Admin/list_proposal">
@@ -57,6 +51,12 @@
                                 echo 'active';}?> treeview">
                     <a class="waves-effect waves-dark" href="<?php echo base_url();?>index.php/Admin/rejected">
                         <i class="icon-ban"></i><span> Tidak Disetujui</span>
+                    </a>                
+                </li>
+                <li class=" <?php if(current_url() === base_url().'index.php/Admin/edit_deadline'){
+                                echo 'active';}?> treeview">
+                    <a class="waves-effect waves-dark" href="<?php echo base_url();?>index.php/Admin/edit_deadline">
+                        <i class="icon-key"></i><span>Edit Deadline</span>
                     </a>                
                 </li>
                 <li class="nav-level">Kompetisi</li>
