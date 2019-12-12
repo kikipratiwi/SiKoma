@@ -51,6 +51,11 @@ class Ormawa extends CI_Controller {
 		$this->load->view('templates/ormawa/dashboard',$data);
     }
     
+    public function get_numerics($str) {
+	    preg_match_all('/\d+/', $str, $matches);
+	    return $matches[0];
+	}
+
     public function proposal_submission() //form
 	{
 		//Jurusan
@@ -158,7 +163,12 @@ class Ormawa extends CI_Controller {
 	        }
 
 	        $organization = $this->session->userdata('department');
-	        // echo $organization;
+
+	        //get budget
+	        preg_match_all('/\d+/', $_POST['budget'], $matches);
+	        $power = sizeof($matches[0]) - 2;
+	        $budget = $matches[0][0] * pow(1000, $power);	        
+	    	
 			//Proposal
 			$curl = curl_init();
 			curl_setopt_array($curl, array(
@@ -167,7 +177,7 @@ class Ormawa extends CI_Controller {
 			CURLOPT_ENCODING => "",		
 			CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
 			CURLOPT_CUSTOMREQUEST => "POST",
-			CURLOPT_POSTFIELDS => "competition=".$_POST['competition']."&proposal=".$new_name."&organization=".$organization."&draftbudget=".$_POST['budget']."&summary=".$_POST['summary']."",
+			CURLOPT_POSTFIELDS => "competition=".$_POST['competition']."&proposal=".$new_name."&organization=".$organization."&draftbudget=".$budget."",
 			));
 			$proposal = curl_exec($curl);
 			$err = curl_error($curl);
@@ -198,25 +208,26 @@ class Ormawa extends CI_Controller {
 				echo $member4;
 				echo " ";
 				
-				$curl = curl_init();
-				curl_setopt_array($curl, array(
-				CURLOPT_URL => API_URL."/api/ormawa/team",
-				CURLOPT_RETURNTRANSFER => true,
-				CURLOPT_ENCODING => "",		
-				CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-				CURLOPT_CUSTOMREQUEST => "POST",			
-				CURLOPT_POSTFIELDS => "leader=".$leader."&member1=".$member1."&member2=".$member2."&member3=".$member3."&member4=".$member4."&mentor=".$coach."&proposal=".$prop->id_proposal."&competition=".$category."",
-				));	
-				$tim = curl_exec($curl);
-				$err = curl_error($curl);
-				curl_close($curl);
+				// $curl = curl_init();
+				// curl_setopt_array($curl, array(
+				// CURLOPT_URL => API_URL."/api/ormawa/team",
+				// CURLOPT_RETURNTRANSFER => true,
+				// CURLOPT_ENCODING => "",		
+				// CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+				// CURLOPT_CUSTOMREQUEST => "POST",			
+				// CURLOPT_POSTFIELDS => "leader=".$leader."&member1=".$member1."&member2=".$member2."&member3=".$member3."&member4=".$member4."&mentor=".$coach."&proposal=".$prop->id_proposal."&competition=".$category."",
+				// ));	
+				// $tim = curl_exec($curl);
+				// $err = curl_error($curl);
+				// curl_close($curl);
 
 				$index++;
 			}
 		}
 
-		redirect('Ormawa/ongoing_submission');
+		// redirect('Ormawa/ongoing_submission');
 	}
+	
 	
 
 	public function act_add_competition()
