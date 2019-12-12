@@ -44,8 +44,8 @@
                                                             <th>Lokasi</th>
                                                             <th>Registrasi</th>
                                                             <th>Event</th>
-                                                            <th>Edit</th>
-                                                            <th>Delete</th>
+                                                           <!--  <th>Edit</th>
+                                                            <th>Delete</th> -->
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -68,15 +68,15 @@
                                                                     $date2 = date_create($cmpt->event_enddate);
                                                                 ?>
                                                                 <td><?php echo date_format($date1,"d M Y")." - ". date_format($date2,"d M Y");?></td>
-                                                                <td>
+                                                                <!-- <td> -->
                                                                     <!-- <button type="button" class="btn btn-primary waves-effect waves-light">Edit</button> -->
-                                                                    <a href="" id="input_category" class="open-view-cateogry btn btn-primary preview-pdf" data-toggle="modal" data-target="#edit-competition-modal-form">
+                                                                    <!-- <a href="" id="input_category" class="open-view-cateogry btn btn-primary preview-pdf" data-toggle="modal" data-target="#edit-competition-modal-form">
                                                                         Edit
                                                                     </a>
-                                                                </td>
-                                                                <td>
+                                                                </td> -->
+                                                                <!-- <td>
                                                                     <button type="button" class="btn btn-danger waves-effect waves-light">Delete</button>
-                                                                </td>
+                                                                </td> -->
                                                             </tr>
 
                                                             <!-- Edit Competition Modal -->
