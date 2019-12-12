@@ -95,7 +95,7 @@
                                                             <div class="form-group row">
                                                                 <label for="budget" class="col-xs-2 col-form-label form-control-label">Dana yang diajukan</label>
                                                                 <div class="col-sm-10">
-                                                                    <input class="form-control" type="number" name="budget" placeholder="Jumlah Dana" value="" id="budget" required>
+                                                                    <input class="form-control" type="number" id="currency" oninput="setIDRFormat('currency')" name="budget" placeholder="Jumlah Dana" value="" id="budget" required>
                                                                 </div>
                                                             </div>
                                                             <div class="form-group row">
@@ -345,6 +345,9 @@
 		<script type="text/javascript" src="<?php echo base_url();?>assets/js/main.min.js"></script>
 		<script type="text/javascript" src="<?php echo base_url();?>assets/pages/advance-form.js"></script>
 		<script src="<?php echo base_url();?>assets/js/menu.min.js"></script>
+
+		<!-- currency format js -->
+		<script src="<?php echo base_url();?>assets/js/currency-format.js"></script>
 		
     <!-- select2 -->
     <script src="<?php echo base_url();?>assets/select2.min.js"></script>    
@@ -378,11 +381,11 @@
         var legend = $("<legend>#"+ (index + 1) +"</legend>");
         var categoryField   = $("<select />", {"class": 'js-select2 form-control js-required', "style": 'width: 100%',"name": 'category[]'});
         var coachField      = $("<select />", {"class": 'js-select2 form-control js-required', "style": 'width: 100%',"name": 'coach[]'});
-        var leaderField     = $("<select />", {"class": 'js-select2 form-control js-required ', "style": 'width: 100%',"name": 'leader[]'});
-        var member1Field =  $("<select />", {"class": 'js-select2 form-control ', "style": 'width: 100%',"name": 'member1[]'});
-        var member2Field =  $("<select />", {"class": 'js-select2 form-control ', "style": 'width: 100%',"name": 'member2[]'});
-        var member3Field =  $("<select />", {"class": 'js-select2 form-control ', "style": 'width: 100%',"name": 'member3[]'});
-        var member4Field =  $("<select />", {"class": 'js-select2 form-control ', "style": 'width: 100%',"name": 'member4[]'});
+        var leaderField     = $("<select />", {"class": 'js-team js-select2 form-control js-required ', "style": 'width: 100%',"name": 'leader[]'});
+        var member1Field =  $("<select />", {"class": 'js-team js-select2 form-control ', "style": 'width: 100%',"name": 'member1[]'});
+        var member2Field =  $("<select />", {"class": 'js-team js-select2 form-control ', "style": 'width: 100%',"name": 'member2[]'});
+        var member3Field =  $("<select />", {"class": 'js-team js-select2 form-control ', "style": 'width: 100%',"name": 'member3[]'});
+        var member4Field =  $("<select />", {"class": 'js-team js-select2 form-control ', "style": 'width: 100%',"name": 'member4[]'});
         var removeButton =  $("<button type='button' style='float:right' class='js-remove-button cancelBtn btn btn-warning waves-effect waves-light px-2 my-2'>Remove</button>")
         
         // mentor
