@@ -133,7 +133,7 @@
                                                                 </div>
                                                                 <div class="modal-footer">
                                                                     <!-- download proposal -->
-                                                                        <a type="button" href="<?php echo base_url();?>data/proposals/<?php echo $pr->proposal?>" class="btn btn-primary waves-effect waves-light" >Download Proposal</a>
+                                                                        <a type="button" href="<?php echo base_url();?>data/legalization/<?php echo $pr->legalization?>" class="btn btn-primary waves-effect waves-light" >Download Pengesahan</a>
                                                                 </div>
                                                                 
                                                             </div>

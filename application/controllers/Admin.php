@@ -766,6 +766,7 @@ class Admin extends CI_Controller {
 		$this->load->view('admin/report',$data);
 	}
 
+	//lpj
 	public function updateReport()
 	{
 		$id = $_POST['id'];
@@ -787,6 +788,75 @@ class Admin extends CI_Controller {
 		curl_close($curl);		
 
 		redirect('Admin/report');
+	}
+
+	//spj
+	public function updateFinancial()
+	{
+		$id = $_POST['id'];
+		$note = $_POST['note'];
+		$status = $_POST['radio'];
+		echo $status;
+
+		$curl = curl_init();
+		curl_setopt_array($curl, array(
+		CURLOPT_URL => API_URL."/api/admin/proposal/financial",
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_ENCODING => "",		
+		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST => "POST",
+		CURLOPT_POSTFIELDS => "id=".$id."&note=".$note."&status=".$status,
+		));
+
+		$cmpt = curl_exec($curl);
+
+		$err = curl_error($curl);				
+		curl_close($curl);		
+
+		redirect('Admin/report');
+	}
+
+	//pengesahan
+	public function updateLegalization()
+	{
+		$id = $_POST['id'];
+
+		if(!empty($_FILES['legalization']['name']) ) {
+			// setting konfigurasi upload
+	        $config['upload_path'] = './data/legalization/'; 
+	        $config['allowed_types'] = 'png';
+	        $new_name = "Pengesahan_Proposal_".$id.".png";        
+	        $config['file_name'] = $new_name;
+
+	        // load library upload
+	        $this->load->library('upload', $config);
+			$this->upload->initialize($config);
+	        if (!$this->upload->do_upload('legalization')) {
+	            $error = $this->upload->display_errors();            
+	            print_r($error);
+	        } else {
+	            $result = $this->upload->data();            
+	        }
+
+	        $curl = curl_init();
+			curl_setopt_array($curl, array(
+			CURLOPT_URL => API_URL."/api/admin/proposal/legalization",
+			CURLOPT_RETURNTRANSFER => true,
+			CURLOPT_ENCODING => "",		
+			CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+			CURLOPT_CUSTOMREQUEST => "POST",
+			CURLOPT_POSTFIELDS => "id=".$id."&legalization=".$new_name,
+			));
+
+			$cmpt = curl_exec($curl);
+
+			$err = curl_error($curl);				
+			curl_close($curl);		
+
+			redirect('Admin/report');
+
+	    }
+
 	}
 
 	public function rejected()

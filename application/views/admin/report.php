@@ -64,24 +64,39 @@
                                                     <!-- GET Depatement -->
                                                     <td><?php echo $pr->organization->name ?></td>
                                                     <td>
-                                                        <a href="" id="" class="open-view-Modal-Preview btn btn-primary" data-toggle="modal" data-target="#view-modal-spj">
-                                                            Update
-                                                        </a>
+                                                        <?php if ($pr->financial_report == 1) {
+                                                            ?>
+                                                          <p>DONE</p>  
+                                                        <?php } else { ?>
+                                                            <a href="" id="" class="open-view-Modal-Preview btn btn-primary" data-toggle="modal" data-target="#view-modal-spj<?php echo $pr->id ?>">
+                                                                Update
+                                                            </a>
+                                                        <?php } ?>
                                                     </td> 
                                                     <td>
-                                                        <a href="" id="previewProposal" class="open-view-Modal-Preview btn btn-primary" data-toggle="modal" data-target="#view-modal-lpj">
+                                                        <?php if ($pr->accountability_report == 1) {
+                                                            ?>
+                                                          <p>DONE</p>  
+                                                        <?php } else { ?>
+                                                        <a href="" id="previewProposal" class="open-view-Modal-Preview btn btn-primary" data-toggle="modal" data-target="#view-modal-lpj<?php echo $pr->id ?>">
                                                             Update
                                                         </a>
+                                                        <?php } ?>
                                                     </td>
                                                     <td>
-                                                        <a href="" id="" class="open-view-Modal-Preview btn btn-primary" data-toggle="modal" data-target="#view-modal-pengesahan">
+                                                        <?php if ($pr->legalization != null) {
+                                                            ?>
+                                                          <p>DONE</p>  
+                                                        <?php } else { ?>
+                                                        <a href="" id="" class="open-view-Modal-Preview btn btn-primary" data-toggle="modal" data-target="#view-modal-pengesahan<?php echo $pr->id ?>">
                                                             Upload
                                                         </a>
+                                                        <?php } ?>
                                                     </td>
                                                 </tr>
                                                 
                                                 <!-- MODAL LPJ Pencairan -->
-                                                <div class="modal fade modal-flex" id="view-modal-lpj" tabindex="-1" role="dialog">
+                                                <div class="modal fade modal-flex" id="view-modal-lpj<?php echo $pr->id ?>" tabindex="-1" role="dialog">
                                                     <div class="modal-dialog modal-sm" role="document" >
                                                         <div class="modal-content">
                                                             <div class="modal-header">
@@ -114,7 +129,7 @@
                                                 <!-- END MODAL LPJ Pencairan -->
 
                                                 <!-- MODAL SPJ Pencairan -->
-                                                <div class="modal fade modal-flex" id="view-modal-spj" tabindex="-1" role="dialog">
+                                                <div class="modal fade modal-flex" id="view-modal-spj<?php echo $pr->id ?>" tabindex="-1" role="dialog">
                                                     <div class="modal-dialog modal-sm" role="document" >
                                                         <div class="modal-content">
                                                             <div class="modal-header">
@@ -124,26 +139,27 @@
                                                                 <h5 class="modal-title">Penyerahan SPJ</h5>
                                                             </div>
                                                             <div class="modal-body">
-                                                                <form method="post" action="">
+                                                                <form method="post" action="<?php echo base_url().'index.php/Admin/updateFinancial'; ?>">
                                                                     <label class="bold">Status</label>
                                                                     <div class="form-radio">
                                                                         <div class="radio radio-inline">
-                                                                            <label for="accept">
+                                                                            <label>
                                                                                 <input class="js-incomplete" type="radio" name="radio" value="0">
                                                                                     <i class="helper"></i>Lengkapi SPJ
                                                                             </label>
                                                                         </div>
                                                                         <div class="radio radio-inline">
-                                                                            <label for="revision">
+                                                                            <label>
                                                                                 <input class="js-complete" type="radio" name="radio" value="1">
                                                                                     <i class="helper"></i>Selesai
                                                                             </label>
                                                                         </div>
                                                                     </div>
+                                                                    <input type="hidden" class="form-control" name="id" value=<?php echo $pr->id?> >
                                                                     <div class="md-input-wrapper">
-                                                                        <textarea class="js-spj" class="md-form-control md-static" cols="2" rows="4" name="spj" disabled></textarea>
+                                                                        <textarea class="js-spj" class="md-form-control md-static" cols="2" rows="4" name="note" disabled></textarea>
                                                                         <label>Catatan SPJ</label>
-                                                                    </div>
+                                                                    </div>                                                                    
                                                             </div>
                                                                     <div class="modal-footer">
                                                                         <button type="submit" class="btn btn-success">Submit</button>
@@ -155,7 +171,7 @@
                                                 <!-- END MODAL SPJ Pencairan -->
                                                 
                                                 <!-- MODAL Pengesahan -->
-                                                <div class="modal fade modal-flex" id="view-modal-pengesahan" tabindex="-1" role="dialog">
+                                                <div class="modal fade modal-flex" id="view-modal-pengesahan<?php echo $pr->id ?>" tabindex="-1" role="dialog">
                                                     <div class="modal-dialog modal-sm" role="document" >
                                                         <div class="modal-content">
                                                             <div class="modal-header">
@@ -165,13 +181,14 @@
                                                                 <h5 class="modal-title">Upload Pengesahan</h5>
                                                             </div>
                                                             <div class="modal-body">
-                                                                <form method="post" action="">
+                                                                <form enctype="multipart/form-data" method="POST" action="<?php echo base_url().'index.php/Admin/updateLegalization'; ?>">
                                                                 <div class="md-group-add-on">
                                                                     <span class="md-add-on-file">
                                                                         <button class="btn btn-success waves-effect waves-light">File</button>
                                                                     </span>
+                                                                    <input type="hidden" class="form-control" name="id" value=<?php echo $pr->id?> >
                                                                     <div class="md-input-file">
-                                                                        <input type="file" class=""/>
+                                                                        <input type="file" class="" name="legalization"/>
                                                                         <input type="text" class="md-form-control md-form-file">
                                                                         <label class="md-label-file">Upload File</label>
                                                                     </div>
