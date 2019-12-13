@@ -165,7 +165,7 @@
                                 ?>
                             </p>
                         </div>
-                         <div class="form-group">
+                        <div class="form-group">
                             <label for="dana" class="form-control-label">Catatan Konten</label>
                             <!-- GET Team Member-->
                             <p id="dana">                                
@@ -175,16 +175,14 @@
                                         echo $pr->revision[$revisi-1]->content_notes;
                                     }
                                 ?>
-
                             </p>
                         </div>
-                      
                     </div>
                 </div>
                 <div class="modal-footer">
-                   
-                   
                     <a type="button" href="<?php echo base_url();?>data/proposals/<?php echo $pr->proposal->proposal?>" class="btn btn-primary waves-effect waves-light" >Download Proposal</a>
+                    <!-- Download pengesahan button -->
+                    <!-- <a type="button" href="" class="btn btn-primary waves-effect waves-light" >Download Pengesahan</a> -->
                 </div>
                 
             </div>
