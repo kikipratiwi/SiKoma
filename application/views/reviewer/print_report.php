@@ -30,7 +30,7 @@
                                 <div class="card-block tab-icon">
                                     <!-- Row start -->
                                     <b>Cetak Laporan</b>
-                                    <form enctype="multipart/form-data" method="POST" action="<?php echo base_url().'index.php/Admin/export'; ?>">                                                       
+                                    <form enctype="multipart/form-data" method="POST" action="<?php echo base_url().'index.php/Reviewer/export'; ?>">                                                       
                                         <!-- <div class="row"> -->
                                             <label class="block form-control-label">Rentang Tanggal</label>
                                             <div class="form-row">

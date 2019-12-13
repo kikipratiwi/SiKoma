@@ -977,6 +977,28 @@ class Admin extends CI_Controller {
 		
 	}
 
+	//Add Reviewe
+	public function addReviewer()
+	{
+		$email = $_POST['email'];		
+
+		$curl = curl_init();
+		curl_setopt_array($curl, array(
+		CURLOPT_URL =>  API_URL."/api/register",
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_ENCODING => "",		
+		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST => "POST",
+		CURLOPT_POSTFIELDS => "email=".$email."&password=123456&role=3",
+		));
+
+		$cmpt = curl_exec($curl);
+
+		$err = curl_error($curl);				
+		curl_close($curl);	
+		redirect('Admin/index');
+	}	
+
 	public function export()
 	{
 		$from = $_POST['regist_opendate'];
@@ -1002,15 +1024,7 @@ class Admin extends CI_Controller {
 		curl_close($curl);	
 
 		$competitions = json_decode($cmpt);
-		// $test = $competitions->toArray();
-		// foreach($competitions as  $key => $cmpt) {
-		// 	echo $cmpt->competition->name;
-		// 	echo $cmpt->department->name;
-		// 	echo $cmpt->competition->location;
-		// 	echo $cmpt->realisazion_budget;
-		// 	echo $cmpt->budget_source;
-		// }
-
+		
 		//  GET KOMPETISI
 		$this->makeExcel($competitions);
           
@@ -1022,7 +1036,7 @@ class Admin extends CI_Controller {
           $spreadsheet->setActiveSheetIndex(0)
                       ->setCellValue('A1', 'ID')
                       ->setCellValue('B1', 'Kompetisi')
-                      ->setCellValue('C1', 'Tahun')
+                      ->setCellValue('C1', 'Tanggal')
                       ->setCellValue('D1', 'Organisasi')
                       ->setCellValue('E1', 'Lokasi')
                       ->setCellValue('F1', 'Pengajuan Dana')
@@ -1040,7 +1054,7 @@ class Admin extends CI_Controller {
                $spreadsheet->setActiveSheetIndex(0)
                            ->setCellValue('A' . $kolom, $nomor)
                            ->setCellValue('B' . $kolom, $cmpt->competition->name)
-                           ->setCellValue('C' . $kolom, $cmpt->competition->year)
+                           ->setCellValue('C' . $kolom, $cmpt->competition->event_startdate)
                            ->setCellValue('D' . $kolom, $cmpt->organization->name)
                            ->setCellValue('E' . $kolom, $cmpt->competition->location)
                            ->setCellValue('F' . $kolom, $cmpt->draft_budget)

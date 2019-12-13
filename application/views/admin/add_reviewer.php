@@ -30,11 +30,11 @@
                                     <h5 class="card-header-text">Tambah Akun Reviewer</h5>
                                 </div>
                                 <div class="card-block">
-                                    <form enctype="multipart/form-data" method="POST" action="">
+                                    <form enctype="multipart/form-data" method="POST" action="<?php echo base_url().'index.php/Admin/addReviewer'; ?>">                                                       
                                         <div class="form-group row">
                                             <div class="col-md-4 col-sm-6">
                                                 <label for="inputEmail" class="form-control-label">Input Alamat Email</label>
-                                                <input type="email" class="form-control js-email" id="inputEmail" placeholder="Input email">
+                                                <input type="email" class="form-control js-email" name="email" id="inputEmail" placeholder="Input email">
                                             </div>
                                         </div>
                                         <div class="form-group row">
