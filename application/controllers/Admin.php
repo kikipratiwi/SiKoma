@@ -853,9 +853,10 @@ class Admin extends CI_Controller {
 			$err = curl_error($curl);				
 			curl_close($curl);		
 
-			redirect('Admin/report');
+			
 
 	    }
+	    redirect('Admin/report');
 
 	}
 

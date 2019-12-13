@@ -26,38 +26,222 @@ class Staff extends CI_Controller {
 
 	public function list_proposal()
 	{
+		$curl = curl_init();
+		curl_setopt_array($curl, array(
+		CURLOPT_URL => API_URL."/api/admin/proposal/new",
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_ENCODING => "",
+		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST => "GET",
+		));
+
+		$proposal = curl_exec($curl);
+		$err = curl_error($curl);
+
+		curl_close($curl);
+
+		$data['proposal'] = json_decode($proposal);	
 		$data['content'] = $this->template();
 		$this->load->view('staff/list_proposal',$data);
 	}
 
 	public function list_revisi_proposal()
 	{
+		$curl = curl_init();
+		curl_setopt_array($curl, array(
+		CURLOPT_URL => API_URL."/api/admin/proposal/revision",
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_ENCODING => "",
+		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST => "GET",
+		));
+
+		$proposal = curl_exec($curl);
+		$err = curl_error($curl);
+
+		curl_close($curl);
+
+		$data['proposal'] = json_decode($proposal);			
 		$data['content'] = $this->template();
 		$this->load->view('staff/list_revisi',$data);
 	}
 
 	public function rejected()
 	{
+		$curl = curl_init();
+		curl_setopt_array($curl, array(
+		CURLOPT_URL => API_URL."/api/admin/proposal/rejected",
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_ENCODING => "",
+		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST => "GET",
+		));
+
+		$proposal = curl_exec($curl);
+		$err = curl_error($curl);
+
+		curl_close($curl);
+
+		$data['proposal'] = json_decode($proposal);	
 		$data['content'] = $this->template();
 		$this->load->view('staff/rejected',$data);
 	}
 
 	public function list_fund_submission()
 	{	
+		$curl = curl_init();
+		curl_setopt_array($curl, array(
+		CURLOPT_URL => API_URL."/api/admin/proposal/fund",
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_ENCODING => "",
+		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST => "GET",
+		));
+
+		$proposal = curl_exec($curl);
+		$err = curl_error($curl);
+
+		curl_close($curl);
+
+		$data['proposal'] = json_decode($proposal);		
 		$data['content'] = $this->template();
 		$this->load->view('staff/list_fund_submission',$data);
 	}
 	
 	public function finished()
 	{		
+		$curl = curl_init();
+		curl_setopt_array($curl, array(
+		CURLOPT_URL => API_URL."/api/admin/proposal/finished",
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_ENCODING => "",
+		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST => "GET",
+		));
+
+		$proposal = curl_exec($curl);
+		$err = curl_error($curl);
+
+		curl_close($curl);
+
+		$data['proposal'] = json_decode($proposal);			
 		$data['content'] = $this->template();
 		$this->load->view('staff/finished',$data);
 	}
 
 	public function report()
 	{
+		$curl = curl_init();
+		curl_setopt_array($curl, array(
+		CURLOPT_URL => API_URL."/api/admin/proposal/reported",
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_ENCODING => "",
+		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST => "GET",
+		));
+
+		$proposal = curl_exec($curl);
+		$err = curl_error($curl);
+
+		curl_close($curl);
+
+		$data['proposal'] = json_decode($proposal);	
 		$data['content'] = $this->template();
 		$this->load->view('staff/report',$data);
+	}
+
+	//lpj
+	public function updateReport()
+	{
+		$id = $_POST['id'];
+		$budget = $_POST['budget'];
+
+		$curl = curl_init();
+		curl_setopt_array($curl, array(
+		CURLOPT_URL => API_URL."/api/admin/proposal/reported",
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_ENCODING => "",		
+		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST => "POST",
+		CURLOPT_POSTFIELDS => "id=".$id."&budget=".$budget,
+		));
+
+		$cmpt = curl_exec($curl);
+
+		$err = curl_error($curl);				
+		curl_close($curl);		
+
+		redirect('Staff/report');
+	}
+
+	//spj
+	public function updateFinancial()
+	{
+		$id = $_POST['id'];
+		$note = $_POST['note'];
+		$status = $_POST['radio'];
+		echo $status;
+
+		$curl = curl_init();
+		curl_setopt_array($curl, array(
+		CURLOPT_URL => API_URL."/api/admin/proposal/financial",
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_ENCODING => "",		
+		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST => "POST",
+		CURLOPT_POSTFIELDS => "id=".$id."&note=".$note."&status=".$status,
+		));
+
+		$cmpt = curl_exec($curl);
+
+		$err = curl_error($curl);				
+		curl_close($curl);		
+
+		redirect('Staff/report');
+	}
+
+	//pengesahan
+	public function updateLegalization()
+	{
+		$id = $_POST['id'];
+
+		if(!empty($_FILES['legalization']['name']) ) {
+			// setting konfigurasi upload
+	        $config['upload_path'] = './data/legalization/'; 
+	        $config['allowed_types'] = 'png';
+	        $new_name = "Pengesahan_Proposal_".$id.".png";        
+	        $config['file_name'] = $new_name;
+
+	        // load library upload
+	        $this->load->library('upload', $config);
+			$this->upload->initialize($config);
+	        if (!$this->upload->do_upload('legalization')) {
+	            $error = $this->upload->display_errors();            
+	            print_r($error);
+	        } else {
+	            $result = $this->upload->data();            
+	        }
+
+	        $curl = curl_init();
+			curl_setopt_array($curl, array(
+			CURLOPT_URL => API_URL."/api/admin/proposal/legalization",
+			CURLOPT_RETURNTRANSFER => true,
+			CURLOPT_ENCODING => "",		
+			CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+			CURLOPT_CUSTOMREQUEST => "POST",
+			CURLOPT_POSTFIELDS => "id=".$id."&legalization=".$new_name,
+			));
+
+			$cmpt = curl_exec($curl);
+
+			$err = curl_error($curl);				
+			curl_close($curl);		
+
+			
+
+	    }
+	    redirect('Staff/report');
+
 	}
 
 	public function print_report()
