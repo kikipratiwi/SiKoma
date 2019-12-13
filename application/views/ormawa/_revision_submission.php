@@ -30,7 +30,9 @@
                                 <div class="card">
                                     <!-- Radio-Button start -->
                                     <div class="card-header"><h5 class="card-header-text">Form Revisi Proposal</h5>
-                                        <?php if($this->session->flashdata('error') == TRUE ) {?>
+                                        <?php 
+                                        $this->load->helpers('money_format'); 
+                                        if($this->session->flashdata('error') == TRUE ) {?>
                                             <div class="label-main" style="padding-top:5px;">
                                                 <label class="label bg-danger" style="white-space: pre-wrap; text-transform: uppercase;"><i class="icon-ban"></i> <?php echo $this->session->flashdata('error');?></label>
                                             </div>
@@ -58,13 +60,7 @@
                                                             <div class="col-sm-10">
                                                                 <input class="form-control" type="text" id="currency-field" pattern="^\$\d{1,3}(.\d{3})*(\,\d+)?Rp" value="" data-type="currency"  name="budget" placeholder="Jumlah Dana" value="<?php echo rupiah($proposal->draft_budget);?>" required>
                                                             </div>
-                                                        </div>
-                                                        <div class="form-group row">
-                                                            <label for="summary" class="col-xs-2 col-form-label form-control-label">Ringkasan</label>
-                                                            <div class="col-sm-10">
-                                                                <textarea value ="<?php echo $proposal->summary?>" name="summary" id="summary" class="form-control" rows="4" required></textarea>
-                                                            </div>
-                                                        </div>
+                                                        </div>                                                        
                                                         <div class="form-group row">
                                                             <label for="proposal" class="col-xs-2 col-form-label form-control-label">Proposal</label>
                                                             <div class="md-group-add-on">

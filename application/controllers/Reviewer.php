@@ -76,8 +76,13 @@ class Reviewer extends CI_Controller {
 		$rab = $_POST['rab'];
 		$konten = $_POST['konten'];
 		$status = $_POST['radio'];
-		$dana = $_POST['budget'];
+		// $dana = $_POST['budget'];
 		$sumber = $_POST['source'];
+
+		//get budget
+        preg_match_all('/\d+/', $_POST['budget'], $matches);
+        $power = sizeof($matches[0]) - 2;
+        $dana = $matches[0][0] * pow(1000, $power);	        
 
 		$curl = curl_init();
 		curl_setopt_array($curl, array(
