@@ -53,6 +53,12 @@
                         <i class="icon-ban"></i><span> Tidak Disetujui</span>
                     </a>                
                 </li>
+                <li class=" <?php if(current_url() === base_url().'index.php/Admin/edit_deadline'){
+                                echo 'active';}?> treeview">
+                    <a class="waves-effect waves-dark" href="<?php echo base_url();?>index.php/Admin/edit_deadline">
+                        <i class="icon-key"></i><span>Edit Deadline</span>
+                    </a>                
+                </li>
                 <li class="nav-level">Kompetisi</li>
                 <li class=" <?php if(current_url() === base_url().'index.php/Admin/list_kompetisi'){
                                 echo 'active';}?> treeview">
@@ -63,7 +69,7 @@
                 <li class=" <?php if(current_url() === base_url().'index.php/Admin/input_kategori'){
                                 echo 'active';}?> treeview">
                     <a class="waves-effect waves-dark" href="<?php echo base_url();?>index.php/Admin/input_kategori">
-                        <i class="fa fa-list"></i><span> Kategori</span>
+                        <i class="fa fa-sticky-note"></i><span> Kategori</span>
                     </a>                
                 </li>
                 <li class="nav-level">Laporan</li>
@@ -90,13 +96,13 @@
                 <li class=" <?php if(current_url() === base_url().'index.php/Admin/master_lecturer'){
                                 echo 'active';}?> treeview">
                     <a class="waves-effect waves-dark" href="<?php echo base_url();?>index.php/Admin/master_lecturer">
-                        <i class="fa fa-graduation-cap"></i><span> Dosen</span>
+                        <i class="icon-graduation"></i><span> Dosen</span>
                     </a>                
                 </li>
                 <li class=" <?php if(current_url() === base_url().'index.php/Admin/master_student_organizations'){
                                 echo 'active';}?> treeview">
                     <a class="waves-effect waves-dark" href="<?php echo base_url();?>index.php/Admin/master_student_organizations">
-                        <i class="fa fa-street-view"></i><span> Ormawa</span>
+                        <i class="fa fa-certificate"></i><span> Ormawa</span>
                     </a>                
                 </li>
                 <li class=" <?php if(current_url() === base_url().'index.php/Admin/master_departement'){
@@ -108,7 +114,7 @@
                 <li class=" <?php if(current_url() === base_url().'index.php/Admin/master_study_program'){
                                 echo 'active';}?> treeview">
                     <a class="waves-effect waves-dark" href="<?php echo base_url();?>index.php/Admin/master_study_program">
-                        <i class="fa fa-building-o"></i><span> Program Studi</span>
+                        <i class="fa fa-building"></i><span> Program Studi</span>
                     </a>                
                 </li>
             </ul>

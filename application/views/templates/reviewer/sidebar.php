@@ -26,7 +26,13 @@
                 <li class=" <?php if(current_url() === base_url().'index.php/Reviewer/list_review_proposal'){
                                 echo 'active';}?> treeview">
                     <a class="waves-effect waves-dark" href="<?php echo base_url();?>index.php/Reviewer/list_review_proposal">
-                        <i class="icon-list"></i><span>Revisi</span>
+                        <i class="icon-note"></i><span>Revisi</span>
+                    </a>                
+                </li>
+                <li class=" <?php if(current_url() === base_url().'index.php/Reviewer/edit_deadline'){
+                                echo 'active';}?> treeview">
+                    <a class="waves-effect waves-dark" href="<?php echo base_url();?>index.php/Reviewer/edit_deadline">
+                        <i class="icon-key"></i><span>Edit Deadline</span>
                     </a>                
                 </li>
                 <li class="nav-level">Laporan</li>
