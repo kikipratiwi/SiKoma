@@ -64,7 +64,7 @@
                                                             <div class="label-main">
                                                                 <label class="label label-success">Selesai</label>
                                                             </div>
-                                                        <?php } else if($pr->proposal->status==='REJECTED') {
+                                                        <?php } else if($pr->status==='REJECTED') {
                                                             ?>
                                                             <div class="label-main">
                                                                 <label class="label bg-warning">Ditolak</label>

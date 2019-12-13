@@ -50,12 +50,7 @@ class Ormawa extends CI_Controller {
 		$data['content'] = $this->template();
 		$this->load->view('templates/ormawa/dashboard',$data);
     }
-    
-    public function get_numerics($str) {
-	    preg_match_all('/\d+/', $str, $matches);
-	    return $matches[0];
-	}
-
+        
     public function proposal_submission() //form
 	{
 		//Jurusan
@@ -119,9 +114,9 @@ class Ormawa extends CI_Controller {
 		$errcmp = curl_error($curl);
 
 		//Cek LPJ	
-		$dptt = $this->session->userdata('department');	
+		$department = $this->session->userdata('department');	
 		curl_setopt_array($curl, array(
-		CURLOPT_URL => API_URL."/api/ormawa/proposal/report?department=1",
+		CURLOPT_URL => API_URL."/api/ormawa/proposal/report?organization=".$department,
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_ENCODING => "",		
 		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -200,32 +195,32 @@ class Ormawa extends CI_Controller {
 				if(!isset($member4)){ $member4 = 0; }
 
 				echo $category;
-				echo $leader;
 				echo $coach;
-				echo $member1;
-				echo $member2;
-				echo $member3;
-				echo $member4;
+				echo $leader;
+				// echo $member1;
+				// echo $member2;
+				// echo $member3;
+				// echo $member4;
 				echo " ";
 				
-				// $curl = curl_init();
-				// curl_setopt_array($curl, array(
-				// CURLOPT_URL => API_URL."/api/ormawa/team",
-				// CURLOPT_RETURNTRANSFER => true,
-				// CURLOPT_ENCODING => "",		
-				// CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-				// CURLOPT_CUSTOMREQUEST => "POST",			
-				// CURLOPT_POSTFIELDS => "leader=".$leader."&member1=".$member1."&member2=".$member2."&member3=".$member3."&member4=".$member4."&mentor=".$coach."&proposal=".$prop->id_proposal."&competition=".$category."",
-				// ));	
-				// $tim = curl_exec($curl);
-				// $err = curl_error($curl);
-				// curl_close($curl);
+				$curl = curl_init();
+				curl_setopt_array($curl, array(
+				CURLOPT_URL => API_URL."/api/ormawa/team",
+				CURLOPT_RETURNTRANSFER => true,
+				CURLOPT_ENCODING => "",		
+				CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+				CURLOPT_CUSTOMREQUEST => "POST",			
+				CURLOPT_POSTFIELDS => "leader=".$leader."&member1=".$member1."&member2=".$member2."&member3=".$member3."&member4=".$member4."&mentor=".$coach."&proposal=".$prop->id_proposal."&competition=".$category."",
+				));	
+				$tim = curl_exec($curl);
+				$err = curl_error($curl);
+				curl_close($curl);
 
 				$index++;
 			}
 		}
 
-		// redirect('Ormawa/ongoing_submission');
+		redirect('Ormawa/ongoing_submission');
 	}
 	
 	
