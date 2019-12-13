@@ -101,9 +101,9 @@
                                                                         </div>
                                                                     <?php } else {?>
                                                                      <div class="label-main">
-                                                                            <?php } if ("LPJ BELUM") {?>
+                                                                            <?php if ($pr->accountability_report == 0) {?>
                                                                                 <label class="label bg-warning">Belum Menyerahkan LPJ</label> 
-                                                                            <?php } if ("SPJ BELUM") {?>
+                                                                            <?php } if ($pr->financial_report==0) {?>
                                                                                  <label class="label bg-warning">Belum Menyerahkan SPJ</label>
                                                                             <?php } ?>
                                                                     </div>
