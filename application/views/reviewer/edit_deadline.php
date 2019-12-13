@@ -11,7 +11,7 @@
                         <ol class="breadcrumb breadcrumb-title breadcrumb-arrow">
                             <li class="breadcrumb-item"><a href="<?php echo base_url();?>index.php/Admin"><i class="icofont icofont-home"></i></a>
                             </li>
-                            <li class="breadcrumb-item"><a href="#!">Edit Limit</a>
+                            <li class="breadcrumb-item"><a href="#!">Edit Deadline</a>
                             </li>
                         </ol>
                     </div>
@@ -27,7 +27,7 @@
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h5 class="card-header-text">Edit Limit Pengajuan Proposal</h5>
+                                    <h5 class="card-header-text">Edit Deadline Pengajuan Proposal</h5>
                                 </div>
                                 <div class="card-block">
                                     <form enctype="multipart/form-data" method="POST" action="">
@@ -62,7 +62,7 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="form-group row">
+                                        <!-- <div class="form-group row">
                                             <div class="col-md-2 col-sm-3 col-xs-6">
                                                 <label for="limit-lpj" class="form-control-label">Jumlah Proposal</label>
                                             </div>
@@ -74,7 +74,7 @@
                                                     <option value="2">2</option>
                                                 </select>
                                             </div>
-                                        </div>
+                                        </div> -->
                                 </div>
                                 <div class="card-footer">
                                     <div class="form-group col-md-4 col-sm-6">

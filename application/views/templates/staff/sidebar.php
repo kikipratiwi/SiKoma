@@ -53,10 +53,10 @@
                         <i class="icon-ban"></i><span> Tidak Disetujui</span>
                     </a>                
                 </li>
-                <li class=" <?php if(current_url() === base_url().'index.php/staff/edit_limit'){
+                <li class=" <?php if(current_url() === base_url().'index.php/staff/edit_deadline'){
                                 echo 'active';}?> treeview">
-                    <a class="waves-effect waves-dark" href="<?php echo base_url();?>index.php/staff/edit_limit">
-                        <i class="icon-key"></i><span>Edit Limit Pengajuan</span>
+                    <a class="waves-effect waves-dark" href="<?php echo base_url();?>index.php/staff/edit_deadline">
+                        <i class="icon-key"></i><span> Edit Deadline</span>
                     </a>                
                 </li>
                 <li class="nav-level">Laporan</li>

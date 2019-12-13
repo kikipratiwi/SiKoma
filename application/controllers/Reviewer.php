@@ -106,7 +106,7 @@ class Reviewer extends CI_Controller {
 		$this->load->view('Reviewer/print_report',$data);
 	}
 
-	public function edit_limit()
+	public function edit_deadline()
 	{
 		$data['content'] = $this->template();
 		$this->load->view('Reviewer/edit_deadline',$data);

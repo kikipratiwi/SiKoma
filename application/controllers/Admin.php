@@ -993,7 +993,7 @@ class Admin extends CI_Controller {
 		  $writer->save('php://output');
 	}
 
-	public function edit_limit()
+	public function edit_deadline()
 	{
 		$data['content'] = $this->template();
 		$this->load->view('Admin/edit_deadline',$data);
