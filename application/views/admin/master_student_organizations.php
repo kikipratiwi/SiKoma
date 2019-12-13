@@ -109,6 +109,10 @@
                                                                         <label for="studentOrganizatioAcronym" class="block form-control-label">Akronim</label>
                                                                         <input type="text" class="form-control" name="acr" value="<?php echo $org->acronym ?>">
                                                                     </div>
+                                                                    <div class="form-group col-md-12">
+                                                                        <label for="studentOrganizatiomax" class="block form-control-label">Max Unfinished Submission</label>
+                                                                        <input type="number" min=0 class="form-control" name="max" value="<?php echo $org->max_unfinished_submission ?>">
+                                                                    </div>
                                                                 </div>
                                                             </div>                                              
                                                             <div class="modal-footer" style="padding-top: 3pt">

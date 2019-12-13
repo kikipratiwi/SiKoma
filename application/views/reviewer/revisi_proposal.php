@@ -130,13 +130,13 @@
                                                                             <label class="bold">Status</label>
                                                                             <div class="form-radio">
                                                                                 <div class="radio radio-inline">
-                                                                                    <label for="accept">
+                                                                                    <label >
                                                                                         <input class="js-accept" type="radio" name="radio" value="WAITFUND">
                                                                                             <i class="helper"></i>Diterima
                                                                                     </label>
                                                                                 </div>
                                                                                 <div class="radio radio-inline">
-                                                                                    <label for="revision">
+                                                                                    <label >
                                                                                         <input class="js-revision" type="radio" name="radio" value="REVISION">
                                                                                             <i class="helper"></i>Revisi
                                                                                     </label>

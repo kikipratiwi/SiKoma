@@ -428,7 +428,7 @@ class Admin extends CI_Controller {
 		CURLOPT_ENCODING => "",		
 		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
 		CURLOPT_CUSTOMREQUEST => "POST",
-		CURLOPT_POSTFIELDS => "id=".$_POST['id']."&name=".$_POST['name']."&acr=".$_POST['acr'],
+		CURLOPT_POSTFIELDS => "id=".$_POST['id']."&name=".$_POST['name']."&acr=".$_POST['acr']."&submission=".$_POST['max'],
 		));
 
 		$cmpt = curl_exec($curl);
