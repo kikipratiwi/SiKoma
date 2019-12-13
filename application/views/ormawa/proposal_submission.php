@@ -278,11 +278,11 @@
         var legend = $("<legend>#"+ (index + 1) +"</legend>");
         var categoryField   = $("<select />", {"class": 'js-category js-select2 form-control js-required', "style": 'width: 100%',"name": 'category[]'});
         var coachField      = $("<select />", {"class": 'js-select2 form-control js-required', "style": 'width: 100%',"name": 'coach[]'});
-        var leaderField     = $("<select />", {"class": 'js-team js-select2 form-control js-required ', "style": 'width: 100%',"name": 'leader[]'});
-        var member1Field =  $("<select />", {"class": 'js-team js-select2 form-control ', "style": 'width: 100%',"name": 'member1[]'});
-        var member2Field =  $("<select />", {"class": 'js-team js-select2 form-control ', "style": 'width: 100%',"name": 'member2[]'});
-        var member3Field =  $("<select />", {"class": 'js-team js-select2 form-control ', "style": 'width: 100%',"name": 'member3[]'});
-        var member4Field =  $("<select />", {"class": 'js-team js-select2 form-control ', "style": 'width: 100%',"name": 'member4[]'});
+        var leaderField     = $("<select />", {"class": 'js-select2 form-control js-required ', "style": 'width: 100%',"name": 'leader[]'});
+        var member1Field =  $("<select />", {"class": 'js-select2 form-control ', "style": 'width: 100%',"name": 'member1[]'});
+        var member2Field =  $("<select />", {"class": 'js-select2 form-control ', "style": 'width: 100%',"name": 'member2[]'});
+        var member3Field =  $("<select />", {"class": 'js-select2 form-control ', "style": 'width: 100%',"name": 'member3[]'});
+        var member4Field =  $("<select />", {"class": 'js-select2 form-control ', "style": 'width: 100%',"name": 'member4[]'});
         var removeButton =  $("<button type='button' style='float:right' class='js-remove-button cancelBtn btn btn-warning waves-effect waves-light px-2 my-2'>Remove</button>")
         
         // mentor
@@ -437,7 +437,7 @@
 
         $('.js-category').select2({
             width: 'resolve',
-            placeholder: "Cari Kategori Kompetisi atau Yang Lainnya",
+            placeholder: "Cari Kategori Kompetisi atau Pilih Yang Lainnya",
             allowClear: true // need to override the changed default
         });
 

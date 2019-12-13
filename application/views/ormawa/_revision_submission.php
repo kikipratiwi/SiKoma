@@ -56,7 +56,7 @@
                                                         <div class="form-group row">
                                                             <label for="budget" class="col-xs-2 col-form-label form-control-label">Dana yang diajukan</label>
                                                             <div class="col-sm-10">
-                                                                <input class="form-control" type="number" name="budget" placeholder="Jumlah Dana" value="<?php echo $proposal->draft_budget?>" id="budget" required>
+                                                                <input class="form-control" type="text" id="currency-field" pattern="^\$\d{1,3}(.\d{3})*(\,\d+)?Rp" value="" data-type="currency"  name="budget" placeholder="Jumlah Dana" value="<?php echo rupiah($proposal->draft_budget);?>" required>
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
@@ -217,6 +217,20 @@
 		<script type="text/javascript" src="<?php echo base_url();?>assets/pages/advance-form.js"></script>
 		<script src="<?php echo base_url();?>assets/js/menu.min.js"></script>
 		
+
+        <!-- currency format js -->
+        <script src="<?php echo base_url();?>assets/js/currency-format.js"></script>
+        
+<script>
+    $("input[data-type='currency']").on({
+    keyup: function() {
+        formatCurrency($(this));
+    },
+    blur: function() { 
+        formatCurrency($(this), "blur");
+    }
+    });
+</script>
 
 <script>
     var input = document.getElementById( 'file-upload' );
