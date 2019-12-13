@@ -139,7 +139,7 @@
                                                                                 <p id="dana"></p>
                                                                             </div>
                                                                             <div class="md-input-wrapper">Jumlah Dana yang Disetujui<br>
-                                                                                <input class="js-budget" type="number" name="budget" min=0 disabled>
+                                                                                <input class="js-budget"  type="text" id="currency-field" pattern="^\$\d{1,3}(.\d{3})*(\,\d+)?Rp" value="" data-type="currency"  name="budget" min=0 disabled>
                                                                             </div>
                                                                             <div class="md-input-wrapper">Sumber Dana<br>
                                                                                 <input class="js-source" type="text" name="source" disabled>
@@ -193,6 +193,19 @@
     <script src="<?php echo base_url();?>assets/js/jquery.media.js"></script>
     <script src="<?php echo base_url();?>assets/js/jquery.dataTables.js"></script>
 	
+    <!-- currency format js -->
+    <script src="<?php echo base_url();?>assets/js/currency-format.js"></script>
+        
+<script>
+    $("input[data-type='currency']").on({
+    keyup: function() {
+        formatCurrency($(this));
+    },
+    blur: function() { 
+        formatCurrency($(this), "blur");
+    }
+    });
+</script>
 <script>    
     $(document).ready( function () {
         $('#previewNewProposal').DataTable();

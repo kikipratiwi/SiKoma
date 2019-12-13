@@ -437,7 +437,7 @@
 
         $('.js-category').select2({
             width: 'resolve',
-            placeholder: "Cari Kategori Kompetisi atau Yang Lainnya",
+            placeholder: "Cari Kategori Kompetisi atau Pilih Yang Lainnya",
             allowClear: true // need to override the changed default
         });
 
