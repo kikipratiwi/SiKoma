@@ -56,7 +56,14 @@
                 <li class=" <?php if(current_url() === base_url().'index.php/Admin/edit_deadline'){
                                 echo 'active';}?> treeview">
                     <a class="waves-effect waves-dark" href="<?php echo base_url();?>index.php/Admin/edit_deadline">
-                        <i class="icon-key"></i><span>Edit Deadline</span>
+                        <i class="icon-key"></i><span> Edit Deadline</span>
+                    </a>                
+                </li>
+                <li class="nav-level">Reviewer</li>
+                <li class=" <?php if(current_url() === base_url().'index.php/Admin/add_reviewer'){
+                                echo 'active';}?> treeview">
+                    <a class="waves-effect waves-dark" href="<?php echo base_url();?>index.php/Admin/add_reviewer">
+                        <i class="fa fa-user"></i><span> Tambah Reviewer</span>
                     </a>                
                 </li>
                 <li class="nav-level">Kompetisi</li>
