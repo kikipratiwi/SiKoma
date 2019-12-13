@@ -7,11 +7,11 @@
             <div class="row">
                 <div class="col-lg-12 p-0">
                     <div class="main-header">
-                        <h4>Proposal</h4>
+                        <h4>Reviewer</h4>
                         <ol class="breadcrumb breadcrumb-title breadcrumb-arrow">
                             <li class="breadcrumb-item"><a href="<?php echo base_url();?>index.php/Admin"><i class="icofont icofont-home"></i></a>
                             </li>
-                            <li class="breadcrumb-item"><a href="#!">Edit Deadline</a>
+                            <li class="breadcrumb-item"><a href="#!">Tambah Akun Reviewer</a>
                             </li>
                         </ol>
                     </div>
@@ -27,39 +27,26 @@
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h5 class="card-header-text">Edit Deadline Pengajuan Proposal</h5>
+                                    <h5 class="card-header-text">Tambah Akun Reviewer</h5>
                                 </div>
                                 <div class="card-block">
                                     <form enctype="multipart/form-data" method="POST" action="">
                                         <div class="form-group row">
-                                            <div class="col-md-2">
-                                                <label for="ormawa" class="form-control-label">Organisasi Mahasiswa</label>
-                                            </div>
                                             <div class="col-md-4 col-sm-6">
-                                                <select class="form-control " name="ormawa">
-                                                    <option value=""></option>
-                                                    <option value="0">HIMAKOM</option>
-                                                    <option value="1">HMJTK</option>
-                                                    <option value="2">HMM</option>
-                                                    <option value="3">HMAK</option>
-                                                </select>
+                                                <label for="inputEmail" class="form-control-label">Input Alamat Email</label>
+                                                <input type="email" class="form-control js-email" id="inputEmail" placeholder="Input email">
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <div class="col-md-2">
-                                                <label for="deadline" class="form-control-label">Deadline (H-?)</label>
+                                            <div class="col-md-4 col-sm-6">
+                                                <label for="inputConfirmEmail" class="form-control-label">Konfirmasi Alamat Email</label>
+                                                <input type="email" class="form-control js-confirm-email" id="inputConfirmEmail" placeholder="Konfirmasi email">
                                             </div>
-                                            <div class="col-md-2 col-sm-6">
-                                                <select class="form-control " name="deadline">
-                                                    <option value=""></option>
-                                                    <option value="0">H-0</option>
-                                                    <option value="1">H-1</option>
-                                                    <option value="2">H-2</option>
-                                                    <option value="3">H-3</option>
-                                                    <option value="4">H-4</option>
-                                                    <option value="5">H-5</option>
-                                                    <option value="6">H-6</option>
-                                                </select>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-md-4 col-sm-6">
+                                                <label for="inputPassword" class="form-control-label">Password</label>
+                                                <input type="password" class="form-control" id="inputPassword" placeholder="Default Password: 123456" readonly>
                                             </div>
                                         </div>
                                 </div>
@@ -109,7 +96,6 @@
 	
 
 <script> 
-    $(document).ready( function () {
-        $('#printReport').DataTable();
-    } );
+    $(".js-email").prop('required', true);
+    $(".js-confirm-mail").prop('required', true);
 </script>

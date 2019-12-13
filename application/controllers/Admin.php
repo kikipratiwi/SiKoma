@@ -999,5 +999,17 @@ class Admin extends CI_Controller {
 		$this->load->view('Admin/edit_deadline',$data);
 	}
 
+	public function add_reviewer()
+	{
+		$data['content'] = $this->template();
+		$this->load->view('Admin/add_reviewer',$data);
+	}
+
+	public function edit_limit_lpj()
+	{
+		$data['content'] = $this->template();
+		$this->load->view('Admin/edit_limit_lpj',$data);
+	}
+
 }
 
