@@ -7,7 +7,7 @@
             <div class="row">
                 <div class="col-lg-12 p-0">
                     <div class="main-header">
-                        <h4>Laporan</h4>
+                        <h4>Proposal</h4>
                         <ol class="breadcrumb breadcrumb-title breadcrumb-arrow">
                             <li class="breadcrumb-item"><a href="<?php echo base_url();?>index.php/Admin"><i class="icofont icofont-home"></i></a>
                             </li>

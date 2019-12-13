@@ -11,7 +11,7 @@
                         <ol class="breadcrumb breadcrumb-title breadcrumb-arrow">
                             <li class="breadcrumb-item"><a href="<?php echo base_url();?>index.php/Admin"><i class="icofont icofont-home"></i></a>
                             </li>
-                            <li class="breadcrumb-item"><a href="#!">Edit Deadline</a>
+                            <li class="breadcrumb-item"><a href="#!">Edit Limit LPJ</a>
                             </li>
                         </ol>
                     </div>
@@ -27,38 +27,20 @@
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h5 class="card-header-text">Edit Deadline Pengajuan Proposal</h5>
+                                    <h5 class="card-header-text">Edit Limit LPJ</h5>
                                 </div>
                                 <div class="card-block">
                                     <form enctype="multipart/form-data" method="POST" action="">
                                         <div class="form-group row">
-                                            <div class="col-md-2">
-                                                <label for="ormawa" class="form-control-label">Organisasi Mahasiswa</label>
+                                            <div class="col-md-1 col-sm-3 col-xs-6">
+                                                <label for="limit-lpj" class="form-control-label">Jumlah Proposal</label>
                                             </div>
-                                            <div class="col-md-4 col-sm-6">
-                                                <select class="form-control " name="ormawa">
+                                            <div class="col-md-1 col-sm-6 col-xs-6">
+                                                <select class="form-control " name="limit-lpj">
                                                     <option value=""></option>
-                                                    <option value="0">HIMAKOM</option>
-                                                    <option value="1">HMJTK</option>
-                                                    <option value="2">HMM</option>
-                                                    <option value="3">HMAK</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <div class="col-md-2">
-                                                <label for="deadline" class="form-control-label">Deadline (H-?)</label>
-                                            </div>
-                                            <div class="col-md-2 col-sm-6">
-                                                <select class="form-control " name="deadline">
-                                                    <option value=""></option>
-                                                    <option value="0">H-0</option>
-                                                    <option value="1">H-1</option>
-                                                    <option value="2">H-2</option>
-                                                    <option value="3">H-3</option>
-                                                    <option value="4">H-4</option>
-                                                    <option value="5">H-5</option>
-                                                    <option value="6">H-6</option>
+                                                    <option value="0">0</option>
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
                                                 </select>
                                             </div>
                                         </div>

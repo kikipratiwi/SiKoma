@@ -59,9 +59,9 @@
                         <i class="icon-key"></i><span> Edit Deadline</span>
                     </a>                
                 </li>
-                <li class=" <?php if(current_url() === base_url().'index.php/Admin/edit_deadline'){
+                <li class=" <?php if(current_url() === base_url().'index.php/Admin/edit_limit_lpj'){
                                 echo 'active';}?> treeview">
-                    <a class="waves-effect waves-dark" href="<?php echo base_url();?>index.php/Admin/edit_deadline">
+                    <a class="waves-effect waves-dark" href="<?php echo base_url();?>index.php/Admin/edit_limit_lpj">
                         <i class="icon-shield"></i><span> Edit Limit Jumlah LPJ</span>
                     </a>                
                 </li>
