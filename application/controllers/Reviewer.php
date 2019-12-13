@@ -75,8 +75,7 @@ class Reviewer extends CI_Controller {
 		$proposal = $_POST['proposal'];
 		$rab = $_POST['rab'];
 		$konten = $_POST['konten'];
-		$status = $_POST['radio'];
-		// $dana = $_POST['budget'];
+		$status = $_POST['radio'];		
 		$sumber = $_POST['source'];
 
 		//get budget

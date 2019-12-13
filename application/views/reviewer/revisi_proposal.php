@@ -130,13 +130,13 @@
                                                                             <label class="bold">Status</label>
                                                                             <div class="form-radio">
                                                                                 <div class="radio radio-inline">
-                                                                                    <label for="accept">
+                                                                                    <label >
                                                                                         <input class="js-accept" type="radio" name="radio" value="WAITFUND">
                                                                                             <i class="helper"></i>Diterima
                                                                                     </label>
                                                                                 </div>
                                                                                 <div class="radio radio-inline">
-                                                                                    <label for="revision">
+                                                                                    <label >
                                                                                         <input class="js-revision" type="radio" name="radio" value="REVISION">
                                                                                             <i class="helper"></i>Revisi
                                                                                     </label>
@@ -159,7 +159,7 @@
                                                                             </div>
                                                                             <label>Rincian Dana</label>
                                                                             <div class="md-input-wrapper">Jumlah Dana yang Disetujui<br>
-                                                                                <input class="js-budget" type="number" name="budget" min=0 disabled>
+                                                                                <input class="js-budget"  type="text" id="currency-field" pattern="^\$\d{1,3}(.\d{3})*(\,\d+)?Rp" value="" data-type="currency"  name="budget" min=0 disabled>
                                                                             </div>
                                                                             <div class="md-input-wrapper">Sumber Dana<br>
                                                                                 <input class="js-source" type="text" name="source" disabled>
@@ -266,7 +266,19 @@
     <script src="<?php echo base_url();?>assets/js/2.1.3jquery.min.js"></script> 
     <script src="<?php echo base_url();?>assets/js/jquery.media.js"></script>
     <script src="<?php echo base_url();?>assets/js/jquery.dataTables.js"></script>
-	
+<script src="<?php echo base_url();?>assets/js/currency-format.js"></script>
+
+<script>
+    $("input[data-type='currency']").on({
+    keyup: function() {
+        formatCurrency($(this));
+    },
+    blur: function() { 
+        formatCurrency($(this), "blur");
+    }
+    });
+</script>
+
 <script> 
     $(document).ready( function () {
         $('#previewNewProposal').DataTable();
