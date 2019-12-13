@@ -29,16 +29,10 @@
                         <i class="icon-note"></i><span>Revisi</span>
                     </a>                
                 </li>
-                <li class=" <?php if(current_url() === base_url().'index.php/Reviewer/edit_deadline'){
+                <li class=" <?php if(current_url() === base_url().'index.php/staff/edit_limit'){
                                 echo 'active';}?> treeview">
-                    <a class="waves-effect waves-dark" href="<?php echo base_url();?>index.php/Reviewer/edit_deadline">
-                        <i class="icon-key"></i><span>Edit Deadline</span>
-                    </a>                
-                </li>
-                <li class=" <?php if(current_url() === base_url().'index.php/Reviewer/edit_limit_lpj'){
-                                echo 'active';}?> treeview">
-                    <a class="waves-effect waves-dark" href="<?php echo base_url();?>index.php/Reviewer/edit_limit_lpj">
-                        <i class="icon-shield"></i><span> Edit Limit Jumlah LPJ</span>
+                    <a class="waves-effect waves-dark" href="<?php echo base_url();?>index.php/staff/edit_limit">
+                        <i class="icon-key"></i><span>Edit Limit Pengajuan</span>
                     </a>                
                 </li>
                 <li class="nav-level">Laporan</li>

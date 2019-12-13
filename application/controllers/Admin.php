@@ -993,7 +993,7 @@ class Admin extends CI_Controller {
 		  $writer->save('php://output');
 	}
 
-	public function edit_deadline()
+	public function edit_limit()
 	{
 		$data['content'] = $this->template();
 		$this->load->view('Admin/edit_deadline',$data);
@@ -1004,12 +1004,5 @@ class Admin extends CI_Controller {
 		$data['content'] = $this->template();
 		$this->load->view('Admin/add_reviewer',$data);
 	}
-
-	public function edit_limit_lpj()
-	{
-		$data['content'] = $this->template();
-		$this->load->view('Admin/edit_limit_lpj',$data);
-	}
-
 }
 
