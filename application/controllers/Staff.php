@@ -71,17 +71,6 @@ class Staff extends CI_Controller {
 		$data['content'] = $this->template();
 		$this->load->view('staff/edit_deadline',$data);
 	}
-
-	
-	public function edit_limit_lpj()
-	{
-		$data['content'] = $this->template();
-		$this->load->view('staff/edit_limit_lpj',$data);
-	}
-
-
-
-
 }
 
 ?>

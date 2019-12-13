@@ -15,7 +15,7 @@
                             </li>
                             <li class="breadcrumb-item"><a href="#">Proposal</a>
                             </li>
-                            <li class="breadcrumb-item"><a href="basic-table.html">List Proposal Revisi</a>
+                            <li class="breadcrumb-item"><a href="basic-table.html">List Proposal</a>
                             </li>
                         </ol>
                     </div>
@@ -31,7 +31,7 @@
                     <!-- Hover effect table starts -->
                     <div class="card">
                         <div class="card-header">
-                            <h5 class="card-header-text">List Proposal Revisi</h5>
+                            <h5 class="card-header-text">List Proposal</h5>
                         </div>
                         <div class="card-block">
                             <div class="row">

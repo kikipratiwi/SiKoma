@@ -128,18 +128,22 @@
                                                                                     </label>
                                                                                 </div>
                                                                             </div>
-                                                                            <div class="md-input-wrapper">
-                                                                                <textarea class="js-budgetNotes" class="md-form-control md-static" cols="2" rows="4" name="rab" disabled></textarea>
-                                                                                <label>Catatan RAB</label>
-                                                                                <p id="dana"></p>
+                                                                            <div class="form-group row">
+                                                                                <div class="col-md-6">
+                                                                                    <label for="rab">Catatan RAB</label>
+                                                                                    <textarea class="js-budgetNotes md-form-control md-static" id="rab" cols="25" rows="4" name="rab" disabled></textarea>
+                                                                                    <p id="dana"></p>
+                                                                                </div>
                                                                             </div>
-                                                                            <div class="md-input-wrapper">
-                                                                                <textarea class="js-contentNotes"  class="md-form-control md-static" cols="2" rows="4" name="konten" disabled></textarea>
-                                                                                <label>Catatan Konten</label>
-                                                                                <p id="dana"></p>
+                                                                            <div class="form-group row">
+                                                                                <div class="col-md-6">
+                                                                                    <label for="rab">Catatan Konten</label>
+                                                                                    <textarea class="js-budgetNotes md-form-control md-static" id="rab" cols="25" rows="4" name="rab" disabled></textarea>
+                                                                                    <p id="dana"></p>
+                                                                                </div>
                                                                             </div>
                                                                             <div class="md-input-wrapper">Jumlah Dana yang Disetujui<br>
-                                                                                <input class="js-budget"  type="text" id="currency-field" pattern="^\$\d{1,3}(.\d{3})*(\,\d+)?Rp" value="" data-type="currency"  name="budget" min=0 disabled>
+                                                                                <input class="js-budget"  type="text" id="currency-field" pattern="^\$\d{1,3}(.\d{3})*(\,\d+)?Rp. " value="" data-type="currency"  name="budget" min=0 disabled>
                                                                             </div>
                                                                             <div class="md-input-wrapper">Sumber Dana<br>
                                                                                 <input class="js-source" type="text" name="source" disabled>
@@ -206,6 +210,7 @@
     }
     });
 </script>
+
 <script>    
     $(document).ready( function () {
         $('#previewNewProposal').DataTable();

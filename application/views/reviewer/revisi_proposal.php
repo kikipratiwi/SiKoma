@@ -148,18 +148,22 @@
                                                                                     </label>
                                                                                 </div>
                                                                             </div>
-                                                                            <div class="md-input-wrapper">
-                                                                                <textarea class="js-budgetNotes" class="md-form-control md-static" cols="2" rows="4" name="rab" disabled></textarea>
-                                                                                <label>Catatan RAB</label>
+                                                                            <div class="form-group row">
+                                                                                <div class="col-md-6">
+                                                                                    <label for="rab">Catatan RAB</label>
+                                                                                    <textarea class="js-budgetNotes md-form-control md-static" id="rab" cols="25" rows="4" name="rab" disabled></textarea>
+                                                                                    <p id="dana"></p>
+                                                                                </div>
                                                                             </div>
-                                                                            <div class="md-input-wrapper">                                                                                
-                                                                                <textarea class="js-contentNotes" class="md-form-control md-static" cols="2" rows="4" name="konten" disabled></textarea>
-                                                                                <label>Catatan Konten</label>
-                                                                                <p id="dana"></p>
+                                                                            <div class="form-group row">
+                                                                                <div class="col-md-6">
+                                                                                    <label for="rab">Catatan Konten</label>
+                                                                                    <textarea class="js-budgetNotes md-form-control md-static" id="rab" cols="25" rows="4" name="rab" disabled></textarea>
+                                                                                    <p id="dana"></p>
+                                                                                </div>
                                                                             </div>
-                                                                            <label>Rincian Dana</label>
                                                                             <div class="md-input-wrapper">Jumlah Dana yang Disetujui<br>
-                                                                                <input class="js-budget"  type="text" id="currency-field" pattern="^\$\d{1,3}(.\d{3})*(\,\d+)?Rp" value="" data-type="currency"  name="budget" min=0 disabled>
+                                                                                <input class="js-budget"  type="text" id="currency-field" pattern="^\$\d{1,3}(.\d{3})*(\,\d+)?Rp. " value="" data-type="currency"  name="budget" min=0 disabled>
                                                                             </div>
                                                                             <div class="md-input-wrapper">Sumber Dana<br>
                                                                                 <input class="js-source" type="text" name="source" disabled>
@@ -209,22 +213,19 @@
                                                                             
                                                                             <input type="hidden" id="proposal" name="proposal" value="<?php echo $pr->id ?>">
                                                                             <div class="md-input-wrapper">
-                                                                                
-                                                                            <textarea id="leaderTeam" class="md-form-control md-static" cols="2" rows="4" name="rab"></textarea>
+                                                                                <textarea id="leaderTeam" class="md-form-control md-static" cols="2" rows="4" name="rab"></textarea>
                                                                                 <label>Catatan RAB</label>
-                                                                                
+                                                                                <p id="dana">
                                                                             </div>
                                                                             <div class="md-input-wrapper">                                                                                
                                                                                 <textarea id="contentNotes"  class="md-form-control md-static" cols="2" rows="4" name="konten"></textarea>
                                                                                 <label>Catatan Konten</label>
                                                                                 <p id="dana">
-                                                                                
                                                                             </p>
                                                                             </div>
                                                                             <label>Rincian Dana</label>
-                                                                            <div class="md-input-wrapper">
-                                                                                Jumlah Dana yang Disetujui<br>
-                                                                                <input type="number" name="budget" min=0>
+                                                                            <div class="md-input-wrapper">Jumlah Dana yang Disetujui<br>
+                                                                                <input class="js-budget"  type="text" id="currency-field" pattern="^\$\d{1,3}(.\d{3})*(\,\d+)?Rp. " value="" data-type="currency"  name="budget" min=0 disabled>
                                                                             </div>
                                                                             <div class="md-input-wrapper">
                                                                                 Sumber Dana<br>
@@ -266,7 +267,12 @@
     <script src="<?php echo base_url();?>assets/js/2.1.3jquery.min.js"></script> 
     <script src="<?php echo base_url();?>assets/js/jquery.media.js"></script>
     <script src="<?php echo base_url();?>assets/js/jquery.dataTables.js"></script>
-<script src="<?php echo base_url();?>assets/js/currency-format.js"></script>
+    <!-- currency format js -->
+    <script src="<?php echo base_url();?>assets/js/currency-format.js"></script>
+        
+	
+<script> 
+
 
 <script>
     $("input[data-type='currency']").on({
@@ -277,9 +283,7 @@
         formatCurrency($(this), "blur");
     }
     });
-</script>
 
-<script> 
     $(document).ready( function () {
         $('#previewNewProposal').DataTable();
     });

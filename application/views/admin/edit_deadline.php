@@ -32,10 +32,10 @@
                                 <div class="card-block">
                                     <form enctype="multipart/form-data" method="POST" action="">
                                         <div class="form-group row">
-                                            <div class="col-md-2">
+                                            <div class="col-md-2 col-xs-6">
                                                 <label for="ormawa" class="form-control-label">Organisasi Mahasiswa</label>
                                             </div>
-                                            <div class="col-md-4 col-sm-6">
+                                            <div class="col-md-4 col-sm-6 col-xs-6">
                                                 <select class="form-control " name="ormawa">
                                                     <option value=""></option>
                                                     <option value="0">HIMAKOM</option>
@@ -47,7 +47,7 @@
                                         </div>
                                         <div class="form-group row">
                                             <div class="col-md-2">
-                                                <label for="deadline" class="form-control-label">Deadline (H-?)</label>
+                                                <label for="deadline" class="form-control-label">Deadline Submit Proposal (H-?)</label>
                                             </div>
                                             <div class="col-md-2 col-sm-6">
                                                 <select class="form-control " name="deadline">
@@ -62,6 +62,19 @@
                                                 </select>
                                             </div>
                                         </div>
+                                        <!-- <div class="form-group row">
+                                            <div class="col-md-2 col-sm-3 col-xs-6">
+                                                <label for="limit-lpj" class="form-control-label">Jumlah Proposal</label>
+                                            </div>
+                                            <div class="col-md-1 col-sm-6 col-xs-6">
+                                                <select class="form-control " name="limit-lpj">
+                                                    <option value=""></option>
+                                                    <option value="0">0</option>
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                </select>
+                                            </div>
+                                        </div> -->
                                 </div>
                                 <div class="card-footer">
                                     <div class="form-group col-md-4 col-sm-6">
