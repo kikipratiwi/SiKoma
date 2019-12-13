@@ -53,9 +53,9 @@
                         <i class="icon-ban"></i><span> Tidak Disetujui</span>
                     </a>                
                 </li>
-                <li class=" <?php if(current_url() === base_url().'index.php/staff/edit_limit'){
+                <li class=" <?php if(current_url() === base_url().'index.php/Admin/edit_limit'){
                                 echo 'active';}?> treeview">
-                    <a class="waves-effect waves-dark" href="<?php echo base_url();?>index.php/staff/edit_limit">
+                    <a class="waves-effect waves-dark" href="<?php echo base_url();?>index.php/Admin/edit_limit">
                         <i class="icon-key"></i><span>Edit Limit Pengajuan</span>
                     </a>                
                 </li>
