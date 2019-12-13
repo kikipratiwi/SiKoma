@@ -66,22 +66,11 @@ class Staff extends CI_Controller {
 		$this->load->view('staff/print_report',$data);
 	}
 
-	public function edit_deadline()
+	public function edit_limit()
 	{
 		$data['content'] = $this->template();
 		$this->load->view('staff/edit_deadline',$data);
 	}
-
-	
-	public function edit_limit_lpj()
-	{
-		$data['content'] = $this->template();
-		$this->load->view('staff/edit_limit_lpj',$data);
-	}
-
-
-
-
 }
 
 ?>
