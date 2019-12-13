@@ -92,7 +92,7 @@
                                                                     <?php } else if($pr->status==='WAITFUND') {
                                                                         ?>
                                                                         <div class="label-main">
-                                                                            <label class="label bg-warning">Menunggu Pencairan Dana</label>
+                                                                            <label class="label bg-warning">Proses Pencairan Dana</label>
                                                                         </div>
                                                                     <?php } else if($pr->status==='DISBURSEDFUND') {
                                                                         ?>
