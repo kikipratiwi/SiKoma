@@ -101,7 +101,11 @@
                                                                         </div>
                                                                     <?php } else {?>
                                                                      <div class="label-main">
-                                                                            <label class="label bg-warning">Belum Menyerahkan LPJ</label>
+                                                                            <?php } if ("LPJ BELUM") {?>
+                                                                                <label class="label bg-warning">Belum Menyerahkan LPJ</label> 
+                                                                            <?php } if ("SPJ BELUM") {?>
+                                                                                 <label class="label bg-warning">Belum Menyerahkan SPJ</label>
+                                                                            <?php } ?>
                                                                     </div>
                                                                     <?php } ?>
                                                             </td>
