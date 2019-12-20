@@ -144,6 +144,7 @@ class Ormawa extends CI_Controller {
 			// setting konfigurasi upload
 	        $config['upload_path'] = './data/proposals/'; 
 	        $config['allowed_types'] = 'pdf';
+	        $config['max_size'] = '2048';
 	        $new_name = "Proposal".$_POST['competition'].time().".pdf";        
 	        $config['file_name'] = $new_name;
 
@@ -153,6 +154,7 @@ class Ormawa extends CI_Controller {
 	        if (!$this->upload->do_upload('proposal')) {
 	            $error = $this->upload->display_errors();            
 	            print_r($error);
+	            redirect('Ormawa/ongoing_submission');
 	        } else {
 	            $result = $this->upload->data();            
 	        }
@@ -338,7 +340,8 @@ class Ormawa extends CI_Controller {
 			unlink("./data/proposals/".$new_name."");
 			// setting konfigurasi upload
 	        $config['upload_path'] = './data/proposals/'; 
-	        $config['allowed_types'] = 'pdf';        
+	        $config['allowed_types'] = 'pdf';
+	        $config['max_size'] = '2048';        
 	        $config['file_name'] = $new_name;
 
 	        // load library upload
@@ -348,6 +351,7 @@ class Ormawa extends CI_Controller {
 	        if (!$this->upload->do_upload('proposal')) {
 	            $error = $this->upload->display_errors();            
 	            print_r($error);
+	            redirect('Ormawa/ongoing_submission');
 	        } else {
 	            $result = $this->upload->data();            
 	        }
