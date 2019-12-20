@@ -37,7 +37,7 @@ class Authentication extends CI_Controller {
 		$us = json_decode($user);
 
 		if($us->message == "success"){
-			if($us->user->role == 3 || $us->user->role == 4){
+			if($us->user->role == 3 || $us->user->role == 4 || $us->user->role == 5){
 				$id = 0;		
 				$name = "Special Role";
 				$department = 0;	
@@ -95,8 +95,12 @@ class Authentication extends CI_Controller {
 		else if($role == 3){
 			redirect("Reviewer");
 		}
-		else{
+		else if($role == 4){
 			redirect("admin");		
+		}
+
+		else{
+			redirect("Staff");		
 		}
 	}
 
@@ -134,8 +138,12 @@ class Authentication extends CI_Controller {
 		else if($role == 3){
 			redirect("Reviewer");
 		}
-		else{
+		else if($role == 4){
 			redirect("admin");		
+		}
+
+		else{
+			redirect("Staff");		
 		}
 	}
 
@@ -148,6 +156,9 @@ class Authentication extends CI_Controller {
 	}
 
 	public function logout(){
+		$authorization = "Authorization: Bearer ".$this->session->userdata('token');
+		echo $authorization;
+
 		$curl = curl_init();
 
 		curl_setopt_array($curl, array(
@@ -157,6 +168,7 @@ class Authentication extends CI_Controller {
 		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
 		CURLOPT_CUSTOMREQUEST => "POST",		
 		));
+		curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type: application/json' , $authorization ));
 		$user = curl_exec($curl);
 
 		$err = curl_error($curl);				
@@ -164,7 +176,7 @@ class Authentication extends CI_Controller {
 
 		$this->session->sess_destroy();			
 
-		redirect("Authentication/login");
+	 	redirect("Authentication/login");
 	}
 
 }

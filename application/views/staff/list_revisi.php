@@ -118,7 +118,7 @@
                                                                                 </label>
                                                                             </div>
                                                                         <?php } ?>
-                                                                        <form enctype="multipart/form-data" method="POST" action="<?php echo base_url().'index.php/Admin/addDeadline'; ?>">  
+                                                                        <form enctype="multipart/form-data" method="POST" action="<?php echo base_url().'index.php/Staff/addDeadline'; ?>">  
 
                                                                         <input type="hidden" id="proposal" name="proposal" value="<?php echo $pr->id ?>">
 
@@ -133,7 +133,7 @@
                                                                             <div class="md-input-wrapper">
                                                                                 <label>Catatan RAB</label>
                                                                                 <!-- GET NOTES echo $proposal['notes']; -->
-                                                                                <textarea class="md-form-control md-static" cols="2" rows="4">
+                                                                                <textarea class="md-form-control md-static" cols="2" rows="4" disabled>
                                                                                     <?php echo $pr->revision[$revisi-1]->budget_notes ?>
                                                                                 </textarea>
                                                                             </div>
@@ -142,7 +142,7 @@
                                                                             <div class="md-input-wrapper">
                                                                                 <label>Catatan Konten</label>
                                                                                 <!-- GET NOTES echo $proposal['notes']; -->
-                                                                                <textarea class="md-form-control md-static" cols="2" rows="4">
+                                                                                <textarea class="md-form-control md-static" cols="2" rows="4" disabled>
                                                                                     <?php echo $pr->revision[$revisi-1]->content_notes ?>
                                                                                 </textarea>
                                                                             </div>

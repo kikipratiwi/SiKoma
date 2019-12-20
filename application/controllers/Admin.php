@@ -978,6 +978,29 @@ class Admin extends CI_Controller {
 		
 	}
 
+	public function act_update_competition()
+	{
+		echo $_POST['institusion'];
+		//Kompetisi
+		$curl = curl_init();
+		curl_setopt_array($curl, array(
+		CURLOPT_URL => API_URL."/api/competitionsu",
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_ENCODING => "",		
+		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST => "POST",
+		CURLOPT_POSTFIELDS => "name=".$_POST['name']."&inst=".$_POST['institusion']."&exc=".$_POST['exc']."&id=".$_POST['id'],
+		));
+
+		$cmpt = curl_exec($curl);
+
+		$err = curl_error($curl);				
+		curl_close($curl);		
+
+		redirect('Admin/list_kompetisi');
+		
+	}
+
 	//Add Reviewe
 	public function addReviewer()
 	{

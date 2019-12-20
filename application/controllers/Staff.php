@@ -1,12 +1,21 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+require('application/third_party/phpoffice/vendor/autoload.php');
+
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\IOFactory;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+
 class Staff extends CI_Controller {
 	function __construct(){
 		parent::__construct();
 		$this->load->database(); 
 		$this->load->helper('url');
 		$this->load->helpers('money_format');
+		if($this->session->userdata('status') != "login" OR $this->session->userdata('role') != 5){
+			redirect("Authentication/login");
+		}
     }
     
     public function template()
@@ -172,6 +181,106 @@ class Staff extends CI_Controller {
 		curl_close($curl);		
 
 		redirect('Staff/report');
+	}
+
+	public function addDeadline(){
+
+		$deadline = $_POST['deadline']; 
+		$currentDateTime = date('Y-m-d');
+		$date1 = new DateTime($currentDateTime);
+		$date2 = new DateTime($deadline);
+		
+		echo $_POST['proposal'];
+		echo $deadline;
+
+		if($date1 < $date2){
+			$curl = curl_init();
+			curl_setopt_array($curl, array(
+			CURLOPT_URL => API_URL."/api/admin/proposal/revision",
+			CURLOPT_RETURNTRANSFER => true,
+			CURLOPT_ENCODING => "",		
+			CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+			CURLOPT_CUSTOMREQUEST => "POST",
+			CURLOPT_POSTFIELDS => "proposal=".$_POST['proposal']."&deadline=".$deadline."",
+			));
+
+			$cmpt = curl_exec($curl);
+
+			$err = curl_error($curl);				
+			curl_close($curl);		
+
+			redirect('Staff/list_revisi_proposal');
+		}
+		else{
+			$this->session->set_flashdata('error', 'Deadline tidak sesuai');
+			redirect('Staff/list_revisi_proposal');
+		}
+
+		echo $selisih;
+
+		$curl = curl_init();
+		curl_setopt_array($curl, array(
+		CURLOPT_URL => API_URL."/api/admin/proposal/revision",
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_ENCODING => "",		
+		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST => "POST",
+		CURLOPT_POSTFIELDS => "proposal=".$_POST['proposal']."&deadline=".$deadline."",
+		));
+
+		$cmpt = curl_exec($curl);
+
+		$err = curl_error($curl);				
+		curl_close($curl);		
+
+		redirect('Staff/list_revisi_proposal');
+	}
+
+	public function updatefund()
+	{
+		$id = $_POST['id'];
+		$budget = $_POST['budget'];
+
+		$curl = curl_init();
+		curl_setopt_array($curl, array(
+		CURLOPT_URL => API_URL."/api/admin/proposal/fund",
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_ENCODING => "",		
+		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST => "POST",
+		CURLOPT_POSTFIELDS => "id=".$id."&budget=".$budget,
+		));
+
+		$cmpt = curl_exec($curl);
+
+		$err = curl_error($curl);				
+		curl_close($curl);		
+
+		redirect('Staff/list_fund_submission');
+
+	}
+
+	public function updatedisfund()
+	{
+		$id = $_GET['id'];
+		
+		$curl = curl_init();
+		curl_setopt_array($curl, array(
+		CURLOPT_URL => API_URL."/api/admin/proposal/disfund",
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_ENCODING => "",		
+		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST => "POST",
+		CURLOPT_POSTFIELDS => "id=".$id."",
+		));
+
+		$cmpt = curl_exec($curl);
+
+		$err = curl_error($curl);				
+		curl_close($curl);		
+
+		redirect('Staff/list_fund_submission');
+
 	}
 
 	//spj

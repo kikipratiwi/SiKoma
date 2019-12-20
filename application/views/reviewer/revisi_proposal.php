@@ -130,13 +130,13 @@
                                                                             <label class="bold">Status</label>
                                                                             <div class="form-radio">
                                                                                 <div class="radio radio-inline">
-                                                                                    <label >
+                                                                                    <label>
                                                                                         <input class="js-accept" type="radio" name="radio" value="WAITFUND">
                                                                                             <i class="helper"></i>Diterima
                                                                                     </label>
                                                                                 </div>
                                                                                 <div class="radio radio-inline">
-                                                                                    <label >
+                                                                                    <label>
                                                                                         <input class="js-revision" type="radio" name="radio" value="REVISION">
                                                                                             <i class="helper"></i>Revisi
                                                                                     </label>
@@ -157,8 +157,8 @@
                                                                             </div>
                                                                             <div class="form-group row">
                                                                                 <div class="col-md-6">
-                                                                                    <label for="rab">Catatan Konten</label>
-                                                                                    <textarea class="js-budgetNotes md-form-control md-static" id="rab" cols="25" rows="4" name="rab" disabled></textarea>
+                                                                                    <label for="konten">Catatan Konten</label>
+                                                                                    <textarea class="js-budgetNotes md-form-control md-static" id="konten" cols="25" rows="4" name="rab" disabled></textarea>
                                                                                     <p id="dana"></p>
                                                                                 </div>
                                                                             </div>
@@ -273,8 +273,6 @@
 	
 <script> 
 
-
-<script>
     $("input[data-type='currency']").on({
     keyup: function() {
         formatCurrency($(this));

@@ -45,7 +45,7 @@
                                                             <th>Registrasi</th>
                                                             <th>Event</th>
                                                             <th>Edit</th>
-                                                            <th>Delete</th>
+                                                            <!-- <th>Delete</th> -->
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -70,17 +70,17 @@
                                                                 <td><?php echo date_format($date1,"d M Y")." - ". date_format($date2,"d M Y");?></td>
                                                                 <td>
                                                                     <!-- <button type="button" class="btn btn-primary waves-effect waves-light">Edit</button> -->
-                                                                    <a href="" id="input_category" class="open-view-cateogry btn btn-primary preview-pdf" data-toggle="modal" data-target="#edit-competition-modal-form">
+                                                                    <a href="" id="input_category" class="open-view-cateogry btn btn-primary preview-pdf" data-toggle="modal" data-target="#edit-competition-modal-form<?php echo $cmpt->id?>">
                                                                         Edit
                                                                     </a>
                                                                 </td>
-                                                                <td>
+                                                              <!--   <td>
                                                                     <button type="button" class="btn btn-danger waves-effect waves-light">Delete</button>
-                                                                </td>
+                                                               -->  </td>
                                                             </tr>
 
                                                             <!-- Edit Competition Modal -->
-                                                            <div class="modal fade modal-flex" id="edit-competition-modal-form" tabindex="-1" role="dialog">
+                                                            <div class="modal fade modal-flex" id="edit-competition-modal-form<?php echo $cmpt->id?>" tabindex="-1" role="dialog">
                                                                 <div class="modal-dialog" role="document">
                                                                     <div class="modal-content">
                                                                         <div class="modal-header">
@@ -90,22 +90,65 @@
                                                                         <h5 class="modal-title">Edit Data Kompetisi</h5>
                                                                     </div>
 
-                                                                    <form method="POST" action="">
+                                                                     <form method="POST" action="<?php echo base_url().'index.php/Admin/act_update_competition'; ?>">
                                                                         <div class="modal-body">
                                                                                 <div class="form-group col-md-12">
-                                                                                    <label for="competitionName" class="block form-control-label">Nama Kompetisi *get data*</label>
-                                                                                    <input type="text" class="form-control" name="name">
+                                                                                    <input type="hidden" class="form-control" name="id" value="<?php echo $cmpt->id ?>" >
+
+                                                                                    <label for="competitionName" class="block form-control-label">Nama Kompetisi</label>
+                                                                                    <input type="text" class="form-control" name="name" value="<?php echo $cmpt->name?>">
                                                                                 </div>
                                                                                 
                                                                                 <div class="form-group col-md-12">
-                                                                                    <label for="institusion" class="block form-control-label">Institusi Penyelenggara *get data*</label>
-                                                                                    <input type="text" class="form-control" name="institusion">
+                                                                                    <label for="institusion" class="block form-control-label">Institusi Penyelenggara</label>
+                                                                                    <input type="text" class="form-control" name="institusion" value="<?php echo $cmpt->institute ?>" >
+                                                                                </div>
+<!-- 
+                                                                                <div class="form-group col-md-12">
+                                                                                    <label for="institusion" class="block form-control-label">Tampilkan</label>
+                                                                                    <input type="number" class="form-control" name="exc" value="<?php echo $cmpt->exception ?>" min=0 max=1 >
+                                                                                </div> -->
+                                                                                <div class="form-group col-md-12">
+                                                                                    <label for="institusion" class="block form-control-label">Tampilkan</label>
+                                                                                    <div class="form-radio ">
+                                                                                    <?php if($cmpt->exception == 1){ ?>    
+                                                                                        <div class="radio radio-inline">
+                                                                                            <label>
+                                                                                                
+                                                                                                    <input class="js-accept" type="radio" name="exc" value=1 checked="true">      
+                                                                                                
+                                                                                                    <i class="helper"></i>Iya
+                                                                                            </label>
+                                                                                        </div>
+                                                                                        <div class="radio radio-inline">
+                                                                                            <label>
+                                                                                                <input class="js-revision" type="radio" name="exc" value=0>
+                                                                                                    <i class="helper"></i>Tidak
+                                                                                            </label>
+                                                                                        </div>
+                                                                                        <?php } else {?>
+                                                                                            <div class="radio radio-inline">
+                                                                                            <label>
+                                                                                                
+                                                                                                    <input class="js-accept" type="radio" name="exc" value=1 >      
+                                                                                                
+                                                                                                    <i class="helper"></i>Iya
+                                                                                            </label>
+                                                                                        </div>
+                                                                                        <div class="radio radio-inline">
+                                                                                            <label>
+                                                                                                <input class="js-revision" type="radio" name="exc" value=0 checked="true">
+                                                                                                    <i class="helper"></i>Tidak
+                                                                                            </label>
+                                                                                        </div>
+                                                                                        <?php } ?>                                                        
+                                                                                    </div>
                                                                                 </div>
                                                                             
-                                                                                <div class="form-row">
+                                                                               <!--  <div class="form-row">
                                                                                     <div class="form-group col-md-6">
-                                                                                        <label for="location" class="block form-control-label">Lokasi *get data*</label>
-                                                                                        <input type="text" class="form-control" name="location">
+                                                                                        <label for="location" class="block form-control-label">Lokasi </label>
+                                                                                        <input type="text" class="form-control" name="location" value="<?php echo $cmpt->location ?>">
                                                                                     </div>
                                                                                     <div class="form-group col-md-6">
                                                                                         <label for="level" class="block form-control-label">Level Kompetisi</label>
@@ -116,9 +159,9 @@
                                                                                             <option value="1">Internasional</option>
                                                                                         </select>    
                                                                                     </div>
-                                                                                </div>
+                                                                                </div> -->
                                                                             
-                                                                                <div class="form-group col-md-12" style="margin-bottom: .1rem;">
+                                                                                <!-- <div class="form-group col-md-12" style="margin-bottom: .1rem;">
                                                                                     <label for="registDate" class="block form-control-label">Tanggal Pendaftaran *get data*</label>
                                                                                 </div>
 
@@ -150,7 +193,7 @@
                                                                                             <input type="date" name="event_closedate" id="event-date-end" class="form-control floating-label">
                                                                                         </div>
                                                                                     </div>
-                                                                                </div>
+                                                                                </div> -->
                                                                                 
                                                                                 <div class="form-group row"> <div class="col-sm-10"> </div> </div>
 

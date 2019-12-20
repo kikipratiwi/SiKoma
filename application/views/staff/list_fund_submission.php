@@ -98,7 +98,7 @@
                                                                 Cairkan dana
                                                             </a>
                                                         <?php } else if($pr->status==='DISBURSEDFUND'){  ?>
-                                                            <a href="<?php echo base_url();?>index.php/Admin/updatedisfund?id=<?php echo $pr->id; ?>" class="btn btn-success">
+                                                            <a href="<?php echo base_url();?>index.php/Staff/updatedisfund?id=<?php echo $pr->id; ?>" class="btn btn-success">
                                                                 Dana Diserahkan
                                                             </a>
                                                         <?php }?>
@@ -130,7 +130,7 @@
                                                                         
                                                                         </div>
                                                                         <div class="form-group col-md-12" style="margin-bottom: .1rem;">
-                                                                            <form method="post" action="<?php echo base_url().'index.php/Admin/updatefund'; ?>">
+                                                                            <form method="post" action="<?php echo base_url().'index.php/Staff/updatefund'; ?>">
                                                                             <label for="registDate" class="block form-control-label">Pencairan Dana</label>
 
                                                                             <input type="hidden" name="id" value="<?php echo $pr->id?>" >
