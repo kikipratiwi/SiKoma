@@ -26,8 +26,12 @@ class Reviewer extends CI_Controller {
 	}
 
 	public function template()
-	{
-		$data['content'] = $this->load->view('templates/reviewer/header');
+	{		
+		$data['user_id'] = array(			
+			'id' => $this->session->userdata('user_id'),
+		);
+
+		$data['content'] = $this->load->view('templates/reviewer/header', $data);
 		$data['content'] = $this->load->view('templates/reviewer/sidebar');
 		$data['content'] = $this->load->view('templates/reviewer/footer');
 

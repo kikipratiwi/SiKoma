@@ -27,7 +27,11 @@ class Admin extends CI_Controller {
     
     public function template()
 	{
-		$data['content'] = $this->load->view('templates/admin/header');
+		$data['user_id'] = array(			
+			'id' => $this->session->userdata('user_id'),
+		);
+
+		$data['content'] = $this->load->view('templates/admin/header', $data);
 		$data['content'] = $this->load->view('templates/admin/sidebar');
 		$data['content'] = $this->load->view('templates/admin/footer');
 

@@ -26,9 +26,10 @@ class Mentor extends CI_Controller {
 			'id' => $this->session->userdata('id'),
 			'name' => $this->session->userdata('name'),
 		);
-
-
-		$data['content'] = $this->load->view('templates/mentor/header');
+		$data['user_id'] = array(			
+			'id' => $this->session->userdata('user_id'),
+		);
+		$data['content'] = $this->load->view('templates/mentor/header', $data);
 		$data['content'] = $this->load->view('templates/mentor/sidebar',$data);
 		$data['content'] = $this->load->view('templates/mentor/footer');
 

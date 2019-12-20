@@ -20,7 +20,11 @@ class Staff extends CI_Controller {
     
     public function template()
 	{
-		$data['content'] = $this->load->view('templates/staff/header');
+		$data['user_id'] = array(			
+			'id' => $this->session->userdata('user_id'),
+		);
+
+		$data['content'] = $this->load->view('templates/staff/header', $data);
 		$data['content'] = $this->load->view('templates/staff/sidebar');
 		$data['content'] = $this->load->view('templates/staff/footer');
 
