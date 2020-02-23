@@ -359,9 +359,19 @@ class Ormawa extends CI_Controller {
 	        echo $id_proposal;	       
 	        echo $_POST['summary'];
 
-	        preg_match_all('/\d+/', $_POST['budget'], $matches);
+	       	preg_match_all('/\d+/', $_POST['budget'], $matches);
+	        $inc = sizeof($matches[0]);
 	        $power = sizeof($matches[0]) - 2;
-	        $budget = $matches[0][0] * pow(1000, $power);	
+	        $dana = $matches[0][0] * pow(1000, $power);	                
+
+	        for ($i=1; $i < $inc; $i++) {         	
+	        	$power--;
+
+	        	if($power >= 0){
+	        		$cur = $matches[0][$i] * pow(1000, $power);	                
+	        		$dana = $dana + $cur;	
+	        	}
+	        }    	
 
 	        $curl = curl_init();
 		
@@ -371,7 +381,7 @@ class Ormawa extends CI_Controller {
 			CURLOPT_ENCODING => "",		
 			CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
 			CURLOPT_CUSTOMREQUEST => "POST",
-			CURLOPT_POSTFIELDS => "id=".$id_proposal."&budget=".$budget,
+			CURLOPT_POSTFIELDS => "id=".$id_proposal."&budget=".$dana,
 			));
 
 			$proposal = curl_exec($curl);

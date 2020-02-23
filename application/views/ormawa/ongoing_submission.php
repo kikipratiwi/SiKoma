@@ -115,7 +115,12 @@
                                                             </td>
                                                         <?php } ?>
                                                             <td><?php echo rupiah($pr->realisazion_budget) ?></td>                                                                          
-                                                            <td><?php echo rupiah($pr->realisazion_budget -  $pr->approved_budget)?>
+                                                            <td>
+
+                                                                <?php 
+                                                                if($pr->status!=='WAITREPORT')
+                                                            echo rupiah($pr->realisazion_budget -  $pr->approved_budget)    
+                                                            ?>
                                                     <!-- GET status proposal -->
                                                     <td>
                                                         

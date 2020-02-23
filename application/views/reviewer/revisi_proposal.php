@@ -158,7 +158,7 @@
                                                                             <div class="form-group row">
                                                                                 <div class="col-md-6">
                                                                                     <label for="konten">Catatan Konten</label>
-                                                                                    <textarea class="js-budgetNotes md-form-control md-static" id="konten" cols="25" rows="4" name="rab" disabled></textarea>
+                                                                                    <textarea class="js-budgetNotes md-form-control md-static" id="konten" cols="25" rows="4" name="konten" disabled></textarea>
                                                                                     <p id="dana"></p>
                                                                                 </div>
                                                                             </div>

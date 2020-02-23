@@ -88,10 +88,25 @@ class Reviewer extends CI_Controller {
 		$status = $_POST['radio'];		
 		$sumber = $_POST['source'];
 
+		echo $rab;
+		echo $konten;
 		//get budget
         preg_match_all('/\d+/', $_POST['budget'], $matches);
+        $inc = sizeof($matches[0]);
         $power = sizeof($matches[0]) - 2;
-        $dana = $matches[0][0] * pow(1000, $power);	        
+        $dana = $matches[0][0] * pow(1000, $power);	                
+
+        for ($i=1; $i < $inc; $i++) {         	
+        	$power--;
+
+        	if($power >= 0){
+        		$cur = $matches[0][$i] * pow(1000, $power);	                
+        		$dana = $dana + $cur;	
+        	}
+        }        
+
+        // $power = sizeof($matches[0]) - 2;
+        // $dana = $matches[0][0] * pow(1000, $power);	        
 
 		$curl = curl_init();
 		curl_setopt_array($curl, array(

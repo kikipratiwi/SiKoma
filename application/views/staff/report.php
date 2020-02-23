@@ -157,7 +157,7 @@
                                                                     </div>
                                                                     <input type="hidden" class="form-control" name="id" value=<?php echo $pr->id?> >
                                                                     <div class="md-input-wrapper">
-                                                                        <textarea class="js-spj" class="md-form-control md-static" cols="2" rows="4" name="note" disabled></textarea>
+                                                                        <textarea class="js-spj md-form-control md-static" cols="2" rows="4" name="note" disabled></textarea>
                                                                         <label>Catatan SPJ</label>
                                                                     </div>                                                                    
                                                             </div>
